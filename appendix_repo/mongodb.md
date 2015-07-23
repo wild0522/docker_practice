@@ -1,26 +1,26 @@
 ## [MongoDB](https://registry.hub.docker.com/_/mongo/)
 
-### åŸºæœ¬ä¿¡æ¯
-[MongoDB](https://en.wikipedia.org/wiki/MongoDB) æ˜¯å¼€æºçš„ NoSQL æ•°æ®åº“å®ç°ã€‚
-è¯¥ä»“åº“æä¾›äº† MongoDB 2.2 ~ 2.7 å„ä¸ªç‰ˆæœ¬çš„é•œåƒã€‚
+### °ò¥»«H®§
+[MongoDB](https://en.wikipedia.org/wiki/MongoDB) ¬O¶}·½ªº NoSQL ¼Æ¾Ú®w¹ê²{¡C
+¸Ó­Ü®w´£¨Ñ¤F MongoDB 2.2 ~ 2.7 ¦U­Óª©¥»ªºÃè¹³¡C
 
-### ä½¿ç”¨æ–¹æ³•
-é»˜è®¤ä¼šåœ¨ `27017` ç«¯å£å¯åŠ¨æ•°æ®åº“ã€‚
+### ¨Ï¥Î¤èªk
+Àq»{·|¦b `27017` ºİ¤f±Ò°Ê¼Æ¾Ú®w¡C
 ```
 $ sudo docker run --name some-mongo -d mongo
 ```
 
-ä½¿ç”¨å…¶ä»–åº”ç”¨è¿æ¥åˆ°å®¹å™¨ï¼Œå¯ä»¥ç”¨
+¨Ï¥Î¨ä¥LÀ³¥Î³s±µ¨ì®e¾¹¡A¥i¥H¥Î
 ```
 $ sudo docker run --name some-app --link some-mongo:mongo -d application-that-uses-mongo
 ```
-æˆ–è€…é€šè¿‡ `mongo`
+©ÎªÌ³q¹L `mongo`
 ```
 $ sudo docker run -it --link some-mongo:mongo --rm mongo sh -c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
 ```
 
 ### Dockerfile
-* [2.2 ç‰ˆæœ¬](https://github.com/docker-library/mongo/blob/77c841472ccb6cc87fea1218269d097405edc6cb/2.2/Dockerfile)
-* [2.4 ç‰ˆæœ¬](https://github.com/docker-library/mongo/blob/807078cb7b5f0289f6dabf9f6875d5318122bc30/2.4/Dockerfile)
-* [2.6 ç‰ˆæœ¬](https://github.com/docker-library/mongo/blob/77c841472ccb6cc87fea1218269d097405edc6cb/2.6/Dockerfile)
-* [2.7 ç‰ˆæœ¬](https://github.com/docker-library/mongo/blob/807078cb7b5f0289f6dabf9f6875d5318122bc30/2.7/Dockerfile)
+* [2.2 ª©¥»](https://github.com/docker-library/mongo/blob/77c841472ccb6cc87fea1218269d097405edc6cb/2.2/Dockerfile)
+* [2.4 ª©¥»](https://github.com/docker-library/mongo/blob/807078cb7b5f0289f6dabf9f6875d5318122bc30/2.4/Dockerfile)
+* [2.6 ª©¥»](https://github.com/docker-library/mongo/blob/77c841472ccb6cc87fea1218269d097405edc6cb/2.6/Dockerfile)
+* [2.7 ª©¥»](https://github.com/docker-library/mongo/blob/807078cb7b5f0289f6dabf9f6875d5318122bc30/2.7/Dockerfile)

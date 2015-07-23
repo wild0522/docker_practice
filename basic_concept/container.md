@@ -1,8 +1,8 @@
-## Docker 容器
-Docker 利用容器来运行应用。
+## Docker �e��
+Docker �Q�ήe���ӹB�����ΡC
 
-容器是从镜像创建的运行实例。它可以被启动、开始、停止、删除。每个容器都是相互隔离的、保证安全的平台。
+�e���O�q�蹳�Ыت��B���ҡC���i�H�Q�ҰʡB�}�l�B����B�R���C�C�Ӯe�����O�ۤ��j�����B�O�Ҧw�������x�C
 
-可以把容器看做是一个简易版的 Linux 环境（包括root用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序。
+�i�H��e���ݰ��O�@��²������ Linux ���ҡ]�]�Aroot�Τ��v���B�i�{�Ŷ��B�Τ�Ŷ��M�����Ŷ����^�M�B��b�䤤�����ε{�ǡC
 
-*注：镜像是只读的，容器在启动的时候创建一层可写层作为最上层。
+*���G�蹳�O�uŪ���A�e���b�Ұʪ��ɭԳЫؤ@�h�i�g�h�@���̤W�h�C

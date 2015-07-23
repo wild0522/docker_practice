@@ -1,10 +1,10 @@
-## 使用 etcdctl
+## �ϥ� etcdctl
 
-etcdctl 是一个命令行客户端，它能提供一些简洁的命令，供用户直接跟 etcd 服务打交道，而无需基于 HTTP API 方式。这在某些情况下将很方便，例如用户对服务进行测试或者手动修改数据库内容。我们也推荐在刚接触 etcd 时通过 etcdctl 命令来熟悉相关的操作，这些操作跟 HTTP API 实际上是对应的。
+etcdctl �O�@�өR�O��Ȥ�ݡA���ണ�Ѥ@��²�䪺�R�O�A�ѥΤ᪽���� etcd �A�ȥ���D�A�ӵL�ݰ�� HTTP API �覡�C�o�b�Y�Ǳ��p�U�N�ܤ�K�A�Ҧp�Τ��A�ȶi����թΪ̤�ʭק�ƾڮw���e�C�ڭ̤]���˦b�豵Ĳ etcd �ɳq�L etcdctl �R�O�Ӽ��x�������ާ@�A�o�Ǿާ@�� HTTP API ��ڤW�O�������C
 
-etcd 项目二进制发行包中已经包含了 etcdctl 工具，没有的话，可以从 [github.com/coreos/etcd/releases](https://github.com/coreos/etcd/releases) 下载。
+etcd ���ؤG�i��o��]���w�g�]�t�F etcdctl �u��A�S�����ܡA�i�H�q [github.com/coreos/etcd/releases](https://github.com/coreos/etcd/releases) �U���C
 
-etcdctl 支持如下的命令，大体上分为数据库操作和非数据库操作两类，后面将分别进行解释。
+etcdctl ����p�U���R�O�A�j��W�����ƾڮw�ާ@�M�D�ƾڮw�ާ@�����A�᭱�N���O�i������C
 
 ```
 $ etcdctl -h
@@ -46,28 +46,28 @@ GLOBAL OPTIONS:
    --version, -v		print the version
 ```
 
-### 数据库操作
-数据库操作围绕对键值和目录的 CRUD （符合 REST 风格的一套操作：Create）完整生命周期的管理。
+### �ƾڮw�ާ@
+�ƾڮw�ާ@��¶����ȩM�ؿ��� CRUD �]�ŦX REST ���檺�@�M�ާ@�GCreate�^����ͩR�g�����޲z�C
 
-etcd 在键的组织上采用了层次化的空间结构（类似于文件系统中目录的概念），用户指定的键可以为单独的名字，如 `testkey`，此时实际上放在根目录 `/` 下面，也可以为指定目录结构，如 `cluster1/node2/testkey`，则将创建相应的目录结构。
+etcd �b�䪺��´�W�ĥΤF�h���ƪ��Ŷ����c�]��������t�Τ��ؿ��������^�A�Τ���w����i�H����W���W�r�A�p `testkey`�A���ɹ�ڤW��b�ڥؿ� `/` �U���A�]�i�H�����w�ؿ����c�A�p `cluster1/node2/testkey`�A�h�N�Ыج������ؿ����c�C
 
-*注：CRUD 即 Create, Read, Update, Delete，是符合 REST 风格的一套 API 操作。*
+*���GCRUD �Y Create, Read, Update, Delete�A�O�ŦX REST ���檺�@�M API �ާ@�C*
 
 #### set
-指定某个键的值。例如
+���w�Y���䪺�ȡC�Ҧp
 ```
 $ etcdctl set /testdir/testkey "Hello world"
 Hello world
 ```
-支持的选项包括：
+������ﶵ�]�A�G
 ```
---ttl '0'			该键值的超时时间（单位为秒），不配置（默认为 0）则永不超时
---swap-with-value value 若该键现在的值是 value，则进行设置操作
---swap-with-index '0'	若该键现在的索引值是指定索引，则进行设置操作
+--ttl '0'			����Ȫ��W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
+--swap-with-value value �Y����{�b���ȬO value�A�h�i��]�m�ާ@
+--swap-with-index '0'	�Y����{�b�����ޭȬO���w���ޡA�h�i��]�m�ާ@
 ```
 
 #### get
-获取指定键的值。例如
+������w�䪺�ȡC�Ҧp
 ```
 $ etcdctl set testkey hello
 hello
@@ -75,20 +75,20 @@ $ etcdctl update testkey world
 world
 ```
 
-当键不存在时，则会报错。例如
+���䤣�s�b�ɡA�h�|�����C�Ҧp
 ```
 $ etcdctl get testkey2
 Error:  100: Key not found (/testkey2) [1]
 ```
 
-支持的选项为
+������ﶵ��
 ```
---sort	对结果进行排序
---consistent 将请求发给主节点，保证获取内容的一致性
+--sort	�ﵲ�G�i��Ƨ�
+--consistent �N�ШD�o���D�`�I�A�O��������e���@�P��
 ```
 
 #### update
-当键存在时，更新值内容。例如
+����s�b�ɡA��s�Ȥ��e�C�Ҧp
 ```
 $ etcdctl set testkey hello
 hello
@@ -96,46 +96,46 @@ $ etcdctl update testkey world
 world
 ```
 
-当键不存在时，则会报错。例如
+���䤣�s�b�ɡA�h�|�����C�Ҧp
 ```
 $ etcdctl update testkey2 world
 Error:  100: Key not found (/testkey2) [1]
 ```
 
-支持的选项为
+������ﶵ��
 ```
---ttl '0'	超时时间（单位为秒），不配置（默认为 0）则永不超时
+--ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
 ```
 
 #### rm
-删除某个键值。例如
+�R���Y����ȡC�Ҧp
 ```
 $ etcdctl rm testkey
 
 ```
 
-当键不存在时，则会报错。例如
+���䤣�s�b�ɡA�h�|�����C�Ҧp
 ```
 $ etcdctl rm testkey2
 Error:  100: Key not found (/testkey2) [8]
 ```
 
-支持的选项为
+������ﶵ��
 ```
---dir		如果键是个空目录或者键值对则删除
---recursive		删除目录和所有子键
---with-value 	检查现有的值是否匹配
---with-index '0'	检查现有的 index 是否匹配
+--dir		�p�G��O�Ӫťؿ��Ϊ���ȹ�h�R��
+--recursive		�R���ؿ��M�Ҧ��l��
+--with-value 	�ˬd�{�����ȬO�_�ǰt
+--with-index '0'	�ˬd�{���� index �O�_�ǰt
 
 ```
 
 #### mk
-如果给定的键不存在，则创建一个新的键值。例如
+�p�G���w���䤣�s�b�A�h�Ыؤ@�ӷs����ȡC�Ҧp
 ```
 $ etcdctl mk /testdir/testkey "Hello world"
 Hello world
 ```
-当键存在的时候，执行该命令会报错，例如
+����s�b���ɭԡA����өR�O�|�����A�Ҧp
 ```
 $ etcdctl set testkey "Hello world"
 Hello world
@@ -143,48 +143,48 @@ $ ./etcdctl mk testkey "Hello world"
 Error:  105: Key already exists (/testkey) [2]
 ```
 
-支持的选项为
+������ﶵ��
 ```
---ttl '0'	超时时间（单位为秒），不配置（默认为 0）则永不超时
+--ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
 ```
 
 
 #### mkdir
-如果给定的键目录不存在，则创建一个新的键目录。例如
+�p�G���w����ؿ����s�b�A�h�Ыؤ@�ӷs����ؿ��C�Ҧp
 ```
 $ etcdctl mkdir testdir
 ```
-当键目录存在的时候，执行该命令会报错，例如
+����ؿ��s�b���ɭԡA����өR�O�|�����A�Ҧp
 ```
 $ etcdctl mkdir testdir
 $ etcdctl mkdir testdir
 Error:  105: Key already exists (/testdir) [7]
 ```
-支持的选项为
+������ﶵ��
 ```
---ttl '0'	超时时间（单位为秒），不配置（默认为 0）则永不超时
+--ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
 ```
 
 #### setdir
 
-创建一个键目录，无论存在与否。
+�Ыؤ@����ؿ��A�L�צs�b�P�_�C
 
-支持的选项为
+������ﶵ��
 ```
---ttl '0'	超时时间（单位为秒），不配置（默认为 0）则永不超时
+--ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
 ```
 
 #### updatedir
-更新一个已经存在的目录。
-支持的选项为
+��s�@�Ӥw�g�s�b���ؿ��C
+������ﶵ��
 ```
---ttl '0'	超时时间（单位为秒），不配置（默认为 0）则永不超时
+--ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
 ```
 
 #### rmdir
-删除一个空目录，或者键值对。
+�R���@�Ӫťؿ��A�Ϊ���ȹ�C
 
-若目录不空，会报错
+�Y�ؿ����šA�|����
 ```
 $ etcdctl set /dir/testkey hi
 hi
@@ -193,9 +193,9 @@ Error:  108: Directory not empty (/dir) [13]
 ```
 
 #### ls
-列出目录（默认为根目录）下的键或者子目录，默认不显示子目录中内容。
+�C�X�ؿ��]�q�{���ڥؿ��^�U����Ϊ̤l�ؿ��A�q�{����ܤl�ؿ������e�C
 
-例如
+�Ҧp
 ```
 $ ./etcdctl set testkey 'hi'
 hi
@@ -208,42 +208,42 @@ $ ./etcdctl ls dir
 /dir/test
 ```
 
-支持的选项包括
+������ﶵ�]�A
 ```
---sort	将输出结果排序
---recursive	如果目录下有子目录，则递归输出其中的内容
--p		对于输出为目录，在最后添加 `/` 进行区分
+--sort	�N��X���G�Ƨ�
+--recursive	�p�G�ؿ��U���l�ؿ��A�h���k��X�䤤�����e
+-p		����X���ؿ��A�b�̫�K�[ `/` �i��Ϥ�
 ```
 
-### 非数据库操作
+### �D�ƾڮw�ާ@
 
 #### backup
-备份 etcd 的数据。
+�ƥ� etcd ���ƾڡC
 
-支持的选项包括
+������ﶵ�]�A
 ```
---data-dir 		etcd 的数据目录
---backup-dir 	备份到指定路径
+--data-dir 		etcd ���ƾڥؿ�
+--backup-dir 	�ƥ�����w���|
 ```
 #### watch
-监测一个键值的变化，一旦键值发生更新，就会输出最新的值并退出。
+�ʴ��@����Ȫ��ܤơA�@����ȵo�ͧ�s�A�N�|��X�̷s���Ȩðh�X�C
 
-例如，用户更新 testkey 键值为 Hello world。
+�Ҧp�A�Τ��s testkey ��Ȭ� Hello world�C
 ```
 $ etcdctl watch testkey
 Hello world
 ```
 
-支持的选项包括
+������ﶵ�]�A
 ```
---forever		一直监测，直到用户按 `CTRL+C` 退出
---after-index '0'	在指定 index 之前一直监测
---recursive		返回所有的键值和子键值
+--forever		�@���ʴ��A����Τ�� `CTRL+C` �h�X
+--after-index '0'	�b���w index ���e�@���ʴ�
+--recursive		��^�Ҧ�����ȩM�l���
 ```
 #### exec-watch
-监测一个键值的变化，一旦键值发生更新，就执行给定命令。
+�ʴ��@����Ȫ��ܤơA�@����ȵo�ͧ�s�A�N���浹�w�R�O�C
 
-例如，用户更新 testkey 键值。
+�Ҧp�A�Τ��s testkey ��ȡC
 ```
 $etcdctl exec-watch testkey -- sh -c 'ls'
 default.etcd
@@ -255,28 +255,28 @@ README-etcdctl.md
 README.md
 ```
 
-支持的选项包括
+������ﶵ�]�A
 ```
---after-index '0'	在指定 index 之前一直监测
---recursive		返回所有的键值和子键值
+--after-index '0'	�b���w index ���e�@���ʴ�
+--recursive		��^�Ҧ�����ȩM�l���
 ```
 
 #### member
-通过 list、add、remove 命令列出、添加、删除 etcd 实例到 etcd 集群中。
+�q�L list�Badd�Bremove �R�O�C�X�B�K�[�B�R�� etcd ��Ҩ� etcd ���s���C
 
-例如本地启动一个 etcd 服务实例后，可以用如下命令进行查看。
+�Ҧp���a�Ұʤ@�� etcd �A�ȹ�ҫ�A�i�H�Φp�U�R�O�i��d�ݡC
 ```
 $ etcdctl member list
 ce2a822cea30bfca: name=default peerURLs=http://localhost:2380,http://localhost:7001 clientURLs=http://localhost:2379,http://localhost:4001
 
 ```
-### 命令选项
-* `--debug`			输出 cURL 命令，显示执行命令的时候发起的请求
-* `--no-sync`			发出请求之前不同步集群信息
-* `--output, -o 'simple'`	输出内容的格式 (`simple` 为原始信息，`json` 为进行json格式解码，易读性好一些)
-* `--peers, -C`			指定集群中的同伴信息，用逗号隔开 (默认为: "127.0.0.1:4001")
-* `--cert-file` 			HTTPS 下客户端使用的 SSL 证书文件
-* `--key-file`			HTTPS 下客户端使用的 SSL 密钥文件
-* `--ca-file` 			服务端使用 HTTPS 时，使用 CA 文件进行验证
-* `--help, -h`			显示帮助命令信息
-* `--version, -v`		打印版本信息
+### �R�O�ﶵ
+* `--debug`			��X cURL �R�O�A��ܰ���R�O���ɭԵo�_���ШD
+* `--no-sync`			�o�X�ШD���e���P�B���s�H��
+* `--output, -o 'simple'`	��X���e���榡 (`simple` ����l�H���A`json` ���i��json�榡�ѽX�A��Ū�ʦn�@��)
+* `--peers, -C`			���w���s�����P��H���A�γr���j�} (�q�{��: "127.0.0.1:4001")
+* `--cert-file` 			HTTPS �U�Ȥ�ݨϥΪ� SSL �ҮѤ��
+* `--key-file`			HTTPS �U�Ȥ�ݨϥΪ� SSL �K�_���
+* `--ca-file` 			�A�Ⱥݨϥ� HTTPS �ɡA�ϥ� CA ���i������
+* `--help, -h`			������U�R�O�H��
+* `--version, -v`		���L�����H��

@@ -1,18 +1,18 @@
-## ç§æœ‰ä»“åº“
+## ¨p¦³­Ü®w
 
-æœ‰æ—¶å€™ä½¿ç”¨ Docker Hub è¿™æ ·çš„å…¬å…±ä»“åº“å¯èƒ½ä¸æ–¹ä¾¿ï¼Œç”¨æˆ·å¯ä»¥åˆ›å»ºä¸€ä¸ªæœ¬åœ°ä»“åº“ä¾›ç§äººä½¿ç”¨ã€‚
+¦³®É­Ô¨Ï¥Î Docker Hub ³o¼Ëªº¤½¦@­Ü®w¥i¯à¤£¤è«K¡A¥Î¤á¥i¥H³Ğ«Ø¤@­Ó¥»¦a­Ü®w¨Ñ¨p¤H¨Ï¥Î¡C
 
-æœ¬èŠ‚ä»‹ç»å¦‚ä½•ä½¿ç”¨æœ¬åœ°ä»“åº“ã€‚
+¥»¸`¤¶²Ğ¦p¦ó¨Ï¥Î¥»¦a­Ü®w¡C
 
-`docker-registry` æ˜¯å®˜æ–¹æä¾›çš„å·¥å…·ï¼Œå¯ä»¥ç”¨äºæ„å»ºç§æœ‰çš„é•œåƒä»“åº“ã€‚
-### å®‰è£…è¿è¡Œ docker-registry
-#### å®¹å™¨è¿è¡Œ
-åœ¨å®‰è£…äº† Docker åï¼Œå¯ä»¥é€šè¿‡è·å–å®˜æ–¹ registry é•œåƒæ¥è¿è¡Œã€‚
+`docker-registry` ¬O©x¤è´£¨Ñªº¤u¨ã¡A¥i¥H¥Î©óºc«Ø¨p¦³ªºÃè¹³­Ü®w¡C
+### ¦w¸Ë¹B¦æ docker-registry
+#### ®e¾¹¹B¦æ
+¦b¦w¸Ë¤F Docker «á¡A¥i¥H³q¹LÀò¨ú©x¤è registry Ãè¹³¨Ó¹B¦æ¡C
 ```
 $ sudo docker run -d -p 5000:5000 registry
 ```
-è¿™å°†ä½¿ç”¨å®˜æ–¹çš„ registry é•œåƒæ¥å¯åŠ¨æœ¬åœ°çš„ç§æœ‰ä»“åº“ã€‚
-ç”¨æˆ·å¯ä»¥é€šè¿‡æŒ‡å®šå‚æ•°æ¥é…ç½®ç§æœ‰ä»“åº“ä½ç½®ï¼Œä¾‹å¦‚é…ç½®é•œåƒå­˜å‚¨åˆ° Amazon S3 æœåŠ¡ã€‚
+³o±N¨Ï¥Î©x¤èªº registry Ãè¹³¨Ó±Ò°Ê¥»¦aªº¨p¦³­Ü®w¡C
+¥Î¤á¥i¥H³q¹L«ü©w°Ñ¼Æ¨Ó°t¸m¨p¦³­Ü®w¦ì¸m¡A¨Ò¦p°t¸mÃè¹³¦sÀx¨ì Amazon S3 ªA°È¡C
 ```
 $ sudo docker run \
          -e SETTINGS_FLAVOR=s3 \
@@ -24,18 +24,18 @@ $ sudo docker run \
          -p 5000:5000 \
          registry
 ````
-æ­¤å¤–ï¼Œè¿˜å¯ä»¥æŒ‡å®šæœ¬åœ°è·¯å¾„ï¼ˆå¦‚ `/home/user/registry-conf` ï¼‰ä¸‹çš„é…ç½®æ–‡ä»¶ã€‚
+¦¹¥~¡AÁÙ¥i¥H«ü©w¥»¦a¸ô®|¡]¦p `/home/user/registry-conf` ¡^¤Uªº°t¸m¤å¥ó¡C
 ```
 $ sudo docker run -d -p 5000:5000 -v /home/user/registry-conf:/registry-conf -e DOCKER_REGISTRY_CONFIG=/registry-conf/config.yml registry
 ```
-é»˜è®¤æƒ…å†µä¸‹ï¼Œä»“åº“ä¼šè¢«åˆ›å»ºåœ¨å®¹å™¨çš„ `/tmp/registry` ä¸‹ã€‚å¯ä»¥é€šè¿‡ `-v` å‚æ•°æ¥å°†é•œåƒæ–‡ä»¶å­˜æ”¾åœ¨æœ¬åœ°çš„æŒ‡å®šè·¯å¾„ã€‚
-ä¾‹å¦‚ä¸‹é¢çš„ä¾‹å­å°†ä¸Šä¼ çš„é•œåƒæ”¾åˆ° `/opt/data/registry` ç›®å½•ã€‚
+Àq»{±¡ªp¤U¡A­Ü®w·|³Q³Ğ«Ø¦b®e¾¹ªº `/tmp/registry` ¤U¡C¥i¥H³q¹L `-v` °Ñ¼Æ¨Ó±NÃè¹³¤å¥ó¦s©ñ¦b¥»¦aªº«ü©w¸ô®|¡C
+¨Ò¦p¤U­±ªº¨Ò¤l±N¤W¶ÇªºÃè¹³©ñ¨ì `/opt/data/registry` ¥Ø¿ı¡C
 ```
 $ sudo docker run -d -p 5000:5000 -v /opt/data/registry:/tmp/registry registry
 ```
 
-#### æœ¬åœ°å®‰è£…
-å¯¹äº Ubuntu æˆ– CentOS ç­‰å‘è¡Œç‰ˆï¼Œå¯ä»¥ç›´æ¥é€šè¿‡æºå®‰è£…ã€‚
+#### ¥»¦a¦w¸Ë
+¹ï©ó Ubuntu ©Î CentOS µ¥µo¦æª©¡A¥i¥Hª½±µ³q¹L·½¦w¸Ë¡C
 * Ubuntu
 ```
 $ sudo apt-get install -y build-essential python-dev libevent-dev python-pip liblzma-dev
@@ -47,33 +47,33 @@ $ sudo yum install -y python-devel libevent-devel python-pip gcc xz-devel
 $ sudo python-pip install docker-registry
 ```
 
-ä¹Ÿå¯ä»¥ä» [docker-registry](https://github.com/docker/docker-registry) é¡¹ç›®ä¸‹è½½æºç è¿›è¡Œå®‰è£…ã€‚
+¤]¥i¥H±q [docker-registry](https://github.com/docker/docker-registry) ¶µ¥Ø¤U¸ü·½½X¶i¦æ¦w¸Ë¡C
 ```
 $ sudo apt-get install build-essential python-dev libevent-dev python-pip libssl-dev liblzma-dev libffi-dev
 $ git clone https://github.com/docker/docker-registry.git
 $ cd docker-registry
 $ sudo python setup.py install
 ```
-ç„¶åä¿®æ”¹é…ç½®æ–‡ä»¶ï¼Œä¸»è¦ä¿®æ”¹ dev æ¨¡æ¿æ®µçš„ `storage_path` åˆ°æœ¬åœ°çš„å­˜å‚¨ä»“åº“çš„è·¯å¾„ã€‚
+µM«á­×§ï°t¸m¤å¥ó¡A¥D­n­×§ï dev ¼ÒªO¬qªº `storage_path` ¨ì¥»¦aªº¦sÀx­Ü®wªº¸ô®|¡C
 ```
 $ cp config/config_sample.yml config/config.yml
 ```
-ä¹‹åå¯åŠ¨ Web æœåŠ¡ã€‚
+¤§«á±Ò°Ê Web ªA°È¡C
 ```
 $ sudo gunicorn -c contrib/gunicorn.py docker_registry.wsgi:application
 ```
-æˆ–è€…
+©ÎªÌ
 ```
 $ sudo gunicorn --access-logfile - --error-logfile - -k gevent -b 0.0.0.0:5000 -w 4 --max-requests 100 docker_registry.wsgi:application
 ```
-æ­¤æ—¶ä½¿ç”¨ curl è®¿é—®æœ¬åœ°çš„ 5000 ç«¯å£ï¼Œçœ‹åˆ°è¾“å‡º docker-registry çš„ç‰ˆæœ¬ä¿¡æ¯è¯´æ˜è¿è¡ŒæˆåŠŸã€‚
+¦¹®É¨Ï¥Î curl ³X°İ¥»¦aªº 5000 ºİ¤f¡A¬İ¨ì¿é¥X docker-registry ªºª©¥»«H®§»¡©ú¹B¦æ¦¨¥\¡C
 
-*æ³¨ï¼š`config/config_sample.yml` æ–‡ä»¶æ˜¯ç¤ºä¾‹é…ç½®æ–‡ä»¶ã€‚
+*µù¡G`config/config_sample.yml` ¤å¥ó¬O¥Ü¨Ò°t¸m¤å¥ó¡C
 
-###åœ¨ç§æœ‰ä»“åº“ä¸Šä¼ ã€ä¸‹è½½ã€æœç´¢é•œåƒ
-åˆ›å»ºå¥½ç§æœ‰ä»“åº“ä¹‹åï¼Œå°±å¯ä»¥ä½¿ç”¨ `docker tag` æ¥æ ‡è®°ä¸€ä¸ªé•œåƒï¼Œç„¶åæ¨é€å®ƒåˆ°ä»“åº“ï¼Œåˆ«çš„æœºå™¨ä¸Šå°±å¯ä»¥ä¸‹è½½ä¸‹æ¥äº†ã€‚ä¾‹å¦‚ç§æœ‰ä»“åº“åœ°å€ä¸º `192.168.7.26:5000`ã€‚
+###¦b¨p¦³­Ü®w¤W¶Ç¡B¤U¸ü¡B·j¯ÁÃè¹³
+³Ğ«Ø¦n¨p¦³­Ü®w¤§«á¡A´N¥i¥H¨Ï¥Î `docker tag` ¨Ó¼Ğ°O¤@­ÓÃè¹³¡AµM«á±À°e¥¦¨ì­Ü®w¡A§Oªº¾÷¾¹¤W´N¥i¥H¤U¸ü¤U¨Ó¤F¡C¨Ò¦p¨p¦³­Ü®w¦a§}¬° `192.168.7.26:5000`¡C
 
-å…ˆåœ¨æœ¬æœºæŸ¥çœ‹å·²æœ‰çš„é•œåƒã€‚
+¥ı¦b¥»¾÷¬d¬İ¤w¦³ªºÃè¹³¡C
 ```
 $ sudo docker images
 REPOSITORY                        TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -81,7 +81,7 @@ ubuntu                            latest              ba5877dc9bec        6 week
 ubuntu                            14.04               ba5877dc9bec        6 weeks ago         192.7 MB
 ```
 
-ä½¿ç”¨`docker tag` å°† `ba58` è¿™ä¸ªé•œåƒæ ‡è®°ä¸º `192.168.7.26:5000/test`ï¼ˆæ ¼å¼ä¸º `docker tag IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]`ï¼‰ã€‚
+¨Ï¥Î`docker tag` ±N `ba58` ³o­ÓÃè¹³¼Ğ°O¬° `192.168.7.26:5000/test`¡]®æ¦¡¬° `docker tag IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]`¡^¡C
 ```
 $ sudo docker tag ba58 192.168.7.26:5000/test
 root ~ # docker images
@@ -90,7 +90,7 @@ ubuntu                            14.04               ba5877dc9bec        6 week
 ubuntu                            latest              ba5877dc9bec        6 weeks ago         192.7 MB
 192.168.7.26:5000/test            latest              ba5877dc9bec        6 weeks ago         192.7 MB
 ```
-ä½¿ç”¨ `docker push` ä¸Šä¼ æ ‡è®°çš„é•œåƒã€‚
+¨Ï¥Î `docker push` ¤W¶Ç¼Ğ°OªºÃè¹³¡C
 ```
 $ sudo docker push 192.168.7.26:5000/test
 The push refers to a repository [192.168.7.26:5000/test] (len: 1)
@@ -104,14 +104,14 @@ Image 2318d26665ef already pushed, skipping
 Image ba5877dc9bec already pushed, skipping
 Pushing tag for rev [ba5877dc9bec] on {http://192.168.7.26:5000/v1/repositories/test/tags/latest}
 ```
-ç”¨ curl æŸ¥çœ‹ä»“åº“ä¸­çš„é•œåƒã€‚
+¥Î curl ¬d¬İ­Ü®w¤¤ªºÃè¹³¡C
 ```
 $ curl http://192.168.7.26:5000/v1/search
 {"num_results": 7, "query": "", "results": [{"description": "", "name": "library/miaxis_j2ee"}, {"description": "", "name": "library/tomcat"}, {"description": "", "name": "library/ubuntu"}, {"description": "", "name": "library/ubuntu_office"}, {"description": "", "name": "library/desktop_ubu"}, {"description": "", "name": "dockerfile/ubuntu"}, {"description": "", "name": "library/test"}]}
 ```
-è¿™é‡Œå¯ä»¥çœ‹åˆ° `{"description": "", "name": "library/test"}`ï¼Œè¡¨æ˜é•œåƒå·²ç»è¢«æˆåŠŸä¸Šä¼ äº†ã€‚
+³o¸Ì¥i¥H¬İ¨ì `{"description": "", "name": "library/test"}`¡Aªí©úÃè¹³¤w¸g³Q¦¨¥\¤W¶Ç¤F¡C
 
-ç°åœ¨å¯ä»¥åˆ°å¦å¤–ä¸€å°æœºå™¨å»ä¸‹è½½è¿™ä¸ªé•œåƒã€‚
+²{¦b¥i¥H¨ì¥t¥~¤@¥x¾÷¾¹¥h¤U¸ü³o­ÓÃè¹³¡C
 ```
 $ sudo docker pull 192.168.7.26:5000/test
 Pulling repository 192.168.7.26:5000/test
@@ -126,7 +126,7 @@ REPOSITORY                         TAG                 IMAGE ID            CREAT
 192.168.7.26:5000/test             latest              ba5877dc9bec        6 weeks ago         192.7 MB
 ```
 
-å¯ä»¥ä½¿ç”¨ [è¿™ä¸ªè„šæœ¬](https://github.com/yeasy/docker_practice/raw/master/_local/push_images.sh) æ‰¹é‡ä¸Šä¼ æœ¬åœ°çš„é•œåƒåˆ°æ³¨å†ŒæœåŠ¡å™¨ä¸­ï¼Œé»˜è®¤æ˜¯æœ¬åœ°æ³¨å†ŒæœåŠ¡å™¨ `127.0.0.1:5000`ã€‚ä¾‹å¦‚ï¼š
+¥i¥H¨Ï¥Î [³o­Ó¸}¥»](https://github.com/yeasy/docker_practice/raw/master/_local/push_images.sh) §å¶q¤W¶Ç¥»¦aªºÃè¹³¨ìµù¥UªA°È¾¹¤¤¡AÀq»{¬O¥»¦aµù¥UªA°È¾¹ `127.0.0.1:5000`¡C¨Ò¦p¡G
 ```
 $ wget https://github.com/yeasy/docker_practice/raw/master/_local/push_images.sh; sudo chmod a+x push_images.sh
 $ ./push_images.sh ubuntu:latest centos:centos7

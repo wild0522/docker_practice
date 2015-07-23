@@ -1,14 +1,14 @@
-##删除容器
-可以使用 `docker rm` 来删除一个处于终止状态的容器。
-例如
+##�R���e��
+�i�H�ϥ� `docker rm` �ӧR���@�ӳB��פ�A���e���C
+�Ҧp
 ```
 $sudo docker rm  trusting_newton
 trusting_newton
 ```
-如果要删除一个运行中的容器，可以添加 `-f` 参数。Docker 会发送 `SIGKILL` 信号给容器。
+�p�G�n�R���@�ӹB�椤���e���A�i�H�K�[ `-f` �ѼơCDocker �|�o�e `SIGKILL` �H�����e���C
 
 
-##清理所有处于终止状态的容器
-用 `docker ps -a` 命令可以查看所有已经创建的包括终止状态的容器，如果数量太多要一个个删除可能会很麻烦，用 `docker rm $(docker ps -a -q)` 可以全部清理掉。
+##�M�z�Ҧ��B��פ�A���e��
+�� `docker ps -a` �R�O�i�H�d�ݩҦ��w�g�Ыت��]�A�פ�A���e���A�p�G�ƶq�Ӧh�n�@�ӭӧR���i��|�ܳ·СA�� `docker rm $(docker ps -a -q)` �i�H�����M�z���C
 
-*注意：这个命令其实会试图删除所有的包括还在运行中的容器，不过就像上面提过的 `docker rm` 默认并不会删除运行中的容器。
+*�`�N�G�o�өR�O���|�չϧR���Ҧ����]�A�٦b�B�椤���e���A���L�N���W�����L�� `docker rm` �q�{�ä��|�R���B�椤���e���C

@@ -1,76 +1,76 @@
-Docker â€”â€” ä»å…¥é—¨åˆ°å®è·µ
+Docker ¡X¡X ±q¤Jªù¨ì¹ê½î
 ===============
 
 v0.5.1
 
-[Docker](http://www.docker.com) æ˜¯ä¸ªä¼Ÿå¤§çš„é¡¹ç›®ï¼Œå®ƒå½»åº•é‡Šæ”¾äº†è™šæ‹ŸåŒ–çš„å¨åŠ›ï¼Œæå¤§é™ä½äº†äº‘è®¡ç®—èµ„æºä¾›åº”çš„æˆæœ¬ï¼ŒåŒæ—¶è®©åº”ç”¨çš„éƒ¨ç½²ã€æµ‹è¯•å’Œåˆ†å‘éƒ½å˜å¾—å‰æ‰€æœªæœ‰çš„é«˜æ•ˆå’Œè½»æ¾ï¼
+[Docker](http://www.docker.com) ¬O­Ó°¶¤jªº¶µ¥Ø¡A¥¦¹ı©³ÄÀ©ñ¤FµêÀÀ¤Æªº«Â¤O¡A·¥¤j­°§C¤F¶³­pºâ¸ê·½¨ÑÀ³ªº¦¨¥»¡A¦P®ÉÅıÀ³¥Îªº³¡¸p¡B´ú¸Õ©M¤Àµo³£ÅÜ±o«e©Ò¥¼¦³ªº°ª®Ä©M»´ÃP¡I
 
-æœ¬ä¹¦æ—¢é€‚ç”¨äºå…·å¤‡åŸºç¡€ Linux çŸ¥è¯†çš„ Docker åˆå­¦è€…ï¼Œä¹Ÿå¸Œæœ›å¯ä¾›ç†è§£åŸç†å’Œå®ç°çš„é«˜çº§ç”¨æˆ·å‚è€ƒã€‚åŒæ—¶ï¼Œä¹¦ä¸­ç»™å‡ºçš„å®è·µæ¡ˆä¾‹ï¼Œå¯ä¾›åœ¨è¿›è¡Œå®é™…éƒ¨ç½²æ—¶å€Ÿé‰´ã€‚å‰å…­ç« ä¸ºåŸºç¡€å†…å®¹ï¼Œä¾›ç”¨æˆ·ç†è§£ Docker çš„åŸºæœ¬æ¦‚å¿µå’Œæ“ä½œï¼›7 ~ 9 ç« ä»‹ç»ä¸€äº›é«˜çº§æ“ä½œï¼›ç¬¬ 10 ç« ç»™å‡ºå…¸å‹çš„åº”ç”¨åœºæ™¯å’Œå®è·µæ¡ˆä¾‹ï¼›11 ~ 13 ç« ä»‹ç»å…³äº Docker å®ç°çš„ç›¸å…³ç»†èŠ‚æŠ€æœ¯ã€‚åç»­ç« èŠ‚åˆ™åˆ†åˆ«ä»‹ç»ä¸€äº›ç›¸å…³çš„çƒ­é—¨å¼€æºé¡¹ç›®ã€‚
+¥»®Ñ¬J¾A¥Î©ó¨ã³Æ°òÂ¦ Linux ª¾ÃÑªº Docker ªì¾ÇªÌ¡A¤]§Æ±æ¥i¨Ñ²z¸Ñ­ì²z©M¹ê²{ªº°ª¯Å¥Î¤á°Ñ¦Ò¡C¦P®É¡A®Ñ¤¤µ¹¥Xªº¹ê½î®×¨Ò¡A¥i¨Ñ¦b¶i¦æ¹ê»Ú³¡¸p®É­ÉÅ³¡C«e¤»³¹¬°°òÂ¦¤º®e¡A¨Ñ¥Î¤á²z¸Ñ Docker ªº°ò¥»·§©À©M¾Ş§@¡F7 ~ 9 ³¹¤¶²Ğ¤@¨Ç°ª¯Å¾Ş§@¡F²Ä 10 ³¹µ¹¥X¨å«¬ªºÀ³¥Î³õ´º©M¹ê½î®×¨Ò¡F11 ~ 13 ³¹¤¶²ĞÃö©ó Docker ¹ê²{ªº¬ÛÃö²Ó¸`§Ş³N¡C«áÄò³¹¸`«h¤À§O¤¶²Ğ¤@¨Ç¬ÛÃöªº¼öªù¶}·½¶µ¥Ø¡C
 
-åœ¨çº¿é˜…è¯»ï¼š[GitBook](https://www.gitbook.io/book/yeasy/docker_practice) æˆ– [DockerPool](http://dockerpool.com/static/books/docker_practice/index.html)ã€‚
+¦b½u¾\Åª¡G[GitBook](https://www.gitbook.io/book/yeasy/docker_practice) ©Î [DockerPool](http://dockerpool.com/static/books/docker_practice/index.html)¡C
 
-æ¬¢è¿å…³æ³¨ DockerPool ç¤¾åŒºå¾®åš [@dockerpool](http://weibo.com/u/5345404432)ï¼Œæˆ–åŠ å…¥ DockerPool QQ ç¾¤ï¼ˆ419042067ï¼‰ï¼Œåˆ†äº« Docker èµ„æºï¼Œäº¤æµ Docker æŠ€æœ¯ã€‚
+ÅwªïÃöª` DockerPool ªÀ°Ï·L³Õ [@dockerpool](http://weibo.com/u/5345404432)¡A©Î¥[¤J DockerPool QQ ¸s¡]419042067¡^¡A¤À¨É Docker ¸ê·½¡A¥æ¬y Docker §Ş³N¡C
 
-![Docker æŠ€æœ¯å…¥é—¨ä¸å®æˆ˜](docker_primer.png)
+![Docker §Ş³N¤Jªù»P¹ê¾Ô](docker_primer.png)
 
-ã€Š[Docker æŠ€æœ¯å…¥é—¨ä¸å®æˆ˜](http://item.jd.com/11598400.html)ã€‹ä¸€ä¹¦å·²ç»æ­£å¼å‡ºç‰ˆï¼ŒåŒ…å«å¤§é‡ç¬¬ä¸€æ‰‹å®æˆ˜æ¡ˆä¾‹å’Œæ›´ä¸ºæ·±å…¥çš„æŠ€æœ¯å‰–æï¼Œæ¬¢è¿å¤§å®¶é˜…è¯»ä½¿ç”¨ã€‚
+¡m[Docker §Ş³N¤Jªù»P¹ê¾Ô](http://item.jd.com/11598400.html)¡n¤@®Ñ¤w¸g¥¿¦¡¥Xª©¡A¥]§t¤j¶q²Ä¤@¤â¹ê¾Ô®×¨Ò©M§ó¬°²`¤Jªº§Ş³N­åªR¡AÅwªï¤j®a¾\Åª¨Ï¥Î¡C
 
 * [China-Pub](http://product.china-pub.com/3770833)
-* [äº¬ä¸œå›¾ä¹¦](http://item.jd.com/11598400.html)
-* [å½“å½“å›¾ä¹¦](http://product.dangdang.com/23620853.html)
-* [äºšé©¬é€Šå›¾ä¹¦](http://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00R5MYI7C/ref=lh_ni_t?ie=UTF8&psc=1&smid=A1AJ19PSB66TGU)
+* [¨ÊªF¹Ï®Ñ](http://item.jd.com/11598400.html)
+* [·í·í¹Ï®Ñ](http://product.dangdang.com/23620853.html)
+* [¨È°¨»¹¹Ï®Ñ](http://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00R5MYI7C/ref=lh_ni_t?ie=UTF8&psc=1&smid=A1AJ19PSB66TGU)
 
-## ä¸»è¦ç‰ˆæœ¬å†å²
+## ¥D­nª©¥»¾ú¥v
 * 0.6: 2015-07-?
-    * è¡¥å…… Machine é¡¹ç›®
+    * ¸É¥R Machine ¶µ¥Ø
 * 0.5: 2015-06-29
-    * æ·»åŠ  Compose é¡¹ç›®
-    * æ·»åŠ  Machine é¡¹ç›®
-    * æ·»åŠ  Swarm é¡¹ç›®
-    * å®Œå–„ Kubernetes é¡¹ç›®å†…å®¹
-    * æ·»åŠ  Mesos é¡¹ç›®å†…å®¹
+    * ²K¥[ Compose ¶µ¥Ø
+    * ²K¥[ Machine ¶µ¥Ø
+    * ²K¥[ Swarm ¶µ¥Ø
+    * §¹µ½ Kubernetes ¶µ¥Ø¤º®e
+    * ²K¥[ Mesos ¶µ¥Ø¤º®e
 * 0.4: 2015-05-08
-    * æ·»åŠ  Etcd é¡¹ç›®
-    * æ·»åŠ  Fig é¡¹ç›®
-    * æ·»åŠ  CoreOS é¡¹ç›®
-    * æ·»åŠ  Kubernetes é¡¹ç›®
+    * ²K¥[ Etcd ¶µ¥Ø
+    * ²K¥[ Fig ¶µ¥Ø
+    * ²K¥[ CoreOS ¶µ¥Ø
+    * ²K¥[ Kubernetes ¶µ¥Ø
 * 0.3: 2014-11-25
-    * å®Œæˆä»“åº“ç« èŠ‚ï¼›
-    * é‡å†™å®‰å…¨ç« èŠ‚ï¼›
-    * ä¿®æ­£åº•å±‚å®ç°ç« èŠ‚çš„æ¶æ„ã€åå­—ç©ºé—´ã€æ§åˆ¶ç»„ã€æ–‡ä»¶ç³»ç»Ÿã€å®¹å™¨æ ¼å¼ç­‰å†…å®¹ï¼›
-    * æ·»åŠ å¯¹å¸¸è§ä»“åº“å’Œé•œåƒçš„ä»‹ç»ï¼›
-    * æ·»åŠ  Dockerfile çš„ä»‹ç»ï¼›
-    * é‡æ–°æ ¡è®¢ä¸­è‹±æ–‡æ··æ’æ ¼å¼ã€‚
-    * ä¿®è®¢æ–‡å­—è¡¨è¾¾ã€‚
-    * å‘å¸ƒç¹ä½“ç‰ˆæœ¬åˆ†æ”¯ï¼šzh-Hantã€‚
+    * §¹¦¨­Ü®w³¹¸`¡F
+    * ­«¼g¦w¥ş³¹¸`¡F
+    * ­×¥¿©³¼h¹ê²{³¹¸`ªº¬[ºc¡B¦W¦rªÅ¶¡¡B±±¨î²Õ¡B¤å¥ó¨t²Î¡B®e¾¹®æ¦¡µ¥¤º®e¡F
+    * ²K¥[¹ï±`¨£­Ü®w©MÃè¹³ªº¤¶²Ğ¡F
+    * ²K¥[ Dockerfile ªº¤¶²Ğ¡F
+    * ­«·s®Õ­q¤¤­^¤å²V±Æ®æ¦¡¡C
+    * ­×­q¤å¦rªí¹F¡C
+    * µo§GÁcÅéª©¥»¤À¤ä¡Gzh-Hant¡C
 * 0.2: 2014-09-18
-    * å¯¹ç…§å®˜æ–¹æ–‡æ¡£é‡å†™ä»‹ç»ã€åŸºæœ¬æ¦‚å¿µã€å®‰è£…ã€é•œåƒã€å®¹å™¨ã€ä»“åº“ã€æ•°æ®ç®¡ç†ã€ç½‘ç»œç­‰ç« èŠ‚ï¼›
-    * æ·»åŠ åº•å±‚å®ç°ç« èŠ‚ï¼›
-    * æ·»åŠ å‘½ä»¤æŸ¥è¯¢å’Œèµ„æºé“¾æ¥ç« èŠ‚ï¼›
-    * å…¶å®ƒä¿®æ­£ã€‚
+    * ¹ï·Ó©x¤è¤åÀÉ­«¼g¤¶²Ğ¡B°ò¥»·§©À¡B¦w¸Ë¡BÃè¹³¡B®e¾¹¡B­Ü®w¡B¼Æ¾ÚºŞ²z¡Bºôµ¸µ¥³¹¸`¡F
+    * ²K¥[©³¼h¹ê²{³¹¸`¡F
+    * ²K¥[©R¥O¬d¸ß©M¸ê·½Ãì±µ³¹¸`¡F
+    * ¨ä¥¦­×¥¿¡C
 * 0.1: 2014-09-05
-    * æ·»åŠ åŸºæœ¬å†…å®¹;
-    * ä¿®æ­£é”™åˆ«å­—å’Œè¡¨è¾¾ä¸é€šé¡ºçš„åœ°æ–¹ã€‚
+    * ²K¥[°ò¥»¤º®e;
+    * ­×¥¿¿ù§O¦r©Mªí¹F¤£³q¶¶ªº¦a¤è¡C
 
 
-Docker è‡ªèº«ä»åœ¨å¿«é€Ÿå‘å±•ä¸­ï¼Œç”Ÿæ€ç¯å¢ƒä¹Ÿåœ¨è“¬å‹ƒæˆé•¿ã€‚æºç å¼€æºæ‰˜ç®¡åœ¨ Github ä¸Šï¼Œæ¬¢è¿å‚ä¸ç»´æŠ¤ï¼š[https://github.com/yeasy/docker_practice](https://github.com/yeasy/docker_practice)ã€‚è´¡çŒ®è€… [åå•](https://github.com/yeasy/docker_practice/graphs/contributors)ã€‚
+Docker ¦Û¨­¤´¦b§Ö³tµo®i¤¤¡A¥ÍºAÀô¹Ò¤]¦b½´«k¦¨ªø¡C·½½X¶}·½¦«ºŞ¦b Github ¤W¡AÅwªï°Ñ»PºûÅ@¡G[https://github.com/yeasy/docker_practice](https://github.com/yeasy/docker_practice)¡C°^ÄmªÌ [¦W³æ](https://github.com/yeasy/docker_practice/graphs/contributors)¡C
 
-## å‚åŠ æ­¥éª¤
-* åœ¨ GitHub ä¸Š `fork` åˆ°è‡ªå·±çš„ä»“åº“ï¼Œå¦‚ `docker_user/docker_practice`ï¼Œç„¶å `clone` åˆ°æœ¬åœ°ï¼Œå¹¶è®¾ç½®ç”¨æˆ·ä¿¡æ¯ã€‚
+## °Ñ¥[¨BÆJ
+* ¦b GitHub ¤W `fork` ¨ì¦Û¤vªº­Ü®w¡A¦p `docker_user/docker_practice`¡AµM«á `clone` ¨ì¥»¦a¡A¨Ã³]¸m¥Î¤á«H®§¡C
 ```
 $ git clone git@github.com:docker_user/docker_practice.git
 $ cd docker_practice
 $ git config user.name "yourname"
 $ git config user.email "your email"
 ```
-* ä¿®æ”¹ä»£ç åæäº¤ï¼Œå¹¶æ¨é€åˆ°è‡ªå·±çš„ä»“åº“ã€‚
+* ­×§ï¥N½X«á´£¥æ¡A¨Ã±À°e¨ì¦Û¤vªº­Ü®w¡C
 ```
 $ #do some change on the content
 $ git commit -am "Fix issue #1: change helo to hello"
 $ git push
 ```
-* åœ¨ GitHub ç½‘ç«™ä¸Šæäº¤ pull requestã€‚
-* å®šæœŸä½¿ç”¨é¡¹ç›®ä»“åº“å†…å®¹æ›´æ–°è‡ªå·±ä»“åº“å†…å®¹ã€‚
+* ¦b GitHub ºô¯¸¤W´£¥æ pull request¡C
+* ©w´Á¨Ï¥Î¶µ¥Ø­Ü®w¤º®e§ó·s¦Û¤v­Ü®w¤º®e¡C
 ```
 $ git remote add upstream https://github.com/yeasy/docker_practice
 $ git fetch upstream

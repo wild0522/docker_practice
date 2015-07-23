@@ -1,23 +1,23 @@
-## 快速配置指南
+## �ֳt�t�m���n
 
-下面是一个跟 Docker 网络相关的命令列表。
+�U���O�@�Ӹ� Docker �����������R�O�C���C
 
-其中有些命令选项只有在 Docker 服务启动的时候才能配置，而且不能马上生效。
-* `-b BRIDGE or --bridge=BRIDGE` --指定容器挂载的网桥
-* `--bip=CIDR` --定制 docker0 的掩码
-* `-H SOCKET... or --host=SOCKET...` --Docker 服务端接收命令的通道
-* `--icc=true|false` --是否支持容器之间进行通信
-* `--ip-forward=true|false` --请看下文容器之间的通信
-* `--iptables=true|false` --禁止 Docker 添加 iptables 规则
-* `--mtu=BYTES` --容器网络中的 MTU
+�䤤���ǩR�O�ﶵ�u���b Docker �A�ȱҰʪ��ɭԤ~��t�m�A�ӥB���న�W�ͮġC
+* `-b BRIDGE or --bridge=BRIDGE` --���w�e������������
+* `--bip=CIDR` --�w�� docker0 �����X
+* `-H SOCKET... or --host=SOCKET...` --Docker �A�Ⱥݱ����R�O���q�D
+* `--icc=true|false` --�O�_����e�������i��q�H
+* `--ip-forward=true|false` --�ЬݤU��e���������q�H
+* `--iptables=true|false` --�T�� Docker �K�[ iptables �W�h
+* `--mtu=BYTES` --�e���������� MTU
 
-下面2个命令选项既可以在启动服务时指定，也可以 Docker 容器启动（`docker run`）时候指定。在 Docker 服务启动的时候指定则会成为默认值，后面执行 `docker run` 时可以覆盖设置的默认值。
-* `--dns=IP_ADDRESS...` --使用指定的DNS服务器
-* `--dns-search=DOMAIN...` --指定DNS搜索域
+�U��2�өR�O�ﶵ�J�i�H�b�ҰʪA�Ȯɫ��w�A�]�i�H Docker �e���Ұʡ]`docker run`�^�ɭԫ��w�C�b Docker �A�ȱҰʪ��ɭԫ��w�h�|�����q�{�ȡA�᭱���� `docker run` �ɥi�H�л\�]�m���q�{�ȡC
+* `--dns=IP_ADDRESS...` --�ϥΫ��w��DNS�A�Ⱦ�
+* `--dns-search=DOMAIN...` --���wDNS�j����
 
-最后这些选项只有在 `docker run` 执行时使用，因为它是针对容器的特性内容。
-* `-h HOSTNAME or --hostname=HOSTNAME` --配置容器主机名
-* `--link=CONTAINER_NAME:ALIAS` --添加到另一个容器的连接
-* `--net=bridge|none|container:NAME_or_ID|host` --配置容器的桥接模式
-* `-p SPEC or --publish=SPEC` --映射容器端口到宿主主机
-* `-P or --publish-all=true|false` --映射容器所有端口到宿主主机
+�̫�o�ǿﶵ�u���b `docker run` ����ɨϥΡA�]�����O�w��e�����S�ʤ��e�C
+* `-h HOSTNAME or --hostname=HOSTNAME` --�t�m�e���D���W
+* `--link=CONTAINER_NAME:ALIAS` --�K�[��t�@�Ӯe�����s��
+* `--net=bridge|none|container:NAME_or_ID|host` --�t�m�e���������Ҧ�
+* `-p SPEC or --publish=SPEC` --�M�g�e���ݤf��J�D�D��
+* `-P or --publish-all=true|false` --�M�g�e���Ҧ��ݤf��J�D�D��

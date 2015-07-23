@@ -1,28 +1,28 @@
-## å®‰è£…
-Docker Machine å¯ä»¥åœ¨å¤šç§æ“ä½œç³»ç»Ÿå¹³å°ä¸Šå®‰è£…ï¼ŒåŒ…æ‹¬ Linuxã€Mac OSï¼Œä»¥åŠ Windowsã€‚
+## ¦w¸Ë
+Docker Machine ¥i¥H¦b¦hºØ¾Ş§@¨t²Î¥­¥x¤W¦w¸Ë¡A¥]¬A Linux¡BMac OS¡A¥H¤Î Windows¡C
 
 
 ### Linux/Mac OS
-åœ¨ Linux/Mac OS ä¸Šçš„å®‰è£…ååˆ†ç®€å•ï¼Œæ¨èä» [å®˜æ–¹ Release åº“](https://github.com/docker/machine/releases) ç›´æ¥ä¸‹è½½ç¼–è¯‘å¥½çš„äºŒè¿›åˆ¶æ–‡ä»¶å³å¯ã€‚
+¦b Linux/Mac OS ¤Wªº¦w¸Ë¤Q¤ÀÂ²³æ¡A±ÀÂË±q [©x¤è Release ®w](https://github.com/docker/machine/releases) ª½±µ¤U¸ü½sÄ¶¦nªº¤G¶i¨î¤å¥ó§Y¥i¡C
 
-ä¾‹å¦‚ï¼Œåœ¨ Linux 64 ä½ç³»ç»Ÿä¸Šç›´æ¥ä¸‹è½½å¯¹åº”çš„äºŒè¿›åˆ¶åŒ…ã€‚
+¨Ò¦p¡A¦b Linux 64 ¦ì¨t²Î¤Wª½±µ¤U¸ü¹ïÀ³ªº¤G¶i¨î¥]¡C
 ```sh
 $ sudo curl -L https://github.com/docker/machine/releases/download/v0.3.1-rc1/docker-machine_linux-amd64 > /usr/local/bin/docker-machine
 $ chmod +x /usr/local/bin/docker-machine
 ```
 
-å®Œæˆåï¼ŒæŸ¥çœ‹ç‰ˆæœ¬ä¿¡æ¯ï¼ŒéªŒè¯è¿è¡Œæ­£å¸¸ã€‚
+§¹¦¨«á¡A¬d¬İª©¥»«H®§¡AÅçÃÒ¹B¦æ¥¿±`¡C
 ```sh
 $ docker-machine -v
 docker-machine version 0.3.1-rc1 (993f2db)
 ```
 
 ### Windows
-Windows ä¸‹é¢è¦å¤æ‚ä¸€äº›ï¼Œé¦–å…ˆéœ€è¦å®‰è£… [msysgit](https://msysgit.github.io/)ã€‚
+Windows ¤U­±­n½ÆÂø¤@¨Ç¡A­º¥ı»İ­n¦w¸Ë [msysgit](https://msysgit.github.io/)¡C
 
-msysgit æ˜¯ Windows ä¸‹çš„ git å®¢æˆ·ç«¯è½¯ä»¶åŒ…ï¼Œä¼šæä¾›ç±»ä¼¼ Linux ä¸‹çš„ä¸€äº›åŸºæœ¬çš„å·¥å…·ï¼Œä¾‹å¦‚ ssh ç­‰ã€‚
+msysgit ¬O Windows ¤Uªº git «È¤áºİ³n¥ó¥]¡A·|´£¨ÑÃş¦ü Linux ¤Uªº¤@¨Ç°ò¥»ªº¤u¨ã¡A¨Ò¦p ssh µ¥¡C
 
-å®‰è£…ä¹‹åï¼Œå¯åŠ¨ msysgit çš„å‘½ä»¤è¡Œç•Œé¢ï¼Œä»ç„¶é€šè¿‡ä¸‹è½½äºŒè¿›åˆ¶åŒ…è¿›è¡Œå®‰è£…ï¼Œéœ€è¦ä¸‹è½½ docker å®¢æˆ·ç«¯å’Œ docker-machineã€‚
+¦w¸Ë¤§«á¡A±Ò°Ê msysgit ªº©R¥O¦æ¬É­±¡A¤´µM³q¹L¤U¸ü¤G¶i¨î¥]¶i¦æ¦w¸Ë¡A»İ­n¤U¸ü docker «È¤áºİ©M docker-machine¡C
 
 ```sh
 $ curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker

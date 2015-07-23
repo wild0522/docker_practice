@@ -1,21 +1,21 @@
-## CentOS ç³»åˆ—å®‰è£… Docker
+## CentOS ¨t¦C¦w¸Ë Docker
 
-Docker æ”¯æŒ CentOS6 åŠä»¥åçš„ç‰ˆæœ¬ã€‚
+Docker ¤ä«ù CentOS6 ¤Î¥H«áªºª©¥»¡C
 
 ### CentOS6
-å¯¹äº CentOS6ï¼Œå¯ä»¥ä½¿ç”¨ [EPEL](https://fedoraproject.org/wiki/EPEL) åº“å®‰è£… Dockerï¼Œå‘½ä»¤å¦‚ä¸‹
+¹ï©ó CentOS6¡A¥i¥H¨Ï¥Î [EPEL](https://fedoraproject.org/wiki/EPEL) ®w¦w¸Ë Docker¡A©R¥O¦p¤U
 ```
 $ sudo yum install http://mirrors.yun-idc.com/epel/6/i386/epel-release-6-8.noarch.rpm
 $ sudo yum install docker-io
 ```
 
 ### CentOS7
-CentOS7 ç³»ç»Ÿ `CentOS-Extras` åº“ä¸­å·²å¸¦ Dockerï¼Œå¯ä»¥ç›´æ¥å®‰è£…ï¼š
+CentOS7 ¨t²Î `CentOS-Extras` ®w¤¤¤w±a Docker¡A¥i¥Hª½±µ¦w¸Ë¡G
 ```
 $ sudo yum install docker
 ```
 
-å®‰è£…ä¹‹åå¯åŠ¨ Docker æœåŠ¡ï¼Œå¹¶è®©å®ƒéšç³»ç»Ÿå¯åŠ¨è‡ªåŠ¨åŠ è½½ã€‚
+¦w¸Ë¤§«á±Ò°Ê Docker ªA°È¡A¨ÃÅı¥¦ÀH¨t²Î±Ò°Ê¦Û°Ê¥[¸ü¡C
 ```
 $ sudo service docker start
 $ sudo chkconfig docker on

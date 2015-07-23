@@ -1,17 +1,17 @@
 ## [CentOS](https://registry.hub.docker.com/_/centos/)
 
-### åŸºæœ¬ä¿¡æ¯
-[CentOS](https://en.wikipedia.org/wiki/CentOS) æ˜¯æµè¡Œçš„ Linux å‘è¡Œç‰ˆï¼Œå…¶è½¯ä»¶åŒ…å¤§å¤šè·Ÿ RedHat ç³»åˆ—ä¿æŒä¸€è‡´ã€‚
-è¯¥ä»“åº“æä¾›äº† CentOS ä» 5 ~ 7 å„ä¸ªç‰ˆæœ¬çš„é•œåƒã€‚
+### °ò¥»«H®§
+[CentOS](https://en.wikipedia.org/wiki/CentOS) ¬O¬y¦æªº Linux µo¦æª©¡A¨ä³n¥ó¥]¤j¦h¸ò RedHat ¨t¦C«O«ù¤@­P¡C
+¸Ó­Ü®w´£¨Ñ¤F CentOS ±q 5 ~ 7 ¦U­Óª©¥»ªºÃè¹³¡C
 
-### ä½¿ç”¨æ–¹æ³•
-é»˜è®¤ä¼šå¯åŠ¨ä¸€ä¸ªæœ€å°åŒ–çš„ CentOS ç¯å¢ƒã€‚
+### ¨Ï¥Î¤èªk
+Àq»{·|±Ò°Ê¤@­Ó³Ì¤p¤Æªº CentOS Àô¹Ò¡C
 ```
 $ sudo docker run --name some-centos -i -t centos bash
 bash-4.2#
 ```
 
 ### Dockerfile
-* [CentOS 5 ç‰ˆæœ¬](https://github.com/CentOS/sig-cloud-instance-images/blob/2e5a9c4e8b7191b393822e4b9e98820db5638a77/docker/Dockerfile)
-* [CentOS 6 ç‰ˆæœ¬](https://github.com/CentOS/sig-cloud-instance-images/blob/8717e33ea5432ecb33d7ecefe8452a973715d037/docker/Dockerfile)
-* [CentOS 7 ç‰ˆæœ¬](https://github.com/CentOS/sig-cloud-instance-images/blob/af7a1b9f8f30744360a10fe44c53a1591bef26f9/docker/Dockerfile)
+* [CentOS 5 ª©¥»](https://github.com/CentOS/sig-cloud-instance-images/blob/2e5a9c4e8b7191b393822e4b9e98820db5638a77/docker/Dockerfile)
+* [CentOS 6 ª©¥»](https://github.com/CentOS/sig-cloud-instance-images/blob/8717e33ea5432ecb33d7ecefe8452a973715d037/docker/Dockerfile)
+* [CentOS 7 ª©¥»](https://github.com/CentOS/sig-cloud-instance-images/blob/af7a1b9f8f30744360a10fe44c53a1591bef26f9/docker/Dockerfile)

@@ -1,34 +1,34 @@
 ## [Nginx](https://registry.hub.docker.com/_/nginx/)
 
-### åŸºæœ¬ä¿¡æ¯
-[Nginx](https://en.wikipedia.org/wiki/Nginx) æ˜¯å¼€æºçš„é«˜æ•ˆçš„ Web æœåŠ¡å™¨å®ç°ï¼Œæ”¯æŒ HTTPã€HTTPSã€SMTPã€POP3ã€IMAP ç­‰åè®®ã€‚
-è¯¥ä»“åº“æä¾›äº† Nginx 1.0 ~ 1.7 å„ä¸ªç‰ˆæœ¬çš„é•œåƒã€‚
+### °ò¥»«H®§
+[Nginx](https://en.wikipedia.org/wiki/Nginx) ¬O¶}·½ªº°ª®Äªº Web ªA°È¾¹¹ê²{¡A¤ä«ù HTTP¡BHTTPS¡BSMTP¡BPOP3¡BIMAP µ¥¨óÄ³¡C
+¸Ó­Ü®w´£¨Ñ¤F Nginx 1.0 ~ 1.7 ¦U­Óª©¥»ªºÃè¹³¡C
 
-### ä½¿ç”¨æ–¹æ³•
-ä¸‹é¢çš„å‘½ä»¤å°†ä½œä¸ºä¸€ä¸ªé™æ€é¡µé¢æœåŠ¡å™¨å¯åŠ¨ã€‚
+### ¨Ï¥Î¤èªk
+¤U­±ªº©R¥O±N§@¬°¤@­ÓÀRºA­¶­±ªA°È¾¹±Ò°Ê¡C
 ```
 $ sudo docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
 ```
-ç”¨æˆ·ä¹Ÿå¯ä»¥ä¸ä½¿ç”¨è¿™ç§æ˜ å°„æ–¹å¼ï¼Œé€šè¿‡åˆ©ç”¨ Dockerfile æ¥ç›´æ¥å°†é™æ€é¡µé¢å†…å®¹æ”¾åˆ°é•œåƒä¸­ï¼Œå†…å®¹ä¸º
+¥Î¤á¤]¥i¥H¤£¨Ï¥Î³oºØ¬M®g¤è¦¡¡A³q¹L§Q¥Î Dockerfile ¨Óª½±µ±NÀRºA­¶­±¤º®e©ñ¨ìÃè¹³¤¤¡A¤º®e¬°
 ```
 FROM nginx
 COPY static-html-directory /usr/share/nginx/html
 ```
-ä¹‹åç”Ÿæˆæ–°çš„é•œåƒï¼Œå¹¶å¯åŠ¨ä¸€ä¸ªå®¹å™¨ã€‚
+¤§«á¥Í¦¨·sªºÃè¹³¡A¨Ã±Ò°Ê¤@­Ó®e¾¹¡C
 ```
 $ sudo docker build -t some-content-nginx .
 $ sudo docker run --name some-nginx -d some-content-nginx
 ```
-å¼€æ”¾ç«¯å£ï¼Œå¹¶æ˜ å°„åˆ°æœ¬åœ°çš„ `8080` ç«¯å£ã€‚
+¶}©ñºİ¤f¡A¨Ã¬M®g¨ì¥»¦aªº `8080` ºİ¤f¡C
 ```
 sudo docker run --name some-nginx -d -p 8080:80 some-content-nginx
 ```
 
-Nginxçš„é»˜è®¤é…ç½®æ–‡ä»¶è·¯å¾„ä¸º `/etc/nginx/nginx.conf`ï¼Œå¯ä»¥é€šè¿‡æ˜ å°„å®ƒæ¥ä½¿ç”¨æœ¬åœ°çš„é…ç½®æ–‡ä»¶ï¼Œä¾‹å¦‚
+NginxªºÀq»{°t¸m¤å¥ó¸ô®|¬° `/etc/nginx/nginx.conf`¡A¥i¥H³q¹L¬M®g¥¦¨Ó¨Ï¥Î¥»¦aªº°t¸m¤å¥ó¡A¨Ò¦p
 ```
 docker run --name some-nginx -v /some/nginx.conf:/etc/nginx/nginx.conf:ro -d nginx
 ```
-ä½¿ç”¨é…ç½®æ–‡ä»¶æ—¶ï¼Œä¸ºäº†åœ¨å®¹å™¨ä¸­æ­£å¸¸è¿è¡Œï¼Œéœ€è¦ä¿æŒ `daemon off;`ã€‚
+¨Ï¥Î°t¸m¤å¥ó®É¡A¬°¤F¦b®e¾¹¤¤¥¿±`¹B¦æ¡A»İ­n«O«ù `daemon off;`¡C
 
 ### Dockerfile
-* [1 ~ 1.7 ç‰ˆæœ¬](https://github.com/nginxinc/docker-nginx/blob/3713a0157083eb4776e71f5a5aef4b2a5bc03ab1/Dockerfile)
+* [1 ~ 1.7 ª©¥»](https://github.com/nginxinc/docker-nginx/blob/3713a0157083eb4776e71f5a5aef4b2a5bc03ab1/Dockerfile)

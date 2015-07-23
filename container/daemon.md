@@ -1,20 +1,20 @@
-##å®ˆæŠ¤æ€è¿è¡Œ
+##¦uÅ@ºA¹B¦æ
 
-æ›´å¤šçš„æ—¶å€™ï¼Œéœ€è¦è®© Docker å®¹å™¨åœ¨åå°ä»¥å®ˆæŠ¤æ€ï¼ˆDaemonizedï¼‰å½¢å¼è¿è¡Œã€‚æ­¤æ—¶ï¼Œå¯ä»¥é€šè¿‡æ·»åŠ  `-d` å‚æ•°æ¥å®ç°ã€‚
+§ó¦hªº®É­Ô¡A»İ­nÅı Docker ®e¾¹¦b«á¥x¥H¦uÅ@ºA¡]Daemonized¡^§Î¦¡¹B¦æ¡C¦¹®É¡A¥i¥H³q¹L²K¥[ `-d` °Ñ¼Æ¨Ó¹ê²{¡C
 
-ä¾‹å¦‚ä¸‹é¢çš„å‘½ä»¤ä¼šåœ¨åå°è¿è¡Œå®¹å™¨ã€‚
+¨Ò¦p¤U­±ªº©R¥O·|¦b«á¥x¹B¦æ®e¾¹¡C
 ```
 $ sudo docker run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
 1e5535038e285177d5214659a068137486f96ee5c2e85a4ac52dc83f2ebe4147
 ```
 
-å®¹å™¨å¯åŠ¨åä¼šè¿”å›ä¸€ä¸ªå”¯ä¸€çš„ idï¼Œä¹Ÿå¯ä»¥é€šè¿‡ `docker ps` å‘½ä»¤æ¥æŸ¥çœ‹å®¹å™¨ä¿¡æ¯ã€‚
+®e¾¹±Ò°Ê«á·|ªğ¦^¤@­Ó°ß¤@ªº id¡A¤]¥i¥H³q¹L `docker ps` ©R¥O¨Ó¬d¬İ®e¾¹«H®§¡C
 ```
 $ sudo docker ps
 CONTAINER ID  IMAGE         COMMAND               CREATED        STATUS       PORTS NAMES
 1e5535038e28  ubuntu:14.04  /bin/sh -c 'while tr  2 minutes ago  Up 1 minute        insane_babbage
 ```
-è¦è·å–å®¹å™¨çš„è¾“å‡ºä¿¡æ¯ï¼Œå¯ä»¥é€šè¿‡ `docker logs` å‘½ä»¤ã€‚
+­nÀò¨ú®e¾¹ªº¿é¥X«H®§¡A¥i¥H³q¹L `docker logs` ©R¥O¡C
 ```
 $ sudo docker logs insane_babbage
 hello world

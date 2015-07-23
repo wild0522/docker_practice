@@ -1,8 +1,8 @@
-## Docker 镜像
-Docker 镜像就是一个只读的模板。
+## Docker �蹳
+Docker �蹳�N�O�@�ӥuŪ���ҪO�C
 
-例如：一个镜像可以包含一个完整的 ubuntu 操作系统环境，里面仅安装了 Apache 或用户需要的其它应用程序。
+�Ҧp�G�@���蹳�i�H�]�t�@�ӧ��㪺 ubuntu �ާ@�t�����ҡA�̭��Ȧw�ˤF Apache �ΥΤ�ݭn���䥦���ε{�ǡC
 
-镜像可以用来创建 Docker 容器。
+�蹳�i�H�ΨӳЫ� Docker �e���C
 
-Docker 提供了一个很简单的机制来创建镜像或者更新现有的镜像，用户甚至可以直接从其他人那里下载一个已经做好的镜像来直接使用。
+Docker ���ѤF�@�ӫ�²�檺����ӳЫ��蹳�Ϊ̧�s�{�����蹳�A�Τ�Ʀܥi�H�����q��L�H���̤U���@�Ӥw�g���n���蹳�Ӫ����ϥΡC

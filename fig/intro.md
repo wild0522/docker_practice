@@ -1,6 +1,6 @@
-##快速搭建基于 Docker 的隔离开发环境
+##�ֳt�f�ذ�� Docker ���j���}�o����
 
-使用 `Dockerfile` 文件指定你的应用环境，让它能在任意地方复制使用：
+�ϥ� `Dockerfile` �����w�A���������ҡA������b���N�a��ƻs�ϥΡG
 
 ```
 FROM python:2.7
@@ -9,7 +9,7 @@ WORKDIR /code
 RUN pip install -r requirements.txt
 ```
 
-在 `fig.yml` 文件中指定应用使用的不同服务，让它们能够在一个独立的环境中一起运行：
+�b `fig.yml` ��󤤫��w���ΨϥΪ����P�A�ȡA�����̯���b�@�ӿW�ߪ����Ҥ��@�_�B��G
 
 ```
 web:
@@ -22,31 +22,31 @@ web:
 db:
   image: postgres
 ```
-**注意不需要再额外安装 Postgres 了！*
+**�`�N���ݭn�A�B�~�w�� Postgres �F�I*
 
-接着执行命令 `fig up` ，然后 Fig 就会启动并运行你的应用了。
+���۰���R�O `fig up` �A�M�� Fig �N�|�ҰʨùB��A�����ΤF�C
 
 ![Docker](../_images/fig-example-large.gif)
 
-Fig 可用的命令有:
+Fig �i�Ϊ��R�O��:
 
-* 启动、停止，和重建服务
-* 查看服务的运行状态
-* 查看运行中的服务的输入日志
-* 对服务发送命令
+* �ҰʡB����A�M���تA��
+* �d�ݪA�Ȫ��B�檬�A
+* �d�ݹB�椤���A�Ȫ���J��x
+* ��A�ȵo�e�R�O
 
-##快速上手
-我们试着让一个基本的 Python web 应用运行在 Fig 上。这个实验假设你已经知道一些 Python 知识，如果你不熟悉，但清楚概念上的东西也是没有问题的。
+##�ֳt�W��
+�ڭ̸յ����@�Ӱ򥻪� Python web ���ιB��b Fig �W�C�o�ӹ��簲�]�A�w�g���D�@�� Python ���ѡA�p�G�A�����x�A���M�������W���F��]�O�S�����D���C
 
-首先，[安装 Docker 和 Fig](install.md)
+�����A[�w�� Docker �M Fig](install.md)
 
-为你的项目创建一个目录
+���A�����سЫؤ@�ӥؿ�
 
 ```
 $ mkdir figtest
 $ cd figtest
 ```
-进入目录，创建 `app.py`，这是一个能够让 Redis 上的一个值自增的简单 web 应用，基于 Flask 框架。
+�i�J�ؿ��A�Ы� `app.py`�A�o�O�@�ӯ���� Redis �W���@�ӭȦۼW��²�� web ���ΡA��� Flask �ج[�C
 
 ```
 from flask import Flask
@@ -63,13 +63,13 @@ def hello():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
 ```
-在 `requirements.txt` 文件中指定应用的 Python 依赖包。
+�b `requirements.txt` ��󤤫��w���Ϊ� Python �̿�]�C
 
 ```
 flask
 redis
 ```
-下一步我们要创建一个包含应用所有依赖的 Docker 镜像，这里将阐述怎么通过 `Dockerfile` 文件来创建。
+�U�@�B�ڭ̭n�Ыؤ@�ӥ]�t���ΩҦ��̿઺ Docker �蹳�A�o�̱N�ĭz���q�L `Dockerfile` ���ӳЫءC
 
 ```
 FROM python:2.7
@@ -77,9 +77,9 @@ ADD . /code
 WORKDIR /code
 RUN pip install -r requirements.txt
 ```
-以上的内容首先告诉 Docker 在容器里面安装 Python ，代码的路径还有Python 依赖包。关于 Dockerfile 的更多信息可以查看 [镜像创建](../image/create.md#利用 Dockerfile 来创建镜像) 和 [Dockerfile 使用](../dockerfile/README.md)
+�H�W�����e�����i�D Docker �b�e���̭��w�� Python �A�N�X�����|�٦�Python �̿�]�C���� Dockerfile ����h�H���i�H�d�� [�蹳�Ы�](../image/create.md#�Q�� Dockerfile �ӳЫ��蹳) �M [Dockerfile �ϥ�](../dockerfile/README.md)
 
-接着我们通过 `fig.yml` 文件指定一系列的服务：
+���ۧڭ̳q�L `fig.yml` �����w�@�t�C���A�ȡG
 
 ```
 web:
@@ -94,12 +94,12 @@ web:
 redis:
   image: redis
   ```
-这里指定了两个服务：
+�o�̫��w�F��ӪA�ȡG
 
-* web 服务，通过当前目录的 `Dockerfile` 创建。并且说明了在容器里面执行`python app.py ` 命令 ，转发在容器里开放的 5000 端口到本地主机的 5000 端口，连接 Redis 服务，并且挂载当前目录到容器里面，这样我们就可以不用重建镜像也能直接使用代码。
-* redis 服务，我们使用公用镜像 [redis](https://registry.hub.docker.com/_/redis/)。
+* web �A�ȡA�q�L���e�ؿ��� `Dockerfile` �ЫءC�åB�����F�b�e���̭�����`python app.py ` �R�O �A��o�b�e���̶}�� 5000 �ݤf�쥻�a�D���� 5000 �ݤf�A�s�� Redis �A�ȡA�åB�������e�ؿ���e���̭��A�o�˧ڭ̴N�i�H���έ����蹳�]�ઽ���ϥΥN�X�C
+* redis �A�ȡA�ڭ̨ϥΤ����蹳 [redis](https://registry.hub.docker.com/_/redis/)�C
 *
-现在如果执行 `fig up` 命令 ，它就会拉取 redis 镜像，启动所有的服务。
+�{�b�p�G���� `fig up` �R�O �A���N�|�Ԩ� redis �蹳�A�ҰʩҦ����A�ȡC
 
 ```
 $ fig up
@@ -110,9 +110,9 @@ Starting figtest_web_1...
 redis_1 | [8] 02 Jan 18:43:35.576 # Server started, Redis version 2.8.3
 web_1   |  * Running on http://0.0.0.0:5000/
 ```
-这个 web 应用已经开始在你的 docker 守护进程里面监听着 5000 端口了（如果你有使用 boot2docker ，执行 `boot2docker ip` ，就会看到它的地址）。
+�o�� web ���Τw�g�}�l�b�A�� docker �u�@�i�{�̭���ť�� 5000 �ݤf�F�]�p�G�A���ϥ� boot2docker �A���� `boot2docker ip` �A�N�|�ݨ쥦���a�}�^�C
 
-如果你想要在后台运行你的服务，可以在执行 `fig up` 命令的时候添加 `-d` 参数，然后使用 `fig ps` 查看有什么进程在运行。
+�p�G�A�Q�n�b��x�B��A���A�ȡA�i�H�b���� `fig up` �R�O���ɭԲK�[ `-d` �ѼơA�M��ϥ� `fig ps` �d�ݦ�����i�{�b�B��C
 
 ```
 $ fig up -d
@@ -125,17 +125,17 @@ figtest_redis_1   /usr/local/bin/run         Up
 figtest_web_1     /bin/sh -c python app.py   Up      5000->5000/tcp
 ```
 
-`fig run` 指令可以帮你向服务发送命令。例如：查看 web 服务可以获取到的环境变量:
+`fig run` ���O�i�H���A�V�A�ȵo�e�R�O�C�Ҧp�G�d�� web �A�ȥi�H����쪺�����ܶq:
 
 ```
 $ fig run web env
 ```
-执行帮助命令 `fig --help` 查看其它可用的参数。
+�������U�R�O `fig --help` �d�ݨ䥦�i�Ϊ��ѼơC
 
-假设你使用了 `fig up -d` 启动 Fig，可以通过以下命令停止你的服务：
+���]�A�ϥΤF `fig up -d` �Ұ� Fig�A�i�H�q�L�H�U�R�O����A���A�ȡG
 
 ```
 $ fig stop
 ```
-以上内容或多或少的讲述了如何使用Fig 。通过查看下面的引用章节可以了解到关于命令、配置和环境变量的更多细节。如果你有任何想法或建议，[可以在 GitHub 上提出](https://github.com/docker/fig)。
+�H�W���e�Φh�Τ֪����z�F�p��ϥ�Fig �C�q�L�d�ݤU�����ޥγ��`�i�H�A�Ѩ�����R�O�B�t�m�M�����ܶq����h�Ӹ`�C�p�G�A������Q�k�Ϋ�ĳ�A[�i�H�b GitHub �W���X](https://github.com/docker/fig)�C
 

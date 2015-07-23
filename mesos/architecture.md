@@ -1,64 +1,64 @@
-## Mesos 基本原理与架构
+## Mesos �򥻭�z�P�[�c
 
-首先，Mesos 自身只是一个资源调度框架，并非一整套完整的应用管理平台，本身是不能干活的。但是它可以比较容易的跟各种应用管理或者中间件平台整合，一起工作，提高资源使用效率。
+�����AMesos �ۨ��u�O�@�Ӹ귽�ի׮ج[�A�ëD�@��M���㪺���κ޲z���x�A�����O����F�����C���O���i�H����e������U�����κ޲z�Ϊ̤����󥭥x��X�A�@�_�u�@�A�����귽�ϥήĲv�C
 
-### 架构
+### �[�c
 ![mesos-arch](../_images/mesos-architecture.png)
-master-slave 架构，master 使用 zookeeper 来做 HA。
+master-slave �[�c�Amaster �ϥ� zookeeper �Ӱ� HA�C
 
-master 单独运行在管理节点上，slave 运行在各个计算任务节点上。
+master ��W�B��b�޲z�`�I�W�Aslave �B��b�U�ӭp����ȸ`�I�W�C
 
-各种具体任务的管理平台，即 framework 跟 master 交互，来申请资源。
+�U�ب�����Ȫ��޲z���x�A�Y framework �� master �椬�A�ӥӽи귽�C
 
 
-### 基本单元
+### �򥻳椸
 
 #### master
-负责整体的资源调度和逻辑控制。
+�t�d���骺�귽�իשM�޿豱��C
 
 #### slave
-负责汇报本节点上的资源给 master，并负责隔离资源来执行具体的任务。
+�t�d�׳����`�I�W���귽�� master�A�ít�d�j���귽�Ӱ�����骺���ȡC
 
-隔离机制当然就是各种容器机制了。
+�j��������M�N�O�U�خe������F�C
 
 #### framework
-framework 是实际干活的，包括两个主要组件：
+framework �O��ڷF�����A�]�A��ӥD�n�ե�G
 
-* scheduler：注册到主节点，等待分配资源；
-* executor：在 slave 节点上执行本framework 的任务。
+* scheduler�G���U��D�`�I�A���ݤ��t�귽�F
+* executor�G�b slave �`�I�W���楻framework �����ȡC
 
-framework 分两种：一种是对资源需求可以 scale up 或者 down 的（Hadoop、Spark）；一种是对资源需求大小是固定的（MPI）。
+framework ����ءG�@�جO��귽�ݨD�i�H scale up �Ϊ� down ���]Hadoop�BSpark�^�F�@�جO��귽�ݨD�j�p�O�T�w���]MPI�^�C
 
-### 调度
-对于一个资源调度框架来说，最核心的就是调度机制，怎么能快速高效的完成对某个 framework 资源的分配（最好是能猜到它的实际需求）。
+### �ի�
+���@�Ӹ귽�ի׮ج[�ӻ��A�̮֤ߪ��N�O�ի׾���A����ֳt���Ī�������Y�� framework �귽�����t�]�̦n�O��q�쥦����ڻݨD�^�C
 
-#### 两层调度算法：
-master 先调度一大块资源给某个 framework，framework 自己再实现内部的细粒度调度。
+#### ��h�ի׺�k�G
+master ���իפ@�j���귽���Y�� framework�Aframework �ۤv�A��{�������Ӳɫ׽իסC
 
-调度机制支持插件。默认是 DRF。
+�ի׾���������C�q�{�O DRF�C
 
-#### 基本调度过程
-调度通过 offer 方式交互：
+#### �򥻽ի׹L�{
+�ի׳q�L offer �覡�椬�G
 
-* master 提供一个 offer（一组资源） 给 framework；
-* framework 可以决定要不要，如果接受的话，返回一个描述，说明自己希望如何使用和分配这些资源（可以说明只希望使用部分资源，则多出来的会被 master 收回）；
-* master 则根据 framework 的分配情况发送给 slave，以使用 framework 的 executor 来按照分配的资源策略执行任务。
+* master ���Ѥ@�� offer�]�@�ո귽�^ �� framework�F
+* framework �i�H�M�w�n���n�A�p�G�������ܡA��^�@�Ӵy�z�A�����ۤv�Ʊ�p��ϥΩM���t�o�Ǹ귽�]�i�H�����u�Ʊ�ϥγ����귽�A�h�h�X�Ӫ��|�Q master ���^�^�F
+* master �h�ھ� framework �����t���p�o�e�� slave�A�H�ϥ� framework �� executor �ӫ��Ӥ��t���귽����������ȡC
 
-#### 过滤器
-framework 可以通过过滤器机制告诉 master 它的资源偏好，比如希望分配过来的 offer 有哪个资源，或者至少有多少资源。
+#### �L�o��
+framework �i�H�q�L�L�o������i�D master �����귽���n�A��p�Ʊ���t�L�Ӫ� offer �����Ӹ귽�A�Ϊ̦ܤ֦��h�ָ귽�C
 
-主要是为了加速资源分配的交互过程。
+�D�n�O���F�[�t�귽���t���椬�L�{�C
 
-#### 回头机制
-master 可以通过回收计算节点上的任务来动态调整长期任务和短期任务的分布。
+#### �^�Y����
+master �i�H�q�L�^���p��`�I�W�����ȨӰʺA�վ�������ȩM�u�����Ȫ����G�C
 
 
 ### HA
 
 #### master
-master 节点存在单点失效问题，所以肯定要上 HA，目前主要是使用 zookpeer 来热备份。
+master �`�I�s�b���I���İ��D�A�ҥH�֩w�n�W HA�A�ثe�D�n�O�ϥ� zookpeer �Ӽ��ƥ��C
 
-同时 master 节点可以通过 slave 和 framework 发来的消息重建内部状态（具体能有多快呢？这里不使用数据库可能是避免引入复杂度。）。
+�P�� master �`�I�i�H�q�L slave �M framework �o�Ӫ��������ؤ������A�]����঳�h�֩O�H�o�̤��ϥμƾڮw�i��O�קK�ޤJ�����סC�^�C
 
-#### framework 通知
-framework 中相关的失效，master 将发给它的 scheduler 来通知。
+#### framework �q��
+framework �����������ġAmaster �N�o������ scheduler �ӳq���C

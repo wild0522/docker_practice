@@ -1,28 +1,28 @@
 ## [Node.js](https://registry.hub.docker.com/_/node/)
 
-### åŸºæœ¬ä¿¡æ¯
-[Node.js](https://en.wikipedia.org/wiki/Node.js)æ˜¯åŸºäº JavaScript çš„å¯æ‰©å±•æœåŠ¡ç«¯å’Œç½‘ç»œè½¯ä»¶å¼€å‘å¹³å°ã€‚
-è¯¥ä»“åº“æä¾›äº† Node.js 0.8 ~ 0.11 å„ä¸ªç‰ˆæœ¬çš„é•œåƒã€‚
+### °ò¥»«H®§
+[Node.js](https://en.wikipedia.org/wiki/Node.js)¬O°ò©ó JavaScript ªº¥iÂX®iªA°Èºİ©Mºôµ¸³n¥ó¶}µo¥­¥x¡C
+¸Ó­Ü®w´£¨Ñ¤F Node.js 0.8 ~ 0.11 ¦U­Óª©¥»ªºÃè¹³¡C
 
-### ä½¿ç”¨æ–¹æ³•
-åœ¨é¡¹ç›®ä¸­åˆ›å»ºä¸€ä¸ª Dockerfileã€‚
+### ¨Ï¥Î¤èªk
+¦b¶µ¥Ø¤¤³Ğ«Ø¤@­Ó Dockerfile¡C
 ```
 FROM node:0.10-onbuild
 # replace this with your application's default port
 EXPOSE 8888
 ```
-ç„¶ååˆ›å»ºé•œåƒï¼Œå¹¶å¯åŠ¨å®¹å™¨
+µM«á³Ğ«ØÃè¹³¡A¨Ã±Ò°Ê®e¾¹
 ```
 $ sudo docker build -t my-nodejs-app
 $ sudo docker run -it --rm --name my-running-app my-nodejs-app
 ```
 
-ä¹Ÿå¯ä»¥ç›´æ¥è¿è¡Œä¸€ä¸ªç®€å•å®¹å™¨ã€‚
+¤]¥i¥Hª½±µ¹B¦æ¤@­ÓÂ²³æ®e¾¹¡C
 ```
 $ sudo docker run -it --rm --name my-running-script -v "$(pwd)":/usr/src/myapp -w /usr/src/myapp node:0.10 node your-daemon-or-script.js
 ```
 
 ### Dockerfile
-* [0.8 ç‰ˆæœ¬](https://github.com/docker-library/node/blob/d017d679e92e84a810c580cdb29fcdbba23c2bb9/0.8/Dockerfile)
-* [0.10 ç‰ˆæœ¬](https://github.com/docker-library/node/blob/913a225f2fda34d6a811fac1466e4f09f075fcf6/0.10/Dockerfile)
-* [0.11 ç‰ˆæœ¬](https://github.com/docker-library/node/blob/d017d679e92e84a810c580cdb29fcdbba23c2bb9/0.11/Dockerfile)
+* [0.8 ª©¥»](https://github.com/docker-library/node/blob/d017d679e92e84a810c580cdb29fcdbba23c2bb9/0.8/Dockerfile)
+* [0.10 ª©¥»](https://github.com/docker-library/node/blob/913a225f2fda34d6a811fac1466e4f09f075fcf6/0.10/Dockerfile)
+* [0.11 ª©¥»](https://github.com/docker-library/node/blob/d017d679e92e84a810c580cdb29fcdbba23c2bb9/0.11/Dockerfile)

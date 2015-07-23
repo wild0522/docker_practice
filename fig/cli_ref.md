@@ -1,86 +1,86 @@
-##Fig客户端参考
+##Fig�Ȥ�ݰѦ�
 
-大部分命令都可以运行在一个或多个服务上。如果没有特别的说明，这个命令则可以应用在所有的服务上。
+�j�����R�O���i�H�B��b�@�өΦh�ӪA�ȤW�C�p�G�S���S�O�������A�o�өR�O�h�i�H���Φb�Ҧ����A�ȤW�C
 
-执行 `fig [COMMAND] --help` 查看所有的使用说明。
+���� `fig [COMMAND] --help` �d�ݩҦ����ϥλ����C
 
-###选项
+###�ﶵ
 
 `--verbose`
 
-显示更多信息。
+��ܧ�h�H���C
 
 `--version`
 
-打印版本并退出。
+���L�����ðh�X�C
 
 `-f, --file FILE`
 
-使用特定的Fig文件，默认使用fig.yml。
+�ϥίS�w��Fig���A�q�{�ϥ�fig.yml�C
 
 `-p, --project-name NAME`
 
-使用特定的项目名称，默认使用文件夹名称。
+�ϥίS�w�����ئW�١A�q�{�ϥΤ�󧨦W�١C
 
-###命令
+###�R�O
 
 `build`
 
-构建或重新构建服务。
+�c�ةέ��s�c�تA�ȡC
 
-服务一旦构建后，将会标记为project_service，例如figtest_db。
-如果修改服务的 `Dockerfile` 或构建目录信息，你可以运行 `fig build` 来重新构建。
+�A�Ȥ@���c�ث�A�N�|�аO��project_service�A�Ҧpfigtest_db�C
+�p�G�ק�A�Ȫ� `Dockerfile` �κc�إؿ��H���A�A�i�H�B�� `fig build` �ӭ��s�c�ءC
 
 `help`
 
-获得一个命令的帮助。
+��o�@�өR�O�����U�C
 
 `kill`
 
-强制停止服务容器。
+�j���A�Ȯe���C
 
 `logs`
 
-查看服务的输出。
+�d�ݪA�Ȫ���X�C
 
 `port`
 
-打印端口绑定的公共端口。
+���L�ݤf�j�w�����@�ݤf�C
 
 `ps`
 
-列出所有容器。
+�C�X�Ҧ��e���C
 
 `pull`
 
-拉取服务镜像。
+�Ԩ��A���蹳�C
 
 `rm`
 
-删除停止的服务容器。
+�R������A�Ȯe���C
 
 `run`
 
-在一个服务上执行一个命令。
+�b�@�ӪA�ȤW����@�өR�O�C
 
-例如：
+�Ҧp�G
 
 ```
 $ fig run web python manage.py shell
 ```
 
-默认情况下，链接的服务将会启动，除非这些服务已经在运行中。
+�q�{���p�U�A�챵���A�ȱN�|�ҰʡA���D�o�ǪA�Ȥw�g�b�B�椤�C
 
-一次性命令会在使用与服务的普通容器相同的配置的新容器中开始运行，然后卷、链接等等都将会按照期望创建。
-与普通容器唯一的不同就是，这个命令将会覆盖原有的命令，如果端口有冲突则不会创建。
+�@���ʩR�O�|�b�ϥλP�A�Ȫ����q�e���ۦP���t�m���s�e�����}�l�B��A�M����B�챵�������N�|���Ӵ���ЫءC
+�P���q�e���ߤ@�����P�N�O�A�o�өR�O�N�|�л\�즳���R�O�A�p�G�ݤf���Ĭ�h���|�ЫءC
 
-链接还可以在一次性命令和那个服务的其他容器间创建，然后你可以像下面一样进行一些操作：
+�챵�٥i�H�b�@���ʩR�O�M���ӪA�Ȫ���L�e�����ЫءA�M��A�i�H���U���@�˶i��@�Ǿާ@�G
 
 ```
 $ fig run db psql -h db -U docker
 ```
 
-如果你不希望在执行一次性命令时启动链接的容器，可以指定--no-deps选项：
+�p�G�A���Ʊ�b����@���ʩR�O�ɱҰ��챵���e���A�i�H���w--no-deps�ﶵ�G
 
 ```
 $ fig run --no-deps web python manage.py shell
@@ -88,9 +88,9 @@ $ fig run --no-deps web python manage.py shell
 
 `scale`
 
-设置一个服务需要运行的容器个数。
+�]�m�@�ӪA�Ȼݭn�B�檺�e���ӼơC
 
-通过service=num的参数来设置数量。例如：
+�q�Lservice=num���Ѽƨӳ]�m�ƶq�C�Ҧp�G
 
 ```
 $ fig scale web=2 worker=3
@@ -98,44 +98,44 @@ $ fig scale web=2 worker=3
 
 `start`
 
-启动一个服务已经存在的容器.
+�Ұʤ@�ӪA�Ȥw�g�s�b���e��.
 
 `stop`
 
-停止一个已经运行的容器，但不删除它。通过 `fig start` 可以再次启动这些容器。
+����@�Ӥw�g�B�檺�e���A�����R�����C�q�L `fig start` �i�H�A���Ұʳo�Ǯe���C
 
 `up`
 
-构建，（重新）创建，启动，链接一个服务的容器。
+�c�ءA�]���s�^�ЫءA�ҰʡA�챵�@�ӪA�Ȫ��e���C
 
-链接的服务都将会启动，除非他们已经运行。
+�챵���A�ȳ��N�|�ҰʡA���D�L�̤w�g�B��C
 
-默认情况， `fig up` 将会聚合每个容器的输出，而且如果容器已经存在，所有容器将会停止。如果你运行 `fig up -d` ，将会在后台启动并运行所有的容器。
+�q�{���p�A `fig up` �N�|�E�X�C�Ӯe������X�A�ӥB�p�G�e���w�g�s�b�A�Ҧ��e���N�|����C�p�G�A�B�� `fig up -d` �A�N�|�b��x�ҰʨùB��Ҧ����e���C
 
-默认情况，如果这个服务的容器已经存在， `fig up` 将会停止并重新创建他们（保持使用volumes-from挂载的卷），以保证 `fig.yml` 的修改生效。如果你不想容器被停止并重新创建，可以使用 `fig up --no-recreate` 。如果需要的话，这样将会启动已经停止的容器。
+�q�{���p�A�p�G�o�ӪA�Ȫ��e���w�g�s�b�A `fig up` �N�|����í��s�ЫإL�̡]�O���ϥ�volumes-from���������^�A�H�O�� `fig.yml` ���ק�ͮġC�p�G�A���Q�e���Q����í��s�ЫءA�i�H�ϥ� `fig up --no-recreate` �C�p�G�ݭn���ܡA�o�˱N�|�Ұʤw�g����e���C
 
-###环境变量
+###�����ܶq
 
-环境变量可以用来配置Fig的行为。
+�����ܶq�i�H�ΨӰt�mFig���欰�C
 
-变量以DOCKER_开头，它们和用来配置Docker命令行客户端的使用一样。如果你在使用 boot2docker , `$(boot2docker shellinit)` 将会设置它们为正确的值。
+�ܶq�HDOCKER_�}�Y�A���̩M�ΨӰt�mDocker�R�O��Ȥ�ݪ��ϥΤ@�ˡC�p�G�A�b�ϥ� boot2docker , `$(boot2docker shellinit)` �N�|�]�m���̬����T���ȡC
 
 `FIG_PROJECT_NAME`
 
-设置通过Fig启动的每一个容器前添加的项目名称.默认是当前工作目录的名字。
+�]�m�q�LFig�Ұʪ��C�@�Ӯe���e�K�[�����ئW��.�q�{�O���e�u�@�ؿ����W�r�C
 
 `FIG_FILE`
 
-设置要使用的 `fig.yml` 的路径。默认路径是当前工作目录。
+�]�m�n�ϥΪ� `fig.yml` �����|�C�q�{���|�O���e�u�@�ؿ��C
 
 `DOCKER_HOST`
 
-设置docker进程的URL。默认docker client使用 `unix:///var/run/docker.sock` 。
+�]�mdocker�i�{��URL�C�q�{docker client�ϥ� `unix:///var/run/docker.sock` �C
 
 `DOCKER_TLS_VERIFY`
 
-如果设置不为空的字符，允许和进程进行 TLS 通信。
+�p�G�]�m�����Ū��r�šA���\�M�i�{�i�� TLS �q�H�C
 
 `DOCKER_CERT_PATH`
 
-配置 `ca.pem` 的路径， `cert.pem` 和 `key.pem` 文件用来进行TLS验证.默认路径是 `~/.docker` 。
+�t�m `ca.pem` �����|�A `cert.pem` �M `key.pem` ���ΨӶi��TLS����.�q�{���|�O `~/.docker` �C

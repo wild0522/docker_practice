@@ -1,4 +1,4 @@
-# Docker Machine é¡¹ç›®
-Docker Machine æ˜¯ Docker å®˜æ–¹ç¼–æ’ï¼ˆOrchestrationï¼‰é¡¹ç›®ä¹‹ä¸€ï¼Œè´Ÿè´£åœ¨å¤šç§å¹³å°ä¸Šå¿«é€Ÿå®‰è£… Docker ç¯å¢ƒã€‚
+# Docker Machine ¶µ¥Ø
+Docker Machine ¬O Docker ©x¤è½s±Æ¡]Orchestration¡^¶µ¥Ø¤§¤@¡A­t³d¦b¦hºØ¥­¥x¤W§Ö³t¦w¸Ë Docker Àô¹Ò¡C
 
-æœ¬ç« å°†ä»‹ç» Machine é¡¹ç›®æƒ…å†µä»¥åŠå®‰è£…å’Œä½¿ç”¨ã€‚
+¥»³¹±N¤¶²Ğ Machine ¶µ¥Ø±¡ªp¥H¤Î¦w¸Ë©M¨Ï¥Î¡C

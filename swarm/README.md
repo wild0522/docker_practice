@@ -1,4 +1,4 @@
-# Docker Swarm é¡¹ç›®
-Docker Swarm æ˜¯ Docker å®˜æ–¹ç¼–æ’ï¼ˆOrchestrationï¼‰é¡¹ç›®ä¹‹ä¸€ï¼Œè´Ÿè´£å¯¹ Docker é›†ç¾¤è¿›è¡Œç®¡ç†ã€‚
+# Docker Swarm ¶µ¥Ø
+Docker Swarm ¬O Docker ©x¤è½s±Æ¡]Orchestration¡^¶µ¥Ø¤§¤@¡A­t³d¹ï Docker ¶°¸s¶i¦æºŞ²z¡C
 
-æœ¬ç« å°†ä»‹ç» Swarm é¡¹ç›®æƒ…å†µä»¥åŠå®‰è£…å’Œä½¿ç”¨ã€‚
+¥»³¹±N¤¶²Ğ Swarm ¶µ¥Ø±¡ªp¥H¤Î¦w¸Ë©M¨Ï¥Î¡C

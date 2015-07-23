@@ -1,12 +1,12 @@
-## å®‰è£…
+## ¦w¸Ë
 
-etcd åŸºäº Go è¯­è¨€å®ç°ï¼Œå› æ­¤ï¼Œç”¨æˆ·å¯ä»¥ä» [é¡¹ç›®ä¸»é¡µ](https://github.com/coreos/etcd) ä¸‹è½½æºä»£ç è‡ªè¡Œç¼–è¯‘ï¼Œä¹Ÿå¯ä»¥ä¸‹è½½ç¼–è¯‘å¥½çš„äºŒè¿›åˆ¶æ–‡ä»¶ï¼Œç”šè‡³ç›´æ¥ä½¿ç”¨åˆ¶ä½œå¥½çš„ Docker é•œåƒæ–‡ä»¶æ¥ä½“éªŒã€‚
+etcd °ò©ó Go »y¨¥¹ê²{¡A¦]¦¹¡A¥Î¤á¥i¥H±q [¶µ¥Ø¥D­¶](https://github.com/coreos/etcd) ¤U¸ü·½¥N½X¦Û¦æ½sÄ¶¡A¤]¥i¥H¤U¸ü½sÄ¶¦nªº¤G¶i¨î¤å¥ó¡A¬Æ¦Üª½±µ¨Ï¥Î»s§@¦nªº Docker Ãè¹³¤å¥ó¨ÓÅéÅç¡C
 
-### äºŒè¿›åˆ¶æ–‡ä»¶æ–¹å¼ä¸‹è½½
+### ¤G¶i¨î¤å¥ó¤è¦¡¤U¸ü
 
-ç¼–è¯‘å¥½çš„äºŒè¿›åˆ¶æ–‡ä»¶éƒ½åœ¨ [github.com/coreos/etcd/releases](https://github.com/coreos/etcd/releases/) é¡µé¢ï¼Œç”¨æˆ·å¯ä»¥é€‰æ‹©éœ€è¦çš„ç‰ˆæœ¬ï¼Œæˆ–é€šè¿‡ä¸‹è½½å·¥å…·ä¸‹è½½ã€‚
+½sÄ¶¦nªº¤G¶i¨î¤å¥ó³£¦b [github.com/coreos/etcd/releases](https://github.com/coreos/etcd/releases/) ­¶­±¡A¥Î¤á¥i¥H¿ï¾Ü»İ­nªºª©¥»¡A©Î³q¹L¤U¸ü¤u¨ã¤U¸ü¡C
 
-ä¾‹å¦‚ï¼Œä¸‹é¢çš„å‘½ä»¤ä½¿ç”¨ curl å·¥å…·ä¸‹è½½å‹ç¼©åŒ…ï¼Œå¹¶è§£å‹ã€‚
+¨Ò¦p¡A¤U­±ªº©R¥O¨Ï¥Î curl ¤u¨ã¤U¸üÀ£ÁY¥]¡A¨Ã¸ÑÀ£¡C
 
 ```
 curl -L  https://github.com/coreos/etcd/releases/download/v2.0.0-rc.1/etcd-v2.0.0-rc.1-linux-amd64.tar.gz -o etcd-v2.0.0-rc.1-linux-amd64.tar.gz
@@ -14,21 +14,21 @@ tar xzvf etcd-v2.0.0-rc.1-linux-amd64.tar.gz
 cd etcd-v2.0.0-rc.1-linux-amd64
 ```
 
-è§£å‹åï¼Œå¯ä»¥çœ‹åˆ°æ–‡ä»¶åŒ…æ‹¬
+¸ÑÀ£«á¡A¥i¥H¬İ¨ì¤å¥ó¥]¬A
 ```
 $ ls
 etcd  etcdctl  etcd-migrate  README-etcdctl.md  README.md
 ```
 
-å…¶ä¸­ etcd æ˜¯æœåŠ¡ä¸»æ–‡ä»¶ï¼Œetcdctl æ˜¯æä¾›ç»™ç”¨æˆ·çš„å‘½ä»¤å®¢æˆ·ç«¯ï¼Œetcd-migrate è´Ÿè´£è¿›è¡Œè¿ç§»ã€‚
+¨ä¤¤ etcd ¬OªA°È¥D¤å¥ó¡Aetcdctl ¬O´£¨Ñµ¹¥Î¤áªº©R¥O«È¤áºİ¡Aetcd-migrate ­t³d¶i¦æ¾E²¾¡C
 
-æ¨èé€šè¿‡ä¸‹é¢çš„å‘½ä»¤å°†ä¸‰ä¸ªæ–‡ä»¶éƒ½æ”¾åˆ°ç³»ç»Ÿå¯æ‰§è¡Œç›®å½• `/usr/local/bin/` æˆ– `/usr/bin/`ã€‚
+±ÀÂË³q¹L¤U­±ªº©R¥O±N¤T­Ó¤å¥ó³£©ñ¨ì¨t²Î¥i°õ¦æ¥Ø¿ı `/usr/local/bin/` ©Î `/usr/bin/`¡C
 
 ```
 $ sudo cp etcd* /usr/local/bin/
 ```
 
-è¿è¡Œ etcdï¼Œå°†é»˜è®¤ç»„å»ºä¸€ä¸ªä¸¤ä¸ªèŠ‚ç‚¹çš„é›†ç¾¤ã€‚æ•°æ®åº“æœåŠ¡ç«¯é»˜è®¤ç›‘å¬åœ¨ 2379 å’Œ 4001 ç«¯å£ï¼Œetcd å®ä¾‹ç›‘å¬åœ¨ 2380 å’Œ 7001 ç«¯å£ã€‚æ˜¾ç¤ºç±»ä¼¼å¦‚ä¸‹çš„ä¿¡æ¯ï¼š
+¹B¦æ etcd¡A±NÀq»{²Õ«Ø¤@­Ó¨â­Ó¸`ÂIªº¶°¸s¡C¼Æ¾Ú®wªA°ÈºİÀq»{ºÊÅ¥¦b 2379 ©M 4001 ºİ¤f¡Aetcd ¹ê¨ÒºÊÅ¥¦b 2380 ©M 7001 ºİ¤f¡CÅã¥ÜÃş¦ü¦p¤Uªº«H®§¡G
 ```
 $ ./etcd
 2014/12/31 14:52:09 no data-dir provided, using default data-dir ./default.etcd
@@ -55,24 +55,24 @@ $ ./etcd
 2014/12/31 14:52:11 etcdserver: published {Name:default ClientURLs:[http://localhost:2379 http://localhost:4001]} to cluster 7e27652122e8b2ae
 ```
 
-æ­¤æ—¶ï¼Œå¯ä»¥ä½¿ç”¨ etcdctl å‘½ä»¤è¿›è¡Œæµ‹è¯•ï¼Œè®¾ç½®å’Œè·å–é”®å€¼ `testkey: "hello world"`ï¼Œæ£€æŸ¥ etcd æœåŠ¡æ˜¯å¦å¯åŠ¨æˆåŠŸï¼š
+¦¹®É¡A¥i¥H¨Ï¥Î etcdctl ©R¥O¶i¦æ´ú¸Õ¡A³]¸m©MÀò¨úÁä­È `testkey: "hello world"`¡AÀË¬d etcd ªA°È¬O§_±Ò°Ê¦¨¥\¡G
 ```
 $ ./etcdctl set testkey "hello world"
 hello world
 $ ./etcdctl get testkey
 hello world
 ```
-è¯´æ˜ etcd æœåŠ¡å·²ç»æˆåŠŸå¯åŠ¨äº†ã€‚
+»¡©ú etcd ªA°È¤w¸g¦¨¥\±Ò°Ê¤F¡C
 
-å½“ç„¶ï¼Œä¹Ÿå¯ä»¥é€šè¿‡ HTTP è®¿é—®æœ¬åœ° 2379 æˆ– 4001 ç«¯å£çš„æ–¹å¼æ¥è¿›è¡Œæ“ä½œï¼Œä¾‹å¦‚æŸ¥çœ‹ `testkey` çš„å€¼ï¼š
+·íµM¡A¤]¥i¥H³q¹L HTTP ³X°İ¥»¦a 2379 ©Î 4001 ºİ¤fªº¤è¦¡¨Ó¶i¦æ¾Ş§@¡A¨Ò¦p¬d¬İ `testkey` ªº­È¡G
 ```
 $ curl -L http://localhost:4001/v2/keys/testkey
 {"action":"get","node":{"key":"/testkey","value":"hello world","modifiedIndex":3,"createdIndex":3}}
 ```
 
-### Docker é•œåƒæ–¹å¼ä¸‹è½½
+### Docker Ãè¹³¤è¦¡¤U¸ü
 
-é•œåƒåç§°ä¸º quay.io/coreos/etcd:v2.0.0_rc.1ï¼Œå¯ä»¥é€šè¿‡ä¸‹é¢çš„å‘½ä»¤å¯åŠ¨ etcd æœåŠ¡ç›‘å¬åˆ° 4001 ç«¯å£ã€‚
+Ãè¹³¦WºÙ¬° quay.io/coreos/etcd:v2.0.0_rc.1¡A¥i¥H³q¹L¤U­±ªº©R¥O±Ò°Ê etcd ªA°ÈºÊÅ¥¨ì 4001 ºİ¤f¡C
 ```
 $ sudo docker run -p 4001:4001 -v /etc/ssl/certs/:/etc/ssl/certs/ quay.io/coreos/etcd:v2.0.0_rc.1
 ```

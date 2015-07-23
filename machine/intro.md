@@ -1,7 +1,7 @@
-## ç®€ä»‹
+## Â²¤¶
 
 ![Docker Machine](../_images/docker_machine.png)
 
-Docker Machine é¡¹ç›®åŸºäº Go è¯­è¨€å®ç°ï¼Œç›®å‰åœ¨ [Github](https://github.com/docker/machine) ä¸Šè¿›è¡Œç»´æŠ¤ã€‚
+Docker Machine ¶µ¥Ø°ò©ó Go »y¨¥¹ê²{¡A¥Ø«e¦b [Github](https://github.com/docker/machine) ¤W¶i¦æºûÅ@¡C
 
-æŠ€æœ¯è®¨è®º IRC é¢‘é“ä¸º `#docker-machine`ã€‚
+§Ş³N°Q½× IRC ÀW¹D¬° `#docker-machine`¡C

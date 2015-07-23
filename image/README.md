@@ -1,10 +1,10 @@
-# Docker 镜像
+# Docker �蹳
 
-在之前的介绍中，我们知道镜像是 Docker 的三大组件之一。
+�b���e�����Ф��A�ڭ̪��D�蹳�O Docker ���T�j�ե󤧤@�C
 
-Docker 运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker 会从镜像仓库下载（默认是 Docker Hub 公共注册服务器中的仓库）。
+Docker �B��e���e�ݭn���a�s�b�������蹳�A�p�G�蹳���s�b���a�ADocker �|�q�蹳�ܮw�U���]�q�{�O Docker Hub ���@���U�A�Ⱦ������ܮw�^�C
 
-本章将介绍更多关于镜像的内容，包括：
-* 从仓库获取镜像；
-* 管理本地主机上的镜像；
-* 介绍镜像实现的基本原理。
+�����N���Ч�h�����蹳�����e�A�]�A�G
+* �q�ܮw����蹳�F
+* �޲z���a�D���W���蹳�F
+* �����蹳��{���򥻭�z�C

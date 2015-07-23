@@ -1,8 +1,8 @@
-## è¿›å…¥å®¹å™¨
-åœ¨ä½¿ç”¨ `-d` å‚æ•°æ—¶ï¼Œå®¹å™¨å¯åŠ¨åä¼šè¿›å…¥åå°ã€‚
-æŸäº›æ—¶å€™éœ€è¦è¿›å…¥å®¹å™¨è¿›è¡Œæ“ä½œï¼Œæœ‰å¾ˆå¤šç§æ–¹æ³•ï¼ŒåŒ…æ‹¬ä½¿ç”¨ `docker attach` å‘½ä»¤æˆ– `nsenter` å·¥å…·ç­‰ã€‚
-### attach å‘½ä»¤
-`docker attach` æ˜¯Dockerè‡ªå¸¦çš„å‘½ä»¤ã€‚ä¸‹é¢ç¤ºä¾‹å¦‚ä½•ä½¿ç”¨è¯¥å‘½ä»¤ã€‚
+## ¶i¤J®e¾¹
+¦b¨Ï¥Î `-d` °Ñ¼Æ®É¡A®e¾¹±Ò°Ê«á·|¶i¤J«á¥x¡C
+¬Y¨Ç®É­Ô»İ­n¶i¤J®e¾¹¶i¦æ¾Ş§@¡A¦³«Ü¦hºØ¤èªk¡A¥]¬A¨Ï¥Î `docker attach` ©R¥O©Î `nsenter` ¤u¨ãµ¥¡C
+### attach ©R¥O
+`docker attach` ¬ODocker¦Û±aªº©R¥O¡C¤U­±¥Ü¨Ò¦p¦ó¨Ï¥Î¸Ó©R¥O¡C
 ```
 $ sudo docker run -idt ubuntu
 243c32535da7d142fb0e6df616a3c3ada0b8ab417937c853a9e1c251f499f550
@@ -12,36 +12,36 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 $sudo docker attach nostalgic_hypatia
 root@243c32535da7:/#
 ```
-ä½†æ˜¯ä½¿ç”¨ `attach` å‘½ä»¤æœ‰æ—¶å€™å¹¶ä¸æ–¹ä¾¿ã€‚å½“å¤šä¸ªçª—å£åŒæ—¶ attach åˆ°åŒä¸€ä¸ªå®¹å™¨çš„æ—¶å€™ï¼Œæ‰€æœ‰çª—å£éƒ½ä¼šåŒæ­¥æ˜¾ç¤ºã€‚å½“æŸä¸ªçª—å£å› å‘½ä»¤é˜»å¡æ—¶,å…¶ä»–çª—å£ä¹Ÿæ— æ³•æ‰§è¡Œæ“ä½œäº†ã€‚
+¦ı¬O¨Ï¥Î `attach` ©R¥O¦³®É­Ô¨Ã¤£¤è«K¡C·í¦h­Óµ¡¤f¦P®É attach ¨ì¦P¤@­Ó®e¾¹ªº®É­Ô¡A©Ò¦³µ¡¤f³£·|¦P¨BÅã¥Ü¡C·í¬Y­Óµ¡¤f¦]©R¥Oªı¶ë®É,¨ä¥Lµ¡¤f¤]µLªk°õ¦æ¾Ş§@¤F¡C
 
-### nsenter å‘½ä»¤
-#### å®‰è£…
-`nsenter` å·¥å…·åœ¨ util-linux åŒ…2.23ç‰ˆæœ¬ååŒ…å«ã€‚
-å¦‚æœç³»ç»Ÿä¸­ util-linux åŒ…æ²¡æœ‰è¯¥å‘½ä»¤ï¼Œå¯ä»¥æŒ‰ç…§ä¸‹é¢çš„æ–¹æ³•ä»æºç å®‰è£…ã€‚
+### nsenter ©R¥O
+#### ¦w¸Ë
+`nsenter` ¤u¨ã¦b util-linux ¥]2.23ª©¥»«á¥]§t¡C
+¦pªG¨t²Î¤¤ util-linux ¥]¨S¦³¸Ó©R¥O¡A¥i¥H«ö·Ó¤U­±ªº¤èªk±q·½½X¦w¸Ë¡C
 ```
 $ cd /tmp; curl https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz | tar -zxf-; cd util-linux-2.24;
 $ ./configure --without-ncurses
 $ make nsenter && sudo cp nsenter /usr/local/bin
 ```
 
-#### ä½¿ç”¨
-`nsenter` å¯ä»¥è®¿é—®å¦ä¸€ä¸ªè¿›ç¨‹çš„åå­—ç©ºé—´ã€‚nsenter è¦æ­£å¸¸å·¥ä½œéœ€è¦æœ‰ root æƒé™ã€‚
-å¾ˆä¸å¹¸ï¼ŒUbuntu 14.04 ä»ç„¶ä½¿ç”¨çš„æ˜¯ util-linux 2.20ã€‚å®‰è£…æœ€æ–°ç‰ˆæœ¬çš„ util-linuxï¼ˆ2.24ï¼‰ç‰ˆï¼Œè¯·æŒ‰ç…§ä»¥ä¸‹æ­¥éª¤ï¼š
+#### ¨Ï¥Î
+`nsenter` ¥i¥H³X°İ¥t¤@­Ó¶iµ{ªº¦W¦rªÅ¶¡¡Cnsenter ­n¥¿±`¤u§@»İ­n¦³ root Åv­­¡C
+«Ü¤£©¯¡AUbuntu 14.04 ¤´µM¨Ï¥Îªº¬O util-linux 2.20¡C¦w¸Ë³Ì·sª©¥»ªº util-linux¡]2.24¡^ª©¡A½Ğ«ö·Ó¥H¤U¨BÆJ¡G
 ```
 $ wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz; tar xzvf util-linux-2.24.tar.gz
 $ cd util-linux-2.24
 $ ./configure --without-ncurses && make nsenter
 $ sudo cp nsenter /usr/local/bin
 ```
-ä¸ºäº†è¿æ¥åˆ°å®¹å™¨ï¼Œä½ è¿˜éœ€è¦æ‰¾åˆ°å®¹å™¨çš„ç¬¬ä¸€ä¸ªè¿›ç¨‹çš„ PIDï¼Œå¯ä»¥é€šè¿‡ä¸‹é¢çš„å‘½ä»¤è·å–ã€‚
+¬°¤F³s±µ¨ì®e¾¹¡A§AÁÙ»İ­n§ä¨ì®e¾¹ªº²Ä¤@­Ó¶iµ{ªº PID¡A¥i¥H³q¹L¤U­±ªº©R¥OÀò¨ú¡C
 ```
 PID=$(docker inspect --format "{{ .State.Pid }}" <container>)
 ```
-é€šè¿‡è¿™ä¸ª PIDï¼Œå°±å¯ä»¥è¿æ¥åˆ°è¿™ä¸ªå®¹å™¨ï¼š
+³q¹L³o­Ó PID¡A´N¥i¥H³s±µ¨ì³o­Ó®e¾¹¡G
 ```
 $ nsenter --target $PID --mount --uts --ipc --net --pid
 ```
-ä¸‹é¢ç»™å‡ºä¸€ä¸ªå®Œæ•´çš„ä¾‹å­ã€‚
+¤U­±µ¹¥X¤@­Ó§¹¾ãªº¨Ò¤l¡C
 ```
 $ sudo docker run -idt ubuntu
 243c32535da7d142fb0e6df616a3c3ada0b8ab417937c853a9e1c251f499f550
@@ -53,13 +53,13 @@ $ PID=$(docker-pid 243c32535da7)
 $ sudo nsenter --target 10981 --mount --uts --ipc --net --pid
 root@243c32535da7:/#
 ```
-æ›´ç®€å•çš„ï¼Œå»ºè®®å¤§å®¶ä¸‹è½½
-[.bashrc_docker](https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker)ï¼Œå¹¶å°†å†…å®¹æ”¾åˆ° .bashrc ä¸­ã€‚
+§óÂ²³æªº¡A«ØÄ³¤j®a¤U¸ü
+[.bashrc_docker](https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker)¡A¨Ã±N¤º®e©ñ¨ì .bashrc ¤¤¡C
 ```
 $ wget -P ~ https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker;
 $ echo "[ -f ~/.bashrc_docker ] && . ~/.bashrc_docker" >> ~/.bashrc; source ~/.bashrc
 ```
-è¿™ä¸ªæ–‡ä»¶ä¸­å®šä¹‰äº†å¾ˆå¤šæ–¹ä¾¿ä½¿ç”¨ Docker çš„å‘½ä»¤ï¼Œä¾‹å¦‚ `docker-pid` å¯ä»¥è·å–æŸä¸ªå®¹å™¨çš„ PIDï¼›è€Œ `docker-enter` å¯ä»¥è¿›å…¥å®¹å™¨æˆ–ç›´æ¥åœ¨å®¹å™¨å†…æ‰§è¡Œå‘½ä»¤ã€‚
+³o­Ó¤å¥ó¤¤©w¸q¤F«Ü¦h¤è«K¨Ï¥Î Docker ªº©R¥O¡A¨Ò¦p `docker-pid` ¥i¥HÀò¨ú¬Y­Ó®e¾¹ªº PID¡F¦Ó `docker-enter` ¥i¥H¶i¤J®e¾¹©Îª½±µ¦b®e¾¹¤º°õ¦æ©R¥O¡C
 ```
 $ echo $(docker-pid <container>)
 $ docker-enter <container> ls

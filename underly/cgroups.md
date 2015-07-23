@@ -1,9 +1,9 @@
-## 控制组
+## �����
 
-控制组（[cgroups](http://en.wikipedia.org/wiki/Cgroups)）是 Linux 内核的一个特性，主要用来对共享资源进行隔离、限制、审计等。只有能控制分配到容器的资源，才能避免当多个容器同时运行时的对系统资源的竞争。
+����ա][cgroups](http://en.wikipedia.org/wiki/Cgroups)�^�O Linux ���֪��@�ӯS�ʡA�D�n�Ψӹ�@�ɸ귽�i��j���B����B�f�p���C�u���౱����t��e�����귽�A�~���קK���h�Ӯe���P�ɹB��ɪ���t�θ귽���v���C
 
-控制组技术最早是由 Google 的程序员 2006 年起提出，Linux 内核自 2.6.24 开始支持。
+����է޳N�̦��O�� Google ���{�ǭ� 2006 �~�_���X�ALinux ���֦� 2.6.24 �}�l����C
 
-控制组可以提供对容器的内存、CPU、磁盘 IO 等资源的限制和审计管理。
+����եi�H���ѹ�e�������s�BCPU�B�ϽL IO ���귽������M�f�p�޲z�C
 
 

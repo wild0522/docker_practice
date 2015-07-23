@@ -1,21 +1,21 @@
-## è‡ªå®šä¹‰ç½‘æ¡¥
-é™¤äº†é»˜è®¤çš„ `docker0` ç½‘æ¡¥ï¼Œç”¨æˆ·ä¹Ÿå¯ä»¥æŒ‡å®šç½‘æ¡¥æ¥è¿æ¥å„ä¸ªå®¹å™¨ã€‚
+## ¦Û©w¸qºô¾ô
+°£¤FÀq»{ªº `docker0` ºô¾ô¡A¥Î¤á¤]¥i¥H«ü©wºô¾ô¨Ó³s±µ¦U­Ó®e¾¹¡C
 
-åœ¨å¯åŠ¨ Docker æœåŠ¡çš„æ—¶å€™ï¼Œä½¿ç”¨ `-b BRIDGE`æˆ–`--bridge=BRIDGE` æ¥æŒ‡å®šä½¿ç”¨çš„ç½‘æ¡¥ã€‚
+¦b±Ò°Ê Docker ªA°Èªº®É­Ô¡A¨Ï¥Î `-b BRIDGE`©Î`--bridge=BRIDGE` ¨Ó«ü©w¨Ï¥Îªººô¾ô¡C
 
-å¦‚æœæœåŠ¡å·²ç»è¿è¡Œï¼Œé‚£éœ€è¦å…ˆåœæ­¢æœåŠ¡ï¼Œå¹¶åˆ é™¤æ—§çš„ç½‘æ¡¥ã€‚
+¦pªGªA°È¤w¸g¹B¦æ¡A¨º»İ­n¥ı°±¤îªA°È¡A¨Ã§R°£ÂÂªººô¾ô¡C
 ```
 $ sudo service docker stop
 $ sudo ip link set dev docker0 down
 $ sudo brctl delbr docker0
 ```
-ç„¶ååˆ›å»ºä¸€ä¸ªç½‘æ¡¥ `bridge0`ã€‚
+µM«á³Ğ«Ø¤@­Óºô¾ô `bridge0`¡C
 ```
 $ sudo brctl addbr bridge0
 $ sudo ip addr add 192.168.5.1/24 dev bridge0
 $ sudo ip link set dev bridge0 up
 ```
-æŸ¥çœ‹ç¡®è®¤ç½‘æ¡¥åˆ›å»ºå¹¶å¯åŠ¨ã€‚
+¬d¬İ½T»{ºô¾ô³Ğ«Ø¨Ã±Ò°Ê¡C
 ```
 $ ip addr show bridge0
 4: bridge0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state UP group default
@@ -23,12 +23,12 @@ $ ip addr show bridge0
     inet 192.168.5.1/24 scope global bridge0
        valid_lft forever preferred_lft forever
 ```
-é…ç½® Docker æœåŠ¡ï¼Œé»˜è®¤æ¡¥æ¥åˆ°åˆ›å»ºçš„ç½‘æ¡¥ä¸Šã€‚
+°t¸m Docker ªA°È¡AÀq»{¾ô±µ¨ì³Ğ«Øªººô¾ô¤W¡C
 ```
 $ echo 'DOCKER_OPTS="-b=bridge0"' >> /etc/default/docker
 $ sudo service docker start
 ```
-å¯åŠ¨ Docker æœåŠ¡ã€‚
-æ–°å»ºä¸€ä¸ªå®¹å™¨ï¼Œå¯ä»¥çœ‹åˆ°å®ƒå·²ç»æ¡¥æ¥åˆ°äº† `bridge0` ä¸Šã€‚
+±Ò°Ê Docker ªA°È¡C
+·s«Ø¤@­Ó®e¾¹¡A¥i¥H¬İ¨ì¥¦¤w¸g¾ô±µ¨ì¤F `bridge0` ¤W¡C
 
-å¯ä»¥ç»§ç»­ç”¨ `brctl show` å‘½ä»¤æŸ¥çœ‹æ¡¥æ¥çš„ä¿¡æ¯ã€‚å¦å¤–ï¼Œåœ¨å®¹å™¨ä¸­å¯ä»¥ä½¿ç”¨ `ip addr` å’Œ `ip route` å‘½ä»¤æ¥æŸ¥çœ‹ IP åœ°å€é…ç½®å’Œè·¯ç”±ä¿¡æ¯ã€‚
+¥i¥HÄ~Äò¥Î `brctl show` ©R¥O¬d¬İ¾ô±µªº«H®§¡C¥t¥~¡A¦b®e¾¹¤¤¥i¥H¨Ï¥Î `ip addr` ©M `ip route` ©R¥O¨Ó¬d¬İ IP ¦a§}°t¸m©M¸ô¥Ñ«H®§¡C

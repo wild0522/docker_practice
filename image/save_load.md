@@ -1,7 +1,7 @@
-## å­˜å‡ºå’Œè½½å…¥é•œåƒ
+## ¦s¥X©M¸ü¤JÃè¹³
 
-### å­˜å‡ºé•œåƒ
-å¦‚æœè¦å¯¼å‡ºé•œåƒåˆ°æœ¬åœ°æ–‡ä»¶ï¼Œå¯ä»¥ä½¿ç”¨ `docker save` å‘½ä»¤ã€‚
+### ¦s¥XÃè¹³
+¦pªG­n¾É¥XÃè¹³¨ì¥»¦a¤å¥ó¡A¥i¥H¨Ï¥Î `docker save` ©R¥O¡C
 ```
 $ sudo docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -10,13 +10,13 @@ ubuntu              14.04               c4ff7513909d        5 weeks ago         
 $sudo docker save -o ubuntu_14.04.tar ubuntu:14.04
 ```
 
-### è½½å…¥é•œåƒ
-å¯ä»¥ä½¿ç”¨ `docker load` ä»å¯¼å‡ºçš„æœ¬åœ°æ–‡ä»¶ä¸­å†å¯¼å…¥åˆ°æœ¬åœ°é•œåƒåº“ï¼Œä¾‹å¦‚
+### ¸ü¤JÃè¹³
+¥i¥H¨Ï¥Î `docker load` ±q¾É¥Xªº¥»¦a¤å¥ó¤¤¦A¾É¤J¨ì¥»¦aÃè¹³®w¡A¨Ò¦p
 ```
 $ sudo docker load --input ubuntu_14.04.tar
 ```
-æˆ–
+©Î
 ```
 $ sudo docker load < ubuntu_14.04.tar
 ```
-è¿™å°†å¯¼å…¥é•œåƒä»¥åŠå…¶ç›¸å…³çš„å…ƒæ•°æ®ä¿¡æ¯ï¼ˆåŒ…æ‹¬æ ‡ç­¾ç­‰ï¼‰ã€‚
+³o±N¾É¤JÃè¹³¥H¤Î¨ä¬ÛÃöªº¤¸¼Æ¾Ú«H®§¡]¥]¬A¼ĞÅÒµ¥¡^¡C

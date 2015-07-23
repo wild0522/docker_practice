@@ -1,95 +1,95 @@
-## Compose 命令说明
+## Compose �R�O����
 
-大部分命令都可以运行在一个或多个服务上。如果没有特别的说明，命令则应用在项目所有的服务上。
+�j�����R�O���i�H�B��b�@�өΦh�ӪA�ȤW�C�p�G�S���S�O�������A�R�O�h���Φb���ةҦ����A�ȤW�C
 
-执行 `docker-compose [COMMAND] --help` 查看具体某个命令的使用说明。
+���� `docker-compose [COMMAND] --help` �d�ݨ���Y�өR�O���ϥλ����C
 
-基本的使用格式是
+�򥻪��ϥή榡�O
 ```sh
 docker-compose [options] [COMMAND] [ARGS...]
 ```
 
-## 选项
+## �ﶵ
 
-* `--verbose` 输出更多调试信息。
-* `--version` 打印版本并退出。
-* `-f, --file FILE` 使用特定的 compose 模板文件，默认为 `docker-compose.yml`。
-* `-p, --project-name NAME` 指定项目名称，默认使用目录名称。
+* `--verbose` ��X��h�ոիH���C
+* `--version` ���L�����ðh�X�C
+* `-f, --file FILE` �ϥίS�w�� compose �ҪO���A�q�{�� `docker-compose.yml`�C
+* `-p, --project-name NAME` ���w���ئW�١A�q�{�ϥΥؿ��W�١C
 
-## 命令
+## �R�O
 
 ### `build`
 
-构建或重新构建服务。
+�c�ةέ��s�c�تA�ȡC
 
-服务一旦构建后，将会带上一个标记名，例如 web_db。
+�A�Ȥ@���c�ث�A�N�|�a�W�@�ӼаO�W�A�Ҧp web_db�C
 
-可以随时在项目目录下运行 `docker-compose build` 来重新构建服务。
+�i�H�H�ɦb���إؿ��U�B�� `docker-compose build` �ӭ��s�c�تA�ȡC
 
 ### `help`
 
-获得一个命令的帮助。
+��o�@�өR�O�����U�C
 
 ### `kill`
 
-通过发送 `SIGKILL` 信号来强制停止服务容器。支持通过参数来指定发送的信号，例如
+�q�L�o�e `SIGKILL` �H���ӱj���A�Ȯe���C����q�L�Ѽƨӫ��w�o�e���H���A�Ҧp
 ```sh
 $ docker-compose kill -s SIGINT
 ```
 
 ### `logs`
 
-查看服务的输出。
+�d�ݪA�Ȫ���X�C
 
 ### `port`
 
-打印绑定的公共端口。
+���L�j�w�����@�ݤf�C
 
 ### `ps`
 
-列出所有容器。
+�C�X�Ҧ��e���C
 
 ### `pull`
 
-拉取服务镜像。
+�Ԩ��A���蹳�C
 
 ### `rm`
 
-删除停止的服务容器。
+�R������A�Ȯe���C
 
 ### `run`
 
-在一个服务上执行一个命令。
+�b�@�ӪA�ȤW����@�өR�O�C
 
-例如：
+�Ҧp�G
 
 ```
 $ docker-compose run ubuntu ping docker.com
 ```
 
-将会启动一个 ubuntu 服务，执行 `ping docker.com` 命令。
+�N�|�Ұʤ@�� ubuntu �A�ȡA���� `ping docker.com` �R�O�C
 
-默认情况下，所有关联的服务将会自动被启动，除非这些服务已经在运行中。
+�q�{���p�U�A�Ҧ����p���A�ȱN�|�۰ʳQ�ҰʡA���D�o�ǪA�Ȥw�g�b�B�椤�C
 
-该命令类似启动容器后运行指定的命令，相关卷、链接等等都将会按照期望创建。
+�өR�O�����Ұʮe����B����w���R�O�A�������B�챵�������N�|���Ӵ���ЫءC
 
-两个不同点：
-* 给定命令将会覆盖原有的自动运行命令；
-* 不会自动创建端口，以避免冲突。
+��Ӥ��P�I�G
+* ���w�R�O�N�|�л\�즳���۰ʹB��R�O�F
+* ���|�۰ʳЫغݤf�A�H�קK�Ĭ�C
 
-如果不希望自动启动关联的容器，可以使用 `--no-deps` 选项，例如
+�p�G���Ʊ�۰ʱҰ����p���e���A�i�H�ϥ� `--no-deps` �ﶵ�A�Ҧp
 
 ```
 $ docker-compose run --no-deps web python manage.py shell
 ```
 
-将不会启动 web 容器所关联的其它容器。
+�N���|�Ұ� web �e�������p���䥦�e���C
 
 ### `scale`
 
-设置同一个服务运行的容器个数。
+�]�m�P�@�ӪA�ȹB�檺�e���ӼơC
 
-通过 `service=num` 的参数来设置数量。例如：
+�q�L `service=num` ���Ѽƨӳ]�m�ƶq�C�Ҧp�G
 
 ```
 $ docker-compose scale web=2 worker=3
@@ -97,46 +97,46 @@ $ docker-compose scale web=2 worker=3
 
 ### `start`
 
-启动一个已经存在的服务容器。
+�Ұʤ@�Ӥw�g�s�b���A�Ȯe���C
 
 ### `stop`
 
-停止一个已经运行的容器，但不删除它。通过 `docker-compose start` 可以再次启动这些容器。
+����@�Ӥw�g�B�檺�e���A�����R�����C�q�L `docker-compose start` �i�H�A���Ұʳo�Ǯe���C
 
 ### `up`
 
-构建，（重新）创建，启动，链接一个服务相关的容器。
+�c�ءA�]���s�^�ЫءA�ҰʡA�챵�@�ӪA�Ȭ������e���C
 
-链接的服务都将会启动，除非他们已经运行。
+�챵���A�ȳ��N�|�ҰʡA���D�L�̤w�g�B��C
 
-默认情况， `docker-compose up` 将会整合所有容器的输出，并且退出时，所有容器将会停止。
+�q�{���p�A `docker-compose up` �N�|��X�Ҧ��e������X�A�åB�h�X�ɡA�Ҧ��e���N�|����C
 
-如果使用 `docker-compose up -d` ，将会在后台启动并运行所有的容器。
+�p�G�ϥ� `docker-compose up -d` �A�N�|�b��x�ҰʨùB��Ҧ����e���C
 
-默认情况，如果该服务的容器已经存在， `docker-compose up` 将会停止并尝试重新创建他们（保持使用 `volumes-from` 挂载的卷），以保证 `docker-compose.yml` 的修改生效。如果你不想容器被停止并重新创建，可以使用 `docker-compose up --no-recreate`。如果需要的话，这样将会启动已经停止的容器。
+�q�{���p�A�p�G�ӪA�Ȫ��e���w�g�s�b�A `docker-compose up` �N�|����ù��խ��s�ЫإL�̡]�O���ϥ� `volumes-from` ���������^�A�H�O�� `docker-compose.yml` ���ק�ͮġC�p�G�A���Q�e���Q����í��s�ЫءA�i�H�ϥ� `docker-compose up --no-recreate`�C�p�G�ݭn���ܡA�o�˱N�|�Ұʤw�g����e���C
 
-## 环境变量
+## �����ܶq
 
-环境变量可以用来配置 Compose 的行为。
+�����ܶq�i�H�ΨӰt�m Compose ���欰�C
 
-以`DOCKER_`开头的变量和用来配置 Docker 命令行客户端的使用一样。如果使用 boot2docker , `$(boot2docker shellinit)` 将会设置它们为正确的值。
+�H`DOCKER_`�}�Y���ܶq�M�ΨӰt�m Docker �R�O��Ȥ�ݪ��ϥΤ@�ˡC�p�G�ϥ� boot2docker , `$(boot2docker shellinit)` �N�|�]�m���̬����T���ȡC
 
 ### `COMPOSE_PROJECT_NAME`
 
-设置通过 Compose 启动的每一个容器前添加的项目名称，默认是当前工作目录的名字。
+�]�m�q�L Compose �Ұʪ��C�@�Ӯe���e�K�[�����ئW�١A�q�{�O���e�u�@�ؿ����W�r�C
 
 ### `COMPOSE_FILE`
 
-设置要使用的 `docker-compose.yml` 的路径。默认路径是当前工作目录。
+�]�m�n�ϥΪ� `docker-compose.yml` �����|�C�q�{���|�O���e�u�@�ؿ��C
 
 ### `DOCKER_HOST`
 
-设置 Docker daemon 的地址。默认使用 `unix:///var/run/docker.sock`，与 Docker 客户端采用的默认值一致。
+�]�m Docker daemon ���a�}�C�q�{�ϥ� `unix:///var/run/docker.sock`�A�P Docker �Ȥ�ݱĥΪ��q�{�Ȥ@�P�C
 
 ### `DOCKER_TLS_VERIFY`
 
-如果设置不为空，则与 Docker daemon 交互通过 TLS 进行。
+�p�G�]�m�����šA�h�P Docker daemon �椬�q�L TLS �i��C
 
 ### `DOCKER_CERT_PATH`
 
-配置 TLS 通信所需要的验证（`ca.pem`、`cert.pem` 和 `key.pem`）文件的路径，默认是 `~/.docker` 。
+�t�m TLS �q�H�һݭn�����ҡ]`ca.pem`�B`cert.pem` �M `key.pem`�^��󪺸��|�A�q�{�O `~/.docker` �C

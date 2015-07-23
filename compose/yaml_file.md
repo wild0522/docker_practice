@@ -1,16 +1,16 @@
-## YAML 模板文件
+## YAML �ҪO���
 
-默认的模板文件是 `docker-compose.yml`，其中定义的每个服务都必须通过 `image` 指令指定镜像或 `build` 指令（需要 Dockerfile）来自动构建。
+�q�{���ҪO���O `docker-compose.yml`�A�䤤�w�q���C�ӪA�ȳ������q�L `image` ���O���w�蹳�� `build` ���O�]�ݭn Dockerfile�^�Ӧ۰ʺc�ءC
 
-其它大部分指令都跟 `docker run` 中的类似。
+�䥦�j�������O���� `docker run` ���������C
 
-如果使用 `build` 指令，在 `Dockerfile` 中设置的选项(例如：`CMD`, `EXPOSE`, `VOLUME`, `ENV` 等) 将会自动被获取，无需在 `docker-compose.yml` 中再次设置。
+�p�G�ϥ� `build` ���O�A�b `Dockerfile` ���]�m���ﶵ(�Ҧp�G`CMD`, `EXPOSE`, `VOLUME`, `ENV` ��) �N�|�۰ʳQ����A�L�ݦb `docker-compose.yml` ���A���]�m�C
 
 ### `image`
 
-指定为镜像名称或镜像 ID。如果镜像在本地不存在，`Compose` 将会尝试拉去这个镜像。
+���w���蹳�W�٩��蹳 ID�C�p�G�蹳�b���a���s�b�A`Compose` �N�|���թԥh�o���蹳�C
 
-例如：
+�Ҧp�G
 ```sh
 image: ubuntu
 image: orchardup/postgresql
@@ -19,7 +19,7 @@ image: a4bc65fd
 
 ### `build`
 
-指定 `Dockerfile` 所在文件夹的路径。 `Compose` 将会利用它自动构建这个镜像，然后使用这个镜像。
+���w `Dockerfile` �Ҧb��󧨪����|�C `Compose` �N�|�Q�Υ��۰ʺc�سo���蹳�A�M��ϥγo���蹳�C
 
 ```
 build: /path/to/build/dir
@@ -27,7 +27,7 @@ build: /path/to/build/dir
 
 ### `command`
 
-覆盖容器启动后默认执行的命令。
+�л\�e���Ұʫ��q�{���檺�R�O�C
 
 ```sh
 command: bundle exec thin -p 3000
@@ -35,7 +35,7 @@ command: bundle exec thin -p 3000
 
 ### `links`
 
-链接到其它服务中的容器。使用服务名称（同时作为别名）或服务名称：服务别名 `（SERVICE:ALIAS）` 格式都可以。
+�챵��䥦�A�Ȥ����e���C�ϥΪA�ȦW�١]�P�ɧ@���O�W�^�ΪA�ȦW�١G�A�ȧO�W `�]SERVICE:ALIAS�^` �榡���i�H�C
 
 ```sh
 links:
@@ -44,7 +44,7 @@ links:
  - redis
 ```
 
-使用的别名将会自动在服务容器中的 `/etc/hosts` 里创建。例如：
+�ϥΪ��O�W�N�|�۰ʦb�A�Ȯe������ `/etc/hosts` �̳ЫءC�Ҧp�G
 
 ```sh
 172.17.2.186  db
@@ -52,10 +52,10 @@ links:
 172.17.2.187  redis
 ```
 
-相应的环境变量也将被创建。
+�����������ܶq�]�N�Q�ЫءC
 
 ### `external_links`
-链接到 docker-compose.yml 外部的容器，甚至 并非 `Compose` 管理的容器。参数格式跟 `links` 类似。
+�챵�� docker-compose.yml �~�����e���A�Ʀ� �ëD `Compose` �޲z���e���C�ѼƮ榡�� `links` �����C
 
 ```
 external_links:
@@ -67,9 +67,9 @@ external_links:
 
 ### `ports`
 
-暴露端口信息。
+���S�ݤf�H���C
 
-使用宿主：容器 `（HOST:CONTAINER）`格式或者仅仅指定容器的端口（宿主将会随机选择端口）都可以。
+�ϥαJ�D�G�e�� `�]HOST:CONTAINER�^`�榡�Ϊ̶ȶȫ��w�e�����ݤf�]�J�D�N�|�H����ܺݤf�^���i�H�C
 
 ```
 ports:
@@ -79,14 +79,14 @@ ports:
  - "127.0.0.1:8001:8001"
 ```
 
-*注：当使用 `HOST:CONTAINER` 格式来映射端口时，如果你使用的容器端口小于 60 你可能会得到错误得结果，因为 `YAML` 将会解析 `xx:yy` 这种数字格式为 60 进制。所以建议采用字符串格式。*
+*���G���ϥ� `HOST:CONTAINER` �榡�ӬM�g�ݤf�ɡA�p�G�A�ϥΪ��e���ݤf�p�� 60 �A�i��|�o����~�o���G�A�]�� `YAML` �N�|�ѪR `xx:yy` �o�ؼƦr�榡�� 60 �i��C�ҥH��ĳ�ĥΦr�Ŧ�榡�C*
 
 
 ### `expose`
 
-暴露端口，但不映射到宿主机，只被连接的服务访问。
+���S�ݤf�A�����M�g��J�D���A�u�Q�s�����A�ȳX�ݡC
 
-仅可以指定内部端口为参数
+�ȥi�H���w�����ݤf���Ѽ�
 
 ```sh
 expose:
@@ -96,7 +96,7 @@ expose:
 
 ### `volumes`
 
-卷挂载路径设置。可以设置宿主机路径 （`HOST:CONTAINER`） 或加上访问模式 （`HOST:CONTAINER:ro`）。
+���������|�]�m�C�i�H�]�m�J�D�����| �]`HOST:CONTAINER`�^ �Υ[�W�X�ݼҦ� �]`HOST:CONTAINER:ro`�^�C
 
 ```sh
 volumes:
@@ -107,7 +107,7 @@ volumes:
 
 ### `volumes_from`
 
-从另一个服务或容器挂载它的所有卷。
+�q�t�@�ӪA�ȩήe�����������Ҧ����C
 
 ```sh
 volumes_from:
@@ -117,9 +117,9 @@ volumes_from:
 
 ### `environment`
 
-设置环境变量。你可以使用数组或字典两种格式。
+�]�m�����ܶq�C�A�i�H�ϥμƲթΦr���خ榡�C
 
-只给定名称的变量会自动获取它在 Compose 主机上的值，可以用来防止泄露不必要的数据。
+�u���w�W�٪��ܶq�|�۰�������b Compose �D���W���ȡA�i�H�ΨӨ���S�����n���ƾڡC
 
 ```
 environment:
@@ -132,11 +132,11 @@ environment:
 ```
 
 ### `env_file`
-从文件中获取环境变量，可以为单独的文件路径或列表。
+�q�����������ܶq�A�i�H����W�������|�ΦC���C
 
-如果通过 `docker-compose -f FILE` 指定了模板文件，则 `env_file` 中路径会基于模板文件路径。
+�p�G�q�L `docker-compose -f FILE` ���w�F�ҪO���A�h `env_file` �����|�|���ҪO�����|�C
 
-如果有变量名称与 `environment` 指令冲突，则以后者为准。
+�p�G���ܶq�W�ٻP `environment` ���O�Ĭ�A�h�H��̬��ǡC
 
 ```sh
 env_file: .env
@@ -147,7 +147,7 @@ env_file:
   - /opt/secrets.env
 ```
 
-环境变量文件中每一行必须符合格式，支持 `#` 开头的注释行。
+�����ܶq��󤤨C�@�楲���ŦX�榡�A��� `#` �}�Y��������C
 
 ```sh
 # common.env: Set Rails/Rack environment
@@ -155,7 +155,7 @@ RACK_ENV=development
 ```
 
 ### `extends`
-基于已有的服务进行扩展。例如我们已经有了一个 webapp 服务，模板文件为 `common.yml`。
+���w�����A�ȶi���X�i�C�Ҧp�ڭ̤w�g���F�@�� webapp �A�ȡA�ҪO��� `common.yml`�C
 ```sh
 # common.yml
 webapp:
@@ -165,7 +165,7 @@ webapp:
     - SEND_EMAILS=false
 ```
 
-编写一个新的 `development.yml` 文件，使用 `common.yml` 中的 webapp 服务进行扩展。
+�s�g�@�ӷs�� `development.yml` ���A�ϥ� `common.yml` ���� webapp �A�ȶi���X�i�C
 ```sh
 # development.yml
 web:
@@ -181,12 +181,12 @@ web:
 db:
   image: postgres
 ```
-后者会自动继承 common.yml 中的 webapp 服务及相关环节变量。
+��̷|�۰��~�� common.yml ���� webapp �A�Ȥά������`�ܶq�C
 
 
 ### `net`
 
-设置网络模式。使用和 `docker client` 的 `--net` 参数一样的值。
+�]�m�����Ҧ��C�ϥΩM `docker client` �� `--net` �ѼƤ@�˪��ȡC
 
 ```sh
 net: "bridge"
@@ -196,7 +196,7 @@ net: "host"
 ```
 
 ### `pid`
-跟主机系统共享进程命名空间。打开该选项的容器可以相互通过进程 ID 来访问和操作。
+��D���t�Φ@�ɶi�{�R�W�Ŷ��C���}�ӿﶵ���e���i�H�ۤ��q�L�i�{ ID �ӳX�ݩM�ާ@�C
 
 ```sh
 pid: "host"
@@ -204,7 +204,7 @@ pid: "host"
 
 ### `dns`
 
-配置 DNS 服务器。可以是一个值，也可以是一个列表。
+�t�m DNS �A�Ⱦ��C�i�H�O�@�ӭȡA�]�i�H�O�@�ӦC���C
 
 ```sh
 dns: 8.8.8.8
@@ -214,7 +214,7 @@ dns:
 ```
 
 ### `cap_add, cap_drop`
-添加或放弃容器的 Linux 能力（Capabiliity）。
+�K�[�Ω��e���� Linux ��O�]Capabiliity�^�C
 ```sh
 cap_add:
   - ALL
@@ -226,7 +226,7 @@ cap_drop:
 
 ### `dns_search`
 
-配置 DNS 搜索域。可以是一个值，也可以是一个列表。
+�t�m DNS �j����C�i�H�O�@�ӭȡA�]�i�H�O�@�ӦC���C
 
 ```sh
 dns_search: example.com
@@ -237,7 +237,7 @@ dns_search:
 
 ### `working_dir, entrypoint, user, hostname, domainname, mem_limit, privileged, restart, stdin_open, tty, cpu_shares`
 
-这些都是和 `docker run` 支持的选项类似。
+�o�ǳ��O�M `docker run` ������ﶵ�����C
 
 ```
 cpu_shares: 73

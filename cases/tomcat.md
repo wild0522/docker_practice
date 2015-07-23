@@ -1,11 +1,11 @@
-## åˆ›å»º tomcat/weblogic é›†ç¾¤
-### å®‰è£… tomcat é•œåƒ
-å‡†å¤‡å¥½éœ€è¦çš„ jdkã€tomcat ç­‰è½¯ä»¶æ”¾åˆ° home ç›®å½•ä¸‹é¢ï¼Œå¯åŠ¨ä¸€ä¸ªå®¹å™¨
+## ³Ğ«Ø tomcat/weblogic ¶°¸s
+### ¦w¸Ë tomcat Ãè¹³
+·Ç³Æ¦n»İ­nªº jdk¡Btomcat µ¥³n¥ó©ñ¨ì home ¥Ø¿ı¤U­±¡A±Ò°Ê¤@­Ó®e¾¹
 ```
 docker run -t -i -v /home:/opt/data  --name mk_tomcat ubuntu /bin/bash
 ```
-è¿™æ¡å‘½ä»¤æŒ‚è½½æœ¬åœ° home ç›®å½•åˆ°å®¹å™¨çš„ /opt/data ç›®å½•ï¼Œå®¹å™¨å†…ç›®å½•è‹¥ä¸å­˜åœ¨ï¼Œåˆ™ä¼šè‡ªåŠ¨åˆ›å»ºã€‚æ¥ä¸‹æ¥å°±æ˜¯ tomcat çš„åŸºæœ¬é…ç½®ï¼Œjdk ç¯å¢ƒå˜é‡è®¾ç½®å¥½ä¹‹åï¼Œå°† tomcat ç¨‹åºæ”¾åˆ° /opt/apache-tomcat ä¸‹é¢
-ç¼–è¾‘ /etc/supervisor/conf.d/supervisor.conf æ–‡ä»¶ï¼Œæ·»åŠ  tomcat é¡¹
+³o±ø©R¥O±¾¸ü¥»¦a home ¥Ø¿ı¨ì®e¾¹ªº /opt/data ¥Ø¿ı¡A®e¾¹¤º¥Ø¿ı­Y¤£¦s¦b¡A«h·|¦Û°Ê³Ğ«Ø¡C±µ¤U¨Ó´N¬O tomcat ªº°ò¥»°t¸m¡Ajdk Àô¹ÒÅÜ¶q³]¸m¦n¤§«á¡A±N tomcat µ{§Ç©ñ¨ì /opt/apache-tomcat ¤U­±
+½s¿è /etc/supervisor/conf.d/supervisor.conf ¤å¥ó¡A²K¥[ tomcat ¶µ
 ```
 [supervisord]
 nodaemon=true
@@ -21,19 +21,19 @@ command=/usr/sbin/sshd -D
 docker commit  ac6474aeb31d  tomcat
 ```
 
-æ–°å»º tomcat æ–‡ä»¶å¤¹ï¼Œæ–°å»º Dockerfileã€‚
+·s«Ø tomcat ¤å¥ó§¨¡A·s«Ø Dockerfile¡C
 ```
 FROM mk_tomcat
 EXPOSE  22 8080
 CMD ["/usr/bin/supervisord"]
 ```
-æ ¹æ® Dockerfile åˆ›å»ºé•œåƒã€‚
+®Ú¾Ú Dockerfile ³Ğ«ØÃè¹³¡C
 ```
 docker build tomcat tomcat
 ```
-### å®‰è£… weblogic é•œåƒ
+### ¦w¸Ë weblogic Ãè¹³
 
-æ­¥éª¤å’Œ tomcat åŸºæœ¬ä¸€è‡´ï¼Œè¿™é‡Œè´´ä¸€ä¸‹é…ç½®æ–‡ä»¶
+¨BÆJ©M tomcat °ò¥»¤@­P¡A³o¸Ì¶K¤@¤U°t¸m¤å¥ó
 ```
 supervisor.conf
 [supervisord]
@@ -51,35 +51,35 @@ EXPOSE  22 7001
 CMD ["/usr/bin/supervisord"]
 ```
 
-### tomcat/weblogic é•œåƒçš„ä½¿ç”¨
-#### å­˜å‚¨çš„ä½¿ç”¨
-åœ¨å¯åŠ¨çš„æ—¶å€™ï¼Œä½¿ç”¨ `-v` å‚æ•°
+### tomcat/weblogic Ãè¹³ªº¨Ï¥Î
+#### ¦sÀxªº¨Ï¥Î
+¦b±Ò°Êªº®É­Ô¡A¨Ï¥Î `-v` °Ñ¼Æ
 
     -v, --volume=[]            Bind mount a volume (e.g. from the host: -v /host:/container, from docker: -v /container)
 
-å°†æœ¬åœ°ç£ç›˜æ˜ å°„åˆ°å®¹å™¨å†…éƒ¨ï¼Œå®ƒåœ¨ä¸»æœºå’Œå®¹å™¨ä¹‹é—´æ˜¯å®æ—¶å˜åŒ–çš„ï¼Œæ‰€ä»¥æˆ‘ä»¬æ›´æ–°ç¨‹åºã€ä¸Šä¼ ä»£ç åªéœ€è¦æ›´æ–°ç‰©ç†ä¸»æœºçš„ç›®å½•å°±å¯ä»¥äº†
+±N¥»¦aºÏ½L¬M®g¨ì®e¾¹¤º³¡¡A¥¦¦b¥D¾÷©M®e¾¹¤§¶¡¬O¹ê®ÉÅÜ¤Æªº¡A©Ò¥H§Ú­Ì§ó·sµ{§Ç¡B¤W¶Ç¥N½X¥u»İ­n§ó·sª«²z¥D¾÷ªº¥Ø¿ı´N¥i¥H¤F
 
-#### tomcat å’Œ weblogic é›†ç¾¤çš„å®ç°
-tomcat åªè¦å¼€å¯å¤šä¸ªå®¹å™¨å³å¯
+#### tomcat ©M weblogic ¶°¸sªº¹ê²{
+tomcat ¥u­n¶}±Ò¦h­Ó®e¾¹§Y¥i
 ```
 docker run -d -v -p 204:22 -p 7003:8080 -v /home/data:/opt/data --name tm1 tomcat /usr/bin/supervisord
 docker run -d -v -p 205:22 -p 7004:8080 -v /home/data:/opt/data --name tm2 tomcat /usr/bin/supervisord
 docker run -d -v -p 206:22 -p 7005:8080 -v /home/data:/opt/data --name tm3 tomcat /usr/bin/supervisord
 ```
 
-è¿™é‡Œè¯´ä¸€ä¸‹ weblogic çš„é…ç½®ï¼Œå¤§å®¶çŸ¥é“ weblogic æœ‰ä¸€ä¸ªåŸŸçš„æ¦‚å¿µã€‚å¦‚æœè¦ä½¿ç”¨å¸¸è§„çš„ administrator +node çš„æ–¹å¼éƒ¨ç½²ï¼Œå°±éœ€è¦åœ¨ supervisord ä¸­åˆ†åˆ«å†™å‡º administartor server å’Œ node server çš„å¯åŠ¨è„šæœ¬ï¼Œè¿™æ ·åšçš„ä¼˜ç‚¹æ˜¯ï¼š
-* å¯ä»¥ä½¿ç”¨ weblogic çš„é›†ç¾¤ï¼ŒåŒæ­¥ç­‰æ¦‚å¿µ
-* éƒ¨ç½²ä¸€ä¸ªé›†ç¾¤åº”ç”¨ç¨‹åºï¼Œåªéœ€è¦å®‰è£…ä¸€æ¬¡åº”ç”¨åˆ°é›†ç¾¤ä¸Šå³å¯
+³o¸Ì»¡¤@¤U weblogic ªº°t¸m¡A¤j®aª¾¹D weblogic ¦³¤@­Ó°ìªº·§©À¡C¦pªG­n¨Ï¥Î±`³Wªº administrator +node ªº¤è¦¡³¡¸p¡A´N»İ­n¦b supervisord ¤¤¤À§O¼g¥X administartor server ©M node server ªº±Ò°Ê¸}¥»¡A³o¼Ë°µªºÀuÂI¬O¡G
+* ¥i¥H¨Ï¥Î weblogic ªº¶°¸s¡A¦P¨Bµ¥·§©À
+* ³¡¸p¤@­Ó¶°¸sÀ³¥Îµ{§Ç¡A¥u»İ­n¦w¸Ë¤@¦¸À³¥Î¨ì¶°¸s¤W§Y¥i
 
-ç¼ºç‚¹æ˜¯ï¼š
-* Docker é…ç½®å¤æ‚äº†
-* æ²¡åŠæ³•è‡ªåŠ¨æ‰©å±•é›†ç¾¤çš„è®¡ç®—å®¹é‡ï¼Œå¦‚éœ€æ·»åŠ èŠ‚ç‚¹ï¼Œéœ€è¦åœ¨ administrator ä¸Šå…ˆåˆ›å»ºèŠ‚ç‚¹ï¼Œç„¶åå†é…ç½®æ–°çš„å®¹å™¨ supervisor å¯åŠ¨è„šæœ¬ï¼Œç„¶åå†å¯åŠ¨å®¹å™¨
+¯ÊÂI¬O¡G
+* Docker °t¸m½ÆÂø¤F
+* ¨S¿ìªk¦Û°ÊÂX®i¶°¸sªº­pºâ®e¶q¡A¦p»İ²K¥[¸`ÂI¡A»İ­n¦b administrator ¤W¥ı³Ğ«Ø¸`ÂI¡AµM«á¦A°t¸m·sªº®e¾¹ supervisor ±Ò°Ê¸}¥»¡AµM«á¦A±Ò°Ê®e¾¹
 
-å¦å¤–ç§æ–¹æ³•æ˜¯å°†æ‰€æœ‰çš„ç¨‹åºéƒ½å®‰è£…åœ¨ adminiserver ä¸Šé¢ï¼Œéœ€è¦æ‰©å±•çš„æ—¶å€™ï¼Œå¯åŠ¨å¤šä¸ªèŠ‚ç‚¹å³å¯ï¼Œå®ƒçš„ä¼˜ç‚¹å’Œç¼ºç‚¹å’Œä¸Šä¸€ç§æ–¹æ³•æ°æ°ç›¸åã€‚ï¼ˆå»ºè®®ä½¿ç”¨è¿™ç§æ–¹å¼æ¥éƒ¨ç½²å¼€å‘å’Œæµ‹è¯•ç¯å¢ƒï¼‰
+¥t¥~ºØ¤èªk¬O±N©Ò¦³ªºµ{§Ç³£¦w¸Ë¦b adminiserver ¤W­±¡A»İ­nÂX®iªº®É­Ô¡A±Ò°Ê¦h­Ó¸`ÂI§Y¥i¡A¥¦ªºÀuÂI©M¯ÊÂI©M¤W¤@ºØ¤èªk«ê«ê¬Û¤Ï¡C¡]«ØÄ³¨Ï¥Î³oºØ¤è¦¡¨Ó³¡¸p¶}µo©M´ú¸ÕÀô¹Ò¡^
 ```
 docker run -d -v -p 204:22 -p 7001:7001 -v /home/data:/opt/data --name node1 weblogic /usr/bin/supervisord
 docker run -d -v -p 205:22 -p 7002:7001 -v /home/data:/opt/data --name node2 weblogic /usr/bin/supervisord
 docker run -d -v -p 206:22 -p 7003:7001 -v /home/data:/opt/data --name node3 weblogic /usr/bin/supervisord
 ```
 
-è¿™æ ·åœ¨å‰ç«¯ä½¿ç”¨ nginx æ¥åšè´Ÿè½½å‡è¡¡å°±å¯ä»¥å®Œæˆé…ç½®äº†
+³o¼Ë¦b«eºİ¨Ï¥Î nginx ¨Ó°µ­t¸ü§¡¿Å´N¥i¥H§¹¦¨°t¸m¤F

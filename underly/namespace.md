@@ -1,22 +1,22 @@
-## 名字空间
-名字空间是 Linux 内核一个强大的特性。每个容器都有自己单独的名字空间，运行在其中的应用都像是在独立的操作系统中运行一样。名字空间保证了容器之间彼此互不影响。
+## �W�r�Ŷ�
+�W�r�Ŷ��O Linux ���֤@�ӱj�j���S�ʡC�C�Ӯe�������ۤv��W���W�r�Ŷ��A�B��b�䤤�����γ����O�b�W�ߪ��ާ@�t�Τ��B��@�ˡC�W�r�Ŷ��O�ҤF�e���������������v�T�C
 
-### pid 名字空间
-不同用户的进程就是通过 pid 名字空间隔离开的，且不同名字空间中可以有相同 pid。所有的 LXC 进程在 Docker 中的父进程为Docker进程，每个 LXC 进程具有不同的名字空间。同时由于允许嵌套，因此可以很方便的实现嵌套的 Docker 容器。
+### pid �W�r�Ŷ�
+���P�Τ᪺�i�{�N�O�q�L pid �W�r�Ŷ��j���}���A�B���P�W�r�Ŷ����i�H���ۦP pid�C�Ҧ��� LXC �i�{�b Docker �������i�{��Docker�i�{�A�C�� LXC �i�{�㦳���P���W�r�Ŷ��C�P�ɥѩ󤹳\�O�M�A�]���i�H�ܤ�K����{�O�M�� Docker �e���C
 
-### net 名字空间
-有了 pid 名字空间, 每个名字空间中的 pid 能够相互隔离，但是网络端口还是共享 host 的端口。网络隔离是通过 net 名字空间实现的， 每个 net 名字空间有独立的 网络设备, IP 地址, 路由表, /proc/net 目录。这样每个容器的网络就能隔离开来。Docker 默认采用 veth 的方式，将容器中的虚拟网卡同 host 上的一 个Docker 网桥 docker0 连接在一起。
+### net �W�r�Ŷ�
+���F pid �W�r�Ŷ�, �C�ӦW�r�Ŷ����� pid ����ۤ��j���A���O�����ݤf�٬O�@�� host ���ݤf�C�����j���O�q�L net �W�r�Ŷ���{���A �C�� net �W�r�Ŷ����W�ߪ� �����]��, IP �a�}, ���Ѫ�, /proc/net �ؿ��C�o�˨C�Ӯe���������N��j���}�ӡCDocker �q�{�ĥ� veth ���覡�A�N�e�������������d�P host �W���@ ��Docker ���� docker0 �s���b�@�_�C
 
-### ipc 名字空间
-容器中进程交互还是采用了 Linux 常见的进程间交互方法(interprocess communication - IPC), 包括信号量、消息队列和共享内存等。然而同 VM 不同的是，容器的进程间交互实际上还是 host 上具有相同 pid 名字空间中的进程间交互，因此需要在 IPC 资源申请时加入名字空间信息，每个 IPC 资源有一个唯一的 32 位 id。
+### ipc �W�r�Ŷ�
+�e�����i�{�椬�٬O�ĥΤF Linux �`�����i�{���椬��k(interprocess communication - IPC), �]�A�H���q�B�������C�M�@�ɤ��s���C�M�ӦP VM ���P���O�A�e�����i�{���椬��ڤW�٬O host �W�㦳�ۦP pid �W�r�Ŷ������i�{���椬�A�]���ݭn�b IPC �귽�ӽЮɥ[�J�W�r�Ŷ��H���A�C�� IPC �귽���@�Ӱߤ@�� 32 �� id�C
 
-### mnt 名字空间
-类似 chroot，将一个进程放到一个特定的目录执行。mnt 名字空间允许不同名字空间的进程看到的文件结构不同，这样每个名字空间 中的进程所看到的文件目录就被隔离开了。同 chroot 不同，每个名字空间中的容器在 /proc/mounts 的信息只包含所在名字空间的 mount point。
+### mnt �W�r�Ŷ�
+���� chroot�A�N�@�Ӷi�{���@�ӯS�w���ؿ�����Cmnt �W�r�Ŷ����\���P�W�r�Ŷ����i�{�ݨ쪺��󵲺c���P�A�o�˨C�ӦW�r�Ŷ� �����i�{�Ҭݨ쪺���ؿ��N�Q�j���}�F�C�P chroot ���P�A�C�ӦW�r�Ŷ������e���b /proc/mounts ���H���u�]�t�Ҧb�W�r�Ŷ��� mount point�C
 
-### uts 名字空间
-UTS("UNIX Time-sharing System") 名字空间允许每个容器拥有独立的 hostname 和 domain name, 使其在网络上可以被视作一个独立的节点而非 主机上的一个进程。
+### uts �W�r�Ŷ�
+UTS("UNIX Time-sharing System") �W�r�Ŷ����\�C�Ӯe���֦��W�ߪ� hostname �M domain name, �Ϩ�b�����W�i�H�Q���@�@�ӿW�ߪ��`�I�ӫD �D���W���@�Ӷi�{�C
 
-### user 名字空间
-每个容器可以有不同的用户和组 id, 也就是说可以在容器内用容器内部的用户执行程序而非主机上的用户。
+### user �W�r�Ŷ�
+�C�Ӯe���i�H�����P���Τ�M�� id, �]�N�O���i�H�b�e�����ήe���������Τ����{�ǦӫD�D���W���Τ�C
 
-*注：关于 Linux 上的名字空间，[这篇文章](http://blog.scottlowe.org/2013/09/04/introducing-linux-network-namespaces/) 介绍的很好。
+*���G���� Linux �W���W�r�Ŷ��A[�o�g�峹](http://blog.scottlowe.org/2013/09/04/introducing-linux-network-namespaces/) ���Ъ��ܦn�C

@@ -1,8 +1,8 @@
-## è·å–é•œåƒ
+## Àò¨úÃè¹³
 
-å¯ä»¥ä½¿ç”¨ `docker pull` å‘½ä»¤æ¥ä»ä»“åº“è·å–æ‰€éœ€è¦çš„é•œåƒã€‚
+¥i¥H¨Ï¥Î `docker pull` ©R¥O¨Ó±q­Ü®wÀò¨ú©Ò»İ­nªºÃè¹³¡C
 
-ä¸‹é¢çš„ä¾‹å­å°†ä» Docker Hub ä»“åº“ä¸‹è½½ä¸€ä¸ª Ubuntu 12.04 æ“ä½œç³»ç»Ÿçš„é•œåƒã€‚
+¤U­±ªº¨Ò¤l±N±q Docker Hub ­Ü®w¤U¸ü¤@­Ó Ubuntu 12.04 ¾Ş§@¨t²ÎªºÃè¹³¡C
 ```
 $ sudo docker pull ubuntu:12.04
 Pulling repository ubuntu
@@ -14,12 +14,12 @@ a300658979be: Download complete
 ffdaafd1ca50: Download complete
 d047ae21eeaf: Download complete
 ```
-ä¸‹è½½è¿‡ç¨‹ä¸­ï¼Œä¼šè¾“å‡ºè·å–é•œåƒçš„æ¯ä¸€å±‚ä¿¡æ¯ã€‚
+¤U¸ü¹Lµ{¤¤¡A·|¿é¥XÀò¨úÃè¹³ªº¨C¤@¼h«H®§¡C
 
-è¯¥å‘½ä»¤å®é™…ä¸Šç›¸å½“äº `$ sudo docker pull registry.hub.docker.com/ubuntu:12.04` å‘½ä»¤ï¼Œå³ä»æ³¨å†ŒæœåŠ¡å™¨ `registry.hub.docker.com` ä¸­çš„ `ubuntu` ä»“åº“æ¥ä¸‹è½½æ ‡è®°ä¸º `12.04` çš„é•œåƒã€‚
+¸Ó©R¥O¹ê»Ú¤W¬Û·í©ó `$ sudo docker pull registry.hub.docker.com/ubuntu:12.04` ©R¥O¡A§Y±qµù¥UªA°È¾¹ `registry.hub.docker.com` ¤¤ªº `ubuntu` ­Ü®w¨Ó¤U¸ü¼Ğ°O¬° `12.04` ªºÃè¹³¡C
 
-æœ‰æ—¶å€™å®˜æ–¹ä»“åº“æ³¨å†ŒæœåŠ¡å™¨ä¸‹è½½è¾ƒæ…¢ï¼Œå¯ä»¥ä»å…¶ä»–ä»“åº“ä¸‹è½½ã€‚
-ä»å…¶å®ƒä»“åº“ä¸‹è½½æ—¶éœ€è¦æŒ‡å®šå®Œæ•´çš„ä»“åº“æ³¨å†ŒæœåŠ¡å™¨åœ°å€ã€‚ä¾‹å¦‚
+¦³®É­Ô©x¤è­Ü®wµù¥UªA°È¾¹¤U¸ü¸ûºC¡A¥i¥H±q¨ä¥L­Ü®w¤U¸ü¡C
+±q¨ä¥¦­Ü®w¤U¸ü®É»İ­n«ü©w§¹¾ãªº­Ü®wµù¥UªA°È¾¹¦a§}¡C¨Ò¦p
 ```
 $ sudo docker pull dl.dockerpool.com:5000/ubuntu:12.04
 Pulling dl.dockerpool.com:5000/ubuntu
@@ -32,7 +32,7 @@ ffdaafd1ca50: Download complete
 d047ae21eeaf: Download complete
 ```
 
-å®Œæˆåï¼Œå³å¯éšæ—¶ä½¿ç”¨è¯¥é•œåƒäº†ï¼Œä¾‹å¦‚åˆ›å»ºä¸€ä¸ªå®¹å™¨ï¼Œè®©å…¶ä¸­è¿è¡Œ bash åº”ç”¨ã€‚
+§¹¦¨«á¡A§Y¥iÀH®É¨Ï¥Î¸ÓÃè¹³¤F¡A¨Ò¦p³Ğ«Ø¤@­Ó®e¾¹¡AÅı¨ä¤¤¹B¦æ bash À³¥Î¡C
 ```
 $ sudo docker run -t -i ubuntu:12.04 /bin/bash
 root@fe7fc4bd8fc9:/#

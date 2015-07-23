@@ -1,16 +1,16 @@
-## å¤–éƒ¨è®¿é—®å®¹å™¨
-å®¹å™¨ä¸­å¯ä»¥è¿è¡Œä¸€äº›ç½‘ç»œåº”ç”¨ï¼Œè¦è®©å¤–éƒ¨ä¹Ÿå¯ä»¥è®¿é—®è¿™äº›åº”ç”¨ï¼Œå¯ä»¥é€šè¿‡ `-P` æˆ– `-p` å‚æ•°æ¥æŒ‡å®šç«¯å£æ˜ å°„ã€‚
+## ¥~³¡³X°İ®e¾¹
+®e¾¹¤¤¥i¥H¹B¦æ¤@¨Çºôµ¸À³¥Î¡A­nÅı¥~³¡¤]¥i¥H³X°İ³o¨ÇÀ³¥Î¡A¥i¥H³q¹L `-P` ©Î `-p` °Ñ¼Æ¨Ó«ü©wºİ¤f¬M®g¡C
 
-å½“ä½¿ç”¨ -P æ ‡è®°æ—¶ï¼ŒDocker ä¼šéšæœºæ˜ å°„ä¸€ä¸ª `49000~49900` çš„ç«¯å£åˆ°å†…éƒ¨å®¹å™¨å¼€æ”¾çš„ç½‘ç»œç«¯å£ã€‚
+·í¨Ï¥Î -P ¼Ğ°O®É¡ADocker ·|ÀH¾÷¬M®g¤@­Ó `49000~49900` ªººİ¤f¨ì¤º³¡®e¾¹¶}©ñªººôµ¸ºİ¤f¡C
 
-ä½¿ç”¨ `docker ps` å¯ä»¥çœ‹åˆ°ï¼Œæœ¬åœ°ä¸»æœºçš„ 49155 è¢«æ˜ å°„åˆ°äº†å®¹å™¨çš„ 5000 ç«¯å£ã€‚æ­¤æ—¶è®¿é—®æœ¬æœºçš„ 49155 ç«¯å£å³å¯è®¿é—®å®¹å™¨å†… web åº”ç”¨æä¾›çš„ç•Œé¢ã€‚
+¨Ï¥Î `docker ps` ¥i¥H¬İ¨ì¡A¥»¦a¥D¾÷ªº 49155 ³Q¬M®g¨ì¤F®e¾¹ªº 5000 ºİ¤f¡C¦¹®É³X°İ¥»¾÷ªº 49155 ºİ¤f§Y¥i³X°İ®e¾¹¤º web À³¥Î´£¨Ñªº¬É­±¡C
 ```
 $ sudo docker run -d -P training/webapp python app.py
 $ sudo docker ps -l
 CONTAINER ID  IMAGE                   COMMAND       CREATED        STATUS        PORTS                    NAMES
 bc533791f3f5  training/webapp:latest  python app.py 5 seconds ago  Up 2 seconds  0.0.0.0:49155->5000/tcp  nostalgic_morse
 ```
-åŒæ ·çš„ï¼Œå¯ä»¥é€šè¿‡ `docker logs` å‘½ä»¤æ¥æŸ¥çœ‹åº”ç”¨çš„ä¿¡æ¯ã€‚
+¦P¼Ëªº¡A¥i¥H³q¹L `docker logs` ©R¥O¨Ó¬d¬İÀ³¥Îªº«H®§¡C
 ```
 $ sudo docker logs -f nostalgic_morse
 * Running on http://0.0.0.0:5000/
@@ -18,40 +18,40 @@ $ sudo docker logs -f nostalgic_morse
 10.0.2.2 - - [23/May/2014 20:16:31] "GET /favicon.ico HTTP/1.1" 404 -
 ```
 
--pï¼ˆå°å†™çš„ï¼‰åˆ™å¯ä»¥æŒ‡å®šè¦æ˜ å°„çš„ç«¯å£ï¼Œå¹¶ä¸”ï¼Œåœ¨ä¸€ä¸ªæŒ‡å®šç«¯å£ä¸Šåªå¯ä»¥ç»‘å®šä¸€ä¸ªå®¹å™¨ã€‚æ”¯æŒçš„æ ¼å¼æœ‰ `ip:hostPort:containerPort | ip::containerPort | hostPort:containerPort`ã€‚
+-p¡]¤p¼gªº¡^«h¥i¥H«ü©w­n¬M®gªººİ¤f¡A¨Ã¥B¡A¦b¤@­Ó«ü©wºİ¤f¤W¥u¥i¥H¸j©w¤@­Ó®e¾¹¡C¤ä«ùªº®æ¦¡¦³ `ip:hostPort:containerPort | ip::containerPort | hostPort:containerPort`¡C
 
-### æ˜ å°„æ‰€æœ‰æ¥å£åœ°å€
-ä½¿ç”¨ `hostPort:containerPort` æ ¼å¼æœ¬åœ°çš„ 5000 ç«¯å£æ˜ å°„åˆ°å®¹å™¨çš„ 5000 ç«¯å£ï¼Œå¯ä»¥æ‰§è¡Œ
+### ¬M®g©Ò¦³±µ¤f¦a§}
+¨Ï¥Î `hostPort:containerPort` ®æ¦¡¥»¦aªº 5000 ºİ¤f¬M®g¨ì®e¾¹ªº 5000 ºİ¤f¡A¥i¥H°õ¦æ
 ```
 $ sudo docker run -d -p 5000:5000 training/webapp python app.py
 ```
-æ­¤æ—¶é»˜è®¤ä¼šç»‘å®šæœ¬åœ°æ‰€æœ‰æ¥å£ä¸Šçš„æ‰€æœ‰åœ°å€ã€‚
+¦¹®ÉÀq»{·|¸j©w¥»¦a©Ò¦³±µ¤f¤Wªº©Ò¦³¦a§}¡C
 
-### æ˜ å°„åˆ°æŒ‡å®šåœ°å€çš„æŒ‡å®šç«¯å£
-å¯ä»¥ä½¿ç”¨ `ip:hostPort:containerPort` æ ¼å¼æŒ‡å®šæ˜ å°„ä½¿ç”¨ä¸€ä¸ªç‰¹å®šåœ°å€ï¼Œæ¯”å¦‚ localhost åœ°å€ 127.0.0.1
+### ¬M®g¨ì«ü©w¦a§}ªº«ü©wºİ¤f
+¥i¥H¨Ï¥Î `ip:hostPort:containerPort` ®æ¦¡«ü©w¬M®g¨Ï¥Î¤@­Ó¯S©w¦a§}¡A¤ñ¦p localhost ¦a§} 127.0.0.1
 ```
 $ sudo docker run -d -p 127.0.0.1:5000:5000 training/webapp python app.py
 ```
-### æ˜ å°„åˆ°æŒ‡å®šåœ°å€çš„ä»»æ„ç«¯å£
-ä½¿ç”¨ `ip::containerPort` ç»‘å®š localhost çš„ä»»æ„ç«¯å£åˆ°å®¹å™¨çš„ 5000 ç«¯å£ï¼Œæœ¬åœ°ä¸»æœºä¼šè‡ªåŠ¨åˆ†é…ä¸€ä¸ªç«¯å£ã€‚
+### ¬M®g¨ì«ü©w¦a§}ªº¥ô·Nºİ¤f
+¨Ï¥Î `ip::containerPort` ¸j©w localhost ªº¥ô·Nºİ¤f¨ì®e¾¹ªº 5000 ºİ¤f¡A¥»¦a¥D¾÷·|¦Û°Ê¤À°t¤@­Óºİ¤f¡C
 ```
 $ sudo docker run -d -p 127.0.0.1::5000 training/webapp python app.py
 ```
-è¿˜å¯ä»¥ä½¿ç”¨ udp æ ‡è®°æ¥æŒ‡å®š udp ç«¯å£
+ÁÙ¥i¥H¨Ï¥Î udp ¼Ğ°O¨Ó«ü©w udp ºİ¤f
 ```
 $ sudo docker run -d -p 127.0.0.1:5000:5000/udp training/webapp python app.py
 ```
-### æŸ¥çœ‹æ˜ å°„ç«¯å£é…ç½®
-ä½¿ç”¨ `docker port` æ¥æŸ¥çœ‹å½“å‰æ˜ å°„çš„ç«¯å£é…ç½®ï¼Œä¹Ÿå¯ä»¥æŸ¥çœ‹åˆ°ç»‘å®šçš„åœ°å€
+### ¬d¬İ¬M®gºİ¤f°t¸m
+¨Ï¥Î `docker port` ¨Ó¬d¬İ·í«e¬M®gªººİ¤f°t¸m¡A¤]¥i¥H¬d¬İ¨ì¸j©wªº¦a§}
 ```
 $ docker port nostalgic_morse 5000
 127.0.0.1:49155.
 ```
-æ³¨æ„ï¼š
-* å®¹å™¨æœ‰è‡ªå·±çš„å†…éƒ¨ç½‘ç»œå’Œ ip åœ°å€ï¼ˆä½¿ç”¨ `docker inspect` å¯ä»¥è·å–æ‰€æœ‰çš„å˜é‡ï¼ŒDocker è¿˜å¯ä»¥æœ‰ä¸€ä¸ªå¯å˜çš„ç½‘ç»œé…ç½®ã€‚ï¼‰
-* -p æ ‡è®°å¯ä»¥å¤šæ¬¡ä½¿ç”¨æ¥ç»‘å®šå¤šä¸ªç«¯å£
+ª`·N¡G
+* ®e¾¹¦³¦Û¤vªº¤º³¡ºôµ¸©M ip ¦a§}¡]¨Ï¥Î `docker inspect` ¥i¥HÀò¨ú©Ò¦³ªºÅÜ¶q¡ADocker ÁÙ¥i¥H¦³¤@­Ó¥iÅÜªººôµ¸°t¸m¡C¡^
+* -p ¼Ğ°O¥i¥H¦h¦¸¨Ï¥Î¨Ó¸j©w¦h­Óºİ¤f
 
-ä¾‹å¦‚
+¨Ò¦p
 ```
 $ sudo docker run -d -p 5000:5000  -p 3000:80 training/webapp python app.py
 ```

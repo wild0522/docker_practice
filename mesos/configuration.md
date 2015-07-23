@@ -1,108 +1,108 @@
-## Mesos é…ç½®é¡¹è§£æ
+## Mesos °t¸m¶µ¸ÑªR
 
-Mesos çš„ [é…ç½®é¡¹](http://mesos.apache.org/documentation/latest/configuration/) å¯ä»¥é€šè¿‡å¯åŠ¨æ—¶å€™ä¼ é€’å‚æ•°æˆ–è€…é…ç½®ç›®å½•ä¸‹æ–‡ä»¶çš„æ–¹å¼ç»™å‡ºï¼ˆæ¨èæ–¹å¼ï¼Œä¸€ç›®äº†ç„¶ï¼‰ã€‚
+Mesos ªº [°t¸m¶µ](http://mesos.apache.org/documentation/latest/configuration/) ¥i¥H³q¹L±Ò°Ê®É­Ô¶Ç»¼°Ñ¼Æ©ÎªÌ°t¸m¥Ø¿ı¤U¤å¥óªº¤è¦¡µ¹¥X¡]±ÀÂË¤è¦¡¡A¤@¥ØÁAµM¡^¡C
 
-åˆ†ä¸ºä¸‰ç§ç±»å‹ï¼šé€šç”¨é¡¹ï¼ˆmaster å’Œ slave éƒ½æ”¯æŒï¼‰ï¼Œåªæœ‰ master æ”¯æŒçš„ï¼Œä»¥åŠåªæœ‰ slave æ”¯æŒçš„ã€‚
+¤À¬°¤TºØÃş«¬¡G³q¥Î¶µ¡]master ©M slave ³£¤ä«ù¡^¡A¥u¦³ master ¤ä«ùªº¡A¥H¤Î¥u¦³ slave ¤ä«ùªº¡C
 
 
-### é€šç”¨é¡¹
-* `--ip=VALUE` ç›‘å¬çš„ IP åœ°å€
-* `--firewall_rules=VALUE` endpoint é˜²ç«å¢™è§„åˆ™ï¼Œ`VALUE` å¯ä»¥æ˜¯ JSON æ ¼å¼æˆ–è€…å­˜æœ‰ JSON æ ¼å¼çš„æ–‡ä»¶è·¯å¾„ã€‚
-* `--log_dir=VALUE` æ—¥å¿—æ–‡ä»¶è·¯å¾„ï¼Œé»˜è®¤ä¸å­˜å‚¨æ—¥å¿—åˆ°æœ¬åœ°
-* `--logbufsecs=VALUE`  buffer å¤šå°‘ç§’çš„æ—¥å¿—ï¼Œç„¶åå†™å…¥æœ¬åœ°
-* `--logging_level=VALUE` æ—¥å¿—è®°å½•çš„æœ€ä½çº§åˆ«
-* `--port=VALUE` ç›‘å¬çš„ç«¯å£ï¼Œmaster é»˜è®¤æ˜¯ 5050ï¼Œslave é»˜è®¤æ˜¯ 5051ã€‚
+### ³q¥Î¶µ
+* `--ip=VALUE` ºÊÅ¥ªº IP ¦a§}
+* `--firewall_rules=VALUE` endpoint ¨¾¤õÀğ³W«h¡A`VALUE` ¥i¥H¬O JSON ®æ¦¡©ÎªÌ¦s¦³ JSON ®æ¦¡ªº¤å¥ó¸ô®|¡C
+* `--log_dir=VALUE` ¤é»x¤å¥ó¸ô®|¡AÀq»{¤£¦sÀx¤é»x¨ì¥»¦a
+* `--logbufsecs=VALUE`  buffer ¦h¤Ö¬íªº¤é»x¡AµM«á¼g¤J¥»¦a
+* `--logging_level=VALUE` ¤é»x°O¿ıªº³Ì§C¯Å§O
+* `--port=VALUE` ºÊÅ¥ªººİ¤f¡Amaster Àq»{¬O 5050¡Aslave Àq»{¬O 5051¡C
 
-### master ä¸“å±é…ç½®é¡¹
-* `--quorum=VALUE` å¿…å¤‡é¡¹ï¼Œä½¿ç”¨åŸºäº replicated-Log çš„æ³¨å†Œè¡¨æ—¶ï¼Œå¤åˆ¶çš„ä¸ªæ•°
-* `--work_dir=VALUE` å¿…å¤‡é¡¹ï¼Œæ³¨å†Œè¡¨æŒä¹…åŒ–ä¿¡æ¯å­˜å‚¨ä½ç½®
-* `--zk=VALUE` å¿…å¤‡é¡¹ï¼Œzookeepr çš„æ¥å£åœ°å€ï¼Œæ”¯æŒå¤šä¸ªåœ°å€ï¼Œä¹‹é—´ç”¨é€—å·éš”ç¦»ï¼Œå¯ä»¥ä¸ºæ–‡ä»¶è·¯å¾„
-* `--acls=VALUE` ACL è§„åˆ™æˆ–æ‰€åœ¨æ–‡ä»¶
-* `--allocation_interval=VALUE` æ‰§è¡Œ allocation çš„é—´éš”ï¼Œé»˜è®¤ä¸º 1sec
-* `--allocator=VALUE` åˆ†é…æœºåˆ¶ï¼Œé»˜è®¤ä¸º HierarchicalDRF
-* `--[no-]authenticate` æ˜¯å¦å…è®¸éè®¤è¯è¿‡çš„ framework æ³¨å†Œ
-* `--[no-]authenticate_slaves` æ˜¯å¦å…è®¸éè®¤è¯è¿‡çš„ slaves æ³¨å†Œ
-* `--authenticators=VALUE` å¯¹ framework æˆ– salves è¿›è¡Œè®¤è¯æ—¶çš„å®ç°æœºåˆ¶
-* `--cluster=VALUE` é›†ç¾¤åˆ«å
-* `--credentials=VALUE` å­˜å‚¨åŠ å¯†åå‡­è¯çš„æ–‡ä»¶çš„è·¯å¾„
-* `--external_log_file=VALUE` é‡‡ç”¨å¤–éƒ¨çš„æ—¥å¿—æ–‡ä»¶
-* `--framework_sorter=VALUE` ç»™å®š framework ä¹‹é—´çš„èµ„æºåˆ†é…ç­–ç•¥
-* `--hooks=VALUE` master ä¸­å®‰è£…çš„ hook æ¨¡å—
-* `--hostname=VALUE` master èŠ‚ç‚¹ä½¿ç”¨çš„ä¸»æœºåï¼Œä¸é…ç½®åˆ™ä»ç³»ç»Ÿä¸­è·å–
-* `--[no-]log_auto_initialize` æ˜¯å¦è‡ªåŠ¨åˆå§‹åŒ–æ³¨å†Œè¡¨éœ€è¦çš„ replicated æ—¥å¿—
-* `--modules=VALUE` è¦åŠ è½½çš„æ¨¡å—ï¼Œæ”¯æŒæ–‡ä»¶è·¯å¾„æˆ–è€… JSON
-* `--offer_timeout=VALUE` offer æ’¤é”€çš„è¶…æ—¶
-* `--rate_limits=VALUE` framework çš„é€Ÿç‡é™åˆ¶ï¼Œæ¯”å¦‚ qps
-* `--recovery_slave_removal_limit=VALUE` é™åˆ¶æ³¨å†Œè¡¨æ¢å¤åå¯ä»¥ç§»é™¤æˆ–åœæ­¢çš„ slave æ•°ç›®ï¼Œè¶…å‡ºå master ä¼šå¤±è´¥ï¼Œé»˜è®¤æ˜¯ 100%
-* `--slave_removal_rate_limit=VALUE slave` æ²¡æœ‰å®Œæˆå¥åº·åº¦æ£€æŸ¥æ—¶å€™è¢«ç§»é™¤çš„é€Ÿç‡ä¸Šé™ï¼Œä¾‹å¦‚ 1/10mins ä»£è¡¨æ¯ååˆ†é’Ÿæœ€å¤šæœ‰ä¸€ä¸ª
-* `--registry=VALUE` æ³¨å†Œè¡¨çš„æŒä¹…åŒ–ç­–ç•¥ï¼Œé»˜è®¤ä¸º `replicated_log`ï¼Œè¿˜å¯ä»¥ä¸º `in_memory`
-* `--registry_fetch_timeout=VALUE` è®¿é—®æ³¨å†Œè¡¨å¤±è´¥è¶…æ—¶
-* `--registry_store_timeout=VALUE` å­˜å‚¨æ³¨å†Œè¡¨å¤±è´¥è¶…æ—¶
-* `--[no-]registry_strict` æ˜¯å¦æŒ‰ç…§æ³¨å†Œè¡¨ä¸­æŒä¹…åŒ–ä¿¡æ¯æ‰§è¡Œæ“ä½œï¼Œé»˜è®¤ä¸º false
-* `--roles=VALUE` é›†ç¾¤ä¸­ framework å¯ä»¥æ‰€å±çš„åˆ†é…è§’è‰²
-* `--[no-]root_submissions` root æ˜¯å¦å¯ä»¥æäº¤ frameworkï¼Œé»˜è®¤ä¸º true
-* `--slave_reregister_timeout=VALUE` æ–°çš„ lead master èŠ‚ç‚¹é€‰ä¸¾å‡ºæ¥åï¼Œå¤šä¹…ä¹‹å†…æ‰€æœ‰çš„ slave éœ€è¦æ³¨å†Œï¼Œè¶…æ—¶çš„ salve å°†è¢«ç§»é™¤å¹¶å…³é—­ï¼Œé»˜è®¤ä¸º 10mins
-* `--user_sorter=VALUE` åœ¨ç”¨æˆ·ä¹‹é—´åˆ†é…èµ„æºçš„ç­–ç•¥ï¼Œé»˜è®¤ä¸º drf
-* `--webui_dir=VALUE` webui å®ç°çš„æ–‡ä»¶ç›®å½•æ‰€åœ¨ï¼Œé»˜è®¤ä¸º `/usr/local/share/mesos/webui`
-* `--weights=VALUE` å„ä¸ªè§’è‰²çš„æƒé‡
-* `--whitelist=VALUE` æ–‡ä»¶è·¯å¾„ï¼ŒåŒ…æ‹¬å‘é€ offer çš„ slave åå•ï¼Œé»˜è®¤ä¸º None
-* `--zk_session_timeout=VALUE` session è¶…æ—¶ï¼Œé»˜è®¤ä¸º 10secs
-* `--max_executors_per_slave=VALUE` é…ç½®äº† `--with-network-isolator` æ—¶å¯ç”¨ï¼Œé™åˆ¶æ¯ä¸ª slave åŒæ—¶æ‰§è¡Œä»»åŠ¡ä¸ªæ•°
+### master ±MÄİ°t¸m¶µ
+* `--quorum=VALUE` ¥²³Æ¶µ¡A¨Ï¥Î°ò©ó replicated-Log ªºµù¥Uªí®É¡A½Æ»sªº­Ó¼Æ
+* `--work_dir=VALUE` ¥²³Æ¶µ¡Aµù¥Uªí«ù¤[¤Æ«H®§¦sÀx¦ì¸m
+* `--zk=VALUE` ¥²³Æ¶µ¡Azookeepr ªº±µ¤f¦a§}¡A¤ä«ù¦h­Ó¦a§}¡A¤§¶¡¥Î³r¸¹¹jÂ÷¡A¥i¥H¬°¤å¥ó¸ô®|
+* `--acls=VALUE` ACL ³W«h©Î©Ò¦b¤å¥ó
+* `--allocation_interval=VALUE` °õ¦æ allocation ªº¶¡¹j¡AÀq»{¬° 1sec
+* `--allocator=VALUE` ¤À°t¾÷¨î¡AÀq»{¬° HierarchicalDRF
+* `--[no-]authenticate` ¬O§_¤¹³\«D»{ÃÒ¹Lªº framework µù¥U
+* `--[no-]authenticate_slaves` ¬O§_¤¹³\«D»{ÃÒ¹Lªº slaves µù¥U
+* `--authenticators=VALUE` ¹ï framework ©Î salves ¶i¦æ»{ÃÒ®Éªº¹ê²{¾÷¨î
+* `--cluster=VALUE` ¶°¸s§O¦W
+* `--credentials=VALUE` ¦sÀx¥[±K«á¾ÌÃÒªº¤å¥óªº¸ô®|
+* `--external_log_file=VALUE` ±Ä¥Î¥~³¡ªº¤é»x¤å¥ó
+* `--framework_sorter=VALUE` µ¹©w framework ¤§¶¡ªº¸ê·½¤À°tµ¦²¤
+* `--hooks=VALUE` master ¤¤¦w¸Ëªº hook ¼Ò¶ô
+* `--hostname=VALUE` master ¸`ÂI¨Ï¥Îªº¥D¾÷¦W¡A¤£°t¸m«h±q¨t²Î¤¤Àò¨ú
+* `--[no-]log_auto_initialize` ¬O§_¦Û°Êªì©l¤Æµù¥Uªí»İ­nªº replicated ¤é»x
+* `--modules=VALUE` ­n¥[¸üªº¼Ò¶ô¡A¤ä«ù¤å¥ó¸ô®|©ÎªÌ JSON
+* `--offer_timeout=VALUE` offer ºM¾Pªº¶W®É
+* `--rate_limits=VALUE` framework ªº³t²v­­¨î¡A¤ñ¦p qps
+* `--recovery_slave_removal_limit=VALUE` ­­¨îµù¥Uªí«ì´_«á¥i¥H²¾°£©Î°±¤îªº slave ¼Æ¥Ø¡A¶W¥X«á master ·|¥¢±Ñ¡AÀq»{¬O 100%
+* `--slave_removal_rate_limit=VALUE slave` ¨S¦³§¹¦¨°·±d«×ÀË¬d®É­Ô³Q²¾°£ªº³t²v¤W­­¡A¨Ò¦p 1/10mins ¥Nªí¨C¤Q¤ÀÄÁ³Ì¦h¦³¤@­Ó
+* `--registry=VALUE` µù¥Uªíªº«ù¤[¤Æµ¦²¤¡AÀq»{¬° `replicated_log`¡AÁÙ¥i¥H¬° `in_memory`
+* `--registry_fetch_timeout=VALUE` ³X°İµù¥Uªí¥¢±Ñ¶W®É
+* `--registry_store_timeout=VALUE` ¦sÀxµù¥Uªí¥¢±Ñ¶W®É
+* `--[no-]registry_strict` ¬O§_«ö·Óµù¥Uªí¤¤«ù¤[¤Æ«H®§°õ¦æ¾Ş§@¡AÀq»{¬° false
+* `--roles=VALUE` ¶°¸s¤¤ framework ¥i¥H©ÒÄİªº¤À°t¨¤¦â
+* `--[no-]root_submissions` root ¬O§_¥i¥H´£¥æ framework¡AÀq»{¬° true
+* `--slave_reregister_timeout=VALUE` ·sªº lead master ¸`ÂI¿ïÁ|¥X¨Ó«á¡A¦h¤[¤§¤º©Ò¦³ªº slave »İ­nµù¥U¡A¶W®Éªº salve ±N³Q²¾°£¨ÃÃö³¬¡AÀq»{¬° 10mins
+* `--user_sorter=VALUE` ¦b¥Î¤á¤§¶¡¤À°t¸ê·½ªºµ¦²¤¡AÀq»{¬° drf
+* `--webui_dir=VALUE` webui ¹ê²{ªº¤å¥ó¥Ø¿ı©Ò¦b¡AÀq»{¬° `/usr/local/share/mesos/webui`
+* `--weights=VALUE` ¦U­Ó¨¤¦âªºÅv­«
+* `--whitelist=VALUE` ¤å¥ó¸ô®|¡A¥]¬Aµo°e offer ªº slave ¦W³æ¡AÀq»{¬° None
+* `--zk_session_timeout=VALUE` session ¶W®É¡AÀq»{¬° 10secs
+* `--max_executors_per_slave=VALUE` °t¸m¤F `--with-network-isolator` ®É¥i¥Î¡A­­¨î¨C­Ó slave ¦P®É°õ¦æ¥ô°È­Ó¼Æ
 
-### slave ä¸“å±é…ç½®é¡¹
-* `--master=VALUE` å¿…å¤‡é¡¹ï¼Œmaster æ‰€åœ¨åœ°å€ï¼Œæˆ– zookeeper åœ°å€ï¼Œæˆ–æ–‡ä»¶è·¯å¾„ï¼Œå¯ä»¥æ˜¯åˆ—è¡¨
-* `--attributes=VALUE` æœºå™¨å±æ€§
-* `--authenticatee=VALUE` è·Ÿ master è¿›è¡Œè®¤è¯æ—¶å€™çš„è®¤è¯æœºåˆ¶
-* `--[no-]cgroups_enable_cfs` é‡‡ç”¨ CFS è¿›è¡Œå¸¦å®½é™åˆ¶æ—¶å€™å¯¹ CPU èµ„æºè¿›è¡Œé™åˆ¶ï¼Œé»˜è®¤ä¸º false
-* `--cgroups_hierarchy=VALUE` cgroups çš„ç›®å½•æ ¹ä½ç½®ï¼Œé»˜è®¤ä¸º `/sys/fs/cgroup`
-* `--[no-]cgroups_limit_swap` é™åˆ¶å†…å­˜å’Œ swapï¼Œé»˜è®¤ä¸º falseï¼Œåªé™åˆ¶å†…å­˜
-* `--cgroups_root=VALUE` æ ¹ cgroups çš„åç§°ï¼Œé»˜è®¤ä¸º mesos
-* `--container_disk_watch_interval=VALUE` ä¸ºå®¹å™¨è¿›è¡Œç¡¬ç›˜é…é¢æŸ¥è¯¢çš„æ—¶é—´é—´éš”
-* `--containerizer_path=VALUE` é‡‡ç”¨å¤–éƒ¨éš”ç¦»æœºåˆ¶ï¼ˆ`--isolation=external`ï¼‰æ—¶å€™ï¼Œå¤–éƒ¨å®¹å™¨æœºåˆ¶æ‰§è¡Œæ–‡ä»¶è·¯å¾„
-* `--containerizers=VALUE` å¯ç”¨çš„å®¹å™¨å®ç°æœºåˆ¶ï¼ŒåŒ…æ‹¬ mesosã€externalã€docker
-* `--credential=VALUE` åŠ å¯†åå‡­è¯ï¼Œæˆ–è€…æ‰€åœ¨æ–‡ä»¶è·¯å¾„
-* `--default_container_image=VALUE` é‡‡ç”¨å¤–éƒ¨å®¹å™¨æœºåˆ¶æ—¶ï¼Œä»»åŠ¡ç¼ºçœä½¿ç”¨çš„é•œåƒ
-* `--default_container_info=VALUE` å®¹å™¨ä¿¡æ¯çš„ç¼ºçœå€¼
-* `--default_role=VALUE` èµ„æºç¼ºçœåˆ†é…çš„è§’è‰²
-* `--disk_watch_interval=VALUE` ç¡¬ç›˜ä½¿ç”¨æƒ…å†µçš„å‘¨æœŸæ€§æ£€æŸ¥é—´éš”ï¼Œé»˜è®¤ä¸º 1mins
-* `--docker=VALUE` docker æ‰§è¡Œæ–‡ä»¶çš„è·¯å¾„
-* `--docker_remove_delay=VALUE` åˆ é™¤å®¹å™¨ä¹‹å‰çš„ç­‰å¾…æ—¶é—´ï¼Œé»˜è®¤ä¸º 6hrs
-* `--[no-]docker_kill_orphans` æ¸…é™¤å­¤å„¿å®¹å™¨ï¼Œé»˜è®¤ä¸º true
-* `--docker_sock=VALUE` docker sock åœ°å€ï¼Œé»˜è®¤ä¸º `/var/run/docker.sock`
-* `--docker_mesos_image=VALUE` è¿è¡Œ slave çš„ docker é•œåƒï¼Œå¦‚æœè¢«é…ç½®ï¼Œdocker ä¼šå‡å®š slave è¿è¡Œåœ¨ä¸€ä¸ª docker å®¹å™¨é‡Œ
-* `--docker_sandbox_directory=VALUE` sandbox æ˜ å°„åˆ°å®¹å™¨é‡Œçš„å“ªä¸ªè·¯å¾„
-* `--docker_stop_timeout=VALUE` åœæ­¢å®ä¾‹åç­‰å¾…å¤šä¹…æ‰§è¡Œ kill æ“ä½œï¼Œé»˜è®¤ä¸º 0secs
-* `--[no-]enforce_container_disk_quota` æ˜¯å¦å¯ç”¨å®¹å™¨é…é¢é™åˆ¶ï¼Œé»˜è®¤ä¸º false
-* `--executor_registration_timeout=VALUE` æ‰§è¡Œåº”ç”¨æœ€å¤šå¯ä»¥ç­‰å¤šä¹…å†æ³¨å†Œåˆ° slaveï¼Œå¦åˆ™åœæ­¢å®ƒï¼Œé»˜è®¤ä¸º 1mins
-* `--executor_shutdown_grace_period=VALUE` æ‰§è¡Œåº”ç”¨åœæ­¢åï¼Œç­‰å¾…å¤šä¹…ï¼Œé»˜è®¤ä¸º 5secs
-* `--external_log_file=VALUE` å¤–éƒ¨æ—¥å¿—æ–‡ä»¶
-* `--frameworks_home=VALUE` æ‰§è¡Œåº”ç”¨å‰æ·»åŠ çš„ç›¸å¯¹è·¯å¾„ï¼Œé»˜è®¤ä¸ºç©º
-* `--gc_delay=VALUE` å¤šä¹…æ¸…ç†ä¸€æ¬¡æ‰§è¡Œåº”ç”¨ç›®å½•ï¼Œé»˜è®¤ä¸º 1weeks
-* `--gc_disk_headroom=VALUE` è°ƒæ•´è®¡ç®—æœ€å¤§æ‰§è¡Œåº”ç”¨ç›®å½•å¹´é¾„çš„ç¡¬ç›˜ç•™ç©ºé‡ï¼Œé»˜è®¤ä¸º 0.1
-* `--hadoop_home=VALUE` hadoop å®‰è£…ç›®å½•ï¼Œé»˜è®¤ä¸ºç©ºï¼Œä¼šè‡ªåŠ¨æŸ¥æ‰¾ HADOOP_HOME æˆ–è€…ä»ç³»ç»Ÿè·¯å¾„ä¸­æŸ¥æ‰¾
-* `--hooks=VALUE` å®‰è£…åœ¨ master ä¸­çš„ hook æ¨¡å—åˆ—è¡¨
-* `--hostname=VALUE` slave èŠ‚ç‚¹ä½¿ç”¨çš„ä¸»æœºå
-* `--isolation=VALUE` éš”ç¦»æœºåˆ¶ï¼Œä¾‹å¦‚ `posix/cpu,posix/mem`ï¼ˆé»˜è®¤ï¼‰æˆ–è€… `cgroups/cpu,cgroups/mem`
-* `--launcher_dir=VALUE` mesos å¯æ‰§è¡Œæ–‡ä»¶çš„è·¯å¾„ï¼Œé»˜è®¤ä¸º `/usr/local/lib/mesos`
-* `--modules=VALUE` è¦åŠ è½½çš„æ¨¡å—ï¼Œæ”¯æŒæ–‡ä»¶è·¯å¾„æˆ–è€… JSON
-* `--perf_duration=VALUE` perf é‡‡æ ·æ—¶é•¿ï¼Œå¿…é¡»å°äº perf_intervalï¼Œé»˜è®¤ä¸º 10secs
-* `--perf_events=VALUE` perf é‡‡æ ·çš„äº‹ä»¶
-* `--perf_interval=VALUE` perf é‡‡æ ·çš„æ—¶é—´é—´éš”
-* `--recover=VALUE` å›å¤åæ˜¯å¦é‡è¿ä¸Šæ—§çš„æ‰§è¡Œåº”ç”¨
-* `--recovery_timeout=VALUE` slave æ¢å¤æ—¶çš„è¶…æ—¶ï¼Œå¤ªä¹…åˆ™æ‰€æœ‰ç›¸å…³çš„æ‰§è¡Œåº”ç”¨å°†è‡ªè¡Œé€€å‡ºï¼Œé»˜è®¤ä¸º 15mins
-* `--registration_backoff_factor=VALUE` è·Ÿ master è¿›è¡Œæ³¨å†Œæ—¶å€™çš„é‡è¯•æ—¶é—´é—´éš”ç®—æ³•çš„å› å­ï¼Œé»˜è®¤ä¸º 1secsï¼Œé‡‡ç”¨éšæœºæŒ‡æ•°ç®—æ³•ï¼Œæœ€é•¿ 1mins
-* `--resource_monitoring_interval=VALUE` å‘¨æœŸæ€§ç›‘æµ‹æ‰§è¡Œåº”ç”¨èµ„æºä½¿ç”¨æƒ…å†µçš„é—´éš”ï¼Œé»˜è®¤ä¸º 1secs
-* `--resources=VALUE` æ¯ä¸ª slave å¯ç”¨çš„èµ„æº
-* `--slave_subsystems=VALUE` slave è¿è¡Œåœ¨å“ªäº› cgroup å­ç³»ç»Ÿä¸­ï¼ŒåŒ…æ‹¬ memoryï¼Œcpuacct ç­‰ï¼Œç¼ºçœä¸ºç©º
-* `--[no-]strict` æ˜¯å¦è®¤ä¸ºæ‰€æœ‰é”™è¯¯éƒ½ä¸å¯å¿½ç•¥ï¼Œé»˜è®¤ä¸º true
-* `--[no-]switch_user` ç”¨æäº¤ä»»åŠ¡çš„ç”¨æˆ·èº«ä»½æ¥è¿è¡Œï¼Œé»˜è®¤ä¸º true
-* `--fetcher_cache_size=VALUE` fetcher çš„ cache å¤§å°ï¼Œé»˜è®¤ä¸º 2 GB
-* `--fetcher_cache_dir=VALUE` fetcher cache æ–‡ä»¶å­˜æ”¾ç›®å½•ï¼Œé»˜è®¤ä¸º /tmp/mesos/fetch
-* `--work_dir=VALUE` framework çš„å·¥ä½œç›®å½•ï¼Œé»˜è®¤ä¸º /tmp/mesos
+### slave ±MÄİ°t¸m¶µ
+* `--master=VALUE` ¥²³Æ¶µ¡Amaster ©Ò¦b¦a§}¡A©Î zookeeper ¦a§}¡A©Î¤å¥ó¸ô®|¡A¥i¥H¬O¦Cªí
+* `--attributes=VALUE` ¾÷¾¹Äİ©Ê
+* `--authenticatee=VALUE` ¸ò master ¶i¦æ»{ÃÒ®É­Ôªº»{ÃÒ¾÷¨î
+* `--[no-]cgroups_enable_cfs` ±Ä¥Î CFS ¶i¦æ±a¼e­­¨î®É­Ô¹ï CPU ¸ê·½¶i¦æ­­¨î¡AÀq»{¬° false
+* `--cgroups_hierarchy=VALUE` cgroups ªº¥Ø¿ı®Ú¦ì¸m¡AÀq»{¬° `/sys/fs/cgroup`
+* `--[no-]cgroups_limit_swap` ­­¨î¤º¦s©M swap¡AÀq»{¬° false¡A¥u­­¨î¤º¦s
+* `--cgroups_root=VALUE` ®Ú cgroups ªº¦WºÙ¡AÀq»{¬° mesos
+* `--container_disk_watch_interval=VALUE` ¬°®e¾¹¶i¦æµw½L°tÃB¬d¸ßªº®É¶¡¶¡¹j
+* `--containerizer_path=VALUE` ±Ä¥Î¥~³¡¹jÂ÷¾÷¨î¡]`--isolation=external`¡^®É­Ô¡A¥~³¡®e¾¹¾÷¨î°õ¦æ¤å¥ó¸ô®|
+* `--containerizers=VALUE` ¥i¥Îªº®e¾¹¹ê²{¾÷¨î¡A¥]¬A mesos¡Bexternal¡Bdocker
+* `--credential=VALUE` ¥[±K«á¾ÌÃÒ¡A©ÎªÌ©Ò¦b¤å¥ó¸ô®|
+* `--default_container_image=VALUE` ±Ä¥Î¥~³¡®e¾¹¾÷¨î®É¡A¥ô°È¯Ê¬Ù¨Ï¥ÎªºÃè¹³
+* `--default_container_info=VALUE` ®e¾¹«H®§ªº¯Ê¬Ù­È
+* `--default_role=VALUE` ¸ê·½¯Ê¬Ù¤À°tªº¨¤¦â
+* `--disk_watch_interval=VALUE` µw½L¨Ï¥Î±¡ªpªº¶g´Á©ÊÀË¬d¶¡¹j¡AÀq»{¬° 1mins
+* `--docker=VALUE` docker °õ¦æ¤å¥óªº¸ô®|
+* `--docker_remove_delay=VALUE` §R°£®e¾¹¤§«eªºµ¥«İ®É¶¡¡AÀq»{¬° 6hrs
+* `--[no-]docker_kill_orphans` ²M°£©t¨à®e¾¹¡AÀq»{¬° true
+* `--docker_sock=VALUE` docker sock ¦a§}¡AÀq»{¬° `/var/run/docker.sock`
+* `--docker_mesos_image=VALUE` ¹B¦æ slave ªº docker Ãè¹³¡A¦pªG³Q°t¸m¡Adocker ·|°²©w slave ¹B¦æ¦b¤@­Ó docker ®e¾¹¸Ì
+* `--docker_sandbox_directory=VALUE` sandbox ¬M®g¨ì®e¾¹¸Ìªº­ş­Ó¸ô®|
+* `--docker_stop_timeout=VALUE` °±¤î¹ê¨Ò«áµ¥«İ¦h¤[°õ¦æ kill ¾Ş§@¡AÀq»{¬° 0secs
+* `--[no-]enforce_container_disk_quota` ¬O§_±Ò¥Î®e¾¹°tÃB­­¨î¡AÀq»{¬° false
+* `--executor_registration_timeout=VALUE` °õ¦æÀ³¥Î³Ì¦h¥i¥Hµ¥¦h¤[¦Aµù¥U¨ì slave¡A§_«h°±¤î¥¦¡AÀq»{¬° 1mins
+* `--executor_shutdown_grace_period=VALUE` °õ¦æÀ³¥Î°±¤î«á¡Aµ¥«İ¦h¤[¡AÀq»{¬° 5secs
+* `--external_log_file=VALUE` ¥~³¡¤é»x¤å¥ó
+* `--frameworks_home=VALUE` °õ¦æÀ³¥Î«e²K¥[ªº¬Û¹ï¸ô®|¡AÀq»{¬°ªÅ
+* `--gc_delay=VALUE` ¦h¤[²M²z¤@¦¸°õ¦æÀ³¥Î¥Ø¿ı¡AÀq»{¬° 1weeks
+* `--gc_disk_headroom=VALUE` ½Õ¾ã­pºâ³Ì¤j°õ¦æÀ³¥Î¥Ø¿ı¦~ÄÖªºµw½L¯dªÅ¶q¡AÀq»{¬° 0.1
+* `--hadoop_home=VALUE` hadoop ¦w¸Ë¥Ø¿ı¡AÀq»{¬°ªÅ¡A·|¦Û°Ê¬d§ä HADOOP_HOME ©ÎªÌ±q¨t²Î¸ô®|¤¤¬d§ä
+* `--hooks=VALUE` ¦w¸Ë¦b master ¤¤ªº hook ¼Ò¶ô¦Cªí
+* `--hostname=VALUE` slave ¸`ÂI¨Ï¥Îªº¥D¾÷¦W
+* `--isolation=VALUE` ¹jÂ÷¾÷¨î¡A¨Ò¦p `posix/cpu,posix/mem`¡]Àq»{¡^©ÎªÌ `cgroups/cpu,cgroups/mem`
+* `--launcher_dir=VALUE` mesos ¥i°õ¦æ¤å¥óªº¸ô®|¡AÀq»{¬° `/usr/local/lib/mesos`
+* `--modules=VALUE` ­n¥[¸üªº¼Ò¶ô¡A¤ä«ù¤å¥ó¸ô®|©ÎªÌ JSON
+* `--perf_duration=VALUE` perf ±Ä¼Ë®Éªø¡A¥²¶·¤p©ó perf_interval¡AÀq»{¬° 10secs
+* `--perf_events=VALUE` perf ±Ä¼Ëªº¨Æ¥ó
+* `--perf_interval=VALUE` perf ±Ä¼Ëªº®É¶¡¶¡¹j
+* `--recover=VALUE` ¦^´_«á¬O§_­«³s¤WÂÂªº°õ¦æÀ³¥Î
+* `--recovery_timeout=VALUE` slave «ì´_®Éªº¶W®É¡A¤Ó¤[«h©Ò¦³¬ÛÃöªº°õ¦æÀ³¥Î±N¦Û¦æ°h¥X¡AÀq»{¬° 15mins
+* `--registration_backoff_factor=VALUE` ¸ò master ¶i¦æµù¥U®É­Ôªº­«¸Õ®É¶¡¶¡¹jºâªkªº¦]¤l¡AÀq»{¬° 1secs¡A±Ä¥ÎÀH¾÷«ü¼Æºâªk¡A³Ìªø 1mins
+* `--resource_monitoring_interval=VALUE` ¶g´Á©ÊºÊ´ú°õ¦æÀ³¥Î¸ê·½¨Ï¥Î±¡ªpªº¶¡¹j¡AÀq»{¬° 1secs
+* `--resources=VALUE` ¨C­Ó slave ¥i¥Îªº¸ê·½
+* `--slave_subsystems=VALUE` slave ¹B¦æ¦b­ş¨Ç cgroup ¤l¨t²Î¤¤¡A¥]¬A memory¡Acpuacct µ¥¡A¯Ê¬Ù¬°ªÅ
+* `--[no-]strict` ¬O§_»{¬°©Ò¦³¿ù»~³£¤£¥i©¿²¤¡AÀq»{¬° true
+* `--[no-]switch_user` ¥Î´£¥æ¥ô°Èªº¥Î¤á¨­¥÷¨Ó¹B¦æ¡AÀq»{¬° true
+* `--fetcher_cache_size=VALUE` fetcher ªº cache ¤j¤p¡AÀq»{¬° 2 GB
+* `--fetcher_cache_dir=VALUE` fetcher cache ¤å¥ó¦s©ñ¥Ø¿ı¡AÀq»{¬° /tmp/mesos/fetch
+* `--work_dir=VALUE` framework ªº¤u§@¥Ø¿ı¡AÀq»{¬° /tmp/mesos
 
-ä¸‹é¢çš„é€‰é¡¹éœ€è¦é…ç½® `--with-network-isolator` ä¸€èµ·ä½¿ç”¨
-* `--ephemeral_ports_per_container=VALUE` åˆ†é…ç»™ä¸€ä¸ªå®¹å™¨çš„ä¸´æ—¶ç«¯å£ï¼Œé»˜è®¤ä¸º 1024
-* `--eth0_name=VALUE` public ç½‘ç»œçš„æ¥å£åç§°ï¼Œå¦‚æœä¸æŒ‡å®šï¼Œæ ¹æ®ä¸»æœºè·¯ç”±è¿›è¡ŒçŒœæµ‹
-* `--lo_name=VALUE` loopback ç½‘å¡åç§°
-* `--egress_rate_limit_per_container=VALUE` æ¯ä¸ªå®¹å™¨çš„ egress æµé‡é™åˆ¶é€Ÿç‡
-* `--[no-]network_enable_socket_statistics` æ˜¯å¦é‡‡é›†æ¯ä¸ªå®¹å™¨çš„ socket ç»Ÿè®¡ä¿¡æ¯ï¼Œé»˜è®¤ä¸º false
+¤U­±ªº¿ï¶µ»İ­n°t¸m `--with-network-isolator` ¤@°_¨Ï¥Î
+* `--ephemeral_ports_per_container=VALUE` ¤À°tµ¹¤@­Ó®e¾¹ªºÁ{®Éºİ¤f¡AÀq»{¬° 1024
+* `--eth0_name=VALUE` public ºôµ¸ªº±µ¤f¦WºÙ¡A¦pªG¤£«ü©w¡A®Ú¾Ú¥D¾÷¸ô¥Ñ¶i¦æ²q´ú
+* `--lo_name=VALUE` loopback ºô¥d¦WºÙ
+* `--egress_rate_limit_per_container=VALUE` ¨C­Ó®e¾¹ªº egress ¬y¶q­­¨î³t²v
+* `--[no-]network_enable_socket_statistics` ¬O§_±Ä¶°¨C­Ó®e¾¹ªº socket ²Î­p«H®§¡AÀq»{¬° false

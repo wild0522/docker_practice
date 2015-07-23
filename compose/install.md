@@ -1,16 +1,16 @@
-## å®‰è£…
+## ¦w¸Ë
 
-å®‰è£… Compose ä¹‹å‰ï¼Œè¦å…ˆå®‰è£… Dockerï¼Œåœ¨æ­¤ä¸å†èµ˜è¿°ã€‚
+¦w¸Ë Compose ¤§«e¡A­n¥ý¦w¸Ë Docker¡A¦b¦¹¤£¦AÂØ­z¡C
 
-### PIP å®‰è£…
-è¿™ç§æ–¹å¼æœ€ä¸ºæŽ¨èã€‚
+### PIP ¦w¸Ë
+³oºØ¤è¦¡³Ì¬°±ÀÂË¡C
 
-æ‰§è¡Œå‘½ä»¤ã€‚
+°õ¦æ©R¥O¡C
 ```sh
 $ sudo pip install -U docker-compose
 ```
 
-å®‰è£…æˆåŠŸåŽï¼Œå¯ä»¥æŸ¥çœ‹ `docker-compose` å‘½ä»¤çš„ç”¨æ³•ã€‚
+¦w¸Ë¦¨¥\«á¡A¥i¥H¬d¬Ý `docker-compose` ©R¥Oªº¥Îªk¡C
 ```sh
 $ docker-compose -h
 Fast, isolated development environments using Docker.
@@ -42,18 +42,18 @@ Commands:
   up        Create and start containers
 ```
 
-ä¹‹åŽï¼Œå¯ä»¥æ·»åŠ  bash è¡¥å…¨å‘½ä»¤ã€‚
+¤§«á¡A¥i¥H²K¥[ bash ¸É¥þ©R¥O¡C
 ```sh
 $ curl -L https://raw.githubusercontent.com/docker/compose/1.2.0/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
 
 ```
 
-### äºŒè¿›åˆ¶åŒ…
-å‘å¸ƒçš„äºŒè¿›åˆ¶åŒ…å¯ä»¥åœ¨ [https://github.com/docker/compose/releases](https://github.com/docker/compose/releases) æ‰¾åˆ°ã€‚
+### ¤G¶i¨î¥]
+µo§Gªº¤G¶i¨î¥]¥i¥H¦b [https://github.com/docker/compose/releases](https://github.com/docker/compose/releases) §ä¨ì¡C
 
-ä¸‹è½½åŽç›´æŽ¥æ”¾åˆ°æ‰§è¡Œè·¯å¾„å³å¯ã€‚
+¤U¸ü«áª½±µ©ñ¨ì°õ¦æ¸ô®|§Y¥i¡C
 
-ä¾‹å¦‚ï¼Œåœ¨å¸¸è§çš„ Linux å¹³å°ä¸Šã€‚
+¨Ò¦p¡A¦b±`¨£ªº Linux ¥­¥x¤W¡C
 
 ```
 $ sudo curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose

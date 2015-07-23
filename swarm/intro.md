@@ -1,16 +1,16 @@
-## ç®€ä»‹
-Docker Swarm æ˜¯ Dockerå…¬å¸å®˜æ–¹åœ¨ 2014 å¹´ 12æœˆåˆå‘å¸ƒçš„ä¸€å¥—ç®¡ç† Docker é›†ç¾¤çš„å·¥å…·ã€‚å®ƒå°†ä¸€ç¾¤ Docker å®¿ä¸»æœºå˜æˆä¸€ä¸ªå•ä¸€çš„ï¼Œè™šæ‹Ÿçš„ä¸»æœºã€‚
+## Â²¤¶
+Docker Swarm ¬O Docker¤½¥q©x¤è¦b 2014 ¦~ 12¤ëªìµo§Gªº¤@®MºŞ²z Docker ¶°¸sªº¤u¨ã¡C¥¦±N¤@¸s Docker ±J¥D¾÷ÅÜ¦¨¤@­Ó³æ¤@ªº¡AµêÀÀªº¥D¾÷¡C
 
-Swarm ä½¿ç”¨æ ‡å‡†çš„ Docker API æ¥å£ä½œä¸ºå…¶å‰ç«¯è®¿é—®å…¥å£ï¼Œæ¢è¨€ä¹‹ï¼Œå„ç§å½¢å¼çš„ Docker å·¥å…·æ¯”å¦‚ Dokkuï¼ŒComposeï¼ŒKraneï¼ŒDeisï¼Œdocker-pyï¼ŒDocker æœ¬èº«ç­‰éƒ½å¯ä»¥å¾ˆå®¹æ˜“çš„ä¸ Swarm è¿›è¡Œé›†æˆã€‚
+Swarm ¨Ï¥Î¼Ğ·Çªº Docker API ±µ¤f§@¬°¨ä«eºİ³X°İ¤J¤f¡A´«¨¥¤§¡A¦UºØ§Î¦¡ªº Docker ¤u¨ã¤ñ¦p Dokku¡ACompose¡AKrane¡ADeis¡Adocker-py¡ADocker ¥»¨­µ¥³£¥i¥H«Ü®e©öªº»P Swarm ¶i¦æ¶°¦¨¡C
 
-![Swarm ç»“æ„å›¾](../images/swarm.png)
+![Swarm µ²ºc¹Ï](../images/swarm.png)
 
-åœ¨ä½¿ç”¨ Swarm ç®¡ç†docker é›†ç¾¤æ—¶ï¼Œä¼šæœ‰ä¸€ä¸ª swarm manager ä»¥åŠè‹¥å¹²çš„ swarm nodeï¼Œswarm managerä¸Šè¿è¡Œ swarm daemonï¼Œç”¨æˆ·åªéœ€è¦è·Ÿ swarm manager é€šä¿¡ï¼Œç„¶å swarm manager å†æ ¹æ®discovery serviceçš„ä¿¡æ¯é€‰æ‹©ä¸€ä¸ªswarm node æ¥è¿è¡Œcontainerã€‚
+¦b¨Ï¥Î Swarm ºŞ²zdocker ¶°¸s®É¡A·|¦³¤@­Ó swarm manager ¥H¤Î­Y¤zªº swarm node¡Aswarm manager¤W¹B¦æ swarm daemon¡A¥Î¤á¥u»İ­n¸ò swarm manager ³q«H¡AµM«á swarm manager ¦A®Ú¾Údiscovery serviceªº«H®§¿ï¾Ü¤@­Óswarm node ¨Ó¹B¦æcontainer¡C
 
-å€¼å¾—æ³¨æ„çš„æ˜¯ swarm daemon åªæ˜¯ä¸€ä¸ªä»»åŠ¡è°ƒåº¦å™¨(scheduler)å’Œè·¯ç”±å™¨(router),å®ƒæœ¬èº«ä¸è¿è¡Œå®¹å™¨ï¼Œå®ƒåªæ¥å— Docker client å‘é€è¿‡æ¥çš„è¯·æ±‚ï¼Œè°ƒåº¦åˆé€‚çš„ swarm node æ¥è¿è¡Œ containerã€‚è¿™æ„å‘³ç€ï¼Œå³ä½¿ swarm daemon ç”±äºæŸäº›åŸå› æŒ‚æ‰äº†ï¼Œå·²ç»è¿è¡Œèµ·æ¥çš„å®¹å™¨ä¹Ÿä¸ä¼šæœ‰ä»»ä½•å½±å“ã€‚
+­È±oª`·Nªº¬O swarm daemon ¥u¬O¤@­Ó¥ô°È½Õ«×¾¹(scheduler)©M¸ô¥Ñ¾¹(router),¥¦¥»¨­¤£¹B¦æ®e¾¹¡A¥¦¥u±µ¨ü Docker client µo°e¹L¨Óªº½Ğ¨D¡A½Õ«×¦X¾Aªº swarm node ¨Ó¹B¦æ container¡C³o·N¨ıµÛ¡A§Y¨Ï swarm daemon ¥Ñ©ó¬Y¨Ç­ì¦]±¾±¼¤F¡A¤w¸g¹B¦æ°_¨Óªº®e¾¹¤]¤£·|¦³¥ô¦ó¼vÅT¡C
 
 
-æœ‰ä»¥ä¸‹ä¸¤ç‚¹éœ€è¦æ³¨æ„ï¼š
+¦³¥H¤U¨âÂI»İ­nª`·N¡G
 
-* é›†ç¾¤ä¸­çš„æ¯å°èŠ‚ç‚¹ä¸Šé¢çš„ Docker çš„ç‰ˆæœ¬éƒ½ä¸èƒ½å°äº1.4
-* ä¸ºäº†è®© swarm manager èƒ½å¤Ÿè·Ÿæ¯å° swarm node è¿›è¡Œé€šä¿¡ï¼Œé›†ç¾¤ä¸­çš„æ¯å°èŠ‚ç‚¹çš„ Docker daemon éƒ½å¿…é¡»ç›‘å¬åŒä¸€ä¸ªç½‘ç»œæ¥å£ã€‚
+* ¶°¸s¤¤ªº¨C¥x¸`ÂI¤W­±ªº Docker ªºª©¥»³£¤£¯à¤p©ó1.4
+* ¬°¤FÅı swarm manager ¯à°÷¸ò¨C¥x swarm node ¶i¦æ³q«H¡A¶°¸s¤¤ªº¨C¥x¸`ÂIªº Docker daemon ³£¥²¶·ºÊÅ¥¦P¤@­Óºôµ¸±µ¤f¡C

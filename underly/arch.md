@@ -1,10 +1,10 @@
-## 基本架构
-Docker 采用了 C/S架构，包括客户端和服务端。
-Docker daemon 作为服务端接受来自客户的请求，并处理这些请求（创建、运行、分发容器）。
-客户端和服务端既可以运行在一个机器上，也可通过 socket 或者 RESTful API 来进行通信。
+## �򥻬[�c
+Docker �ĥΤF C/S�[�c�A�]�A�Ȥ�ݩM�A�ȺݡC
+Docker daemon �@���A�Ⱥݱ����Ӧ۫Ȥ᪺�ШD�A�óB�z�o�ǽШD�]�ЫءB�B��B���o�e���^�C
+�Ȥ�ݩM�A�ȺݬJ�i�H�B��b�@�Ӿ����W�A�]�i�q�L socket �Ϊ� RESTful API �Ӷi��q�H�C
 
-![Docker 基本架构](../_images/docker_arch.png)
+![Docker �򥻬[�c](../_images/docker_arch.png)
 
 
-Docker daemon 一般在宿主主机后台运行，等待接收来自客户端的消息。
-Docker 客户端则为用户提供一系列可执行命令，用户用这些命令实现跟 Docker daemon 交互。
+Docker daemon �@��b�J�D�D����x�B��A���ݱ����Ӧ۫Ȥ�ݪ������C
+Docker �Ȥ�ݫh���Τᴣ�Ѥ@�t�C�i����R�O�A�Τ�γo�ǩR�O��{�� Docker daemon �椬�C

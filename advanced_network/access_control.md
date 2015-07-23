@@ -1,35 +1,35 @@
-## 容器访问控制
-容器的访问控制，主要通过 Linux 上的 `iptables` 防火墙来进行管理和实现。`iptables` 是 Linux 上默认的防火墙软件，在大部分发行版中都自带。
+## �e���X�ݱ���
+�e�����X�ݱ���A�D�n�q�L Linux �W�� `iptables` ������Ӷi��޲z�M��{�C`iptables` �O Linux �W�q�{��������n��A�b�j�����o�檩�����۱a�C
 
-### 容器访问外部网络
-容器要想访问外部网络，需要本地系统的转发支持。在Linux 系统中，检查转发是否打开。
+### �e���X�ݥ~������
+�e���n�Q�X�ݥ~�������A�ݭn���a�t�Ϊ���o����C�bLinux �t�Τ��A�ˬd��o�O�_���}�C
 
 ```
 $sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 1
 ```
-如果为 0，说明没有开启转发，则需要手动打开。
+�p�G�� 0�A�����S���}����o�A�h�ݭn��ʥ��}�C
 ```
 $sysctl -w net.ipv4.ip_forward=1
 ```
-如果在启动 Docker 服务的时候设定 `--ip-forward=true`, Docker 就会自动设定系统的 `ip_forward` 参数为 1。
+�p�G�b�Ұ� Docker �A�Ȫ��ɭԳ]�w `--ip-forward=true`, Docker �N�|�۰ʳ]�w�t�Ϊ� `ip_forward` �ѼƬ� 1�C
 
-### 容器之间访问
-容器之间相互访问，需要两方面的支持。
-* 容器的网络拓扑是否已经互联。默认情况下，所有容器都会被连接到 `docker0` 网桥上。
-* 本地系统的防火墙软件 -- `iptables` 是否允许通过。
+### �e�������X��
+�e�������ۤ��X�ݡA�ݭn��譱������C
+* �e���������ݼ��O�_�w�g���p�C�q�{���p�U�A�Ҧ��e�����|�Q�s���� `docker0` �����W�C
+* ���a�t�Ϊ�������n�� -- `iptables` �O�_���\�q�L�C
 
-#### 访问所有端口
-当启动 Docker 服务时候，默认会添加一条转发策略到 iptables 的 FORWARD 链上。策略为通过（`ACCEPT`）还是禁止（`DROP`）取决于配置`--icc=true`（缺省值）还是 `--icc=false`。当然，如果手动指定 `--iptables=false` 则不会添加 `iptables` 规则。
+#### �X�ݩҦ��ݤf
+���Ұ� Docker �A�ȮɭԡA�q�{�|�K�[�@����o������ iptables �� FORWARD ��W�C�������q�L�]`ACCEPT`�^�٬O�T��]`DROP`�^���M��t�m`--icc=true`�]�ʬ٭ȡ^�٬O `--icc=false`�C���M�A�p�G��ʫ��w `--iptables=false` �h���|�K�[ `iptables` �W�h�C
 
-可见，默认情况下，不同容器之间是允许网络互通的。如果为了安全考虑，可以在 `/etc/default/docker` 文件中配置 `DOCKER_OPTS=--icc=false` 来禁止它。
+�i���A�q�{���p�U�A���P�e�������O���\�������q���C�p�G���F�w���Ҽ{�A�i�H�b `/etc/default/docker` ��󤤰t�m `DOCKER_OPTS=--icc=false` �ӸT��C
 
-#### 访问指定端口
-在通过 `-icc=false` 关闭网络访问后，还可以通过 `--link=CONTAINER_NAME:ALIAS` 选项来访问容器的开放端口。
+#### �X�ݫ��w�ݤf
+�b�q�L `-icc=false` ���������X�ݫ�A�٥i�H�q�L `--link=CONTAINER_NAME:ALIAS` �ﶵ�ӳX�ݮe�����}��ݤf�C
 
-例如，在启动 Docker 服务时，可以同时使用 `icc=false --iptables=true` 参数来关闭允许相互的网络访问，并让 Docker 可以修改系统中的 `iptables` 规则。
+�Ҧp�A�b�Ұ� Docker �A�ȮɡA�i�H�P�ɨϥ� `icc=false --iptables=true` �Ѽƨ��������\�ۤ��������X�ݡA���� Docker �i�H�ק�t�Τ��� `iptables` �W�h�C
 
-此时，系统中的 `iptables` 规则可能是类似
+���ɡA�t�Τ��� `iptables` �W�h�i��O����
 ```
 $ sudo iptables -nL
 ...
@@ -39,9 +39,9 @@ DROP       all  --  0.0.0.0/0            0.0.0.0/0
 ...
 ```
 
-之后，启动容器（`docker run`）时使用 `--link=CONTAINER_NAME:ALIAS` 选项。Docker 会在 `iptable` 中为 两个容器分别添加一条 `ACCEPT` 规则，允许相互访问开放的端口（取决于 Dockerfile 中的 EXPOSE 行）。
+����A�Ұʮe���]`docker run`�^�ɨϥ� `--link=CONTAINER_NAME:ALIAS` �ﶵ�CDocker �|�b `iptable` ���� ��Ӯe�����O�K�[�@�� `ACCEPT` �W�h�A���\�ۤ��X�ݶ}�񪺺ݤf�]���M�� Dockerfile ���� EXPOSE ��^�C
 
-当添加了 `--link=CONTAINER_NAME:ALIAS` 选项后，添加了 `iptables` 规则。
+���K�[�F `--link=CONTAINER_NAME:ALIAS` �ﶵ��A�K�[�F `iptables` �W�h�C
 ```
 $ sudo iptables -nL
 ...
@@ -52,4 +52,4 @@ ACCEPT     tcp  --  172.17.0.3           172.17.0.2           tcp dpt:80
 DROP       all  --  0.0.0.0/0            0.0.0.0/0
 ```
 
-注意：`--link=CONTAINER_NAME:ALIAS` 中的 `CONTAINER_NAME` 目前必须是 Docker 分配的名字，或使用 `--name` 参数指定的名字。主机名则不会被识别。
+�`�N�G`--link=CONTAINER_NAME:ALIAS` ���� `CONTAINER_NAME` �ثe�����O Docker ���t���W�r�A�Ψϥ� `--name` �Ѽƫ��w���W�r�C�D���W�h���|�Q�ѧO�C
