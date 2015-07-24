@@ -1,9 +1,9 @@
-## �����
+## 控制組
 
-����ա][cgroups](http://en.wikipedia.org/wiki/Cgroups)�^�O Linux ���֪��@�ӯS�ʡA�D�n�Ψӹ�@�ɸ귽�i��j���B����B�f�p���C�u���౱����t��e�����귽�A�~���קK���h�Ӯe���P�ɹB��ɪ���t�θ귽���v���C
+控制組（[cgroups](http://en.wikipedia.org/wiki/Cgroups)）是 Linux 內核的一個特性，主要用來對共享資源進行隔離、限制、審計等。只有能控制分配到容器的資源，才能避免當多個容器同時運行時的對系統資源的競爭。
 
-����է޳N�̦��O�� Google ���{�ǭ� 2006 �~�_���X�ALinux ���֦� 2.6.24 �}�l����C
+控制組技術最早是由 Google 的程序員 2006 年起提出，Linux 內核自 2.6.24 開始支持。
 
-����եi�H���ѹ�e�������s�BCPU�B�ϽL IO ���귽������M�f�p�޲z�C
+控制組可以提供對容器的內存、CPU、磁盤 IO 等資源的限制和審計管理。
 
 

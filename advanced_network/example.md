@@ -1,8 +1,8 @@
-## ¤u¨ã©M¥Ü¨Ò
-¦b¤¶²Ğ¦Û©w¸qºôµ¸©İ¼³¤§«e¡A§A¥i¯à·|¹ï¤@¨Ç¥~³¡¤u¨ã©M¨Ò¤l·P¿³½ì¡G
+## å·¥å…·å’Œç¤ºä¾‹
+åœ¨ä»‹ç´¹è‡ªå®šç¾©ç¶²è·¯æ‹“æ’²ä¹‹å‰ï¼Œä½ å¯èƒ½æœƒå°ä¸€äº›å¤–éƒ¨å·¥å…·å’Œä¾‹å­æ„Ÿèˆˆè¶£ï¼š
 
 ### pipework
-Jerome Petazzoni ½s¼g¤F¤@­Ó¥s [pipework](https://github.com/jpetazzo/pipework) ªº shell ¸}¥»¡A¥i¥HÀ°§U¥Î¤á¦b¤ñ¸û½ÆÂøªº³õ´º¤¤§¹¦¨®e¾¹ªº³s±µ¡C
+Jerome Petazzoni ç·¨å¯«äº†ä¸€å€‹å« [pipework](https://github.com/jpetazzo/pipework) çš„ shell è…³æœ¬ï¼Œå¯ä»¥å¹«åŠ©ç”¨æˆ¶åœ¨æ¯”è¼ƒè¤‡é›œçš„å ´æ™¯ä¸­å®Œæˆå®¹å™¨çš„é€£æ¥ã€‚
 
 ### playground
-Brandon Rhodes ³Ğ«Ø¤F¤@­Ó´£¨Ñ§¹¾ãªº Docker ®e¾¹ºôµ¸©İ¼³ºŞ²zªº [Python®w](https://github.com/brandon-rhodes/fopnp/tree/m/playground)¡A¥]¬A¸ô¥Ñ¡BNAT ¨¾¤õÀğ¡F¥H¤Î¤@¨Ç´£¨Ñ HTTP, SMTP, POP, IMAP, Telnet, SSH, FTP ªºªA°È¾¹¡C
+Brandon Rhodes å‰µå»ºäº†ä¸€å€‹æä¾›å®Œæ•´çš„ Docker å®¹å™¨ç¶²è·¯æ‹“æ’²ç®¡ç†çš„ [Pythonåº«](https://github.com/brandon-rhodes/fopnp/tree/m/playground)ï¼ŒåŒ…æ‹¬è·¯ç”±ã€NAT é˜²ç«ç‰†ï¼›ä»¥åŠä¸€äº›æä¾› HTTP, SMTP, POP, IMAP, Telnet, SSH, FTP çš„æœå‹™å™¨ã€‚

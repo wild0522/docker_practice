@@ -1,28 +1,28 @@
-##³Ğ«ØÃè¹³
+##å‰µå»ºé¡åƒ
 
-³Ğ«ØÃè¹³¦³«Ü¦h¤èªk¡A¥Î¤á¥i¥H±q Docker Hub Àò¨ú¤w¦³Ãè¹³¨Ã§ó·s¡A¤]¥i¥H§Q¥Î¥»¦a¤å¥ó¨t²Î³Ğ«Ø¤@­Ó¡C
+å‰µå»ºé¡åƒæœ‰å¾ˆå¤šæ–¹æ³•ï¼Œç”¨æˆ¶å¯ä»¥å¾ Docker Hub ç²å–å·²æœ‰é¡åƒä¸¦æ›´æ–°ï¼Œä¹Ÿå¯ä»¥åˆ©ç”¨æœ¬åœ°æ–‡ä»¶ç³»çµ±å‰µå»ºä¸€å€‹ã€‚
 
-### ­×§ï¤w¦³Ãè¹³
-¥ı¨Ï¥Î¤U¸üªºÃè¹³±Ò°Ê®e¾¹¡C
+### ä¿®æ”¹å·²æœ‰é¡åƒ
+å…ˆä½¿ç”¨ä¸‹è¼‰çš„é¡åƒå•Ÿå‹•å®¹å™¨ã€‚
 ```
 $ sudo docker run -t -i training/sinatra /bin/bash
 root@0b2616b0e5a8:/#
 ```
-ª`·N¡G°O¦í®e¾¹ªº ID¡Aµy«áÁÙ·|¥Î¨ì¡C
+æ³¨æ„ï¼šè¨˜ä½å®¹å™¨çš„ IDï¼Œç¨å¾Œé‚„æœƒç”¨åˆ°ã€‚
 
-¦b®e¾¹¤¤²K¥[ json ©M gem ¨â­ÓÀ³¥Î¡C
+åœ¨å®¹å™¨ä¸­æ·»åŠ  json å’Œ gem å…©å€‹æ‡‰ç”¨ã€‚
 ```
 root@0b2616b0e5a8:/# gem install json
 ```
-·íµ²§ô«á¡A§Ú­Ì¨Ï¥Î exit ¨Ó°h¥X¡A²{¦b§Ú­Ìªº®e¾¹¤w¸g³Q§Ú­Ì§ïÅÜ¤F¡A¨Ï¥Î `docker commit` ©R¥O¨Ó´£¥æ§ó·s«áªº°Æ¥»¡C
+ç•¶çµæŸå¾Œï¼Œæˆ‘å€‘ä½¿ç”¨ exit ä¾†é€€å‡ºï¼Œç¾åœ¨æˆ‘å€‘çš„å®¹å™¨å·²ç¶“è¢«æˆ‘å€‘æ”¹è®Šäº†ï¼Œä½¿ç”¨ `docker commit` å‘½ä»¤ä¾†æäº¤æ›´æ–°å¾Œçš„å‰¯æœ¬ã€‚
 ```
 $ sudo docker commit -m "Added json gem" -a "Docker Newbee" 0b2616b0e5a8 ouruser/sinatra:v2
 4f177bd27a9ff0f6dc2a830403925b5360bfe0b93d476f7fc3231110e7f71b1c
 ```
-¨ä¤¤¡A`-m` ¨Ó«ü©w´£¥æªº»¡©ú«H®§¡A¸ò§Ú­Ì¨Ï¥Îªºª©¥»±±¨î¤u¨ã¤@¼Ë¡F`-a` ¥i¥H«ü©w§ó·sªº¥Î¤á«H®§¡F¤§«á¬O¥Î¨Ó³Ğ«ØÃè¹³ªº®e¾¹ªº ID¡F³Ì«á«ü©w¥Ø¼ĞÃè¹³ªº­Ü®w¦W©M tag «H®§¡C³Ğ«Ø¦¨¥\«á·|ªğ¦^³o­ÓÃè¹³ªº ID «H®§¡C
+å…¶ä¸­ï¼Œ`-m` ä¾†æŒ‡å®šæäº¤çš„èªªæ˜ä¿¡æ¯ï¼Œè·Ÿæˆ‘å€‘ä½¿ç”¨çš„ç‰ˆæœ¬æ§åˆ¶å·¥å…·ä¸€æ¨£ï¼›`-a` å¯ä»¥æŒ‡å®šæ›´æ–°çš„ç”¨æˆ¶ä¿¡æ¯ï¼›ä¹‹å¾Œæ˜¯ç”¨ä¾†å‰µå»ºé¡åƒçš„å®¹å™¨çš„ IDï¼›æœ€å¾ŒæŒ‡å®šç›®æ¨™é¡åƒçš„å€‰åº«åå’Œ tag ä¿¡æ¯ã€‚å‰µå»ºæˆåŠŸå¾Œæœƒè¿”å›é€™å€‹é¡åƒçš„ ID ä¿¡æ¯ã€‚
 
 
-¨Ï¥Î `docker images` ¨Ó¬d¬İ·s³Ğ«ØªºÃè¹³¡C
+ä½¿ç”¨ `docker images` ä¾†æŸ¥çœ‹æ–°å‰µå»ºçš„é¡åƒã€‚
 ```
 $ sudo docker images
 REPOSITORY          TAG     IMAGE ID       CREATED       VIRTUAL SIZE
@@ -30,22 +30,22 @@ training/sinatra    latest  5bc342fa0b91   10 hours ago  446.7 MB
 ouruser/sinatra     v2      3c59e02ddd1a   10 hours ago  446.7 MB
 ouruser/sinatra     latest  5db5f8471261   10 hours ago  446.7 MB
 ```
-¤§«á¡A¥i¥H¨Ï¥Î·sªºÃè¹³¨Ó±Ò°Ê®e¾¹
+ä¹‹å¾Œï¼Œå¯ä»¥ä½¿ç”¨æ–°çš„é¡åƒä¾†å•Ÿå‹•å®¹å™¨
 ```
 $ sudo docker run -t -i ouruser/sinatra:v2 /bin/bash
 root@78e82f680994:/#
 ```
 
-###§Q¥Î Dockerfile ¨Ó³Ğ«ØÃè¹³
-¨Ï¥Î `docker commit` ¨ÓÂX®i¤@­ÓÃè¹³¤ñ¸ûÂ²³æ¡A¦ı¬O¤£¤è«K¦b¤@­Ó¹Î¶¤¤¤¤À¨É¡C§Ú­Ì¥i¥H¨Ï¥Î `docker build` ¨Ó³Ğ«Ø¤@­Ó·sªºÃè¹³¡C¬°¦¹¡A­º¥ı»İ­n³Ğ«Ø¤@­Ó Dockerfile¡A¥]§t¤@¨Ç¦p¦ó³Ğ«ØÃè¹³ªº«ü¥O¡C
+###åˆ©ç”¨ Dockerfile ä¾†å‰µå»ºé¡åƒ
+ä½¿ç”¨ `docker commit` ä¾†æ“´å±•ä¸€å€‹é¡åƒæ¯”è¼ƒç°¡å–®ï¼Œä½†æ˜¯ä¸æ–¹ä¾¿åœ¨ä¸€å€‹åœ˜éšŠä¸­åˆ†äº«ã€‚æˆ‘å€‘å¯ä»¥ä½¿ç”¨ `docker build` ä¾†å‰µå»ºä¸€å€‹æ–°çš„é¡åƒã€‚ç‚ºæ­¤ï¼Œé¦–å…ˆéœ€è¦å‰µå»ºä¸€å€‹ Dockerfileï¼ŒåŒ…å«ä¸€äº›å¦‚ä½•å‰µå»ºé¡åƒçš„æŒ‡ä»¤ã€‚
 
-·s«Ø¤@­Ó¥Ø¿ı©M¤@­Ó Dockerfile
+æ–°å»ºä¸€å€‹ç›®éŒ„å’Œä¸€å€‹ Dockerfile
 ```
 $ mkdir sinatra
 $ cd sinatra
 $ touch Dockerfile
 ```
-Dockerfile ¤¤¨C¤@±ø«ü¥O³£³Ğ«ØÃè¹³ªº¤@¼h¡A¨Ò¦p¡G
+Dockerfile ä¸­æ¯ä¸€æ¢æŒ‡ä»¤éƒ½å‰µå»ºé¡åƒçš„ä¸€å±¤ï¼Œä¾‹å¦‚ï¼š
 ```
 # This is a comment
 FROM ubuntu:14.04
@@ -54,13 +54,13 @@ RUN apt-get -qq update
 RUN apt-get -qqy install ruby ruby-dev
 RUN gem install sinatra
 ```
-Dockerfile °ò¥»ªº»yªk¬O
-* ¨Ï¥Î`#`¨ÓµùÄÀ
-* `FROM` «ü¥O§i¶D Docker ¨Ï¥Î­ş­ÓÃè¹³§@¬°°òÂ¦
-* ±µµÛ¬OºûÅ@ªÌªº«H®§
-* `RUN`¶}ÀYªº«ü¥O·|¦b³Ğ«Ø¤¤¹B¦æ¡A¤ñ¦p¦w¸Ë¤@­Ó³n¥ó¥]¡A¦b³o¸Ì¨Ï¥Î apt-get ¨Ó¦w¸Ë¤F¤@¨Ç³n¥ó
+Dockerfile åŸºæœ¬çš„èªæ³•æ˜¯
+* ä½¿ç”¨`#`ä¾†è¨»é‡‹
+* `FROM` æŒ‡ä»¤å‘Šè¨´ Docker ä½¿ç”¨å“ªå€‹é¡åƒä½œç‚ºåŸºç¤
+* æ¥è‘—æ˜¯ç¶­è­·è€…çš„ä¿¡æ¯
+* `RUN`é–‹é ­çš„æŒ‡ä»¤æœƒåœ¨å‰µå»ºä¸­é‹è¡Œï¼Œæ¯”å¦‚å®‰è£ä¸€å€‹è»Ÿä»¶åŒ…ï¼Œåœ¨é€™è£¡ä½¿ç”¨ apt-get ä¾†å®‰è£äº†ä¸€äº›è»Ÿä»¶
 
-½s¼g§¹¦¨ Dockerfile «á¥i¥H¨Ï¥Î `docker build` ¨Ó¥Í¦¨Ãè¹³¡C
+ç·¨å¯«å®Œæˆ Dockerfile å¾Œå¯ä»¥ä½¿ç”¨ `docker build` ä¾†ç”Ÿæˆé¡åƒã€‚
 
 ```
 $ sudo docker build -t="ouruser/sinatra:v2" .
@@ -96,15 +96,15 @@ Successfully installed sinatra-1.4.5
 Removing intermediate container 5e9d0065c1f7
 Successfully built 324104cde6ad
 ```
-¨ä¤¤ `-t` ¼Ğ°O¨Ó²K¥[ tag¡A«ü©w·sªºÃè¹³ªº¥Î¤á«H®§¡C
-¡u.¡v ¬O Dockerfile ©Ò¦bªº¸ô®|¡]·í«e¥Ø¿ı¡^¡A¤]¥i¥H´À´«¬°¤@­Ó¨ãÅéªº Dockerfile ªº¸ô®|¡C
+å…¶ä¸­ `-t` æ¨™è¨˜ä¾†æ·»åŠ  tagï¼ŒæŒ‡å®šæ–°çš„é¡åƒçš„ç”¨æˆ¶ä¿¡æ¯ã€‚
+ã€Œ.ã€ æ˜¯ Dockerfile æ‰€åœ¨çš„è·¯å¾‘ï¼ˆç•¶å‰ç›®éŒ„ï¼‰ï¼Œä¹Ÿå¯ä»¥æ›¿æ›ç‚ºä¸€å€‹å…·é«”çš„ Dockerfile çš„è·¯å¾‘ã€‚
 
-¥i¥H¬İ¨ì build ¶iµ{¦b°õ¦æ¾Ş§@¡C¥¦­n°µªº²Ä¤@¥ó¨Æ±¡´N¬O¤W¶Ç³o­Ó Dockerfile ¤º®e¡A¦]¬°©Ò¦³ªº¾Ş§@³£­n¨Ì¾Ú Dockerfile ¨Ó¶i¦æ¡C
-µM«á¡ADockfile ¤¤ªº«ü¥O³Q¤@±ø¤@±øªº°õ¦æ¡C¨C¤@¨B³£³Ğ«Ø¤F¤@­Ó·sªº®e¾¹¡A¦b®e¾¹¤¤°õ¦æ«ü¥O¨Ã´£¥æ­×§ï¡]´N¸ò¤§«e¤¶²Ğ¹Lªº `docker commit` ¤@¼Ë¡^¡C·í©Ò¦³ªº«ü¥O³£°õ¦æ§¹²¦¤§«á¡Aªğ¦^¤F³Ì²×ªºÃè¹³ id¡C©Ò¦³ªº¤¤¶¡¨BÆJ©Ò²£¥Íªº®e¾¹³£³Q§R°£©M²M²z¤F¡C
+å¯ä»¥çœ‹åˆ° build é€²ç¨‹åœ¨åŸ·è¡Œæ“ä½œã€‚å®ƒè¦åšçš„ç¬¬ä¸€ä»¶äº‹æƒ…å°±æ˜¯ä¸Šå‚³é€™å€‹ Dockerfile å…§å®¹ï¼Œå› ç‚ºæ‰€æœ‰çš„æ“ä½œéƒ½è¦ä¾æ“š Dockerfile ä¾†é€²è¡Œã€‚
+ç„¶å¾Œï¼ŒDockfile ä¸­çš„æŒ‡ä»¤è¢«ä¸€æ¢ä¸€æ¢çš„åŸ·è¡Œã€‚æ¯ä¸€æ­¥éƒ½å‰µå»ºäº†ä¸€å€‹æ–°çš„å®¹å™¨ï¼Œåœ¨å®¹å™¨ä¸­åŸ·è¡ŒæŒ‡ä»¤ä¸¦æäº¤ä¿®æ”¹ï¼ˆå°±è·Ÿä¹‹å‰ä»‹ç´¹éçš„ `docker commit` ä¸€æ¨£ï¼‰ã€‚ç•¶æ‰€æœ‰çš„æŒ‡ä»¤éƒ½åŸ·è¡Œå®Œç•¢ä¹‹å¾Œï¼Œè¿”å›äº†æœ€çµ‚çš„é¡åƒ idã€‚æ‰€æœ‰çš„ä¸­é–“æ­¥é©Ÿæ‰€ç”¢ç”Ÿçš„å®¹å™¨éƒ½è¢«åˆªé™¤å’Œæ¸…ç†äº†ã€‚
 
-*ª`·N¤@­ÓÃè¹³¤£¯à¶W¹L 127 ¼h
+*æ³¨æ„ä¸€å€‹é¡åƒä¸èƒ½è¶…é 127 å±¤
 
-¦¹¥~¡AÁÙ¥i¥H§Q¥Î `ADD` ©R¥O½Æ»s¥»¦a¤å¥ó¨ìÃè¹³¡F¥Î `EXPOSE` ©R¥O¨Ó¦V¥~³¡¶}©ñºİ¤f¡F¥Î `CMD` ©R¥O¨Ó´y­z®e¾¹±Ò°Ê«á¹B¦æªºµ{§Çµ¥¡C¨Ò¦p
+æ­¤å¤–ï¼Œé‚„å¯ä»¥åˆ©ç”¨ `ADD` å‘½ä»¤è¤‡è£½æœ¬åœ°æ–‡ä»¶åˆ°é¡åƒï¼›ç”¨ `EXPOSE` å‘½ä»¤ä¾†å‘å¤–éƒ¨é–‹æ”¾é€£æ¥é˜œï¼›ç”¨ `CMD` å‘½ä»¤ä¾†æè¿°å®¹å™¨å•Ÿå‹•å¾Œé‹è¡Œçš„ç¨‹åºç­‰ã€‚ä¾‹å¦‚
 ```
 # put my local web site in myApp folder to /var/www
 ADD myApp /var/www
@@ -114,12 +114,12 @@ EXPOSE 80
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
 ```
 
-²{¦b¥i¥H§Q¥Î·s³Ğ«ØªºÃè¹³¨Ó±Ò°Ê¤@­Ó®e¾¹¡C
+ç¾åœ¨å¯ä»¥åˆ©ç”¨æ–°å‰µå»ºçš„é¡åƒä¾†å•Ÿå‹•ä¸€å€‹å®¹å™¨ã€‚
 ```
 $ sudo docker run -t -i ouruser/sinatra:v2 /bin/bash
 root@8196968dac35:/#
 ```
-ÁÙ¥i¥H¥Î `docker tag` ©R¥O¨Ó­×§ïÃè¹³ªº¼ĞÅÒ¡C
+é‚„å¯ä»¥ç”¨ `docker tag` å‘½ä»¤ä¾†ä¿®æ”¹é¡åƒçš„æ¨™ç±¤ã€‚
 ```
 $ sudo docker tag 5db5f8471261 ouruser/sinatra:devel
 $ sudo docker images ouruser/sinatra
@@ -129,25 +129,25 @@ ouruser/sinatra     devel   5db5f8471261  11 hours ago   446.7 MB
 ouruser/sinatra     v2      5db5f8471261  11 hours ago   446.7 MB
 ```
 
-*µù¡G§ó¦h¥Îªk¡A½Ğ°Ñ¦Ò [Dockerfile](../dockerfile/README.md) ³¹¸`¡C
+*è¨»ï¼šæ›´å¤šç”¨æ³•ï¼Œè«‹åƒè€ƒ [Dockerfile](../dockerfile/README.md) ç« ç¯€ã€‚
 
-### ±q¥»¦a¤å¥ó¨t²Î¾É¤J
-­n±q¥»¦a¤å¥ó¨t²Î¾É¤J¤@­ÓÃè¹³¡A¥i¥H¨Ï¥Î openvz¡]®e¾¹µêÀÀ¤Æªº¥ı¾W§Ş³N¡^ªº¼ÒªO¨Ó³Ğ«Ø¡G
-openvz ªº¼ÒªO¤U¸ü¦a§}¬° [templates](http://openvz.org/Download/templates/precreated) ¡C
+### å¾æœ¬åœ°æ–‡ä»¶ç³»çµ±å°å…¥
+è¦å¾æœ¬åœ°æ–‡ä»¶ç³»çµ±å°å…¥ä¸€å€‹é¡åƒï¼Œå¯ä»¥ä½¿ç”¨ openvzï¼ˆå®¹å™¨è™›æ“¬åŒ–çš„å…ˆé‹’æŠ€è¡“ï¼‰çš„æ¨¡æ¿ä¾†å‰µå»ºï¼š
+openvz çš„æ¨¡æ¿ä¸‹è¼‰åœ°å€ç‚º [templates](http://openvz.org/Download/templates/precreated) ã€‚
 
-¤ñ¦p¡A¥ı¤U¸ü¤F¤@­Ó ubuntu-14.04 ªºÃè¹³¡A¤§«á¨Ï¥Î¥H¤U©R¥O¾É¤J¡G
+æ¯”å¦‚ï¼Œå…ˆä¸‹è¼‰äº†ä¸€å€‹ ubuntu-14.04 çš„é¡åƒï¼Œä¹‹å¾Œä½¿ç”¨ä»¥ä¸‹å‘½ä»¤å°å…¥ï¼š
 ```
 sudo cat ubuntu-14.04-x86_64-minimal.tar.gz  |docker import - ubuntu:14.04
 ```
-µM«á¬d¬İ·s¾É¤JªºÃè¹³¡C
+ç„¶å¾ŒæŸ¥çœ‹æ–°å°å…¥çš„é¡åƒã€‚
 ```
 docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 ubuntu              14.04               05ac7c0b9383        17 seconds ago      215.5 MB
 ```
 
-###¤W¶ÇÃè¹³
-¥Î¤á¥i¥H³q¹L `docker push` ©R¥O¡A§â¦Û¤v³Ğ«ØªºÃè¹³¤W¶Ç¨ì­Ü®w¤¤¨Ó¦@¨É¡C¨Ò¦p¡A¥Î¤á¦b Docker Hub ¤W§¹¦¨µù¥U«á¡A¥i¥H±À°e¦Û¤vªºÃè¹³¨ì­Ü®w¤¤¡C
+###ä¸Šå‚³é¡åƒ
+ç”¨æˆ¶å¯ä»¥é€šé `docker push` å‘½ä»¤ï¼ŒæŠŠè‡ªå·±å‰µå»ºçš„é¡åƒä¸Šå‚³åˆ°å€‰åº«ä¸­ä¾†å…±äº«ã€‚ä¾‹å¦‚ï¼Œç”¨æˆ¶åœ¨ Docker Hub ä¸Šå®Œæˆè¨»å†Šå¾Œï¼Œå¯ä»¥æ¨é€è‡ªå·±çš„é¡åƒåˆ°å€‰åº«ä¸­ã€‚
 ```
 $ sudo docker push ouruser/sinatra
 The push refers to a repository [ouruser/sinatra] (len: 1)

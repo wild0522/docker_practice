@@ -1,31 +1,31 @@
-# §Ö³t¤W¤â
+# å¿«é€Ÿä¸Šæ‰‹
 
-¥Ø«e¡AKubenetes ¤ä«ù¦b¦hºØÀô¹Ò¤Uªº¦w¸Ë¡A¥]¬A¥»¦a¥D¾÷¡]Fedora¡^¡B¶³ªA°È¡]Google GAE¡BAWS µ¥¡^¡CµM¦Ó³Ì§Ö³tÅéÅç Kubernetes ªº¤è¦¡ÅãµM¬O¥»¦a³q¹L Docker ªº¤è¦¡¨Ó±Ò°Ê¬ÛÃö¶iµ{¡C
+ç›®å‰ï¼ŒKubenetes æ”¯æŒåœ¨å¤šç¨®ç’°å¢ƒä¸‹çš„å®‰è£ï¼ŒåŒ…æ‹¬æœ¬åœ°ä¸»æ©Ÿï¼ˆFedoraï¼‰ã€é›²æœå‹™ï¼ˆGoogle GAEã€AWS ç­‰ï¼‰ã€‚ç„¶è€Œæœ€å¿«é€Ÿé«”é©— Kubernetes çš„æ–¹å¼é¡¯ç„¶æ˜¯æœ¬åœ°é€šé Docker çš„æ–¹å¼ä¾†å•Ÿå‹•ç›¸é—œé€²ç¨‹ã€‚
 
-¤U¹Ï®i¥Ü¤F¦b³æ¸`ÂI¨Ï¥Î Docker §Ö³t³¡¸p¤@®M Kubernetes ªº©İ¼³¡C
+ä¸‹åœ–å±•ç¤ºäº†åœ¨å–®ç¯€é»ä½¿ç”¨ Docker å¿«é€Ÿéƒ¨ç½²ä¸€å¥— Kubernetes çš„æ‹“æ’²ã€‚
 
-![¦b Docker ¤¤±Ò°Ê Kubernetes](../../_images/k8s-singlenode-docker.png)
+![åœ¨ Docker ä¸­å•Ÿå‹• Kubernetes](../../_images/k8s-singlenode-docker.png)
 
-Kubernetes ¨Ì¿à Etcd ªA°È¨ÓºûÅ@©Ò¦³¥D¸`ÂIªºª¬ºA¡C
+Kubernetes ä¾è³´ Etcd æœå‹™ä¾†ç¶­è­·æ‰€æœ‰ä¸»ç¯€é»çš„ç‹€æ…‹ã€‚
 
-## ±Ò°Ê Etcd ªA°È¡C
+## å•Ÿå‹• Etcd æœå‹™ã€‚
 ```sh
 docker run --net=host -d gcr.io/google_containers/etcd:2.0.9 /usr/local/bin/etcd --addr=127.0.0.1:4001 --bind-addr=0.0.0.0:4001 --data-dir=/var/etcd/data
 ```
 
-## ±Ò°Ê¥D¸`ÂI
-±Ò°Ê kubelet¡C
+## å•Ÿå‹•ä¸»ç¯€é»
+å•Ÿå‹• kubeletã€‚
 ```sh
 docker run --net=host -d -v /var/run/docker.sock:/var/run/docker.sock  gcr.io/google_containers/hyperkube:v0.17.0 /hyperkube kubelet --api_servers=http://localhost:8080 --v=2 --address=0.0.0.0 --enable_server --hostname_override=127.0.0.1 --config=/etc/kubernetes/manifests
 ```
 
-## ±Ò°ÊªA°È¥N²z
+## å•Ÿå‹•æœå‹™ä»£ç†
 ```sh
 docker run -d --net=host --privileged gcr.io/google_containers/hyperkube:v0.17.0 /hyperkube proxy --master=http://127.0.0.1:8080 --v=2
 ```
 
-## ´ú¸Õª¬ºA
-¦b¥»¦a³X°İ 8080 ºİ¤f¡AÀ³¸ÓÀò¨ú¨ìÃş¦ü¦p¤Uªºµ²ªG¡G
+## æ¸¬è©¦ç‹€æ…‹
+åœ¨æœ¬åœ°è¨ªå• 8080 é€£æ¥é˜œï¼Œæ‡‰è©²ç²å–åˆ°é¡ä¼¼å¦‚ä¸‹çš„çµæœï¼š
 ```sh
 $ curl 127.0.0.1:8080
 {
@@ -47,8 +47,8 @@ $ curl 127.0.0.1:8080
 }
 ```
 
-## ¬d¬İªA°È
-©Ò¦³ªA°È±Ò°Ê«á¹L¤@·|¡A¬d¬İ¥»¦a¹ê»Ú¹B¦æªº Docker ®e¾¹¡AÀ³¸Ó¦³¦p¤U´X­Ó¡C
+## æŸ¥çœ‹æœå‹™
+æ‰€æœ‰æœå‹™å•Ÿå‹•å¾Œéä¸€æœƒï¼ŒæŸ¥çœ‹æœ¬åœ°å¯¦éš›é‹è¡Œçš„ Docker å®¹å™¨ï¼Œæ‡‰è©²æœ‰å¦‚ä¸‹å¹¾å€‹ã€‚
 ```sh
 CONTAINER ID        IMAGE                                        COMMAND                CREATED             STATUS              PORTS               NAMES
 ee054db2516c        gcr.io/google_containers/hyperkube:v0.17.0   "/hyperkube schedule   2 days ago          Up 1 days                               k8s_scheduler.509f29c9_k8s-master-127.0.0.1_default_9941e5170b4365bd4aa91f122ba0c061_e97037f5
@@ -60,17 +60,17 @@ c060c52acc36        gcr.io/google_containers/hyperkube:v0.17.0   "/hyperkube kub
 cc3cd263c581        gcr.io/google_containers/etcd:2.0.9          "/usr/local/bin/etcd   2 days ago          Up 1 days                               happy_turing
 ```
 
-³o¨ÇªA°È¤j·§¤À¬°¤TÃş¡G¥D¸`ÂIªA°È¡B¤u§@¸`ÂIªA°È©M¨ä¥¦ªA°È¡C
+é€™äº›æœå‹™å¤§æ¦‚åˆ†ç‚ºä¸‰é¡ï¼šä¸»ç¯€é»æœå‹™ã€å·¥ä½œç¯€é»æœå‹™å’Œå…¶å®ƒæœå‹™ã€‚
 
-### ¥D¸`ÂIªA°È
-* apiserver ¬O¾ã­Ó¨t²Îªº¹ï¥~±µ¤f¡A´£¨Ñ RESTful ¤è¦¡¨Ñ«È¤áºİ©M¨ä¥¦²Õ¥ó½Õ¥Î¡F
-* scheduler ­t³d¹ï¸ê·½¶i¦æ½Õ«×¡A¤À°t¬Y­Ó pod ¨ì¬Y­Ó¸`ÂI¤W¡F
-* controller-manager ­t³dºŞ²z±±¨î¾¹¡A¥]¬A endpoint-controller¡]¨ê·sªA°È©M pod ªºÃöÁp«H®§¡^©M replication-controller¡]ºûÅ@¬Y­Ó pod ªº½Æ»s¬°°t¸mªº¼Æ­È¡^¡C
+### ä¸»ç¯€é»æœå‹™
+* apiserver æ˜¯æ•´å€‹ç³»çµ±çš„å°å¤–æ¥å£ï¼Œæä¾› RESTful æ–¹å¼ä¾›å®¢æˆ¶ç«¯å’Œå…¶å®ƒçµ„ä»¶èª¿ç”¨ï¼›
+* scheduler è² è²¬å°è³‡æºé€²è¡Œèª¿åº¦ï¼Œåˆ†é…æŸå€‹ pod åˆ°æŸå€‹ç¯€é»ä¸Šï¼›
+* controller-manager è² è²¬ç®¡ç†æ§åˆ¶å™¨ï¼ŒåŒ…æ‹¬ endpoint-controllerï¼ˆåˆ·æ–°æœå‹™å’Œ pod çš„é—œè¯ä¿¡æ¯ï¼‰å’Œ replication-controllerï¼ˆç¶­è­·æŸå€‹ pod çš„è¤‡è£½ç‚ºé…ç½®çš„æ•¸å€¼ï¼‰ã€‚
 
-### ¤u§@¸`ÂIªA°È
-* kubelet ¬O¤u§@¸`ÂI°õ¦æ¾Ş§@ªº agent¡A­t³d¨ãÅéªº®e¾¹¥Í©R¶g´ÁºŞ²z¡A®Ú¾Ú±q¼Æ¾Ú®w¤¤Àò¨úªº«H®§¨ÓºŞ²z®e¾¹¡A¨Ã¤W³ø pod ¹B¦æª¬ºAµ¥¡F
-* proxy ¬° pod ¤WªºªA°È´£¨Ñ³X°İªº¥N²z¡C
+### å·¥ä½œç¯€é»æœå‹™
+* kubelet æ˜¯å·¥ä½œç¯€é»åŸ·è¡Œæ“ä½œçš„ agentï¼Œè² è²¬å…·é«”çš„å®¹å™¨ç”Ÿå‘½é€±æœŸç®¡ç†ï¼Œæ ¹æ“šå¾æ•¸æ“šåº«ä¸­ç²å–çš„ä¿¡æ¯ä¾†ç®¡ç†å®¹å™¨ï¼Œä¸¦ä¸Šå ± pod é‹è¡Œç‹€æ…‹ç­‰ï¼›
+* proxy ç‚º pod ä¸Šçš„æœå‹™æä¾›è¨ªå•çš„ä»£ç†ã€‚
 
-### ¨ä¥¦ªA°È
-* etcd ¬O©Ò¦³ª¬ºAªº¦sÀx¼Æ¾Ú®w¡F
-* `gcr.io/google_containers/pause:0.8.0` ¬O Kubernetes ±Ò°Ê«á¦Û°Ê pull ¤U¨Óªº´ú¸ÕÃè¹³¡C
+### å…¶å®ƒæœå‹™
+* etcd æ˜¯æ‰€æœ‰ç‹€æ…‹çš„å­˜å„²æ•¸æ“šåº«ï¼›
+* `gcr.io/google_containers/pause:0.8.0` æ˜¯ Kubernetes å•Ÿå‹•å¾Œè‡ªå‹• pull ä¸‹ä¾†çš„æ¸¬è©¦é¡åƒã€‚

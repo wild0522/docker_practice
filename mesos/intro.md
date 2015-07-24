@@ -1,2 +1,2 @@
-## Â²¤¶
-Mesos ¬O¤@­Ó¶°¸s¸ê·½ªº¦Û°Ê½Õ«×¥­¥x¡AApache ¶}·½¶µ¥Ø¡A¥¦ªº©w¦ì¬O­n°µ¼Æ¾Ú¤¤¤ß¾Ş§@¨t²Îªº¤º®Ö¡C¥Ø«e¥Ñ Mesosphere ¤½¥qºûÅ@¡A§ó¦h«H®§¥i¥H¦Û¦æ¬d¾\ [Mesos ¶µ¥Ø¦a§}](http://mesos.apache.org/)©Î [Mesosphere](https://mesosphere.com)¡C
+## ç°¡ä»‹
+Mesos æ˜¯ä¸€å€‹é›†ç¾¤è³‡æºçš„è‡ªå‹•èª¿åº¦å¹³å°ï¼ŒApache é–‹æºé …ç›®ï¼Œå®ƒçš„å®šä½æ˜¯è¦åšæ•¸æ“šä¸­å¿ƒæ“ä½œç³»çµ±çš„å…§æ ¸ã€‚ç›®å‰ç”± Mesosphere å…¬å¸ç¶­è­·ï¼Œæ›´å¤šä¿¡æ¯å¯ä»¥è‡ªè¡ŒæŸ¥é–± [Mesos é …ç›®åœ°å€](http://mesos.apache.org/)æˆ– [Mesosphere](https://mesosphere.com)ã€‚

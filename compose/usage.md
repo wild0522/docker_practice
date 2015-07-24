@@ -1,25 +1,25 @@
-## �ϥ�
+## 使用
 
-### �N�y
-�������дX�ӳN�y�C
+### 術語
+首先介紹幾個術語。
 
-* �A�ȡ]service�^�G�@�����ήe���A��ڤW�i�H�B��h�ӬۦP�蹳����ҡC
-* ����(project)�G�Ѥ@�����p�����ήe���զ����@�ӧ���~�ȳ椸�C
+* 服務（service）：一個應用容器，實際上可以運行多個相同鏡像的實例。
+* 項目(project)：由一組關聯的應用容器組成的一個完整業務單元。
 
-�i���A�@�Ӷ��إi�H�Ѧh�ӪA�ȡ]�e���^���p�Ӧ��ACompose ���V���ضi��޲z�C
+可見，一個項目可以由多個服務（容器）關聯而成，Compose 面向項目進行管理。
 
-### ����
-�U���A�ڭ̳Ыؤ@�Ӹg�媺 Web ���ءG�@�� [Haproxy](www.haproxy.org)�A�����T�� Web �e���C
+### 場景
+下面，我們創建一個經典的 Web 項目：一個 [Haproxy](www.haproxy.org)，掛載三個 Web 容器。
 
-�Ыؤ@�� `compose-haproxy-web` �ؿ��A�@�����ؤu�@�ؿ��A�æb�䤤���O�Ыب�Ӥl�ؿ��G`haproxy` �M `web`�C
+創建一個 `compose-haproxy-web` 目錄，作為項目工作目錄，並在其中分別創建兩個子目錄：`haproxy` 和 `web`。
 
-### Web �l�ؿ�
+### Web 子目錄
 
-�o�̥� Python �{�ǨӴ��Ѥ@��²�檺 HTTP �A�ȡA���L�X�X�ݪ̪� IP �M ��ڪ����a IP�C
+這裡用 Python 程序來提供一個簡單的 HTTP 服務，打印出訪問者的 IP 和 實際的本地 IP。
 
 #### index.py
 
-�s�g�@�� `index.py` �@���A�Ⱦ����A�N�X��
+編寫一個 `index.py` 作為服務器文件，代碼為
 ```sh
 #!/usr/bin/python
 #authors: yeasy.github.com
@@ -92,13 +92,13 @@ if __name__ == '__main__':
 ```
 
 #### index.html
-�ͦ��@���{�ɪ� `index.html` ���A�䤺�e�|�Q index.py ��s�C
+生成一個臨時的 `index.html` 文件，其內容會被 index.py 更新。
 ```sh
 $ touch index.html
 ```
 
 #### Dockerfile
-�ͦ��@�� Dockerfile�A���e��
+生成一個 Dockerfile，內容為
 ```sh
 FROM python:2.7
 WORKDIR /code
@@ -107,8 +107,8 @@ EXPOSE 80
 CMD python index.py
 ```
 
-### haproxy �ؿ�
-�b�䤤�ͦ��@�� `haproxy.cfg` ���A���e��
+### haproxy 目錄
+在其中生成一個 `haproxy.cfg` 文件，內容為
 ```sh
 global
   log 127.0.0.1 local0
@@ -143,7 +143,7 @@ backend web_backends
     http-check expect status 200
 ```
 ### docker-compose.yml
-�s�g docker-compose.yml ���A�o�ӬO Compose �ϥΪ��D�ҪO���C���e�Q��²��A���w 3 �� web �e���A�H�� 1 �� haproxy �e���C
+編寫 docker-compose.yml 文件，這個是 Compose 使用的主模板文件。內容十分簡單，指定 3 個 web 容器，以及 1 個 haproxy 容器。
 
 ```sh
 weba:
@@ -178,19 +178,19 @@ haproxy:
         - "70"
 ```
 
-### �B�� compose ����
-�{�b compose-haproxy-web �ؿ������U�����ˤl�C
+### 運行 compose 項目
+現在 compose-haproxy-web 目錄長成下面的樣子。
 ```sh
 compose-haproxy-web
-�u�w�w docker-compose.yml
-�u�w�w haproxy
-�x   �|�w�w haproxy.cfg
-�|�w�w web
-    �u�w�w Dockerfile
-    �u�w�w index.html
-    �|�w�w index.py
+├── docker-compose.yml
+├── haproxy
+│   └── haproxy.cfg
+└── web
+    ├── Dockerfile
+    ├── index.html
+    └── index.py
 ```
-�b�ӥؿ��U���� `docker-compose up` �R�O�A�|��X��X�Ҧ��e������X�C
+在該目錄下執行 `docker-compose up` 命令，會整合輸出所有容器的輸出。
 ```
 $sudo docker-compose up
 Recreating composehaproxyweb_webb_1...
@@ -200,8 +200,8 @@ Recreating composehaproxyweb_haproxy_1...
 Attaching to composehaproxyweb_webb_1, composehaproxyweb_webc_1, composehaproxyweb_weba_1, composehaproxyweb_haproxy_1
 ```
 
-���ɳX�ݥ��a�� 80 �ݤf�A�|�g�L haproxy �۰���o���ݪ��Y�� web �e���W�A��s�����A�i�H�[���X�ݪ��e���a�}���ܤơC
+此時訪問本地的 80 連接阜，會經過 haproxy 自動轉發到後端的某個 web 容器上，刷新頁面，可以觀察到訪問的容器地址的變化。
 
-�X�ݥ��a 70 �ݤf�A�i�H�d�ݨ� haproxy ���έp�H���C
+訪問本地 70 連接阜，可以查看到 haproxy 的統計信息。
 
-���M�A�٥i�H�ϥ� consul�Betcd ����{�A�ȵo�{�A�o�˴N�i�H�קK��ʫ��w��ݪ� web �e���F�A���F���C
+當然，還可以使用 consul、etcd 等實現服務發現，這樣就可以避免手動指定後端的 web 容器了，更為靈活。

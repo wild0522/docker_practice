@@ -1,4 +1,4 @@
-## ®e¾¹®æ¦¡
-³Ìªì¡ADocker ±Ä¥Î¤F LXC ¤¤ªº®e¾¹®æ¦¡¡C¦Û 1.20 ª©¥»¶}©l¡ADocker ¤]¶}©l¤ä«ù·sªº [libcontainer](https://github.com/docker/libcontainer) ®æ¦¡¡A¨Ã§@¬°Àq»{¿ï¶µ¡C
+## å®¹å™¨æ ¼å¼
+æœ€åˆï¼ŒDocker æ¡ç”¨äº† LXC ä¸­çš„å®¹å™¨æ ¼å¼ã€‚è‡ª 1.20 ç‰ˆæœ¬é–‹å§‹ï¼ŒDocker ä¹Ÿé–‹å§‹æ”¯æŒæ–°çš„ [libcontainer](https://github.com/docker/libcontainer) æ ¼å¼ï¼Œä¸¦ä½œç‚ºé è¨­é¸é …ã€‚
 
-¹ï§ó¦h®e¾¹®æ¦¡ªº¤ä«ù¡AÁÙ¦b¶i¤@¨Bªºµo®i¤¤¡C
+å°æ›´å¤šå®¹å™¨æ ¼å¼çš„æ”¯æŒï¼Œé‚„åœ¨é€²ä¸€æ­¥çš„ç™¼å±•ä¸­ã€‚

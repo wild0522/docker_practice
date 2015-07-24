@@ -1,5 +1,5 @@
-## ¦h¥xª«²z¥D¾÷¤§¶¡ªº®e¾¹¤¬Áp¡]¼ÉÅS®e¾¹¨ì¯u¹êºôµ¸¤¤¡^
-Docker Àq»{ªº¾ô±µºô¥d¬O docker0¡C¥¦¥u·|¦b¥»¾÷¾ô±µ©Ò¦³ªº®e¾¹ºô¥d¡AÁ|¨Ò¨Ó»¡®e¾¹ªºµêÀÀºô¥d¦b¥D¾÷¤W¬Ý¤@¯ë¥s°µ veth***  ¦Ó Docker ¥u¬O§â©Ò¦³³o¨Çºô¥d¾ô±µ¦b¤@°_¡A¦p¤U¡G
+## å¤šå°ç‰©ç†ä¸»æ©Ÿä¹‹é–“çš„å®¹å™¨äº’è¯ï¼ˆæš´éœ²å®¹å™¨åˆ°çœŸå¯¦ç¶²è·¯ä¸­ï¼‰
+Docker é è¨­çš„æ©‹æŽ¥ç¶²å¡æ˜¯ docker0ã€‚å®ƒåªæœƒåœ¨æœ¬æ©Ÿæ©‹æŽ¥æ‰€æœ‰çš„å®¹å™¨ç¶²å¡ï¼Œèˆ‰ä¾‹ä¾†èªªå®¹å™¨çš„è™›æ“¬ç¶²å¡åœ¨ä¸»æ©Ÿä¸Šçœ‹ä¸€èˆ¬å«åš veth***  è€Œ Docker åªæ˜¯æŠŠæ‰€æœ‰é€™äº›ç¶²å¡æ©‹æŽ¥åœ¨ä¸€èµ·ï¼Œå¦‚ä¸‹ï¼š
 ```
 [root@opnvz ~]# brctl show
 bridge name     bridge id               STP enabled     interfaces
@@ -7,7 +7,7 @@ docker0         8000.56847afe9799       no              veth0889
                                              veth3c7b
                                              veth4061
 ```
-¦b®e¾¹¤¤¬Ý¨ìªº¦a§}¤@¯ë¬O¹³¤U­±³o¼Ëªº¦a§}¡G
+åœ¨å®¹å™¨ä¸­çœ‹åˆ°çš„åœ°å€ä¸€èˆ¬æ˜¯åƒä¸‹é¢é€™æ¨£çš„åœ°å€ï¼š
 ```
 root@ac6474aeb31d:~# ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default
@@ -23,17 +23,17 @@ root@ac6474aeb31d:~# ip a
     inet6 fe80::487d:68ff:feda:9cf/64 scope link
        valid_lft forever preferred_lft forever
 ```
-³o¼Ë´N¥i¥H§â³o­Óºôµ¸¬Ý¦¨¬O¤@­Ó¨p¦³ªººôµ¸¡A³q¹L nat ³s±µ¥~ºô¡A¦pªG­nÅý¥~ºô³s±µ¨ì®e¾¹¤¤¡A´N»Ý­n°µºÝ¤f¬M®g¡A§Y -p °Ñ¼Æ¡C
+é€™æ¨£å°±å¯ä»¥æŠŠé€™å€‹ç¶²è·¯çœ‹æˆæ˜¯ä¸€å€‹ç§æœ‰çš„ç¶²è·¯ï¼Œé€šéŽ nat é€£æŽ¥å¤–ç¶²ï¼Œå¦‚æžœè¦è®“å¤–ç¶²é€£æŽ¥åˆ°å®¹å™¨ä¸­ï¼Œå°±éœ€è¦åšé€£æŽ¥é˜œæ˜ å°„ï¼Œå³ -p åƒæ•¸ã€‚
 
-¦pªG¦b¥ø·~¤º³¡À³¥Î¡A©ÎªÌ°µ¦h­Óª«²z¥D¾÷ªº¶°¸s¡A¥i¯à»Ý­n±N¦h­Óª«²z¥D¾÷ªº®e¾¹²Õ¨ì¤@­Óª«²zºôµ¸¤¤¨Ó¡A¨º»ò´N»Ý­n±N³o­Óºô¾ô¾ô±µ¨ì§Ú­Ì«ü©wªººô¥d¤W¡C
+å¦‚æžœåœ¨ä¼æ¥­å…§éƒ¨æ‡‰ç”¨ï¼Œæˆ–è€…åšå¤šå€‹ç‰©ç†ä¸»æ©Ÿçš„é›†ç¾¤ï¼Œå¯èƒ½éœ€è¦å°‡å¤šå€‹ç‰©ç†ä¸»æ©Ÿçš„å®¹å™¨çµ„åˆ°ä¸€å€‹ç‰©ç†ç¶²è·¯ä¸­ä¾†ï¼Œé‚£éº¼å°±éœ€è¦å°‡é€™å€‹ç¶²æ©‹æ©‹æŽ¥åˆ°æˆ‘å€‘æŒ‡å®šçš„ç¶²å¡ä¸Šã€‚
 
-### ©Ý¼³¹Ï
-¥D¾÷ A ©M¥D¾÷ B ªººô¥d¤@³£³sµÛª«²z¥æ´«¾÷ªº¦P¤@­Ó vlan 101,³o¼Ëºô¾ô¤@©Mºô¾ô¤T´N¬Û·í©ó¦b¦P¤@­Óª«²zºôµ¸¤¤¤F¡A¦Ó®e¾¹¤@¡B®e¾¹¤T¡B®e¾¹¥|¤]¦b¦P¤@ª«²zºôµ¸¤¤¤F¡A¥L­Ì¤§¶¡¥i¥H¬Û¤¬³q«H¡A¦Ó¥B¥i¥H¸ò¦P¤@ vlan ¤¤ªº¨ä¥Lª«²z¾÷¾¹¤¬Áp¡C
-![ª«²z©Ý¼³¹Ï](../_images/container_connect_topology.png)
+### æ‹“æ’²åœ–
+ä¸»æ©Ÿ A å’Œä¸»æ©Ÿ B çš„ç¶²å¡ä¸€éƒ½é€£è‘—ç‰©ç†äº¤æ›æ©Ÿçš„åŒä¸€å€‹ vlan 101,é€™æ¨£ç¶²æ©‹ä¸€å’Œç¶²æ©‹ä¸‰å°±ç›¸ç•¶æ–¼åœ¨åŒä¸€å€‹ç‰©ç†ç¶²è·¯ä¸­äº†ï¼Œè€Œå®¹å™¨ä¸€ã€å®¹å™¨ä¸‰ã€å®¹å™¨å››ä¹Ÿåœ¨åŒä¸€ç‰©ç†ç¶²è·¯ä¸­äº†ï¼Œä»–å€‘ä¹‹é–“å¯ä»¥ç›¸äº’é€šä¿¡ï¼Œè€Œä¸”å¯ä»¥è·ŸåŒä¸€ vlan ä¸­çš„å…¶ä»–ç‰©ç†æ©Ÿå™¨äº’è¯ã€‚
+![ç‰©ç†æ‹“æ’²åœ–](../_images/container_connect_topology.png)
 
-### ubuntu ¥Ü¨Ò
-¤U­±¥H ubuntu ¬°¨Ò³Ð«Ø¦h­Ó¥D¾÷ªº®e¾¹Ápºô:
-³Ð«Ø¦Û¤vªººô¾ô,½s¿è /etc/network/interface ¤å¥ó
+### ubuntu ç¤ºä¾‹
+ä¸‹é¢ä»¥ ubuntu ç‚ºä¾‹å‰µå»ºå¤šå€‹ä¸»æ©Ÿçš„å®¹å™¨è¯ç¶²:
+å‰µå»ºè‡ªå·±çš„ç¶²æ©‹,ç·¨è¼¯ /etc/network/interface æ–‡ä»¶
 ```
 auto br0
 iface br0 inet static
@@ -44,9 +44,9 @@ bridge_ports em1
 bridge_stp off
 dns-nameservers 8.8.8.8 192.168.6.1
 ```
-±N Docker ªºÀq»{ºô¾ô¸j©w¨ì³o­Ó·s«Øªº br0 ¤W­±¡A³o¼Ë´N±N³o¥x¾÷¾¹¤W®e¾¹¸j©w¨ì em1 ³o­Óºô¥d©Ò¹ïÀ³ªºª«²zºôµ¸¤W¤F¡C
+å°‡ Docker çš„é è¨­ç¶²æ©‹ç¶å®šåˆ°é€™å€‹æ–°å»ºçš„ br0 ä¸Šé¢ï¼Œé€™æ¨£å°±å°‡é€™å°æ©Ÿå™¨ä¸Šå®¹å™¨ç¶å®šåˆ° em1 é€™å€‹ç¶²å¡æ‰€å°æ‡‰çš„ç‰©ç†ç¶²è·¯ä¸Šäº†ã€‚
 
-ubuntu ­×§ï /etc/default/docker ¤å¥ó¡A²K¥[³Ì«á¤@¦æ¤º®e
+ubuntu ä¿®æ”¹ /etc/default/docker æ–‡ä»¶ï¼Œæ·»åŠ æœ€å¾Œä¸€è¡Œå…§å®¹
 
 ```
 # Docker Upstart and SysVinit configuration file
@@ -64,7 +64,7 @@ ubuntu ­×§ï /etc/default/docker ¤å¥ó¡A²K¥[³Ì«á¤@¦æ¤º®e
 DOCKER_OPTS="-b=br0"
 ```
 
-¦b±Ò°Ê Docker ªº®É­Ô ¨Ï¥Î -b °Ñ¼Æ ±N®e¾¹¸j©w¨ìª«²zºôµ¸¤W¡C­«±Ò Docker ªA°È«á¡A¦A¶i¤J®e¾¹¥i¥H¬Ý¨ì¥¦¤w¸g¸j©w¨ì§Aªºª«²zºôµ¸¤W¤F¡C
+åœ¨å•Ÿå‹• Docker çš„æ™‚å€™ ä½¿ç”¨ -b åƒæ•¸ å°‡å®¹å™¨ç¶å®šåˆ°ç‰©ç†ç¶²è·¯ä¸Šã€‚é‡å•Ÿ Docker æœå‹™å¾Œï¼Œå†é€²å…¥å®¹å™¨å¯ä»¥çœ‹åˆ°å®ƒå·²ç¶“ç¶å®šåˆ°ä½ çš„ç‰©ç†ç¶²è·¯ä¸Šäº†ã€‚
 
 ```
 root@ubuntudocker:~# docker ps
@@ -75,4 +75,4 @@ bridge name     bridge id               STP enabled     interfaces
 br0             8000.7e6e617c8d53       no              em1
                                             vethe6e5
 ```
-³o¼Ë´Nª½±µ§â®e¾¹¼ÉÅS¨ìª«²zºôµ¸¤W¤F¡A¦h¥xª«²z¥D¾÷ªº®e¾¹¤]¥i¥H¬Û¤¬Ápºô¤F¡C»Ý­nª`·Nªº¬O¡A³o¼Ë´N»Ý­n¦Û¤v¨Ó«OÃÒ®e¾¹ªººôµ¸¦w¥þ¤F¡C
+é€™æ¨£å°±ç›´æŽ¥æŠŠå®¹å™¨æš´éœ²åˆ°ç‰©ç†ç¶²è·¯ä¸Šäº†ï¼Œå¤šå°ç‰©ç†ä¸»æ©Ÿçš„å®¹å™¨ä¹Ÿå¯ä»¥ç›¸äº’è¯ç¶²äº†ã€‚éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œé€™æ¨£å°±éœ€è¦è‡ªå·±ä¾†ä¿è­‰å®¹å™¨çš„ç¶²è·¯å®‰å…¨äº†ã€‚

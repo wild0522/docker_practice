@@ -1,8 +1,8 @@
-## Docker �蹳
-Docker �蹳�N�O�@�ӥuŪ���ҪO�C
+## Docker 鏡像
+Docker 鏡像就是一個只讀的模板。
 
-�Ҧp�G�@���蹳�i�H�]�t�@�ӧ��㪺 ubuntu �ާ@�t�����ҡA�̭��Ȧw�ˤF Apache �ΥΤ�ݭn���䥦���ε{�ǡC
+例如：一個鏡像可以包含一個完整的 ubuntu 操作系統環境，裡面僅安裝了 Apache 或用戶需要的其它應用程序。
 
-�蹳�i�H�ΨӳЫ� Docker �e���C
+鏡像可以用來創建 Docker 容器。
 
-Docker ���ѤF�@�ӫ�²�檺����ӳЫ��蹳�Ϊ̧�s�{�����蹳�A�Τ�Ʀܥi�H�����q��L�H���̤U���@�Ӥw�g���n���蹳�Ӫ����ϥΡC
+Docker 提供了一個很簡單的機制來創建鏡像或者更新現有的鏡像，用戶甚至可以直接從其他人那裡下載一個已經做好的鏡像來直接使用。

@@ -1,14 +1,14 @@
-## �зǤƶ}�o���թM�Ͳ�����
-���j�������~�ӻ��A�f�� PaaS �J�S�����Ӻ�O�A�]�S���ӥ��n�A�� Docker ���ӤH�� sandbox �γB�S�p�F�I�C
+## 標準化開發測試和生產環境
+對於大部分企業來說，搭建 PaaS 既沒有那個精力，也沒那個必要，用 Docker 做個人的 sandbox 用處又小了點。
 
-�i�H�� Docker �ӼзǤƶ}�o�B���աB�Ͳ����ҡC
-
-
-![���~���ε��c](../_images/enterprise_usage.png)
+可以用 Docker 來標準化開發、測試、生產環境。
 
 
-Docker ���θ귽�p�A�b�@�x E5 128 G ���s���A�Ⱦ��W���p 100 �Ӯe������靈�l�A�i�H��W��@�Ӯe���Ϊ̪����b�J�D���z�D���W���p samba�A�Q�� samba �� home ���ɤ�ױN�C�ӥΤ᪺ home �ؿ��M�g��}�o���ߩM���ճ����� Windows �����W�C
+![企業應用結構](../_images/enterprise_usage.png)
 
-�w��Y�Ӷ��زաA�Ѭ[�c�v�f�ئn�@�ӼзǪ��e�����ҨѶ��زթM���ճ����ϥΡA�C�Ӷ}�o�u�{�v�i�H�֦��ۤv��W���e���A�q�L `docker run -v` �N�Τ᪺ home �ؿ��M�g��e�����C�ݭn������ծɡA�u�ݭn�N�N�X���浹���ճ����A�M����t�@�Ӯe���ϥ� `-v` �[�����ճ����� home �ؿ��ҰʧY�i�C�o�ˡA�b���q�������}�o�B���հ򥻴N�Τ@�F�A���|�X�{�}�o�������檺�N�X�A���ճ������p���F�����D�C
 
-���ճ����o�G���ճq�L�����i��A�[�c�v�A�@���˴��e�����ҡA�N�i�H������ѳ��p�u�{�v�N�N�X�M�e�����O���p��Ͳ����Ҥ��F�C�o�ؤ覡�����p��V�ʯ઺�X�i�ʤ]���n�C
+Docker 佔用資源小，在一台 E5 128 G 內存的服務器上部署 100 個容器都綽綽有餘，可以單獨抽一個容器或者直接在宿主物理主機上部署 samba，利用 samba 的 home 分享方案將每個用戶的 home 目錄映射到開發中心和測試部門的 Windows 機器上。
+
+針對某個項目組，由架構師搭建好一個標準的容器環境供項目組和測試部門使用，每個開發工程師可以擁有自己單獨的容器，通過 `docker run -v` 將用戶的 home 目錄映射到容器中。需要提交測試時，只需要將代碼移交給測試部門，然後分配一個容器使用 `-v` 加載測試部門的 home 目錄啟動即可。這樣，在公司內部的開發、測試基本就統一了，不會出現開發部門提交的代碼，測試部門部署不了的問題。
+
+測試部門發佈測試通過的報告後，架構師再一次檢測容器環境，就可以直接交由部署工程師將代碼和容器分別部署到生產環境中了。這種方式的部署橫向性能的擴展性也極好。

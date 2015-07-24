@@ -1,39 +1,39 @@
-## Docker ºôµ¸¹ê²{
+## Docker ç¶²è·¯å¯¦ç¾
 
-Docker ªººôµ¸¹ê²{¨ä¹ê´N¬O§Q¥Î¤F Linux ¤Wªººôµ¸¦W¦rªÅ¶¡©MµêÀÀºôµ¸³]³Æ¡]¯S§O¬O veth pair¡^¡C«ØÄ³¥ý¼ô±xÁA¸Ñ³o¨â³¡¤Àªº°ò¥»·§©À¦A¾\Åª¥»³¹¡C
+Docker çš„ç¶²è·¯å¯¦ç¾å…¶å¯¦å°±æ˜¯åˆ©ç”¨äº† Linux ä¸Šçš„ç¶²è·¯åå­—ç©ºé–“å’Œè™›æ“¬ç¶²è·¯è¨­å‚™ï¼ˆç‰¹åˆ¥æ˜¯ veth pairï¼‰ã€‚å»ºè­°å…ˆç†Ÿæ‚‰çž­è§£é€™å…©éƒ¨åˆ†çš„åŸºæœ¬æ¦‚å¿µå†é–±è®€æœ¬ç« ã€‚
 
-### °ò¥»­ì²z
-­º¥ý¡A­n¹ê²{ºôµ¸³q«H¡A¾÷¾¹»Ý­n¦Ü¤Ö¤@­Óºôµ¸±µ¤f¡]ª«²z±µ¤f©ÎµêÀÀ±µ¤f¡^¨Ó¦¬µo¼Æ¾Ú¥]¡F¦¹¥~¡A¦pªG¤£¦P¤lºô¤§¶¡­n¶i¦æ³q«H¡A»Ý­n¸ô¥Ñ¾÷¨î¡C
+### åŸºæœ¬åŽŸç†
+é¦–å…ˆï¼Œè¦å¯¦ç¾ç¶²è·¯é€šä¿¡ï¼Œæ©Ÿå™¨éœ€è¦è‡³å°‘ä¸€å€‹ç¶²è·¯æŽ¥å£ï¼ˆç‰©ç†æŽ¥å£æˆ–è™›æ“¬æŽ¥å£ï¼‰ä¾†æ”¶ç™¼æ•¸æ“šåŒ…ï¼›æ­¤å¤–ï¼Œå¦‚æžœä¸åŒå­ç¶²ä¹‹é–“è¦é€²è¡Œé€šä¿¡ï¼Œéœ€è¦è·¯ç”±æ©Ÿåˆ¶ã€‚
 
-Docker ¤¤ªººôµ¸±µ¤fÀq»{³£¬OµêÀÀªº±µ¤f¡CµêÀÀ±µ¤fªºÀu¶Õ¤§¤@¬OÂàµo®Ä²v¸û°ª¡C
-Linux ³q¹L¦b¤º®Ö¤¤¶i¦æ¼Æ¾Ú½Æ»s¨Ó¹ê²{µêÀÀ±µ¤f¤§¶¡ªº¼Æ¾ÚÂàµo¡Aµo°e±µ¤fªºµo°e½w¦s¤¤ªº¼Æ¾Ú¥]³Qª½±µ½Æ»s¨ì±µ¦¬±µ¤fªº±µ¦¬½w¦s¤¤¡C¹ï©ó¥»¦a¨t²Î©M®e¾¹¤º¨t²Î¬Ý¨Ó´N¹³¬O¤@­Ó¥¿±`ªº¥H¤Óºô¥d¡A¥u¬O¥¦¤£»Ý­n¯u¥¿¦P¥~³¡ºôµ¸³]³Æ³q«H¡A³t«×­n§Ö«Ü¦h¡C
+Docker ä¸­çš„ç¶²è·¯æŽ¥å£é è¨­éƒ½æ˜¯è™›æ“¬çš„æŽ¥å£ã€‚è™›æ“¬æŽ¥å£çš„å„ªå‹¢ä¹‹ä¸€æ˜¯è½‰ç™¼æ•ˆçŽ‡è¼ƒé«˜ã€‚
+Linux é€šéŽåœ¨å…§æ ¸ä¸­é€²è¡Œæ•¸æ“šè¤‡è£½ä¾†å¯¦ç¾è™›æ“¬æŽ¥å£ä¹‹é–“çš„æ•¸æ“šè½‰ç™¼ï¼Œç™¼é€æŽ¥å£çš„ç™¼é€ç·©å­˜ä¸­çš„æ•¸æ“šåŒ…è¢«ç›´æŽ¥è¤‡è£½åˆ°æŽ¥æ”¶æŽ¥å£çš„æŽ¥æ”¶ç·©å­˜ä¸­ã€‚å°æ–¼æœ¬åœ°ç³»çµ±å’Œå®¹å™¨å…§ç³»çµ±çœ‹ä¾†å°±åƒæ˜¯ä¸€å€‹æ­£å¸¸çš„ä»¥å¤ªç¶²å¡ï¼Œåªæ˜¯å®ƒä¸éœ€è¦çœŸæ­£åŒå¤–éƒ¨ç¶²è·¯è¨­å‚™é€šä¿¡ï¼Œé€Ÿåº¦è¦å¿«å¾ˆå¤šã€‚
 
-Docker ®e¾¹ºôµ¸´N§Q¥Î¤F³o¶µ§Þ³N¡C¥¦¦b¥»¦a¥D¾÷©M®e¾¹¤º¤À§O³Ð«Ø¤@­ÓµêÀÀ±µ¤f¡A¨ÃÅý¥¦­Ì©¼¦¹³s³q¡]³o¼Ëªº¤@¹ï±µ¤f¥s°µ `veth pair`¡^¡C
+Docker å®¹å™¨ç¶²è·¯å°±åˆ©ç”¨äº†é€™é …æŠ€è¡“ã€‚å®ƒåœ¨æœ¬åœ°ä¸»æ©Ÿå’Œå®¹å™¨å…§åˆ†åˆ¥å‰µå»ºä¸€å€‹è™›æ“¬æŽ¥å£ï¼Œä¸¦è®“å®ƒå€‘å½¼æ­¤é€£é€šï¼ˆé€™æ¨£çš„ä¸€å°æŽ¥å£å«åš `veth pair`ï¼‰ã€‚
 
-### ³Ð«Øºôµ¸°Ñ¼Æ
-Docker ³Ð«Ø¤@­Ó®e¾¹ªº®É­Ô¡A·|°õ¦æ¦p¤U¾Þ§@¡G
-* ³Ð«Ø¤@¹ïµêÀÀ±µ¤f¡A¤À§O©ñ¨ì¥»¦a¥D¾÷©M·s®e¾¹¤¤¡F
-* ¥»¦a¥D¾÷¤@ºÝ¾ô±µ¨ìÀq»{ªº docker0 ©Î«ü©wºô¾ô¤W¡A¨Ã¨ã¦³¤@­Ó°ß¤@ªº¦W¦r¡A¦p veth65f9¡F
-* ®e¾¹¤@ºÝ©ñ¨ì·s®e¾¹¤¤¡A¨Ã­×§ï¦W¦r§@¬° eth0¡A³o­Ó±µ¤f¥u¦b®e¾¹ªº¦W¦rªÅ¶¡¥i¨£¡F
-* ±qºô¾ô¥i¥Î¦a§}¬q¤¤Àò¨ú¤@­ÓªÅ¶¢¦a§}¤À°tµ¹®e¾¹ªº eth0¡A¨Ã°t¸mÀq»{¸ô¥Ñ¨ì¾ô±µºô¥d veth65f9¡C
+### å‰µå»ºç¶²è·¯åƒæ•¸
+Docker å‰µå»ºä¸€å€‹å®¹å™¨çš„æ™‚å€™ï¼ŒæœƒåŸ·è¡Œå¦‚ä¸‹æ“ä½œï¼š
+* å‰µå»ºä¸€å°è™›æ“¬æŽ¥å£ï¼Œåˆ†åˆ¥æ”¾åˆ°æœ¬åœ°ä¸»æ©Ÿå’Œæ–°å®¹å™¨ä¸­ï¼›
+* æœ¬åœ°ä¸»æ©Ÿä¸€ç«¯æ©‹æŽ¥åˆ°é è¨­çš„ docker0 æˆ–æŒ‡å®šç¶²æ©‹ä¸Šï¼Œä¸¦å…·æœ‰ä¸€å€‹å”¯ä¸€çš„åå­—ï¼Œå¦‚ veth65f9ï¼›
+* å®¹å™¨ä¸€ç«¯æ”¾åˆ°æ–°å®¹å™¨ä¸­ï¼Œä¸¦ä¿®æ”¹åå­—ä½œç‚º eth0ï¼Œé€™å€‹æŽ¥å£åªåœ¨å®¹å™¨çš„åå­—ç©ºé–“å¯è¦‹ï¼›
+* å¾žç¶²æ©‹å¯ç”¨åœ°å€æ®µä¸­ç²å–ä¸€å€‹ç©ºé–’åœ°å€åˆ†é…çµ¦å®¹å™¨çš„ eth0ï¼Œä¸¦é…ç½®é è¨­è·¯ç”±åˆ°æ©‹æŽ¥ç¶²å¡ veth65f9ã€‚
 
-§¹¦¨³o¨Ç¤§«á¡A®e¾¹´N¥i¥H¨Ï¥Î eth0 µêÀÀºô¥d¨Ó³s±µ¨ä¥L®e¾¹©M¨ä¥Lºôµ¸¡C
+å®Œæˆé€™äº›ä¹‹å¾Œï¼Œå®¹å™¨å°±å¯ä»¥ä½¿ç”¨ eth0 è™›æ“¬ç¶²å¡ä¾†é€£æŽ¥å…¶ä»–å®¹å™¨å’Œå…¶ä»–ç¶²è·¯ã€‚
 
-¥i¥H¦b `docker run` ªº®É­Ô³q¹L `--net` °Ñ¼Æ¨Ó«ü©w®e¾¹ªººôµ¸°t¸m¡A¦³4­Ó¥i¿ï­È¡G
-* `--net=bridge` ³o­Ó¬OÀq»{­È¡A³s±µ¨ìÀq»{ªººô¾ô¡C
-* `--net=host` §i¶D Docker ¤£­n±N®e¾¹ºôµ¸©ñ¨ì¹jÂ÷ªº¦W¦rªÅ¶¡¤¤¡A§Y¤£­n®e¾¹¤Æ®e¾¹¤ºªººôµ¸¡C¦¹®É®e¾¹¨Ï¥Î¥»¦a¥D¾÷ªººôµ¸¡A¥¦¾Ö¦³§¹¥þªº¥»¦a¥D¾÷±µ¤f³X°ÝÅv­­¡C®e¾¹¶iµ{¥i¥H¸ò¥D¾÷¨ä¥¦ root ¶iµ{¤@¼Ë¥i¥H¥´¶}§C½d³òªººÝ¤f¡A¥i¥H³X°Ý¥»¦aºôµ¸ªA°È¤ñ¦p D-bus¡AÁÙ¥i¥HÅý®e¾¹°µ¤@¨Ç¼vÅT¾ã­Ó¥D¾÷¨t²Îªº¨Æ±¡¡A¤ñ¦p­«±Ò¥D¾÷¡C¦]¦¹¨Ï¥Î³o­Ó¿ï¶µªº®É­Ô­n«D±`¤p¤ß¡C¦pªG¶i¤@¨Bªº¨Ï¥Î `--privileged=true`¡A®e¾¹·|³Q¤¹³\ª½±µ°t¸m¥D¾÷ªººôµ¸°ï´Ì¡C
-* `--net=container:NAME_or_ID` Åý Docker ±N·s«Ø®e¾¹ªº¶iµ{©ñ¨ì¤@­Ó¤w¦s¦b®e¾¹ªººôµ¸´Ì¤¤¡A·s®e¾¹¶iµ{¦³¦Û¤vªº¤å¥ó¨t²Î¡B¶iµ{¦Cªí©M¸ê·½­­¨î¡A¦ý·|©M¤w¦s¦bªº®e¾¹¦@¨É IP ¦a§}©MºÝ¤fµ¥ºôµ¸¸ê·½¡A¨âªÌ¶iµ{¥i¥Hª½±µ³q¹L `lo` Àô¦^±µ¤f³q«H¡C
-* `--net=none` Åý Docker ±N·s®e¾¹©ñ¨ì¹jÂ÷ªººôµ¸´Ì¤¤¡A¦ý¬O¤£¶i¦æºôµ¸°t¸m¡C¤§«á¡A¥Î¤á¥i¥H¦Û¤v¶i¦æ°t¸m¡C
+å¯ä»¥åœ¨ `docker run` çš„æ™‚å€™é€šéŽ `--net` åƒæ•¸ä¾†æŒ‡å®šå®¹å™¨çš„ç¶²è·¯é…ç½®ï¼Œæœ‰4å€‹å¯é¸å€¼ï¼š
+* `--net=bridge` é€™å€‹æ˜¯é è¨­å€¼ï¼Œé€£æŽ¥åˆ°é è¨­çš„ç¶²æ©‹ã€‚
+* `--net=host` å‘Šè¨´ Docker ä¸è¦å°‡å®¹å™¨ç¶²è·¯æ”¾åˆ°éš”é›¢çš„åå­—ç©ºé–“ä¸­ï¼Œå³ä¸è¦å®¹å™¨åŒ–å®¹å™¨å…§çš„ç¶²è·¯ã€‚æ­¤æ™‚å®¹å™¨ä½¿ç”¨æœ¬åœ°ä¸»æ©Ÿçš„ç¶²è·¯ï¼Œå®ƒæ“æœ‰å®Œå…¨çš„æœ¬åœ°ä¸»æ©ŸæŽ¥å£è¨ªå•æ¬Šé™ã€‚å®¹å™¨é€²ç¨‹å¯ä»¥è·Ÿä¸»æ©Ÿå…¶å®ƒ root é€²ç¨‹ä¸€æ¨£å¯ä»¥æ‰“é–‹ä½Žç¯„åœçš„é€£æŽ¥é˜œï¼Œå¯ä»¥è¨ªå•æœ¬åœ°ç¶²è·¯æœå‹™æ¯”å¦‚ D-busï¼Œé‚„å¯ä»¥è®“å®¹å™¨åšä¸€äº›å½±éŸ¿æ•´å€‹ä¸»æ©Ÿç³»çµ±çš„äº‹æƒ…ï¼Œæ¯”å¦‚é‡å•Ÿä¸»æ©Ÿã€‚å› æ­¤ä½¿ç”¨é€™å€‹é¸é …çš„æ™‚å€™è¦éžå¸¸å°å¿ƒã€‚å¦‚æžœé€²ä¸€æ­¥çš„ä½¿ç”¨ `--privileged=true`ï¼Œå®¹å™¨æœƒè¢«å…è¨±ç›´æŽ¥é…ç½®ä¸»æ©Ÿçš„ç¶²è·¯å †æ£§ã€‚
+* `--net=container:NAME_or_ID` è®“ Docker å°‡æ–°å»ºå®¹å™¨çš„é€²ç¨‹æ”¾åˆ°ä¸€å€‹å·²å­˜åœ¨å®¹å™¨çš„ç¶²è·¯æ£§ä¸­ï¼Œæ–°å®¹å™¨é€²ç¨‹æœ‰è‡ªå·±çš„æ–‡ä»¶ç³»çµ±ã€é€²ç¨‹åˆ—è¡¨å’Œè³‡æºé™åˆ¶ï¼Œä½†æœƒå’Œå·²å­˜åœ¨çš„å®¹å™¨å…±äº« IP åœ°å€å’Œé€£æŽ¥é˜œç­‰ç¶²è·¯è³‡æºï¼Œå…©è€…é€²ç¨‹å¯ä»¥ç›´æŽ¥é€šéŽ `lo` ç’°å›žæŽ¥å£é€šä¿¡ã€‚
+* `--net=none` è®“ Docker å°‡æ–°å®¹å™¨æ”¾åˆ°éš”é›¢çš„ç¶²è·¯æ£§ä¸­ï¼Œä½†æ˜¯ä¸é€²è¡Œç¶²è·¯é…ç½®ã€‚ä¹‹å¾Œï¼Œç”¨æˆ¶å¯ä»¥è‡ªå·±é€²è¡Œé…ç½®ã€‚
 
-### ºôµ¸°t¸m²Ó¸`
-¥Î¤á¨Ï¥Î `--net=none` «á¡A¥i¥H¦Û¦æ°t¸mºôµ¸¡AÅý®e¾¹¹F¨ì¸ò¥­±`¤@¼Ë¨ã¦³³X°Ýºôµ¸ªºÅv­­¡C³q¹L³o­Ó¹Lµ{¡A¥i¥HÁA¸Ñ Docker °t¸mºôµ¸ªº²Ó¸`¡C
+### ç¶²è·¯é…ç½®ç´°ç¯€
+ç”¨æˆ¶ä½¿ç”¨ `--net=none` å¾Œï¼Œå¯ä»¥è‡ªè¡Œé…ç½®ç¶²è·¯ï¼Œè®“å®¹å™¨é”åˆ°è·Ÿå¹³å¸¸ä¸€æ¨£å…·æœ‰è¨ªå•ç¶²è·¯çš„æ¬Šé™ã€‚é€šéŽé€™å€‹éŽç¨‹ï¼Œå¯ä»¥çž­è§£ Docker é…ç½®ç¶²è·¯çš„ç´°ç¯€ã€‚
 
-­º¥ý¡A±Ò°Ê¤@­Ó `/bin/bash` ®e¾¹¡A«ü©w `--net=none` °Ñ¼Æ¡C
+é¦–å…ˆï¼Œå•Ÿå‹•ä¸€å€‹ `/bin/bash` å®¹å™¨ï¼ŒæŒ‡å®š `--net=none` åƒæ•¸ã€‚
 ```
 $ sudo docker run -i -t --rm --net=none base /bin/bash
 root@63f36fc01b5f:/#
 ```
-¦b¥»¦a¥D¾÷¬d§ä®e¾¹ªº¶iµ{ id¡A¨Ã¬°¥¦³Ð«Øºôµ¸©R¦WªÅ¶¡¡C
+åœ¨æœ¬åœ°ä¸»æ©ŸæŸ¥æ‰¾å®¹å™¨çš„é€²ç¨‹ idï¼Œä¸¦ç‚ºå®ƒå‰µå»ºç¶²è·¯å‘½åç©ºé–“ã€‚
 ```
 $ sudo docker inspect -f '{{.State.Pid}}' 63f36fc01b5f
 2778
@@ -41,20 +41,20 @@ $ pid=2778
 $ sudo mkdir -p /var/run/netns
 $ sudo ln -s /proc/$pid/ns/net /var/run/netns/$pid
 ```
-ÀË¬d¾ô±µºô¥dªº IP ©M¤lºô±»½X«H®§¡C
+æª¢æŸ¥æ©‹æŽ¥ç¶²å¡çš„ IP å’Œå­ç¶²æŽ©ç¢¼ä¿¡æ¯ã€‚
 ```
 $ ip addr show docker0
 21: docker0: ...
 inet 172.17.42.1/16 scope global docker0
 ...
 ```
-³Ð«Ø¤@¹ï ¡uveth pair¡v ±µ¤f A ©M B¡A¸j©w A ¨ìºô¾ô `docker0`¡A¨Ã±Ò¥Î¥¦
+å‰µå»ºä¸€å° ã€Œveth pairã€ æŽ¥å£ A å’Œ Bï¼Œç¶å®š A åˆ°ç¶²æ©‹ `docker0`ï¼Œä¸¦å•Ÿç”¨å®ƒ
 ```
 $ sudo ip link add A type veth peer name B
 $ sudo brctl addif docker0 A
 $ sudo ip link set A up
 ```
-±NB©ñ¨ì®e¾¹ªººôµ¸©R¦WªÅ¶¡¡A©R¦W¬° eth0¡A±Ò°Ê¥¦¨Ã°t¸m¤@­Ó¥i¥Î IP¡]¾ô±µºô¬q¡^©MÀq»{ºôÃö¡C
+å°‡Bæ”¾åˆ°å®¹å™¨çš„ç¶²è·¯å‘½åç©ºé–“ï¼Œå‘½åç‚º eth0ï¼Œå•Ÿå‹•å®ƒä¸¦é…ç½®ä¸€å€‹å¯ç”¨ IPï¼ˆæ©‹æŽ¥ç¶²æ®µï¼‰å’Œé è¨­ç¶²é—œã€‚
 ```
 $ sudo ip link set B netns $pid
 $ sudo ip netns exec $pid ip link set dev B name eth0
@@ -62,8 +62,8 @@ $ sudo ip netns exec $pid ip link set eth0 up
 $ sudo ip netns exec $pid ip addr add 172.17.42.99/16 dev eth0
 $ sudo ip netns exec $pid ip route add default via 172.17.42.1
 ```
-¥H¤W¡A´N¬O Docker °t¸mºôµ¸ªº¨ãÅé¹Lµ{¡C
+ä»¥ä¸Šï¼Œå°±æ˜¯ Docker é…ç½®ç¶²è·¯çš„å…·é«”éŽç¨‹ã€‚
 
-·í®e¾¹µ²§ô«á¡ADocker ·|²MªÅ®e¾¹¡A®e¾¹¤ºªº eth0 ·|ÀHºôµ¸©R¦WªÅ¶¡¤@°_³Q²M°£¡AA ±µ¤f¤]³Q¦Û°Ê±q `docker0` ¨ø¸ü¡C
+ç•¶å®¹å™¨çµæŸå¾Œï¼ŒDocker æœƒæ¸…ç©ºå®¹å™¨ï¼Œå®¹å™¨å…§çš„ eth0 æœƒéš¨ç¶²è·¯å‘½åç©ºé–“ä¸€èµ·è¢«æ¸…é™¤ï¼ŒA æŽ¥å£ä¹Ÿè¢«è‡ªå‹•å¾ž `docker0` å¸è¼‰ã€‚
 
-¦¹¥~¡A¥Î¤á¥i¥H¨Ï¥Î `ip netns exec` ©R¥O¨Ó¦b«ü©wºôµ¸¦W¦rªÅ¶¡¤¤¶i¦æ°t¸m¡A±q¦Ó°t¸m®e¾¹¤ºªººôµ¸¡C
+æ­¤å¤–ï¼Œç”¨æˆ¶å¯ä»¥ä½¿ç”¨ `ip netns exec` å‘½ä»¤ä¾†åœ¨æŒ‡å®šç¶²è·¯åå­—ç©ºé–“ä¸­é€²è¡Œé…ç½®ï¼Œå¾žè€Œé…ç½®å®¹å™¨å…§çš„ç¶²è·¯ã€‚

@@ -1,10 +1,10 @@
-## ¨Ï¥Î Supervisor ¨ÓºŞ²z¶iµ{
-Docker ®e¾¹¦b±Ò°Êªº®É­Ô¶}±Ò³æ­Ó¶iµ{¡A¤ñ¦p¡A¤@­Ó ssh ©ÎªÌ apache ªº daemon ªA°È¡C¦ı§Ú­Ì¸g±`»İ­n¦b¤@­Ó¾÷¾¹¤W¶}±Ò¦h­ÓªA°È¡A³o¥i¥H¦³«Ü¦h¤èªk¡A³ÌÂ²³æªº´N¬O§â¦h­Ó±Ò°Ê©R¥O©ñ¨ì¤@­Ó±Ò°Ê¸}¥»¸Ì­±¡A±Ò°Êªº®É­Ôª½±µ±Ò°Ê³o­Ó¸}¥»¡A¥t¥~´N¬O¦w¸Ë¶iµ{ºŞ²z¤u¨ã¡C
+## ä½¿ç”¨ Supervisor ä¾†ç®¡ç†é€²ç¨‹
+Docker å®¹å™¨åœ¨å•Ÿå‹•çš„æ™‚å€™é–‹å•Ÿå–®å€‹é€²ç¨‹ï¼Œæ¯”å¦‚ï¼Œä¸€å€‹ ssh æˆ–è€… apache çš„ daemon æœå‹™ã€‚ä½†æˆ‘å€‘ç¶“å¸¸éœ€è¦åœ¨ä¸€å€‹æ©Ÿå™¨ä¸Šé–‹å•Ÿå¤šå€‹æœå‹™ï¼Œé€™å¯ä»¥æœ‰å¾ˆå¤šæ–¹æ³•ï¼Œæœ€ç°¡å–®çš„å°±æ˜¯æŠŠå¤šå€‹å•Ÿå‹•å‘½ä»¤æ”¾åˆ°ä¸€å€‹å•Ÿå‹•è…³æœ¬è£¡é¢ï¼Œå•Ÿå‹•çš„æ™‚å€™ç›´æ¥å•Ÿå‹•é€™å€‹è…³æœ¬ï¼Œå¦å¤–å°±æ˜¯å®‰è£é€²ç¨‹ç®¡ç†å·¥å…·ã€‚
 
-¥»¤p¸`±N¨Ï¥Î¶iµ{ºŞ²z¤u¨ã supervisor ¨ÓºŞ²z®e¾¹¤¤ªº¦h­Ó¶iµ{¡C¨Ï¥Î Supervisor ¥i¥H§ó¦nªº±±¨î¡BºŞ²z¡B­«±Ò§Ú­Ì§Æ±æ¹B¦æªº¶iµ{¡C¦b³o¸Ì§Ú­Ìºt¥Ü¤@¤U¦p¦ó¦P®É¨Ï¥Î ssh ©M apache ªA°È¡C
+æœ¬å°ç¯€å°‡ä½¿ç”¨é€²ç¨‹ç®¡ç†å·¥å…· supervisor ä¾†ç®¡ç†å®¹å™¨ä¸­çš„å¤šå€‹é€²ç¨‹ã€‚ä½¿ç”¨ Supervisor å¯ä»¥æ›´å¥½çš„æ§åˆ¶ã€ç®¡ç†ã€é‡å•Ÿæˆ‘å€‘å¸Œæœ›é‹è¡Œçš„é€²ç¨‹ã€‚åœ¨é€™è£¡æˆ‘å€‘æ¼”ç¤ºä¸€ä¸‹å¦‚ä½•åŒæ™‚ä½¿ç”¨ ssh å’Œ apache æœå‹™ã€‚
 
-### °t¸m
-­º¥ı³Ğ«Ø¤@­Ó Dockerfile¡A¤º®e©M¦U³¡¤Àªº¸ÑÄÀ¦p¤U¡C
+### é…ç½®
+é¦–å…ˆå‰µå»ºä¸€å€‹ Dockerfileï¼Œå…§å®¹å’Œå„éƒ¨åˆ†çš„è§£é‡‹å¦‚ä¸‹ã€‚
 ```
 FROM ubuntu:13.04
 MAINTAINER examples@docker.com
@@ -13,27 +13,27 @@ RUN apt-get update
 RUN apt-get upgrade -y
 ```
 
-### ¦w¸Ë ssh¡Bapache ©M supervisor
+### å®‰è£ sshã€apache å’Œ supervisor
 ```
 RUN apt-get install -y openssh-server apache2 supervisor
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /var/log/supervisor
 ```
 
-³o¸Ì¦w¸Ë 3 ­Ó³n¥ó¡AÁÙ³Ğ«Ø¤F 2 ­Ó ssh ©M supervisor ªA°È¥¿±`¹B¦æ©Ò»İ­nªº¥Ø¿ı¡C
+é€™è£¡å®‰è£ 3 å€‹è»Ÿä»¶ï¼Œé‚„å‰µå»ºäº† 2 å€‹ ssh å’Œ supervisor æœå‹™æ­£å¸¸é‹è¡Œæ‰€éœ€è¦çš„ç›®éŒ„ã€‚
 ```
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ```
-²K¥[ supervisord ªº°t¸m¤å¥ó¡A¨Ã½Æ»s°t¸m¤å¥ó¨ì¹ïÀ³¥Ø¿ı¤U­±¡C
+æ·»åŠ  supervisord çš„é…ç½®æ–‡ä»¶ï¼Œä¸¦è¤‡è£½é…ç½®æ–‡ä»¶åˆ°å°æ‡‰ç›®éŒ„ä¸‹é¢ã€‚
 
 ```
 EXPOSE 22 80
 CMD ["/usr/bin/supervisord"]
 ```
-³o¸Ì§Ú­Ì¬M®g¤F 22 ©M 80 ºİ¤f¡A¨Ï¥Î supervisord ªº¥i°õ¦æ¸ô³w±Ò°ÊªA°È¡C
+é€™è£¡æˆ‘å€‘æ˜ å°„äº† 22 å’Œ 80 é€£æ¥é˜œï¼Œä½¿ç”¨ supervisord çš„å¯åŸ·è¡Œè·¯é€•å•Ÿå‹•æœå‹™ã€‚
 
 
-### supervisor°t¸m¤å¥ó¤º®e
+### supervisoré…ç½®æ–‡ä»¶å…§å®¹
 ```
 [supervisord]
 nodaemon=true
@@ -43,14 +43,14 @@ command=/usr/sbin/sshd -D
 [program:apache2]
 command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"
 ```
-°t¸m¤å¥ó¥]§t¥Ø¿ı©M¶iµ{¡A²Ä¤@¬q supervsord °t¸m³n¥ó¥»¨­¡A¨Ï¥Î nodaemon °Ñ¼Æ¨Ó¹B¦æ¡C²Ä¤G¬q¥]§t­n±±¨îªº 2 ­ÓªA°È¡C¨C¤@¬q¥]§t¤@­ÓªA°Èªº¥Ø¿ı©M±Ò°Ê³o­ÓªA°Èªº©R¥O¡C
+é…ç½®æ–‡ä»¶åŒ…å«ç›®éŒ„å’Œé€²ç¨‹ï¼Œç¬¬ä¸€æ®µ supervsord é…ç½®è»Ÿä»¶æœ¬èº«ï¼Œä½¿ç”¨ nodaemon åƒæ•¸ä¾†é‹è¡Œã€‚ç¬¬äºŒæ®µåŒ…å«è¦æ§åˆ¶çš„ 2 å€‹æœå‹™ã€‚æ¯ä¸€æ®µåŒ…å«ä¸€å€‹æœå‹™çš„ç›®éŒ„å’Œå•Ÿå‹•é€™å€‹æœå‹™çš„å‘½ä»¤ã€‚
 
-### ¨Ï¥Î¤èªk
-³Ğ«ØÃè¹³¡C
+### ä½¿ç”¨æ–¹æ³•
+å‰µå»ºé¡åƒã€‚
 ```
 $ sudo docker build -t test/supervisord .
 ```
-±Ò°Ê supervisor ®e¾¹¡C
+å•Ÿå‹• supervisor å®¹å™¨ã€‚
 ```
 $ sudo docker run -p 22 -p 80 -t -i test/supervisord
 2013-11-25 18:53:22,312 CRIT Supervisor running as root (no user in config file)
@@ -59,6 +59,6 @@ $ sudo docker run -p 22 -p 80 -t -i test/supervisord
 2013-11-25 18:53:23,346 INFO spawned: 'sshd' with pid 6
 2013-11-25 18:53:23,349 INFO spawned: 'apache2' with pid 7
 ```
-¨Ï¥Î `docker run` ¨Ó±Ò°Ê§Ú­Ì³Ğ«Øªº®e¾¹¡C¨Ï¥Î¦h­Ó `-p` ¨Ó¬M®g¦h­Óºİ¤f¡A³o¼Ë§Ú­Ì´N¯à¦P®É³X°İ ssh ©M apache ªA°È¤F¡C
+ä½¿ç”¨ `docker run` ä¾†å•Ÿå‹•æˆ‘å€‘å‰µå»ºçš„å®¹å™¨ã€‚ä½¿ç”¨å¤šå€‹ `-p` ä¾†æ˜ å°„å¤šå€‹é€£æ¥é˜œï¼Œé€™æ¨£æˆ‘å€‘å°±èƒ½åŒæ™‚è¨ªå• ssh å’Œ apache æœå‹™äº†ã€‚
 
-¥i¥H¨Ï¥Î³o­Ó¤èªk³Ğ«Ø¤@­Ó¥u¦³ ssh ªA°Èªº°òÂ¦Ãè¹³¡A¤§«á³Ğ«ØÃè¹³¥i¥H¨Ï¥Î³o­ÓÃè¹³¬°°òÂ¦¨Ó³Ğ«Ø
+å¯ä»¥ä½¿ç”¨é€™å€‹æ–¹æ³•å‰µå»ºä¸€å€‹åªæœ‰ ssh æœå‹™çš„åŸºç¤é¡åƒï¼Œä¹‹å¾Œå‰µå»ºé¡åƒå¯ä»¥ä½¿ç”¨é€™å€‹é¡åƒç‚ºåŸºç¤ä¾†å‰µå»º

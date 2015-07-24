@@ -1,13 +1,13 @@
-# ���h��{
+# 底層實現
 
-Docker ���h���֤ߧ޳N�]�A Linux �W���W�r�Ŷ��]Namespaces�^�B����ա]Control groups�^�BUnion ���t�Ρ]Union file systems�^�M�e���榡�]Container format�^�C
+Docker 底層的核心技術包括 Linux 上的名字空間（Namespaces）、控制組（Control groups）、Union 文件系統（Union file systems）和容器格式（Container format）。
 
-�ڭ̪��D�A�ǲΪ��������q�L�b�J�D�D�����B�� hypervisor �Ӽ����@��M���㪺�w�����Ҵ��ѵ����������ާ@�t�ΡC�������t�άݨ쪺���ҬO�i����A�]�O�����j�����C
-�o�ت��������k��{�F��귽�̧��㪺�ʸˡA���ܦh�ɭԩ����N���ۨt�θ귽�����O�C
-�Ҧp�A�H�J�D���M�������t�γ��� Linux �t�ά��ҡA���������B�檺���Ψ��i�H�Q�αJ�D���t�Τ����B�����ҡC
+我們知道，傳統的虛擬機通過在宿主主機中運行 hypervisor 來模擬一整套完整的硬件環境提供給虛擬機的操作系統。虛擬機系統看到的環境是可限制的，也是彼此隔離的。
+這種直接的做法實現了對資源最完整的封裝，但很多時候往往意味著系統資源的浪費。
+例如，以宿主機和虛擬機系統都為 Linux 系統為例，虛擬機中運行的應用其實可以利用宿主機系統中的運行環境。
 
-�ڭ̪��D�A�b�ާ@�t�Τ��A�]�A���֡B���t�ΡB�����BPID�BUID�BIPC�B���s�B�w�L�BCPU �����A�Ҧ����귽���O���ζi�{�����@�ɪ��C
-�n�Q��{�����ơA���F�n��{�鷺�s�BCPU�B����IO�B�w�LIO�B�s�x�Ŷ���������~�A�٭n��{���t�ΡB�����BPID�BUID�BIPC�������ۤ��j���C
-�e�̬۹�e����{�@�ǡA��̫h�ݭn�J�D���t�Ϊ��`�J����C
+我們知道，在操作系統中，包括內核、文件系統、網路、PID、UID、IPC、內存、硬盤、CPU 等等，所有的資源都是應用進程直接共享的。
+要想實現虛擬化，除了要實現對內存、CPU、網路IO、硬盤IO、存儲空間等的限制外，還要實現文件系統、網路、PID、UID、IPC等等的相互隔離。
+前者相對容易實現一些，後者則需要宿主機系統的深入支持。
 
-�H�� Linux �t�ι��W�r�Ŷ��\�઺������{�A�{�ǭ��w�g�i�H��{�W�����Ҧ��ݨD�A���Y�Ƕi�{�b�����j�����W�r�Ŷ����B��C�j�a���M���@�Τ@�Ӥ��֩M�Y�ǹB������ҡ]�Ҧp�@�Ǩt�ΩR�O�M�t�ήw�^�A���O�����o�ݤ���A���H���t�Τ��u���ۤv���s�b�C�o�ؾ���N�O�e���]Container�^�A�Q�ΦW�r�Ŷ��Ӱ��v�����j������A�Q�� cgroups �Ӱ��귽���t�C
+隨著 Linux 系統對於名字空間功能的完善實現，程序員已經可以實現上面的所有需求，讓某些進程在彼此隔離的名字空間中運行。大家雖然都共用一個內核和某些運行時環境（例如一些系統命令和系統庫），但是彼此卻看不到，都以為系統中只有自己的存在。這種機制就是容器（Container），利用名字空間來做權限的隔離控制，利用 cgroups 來做資源分配。

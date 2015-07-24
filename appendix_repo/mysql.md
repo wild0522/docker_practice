@@ -1,23 +1,23 @@
 ## [MySQL](https://registry.hub.docker.com/_/mysql/)
 
-### °ò¥»«H®§
-[MySQL](https://en.wikipedia.org/wiki/MySQL) ¬O¶}·½ªºÃö«Y¼Æ¾Ú®w¹ê²{¡C
-¸Ó­Ü®w´£¨Ñ¤F MySQL ¦U­Óª©¥»ªºÃè¹³¡A¥]¬A 5.6 ¨t¦C¡B5.7 ¨t¦Cµ¥¡C
+### åŸºæœ¬ä¿¡æ¯
+[MySQL](https://en.wikipedia.org/wiki/MySQL) æ˜¯é–‹æºçš„é—œä¿‚æ•¸æ“šåº«å¯¦ç¾ã€‚
+è©²å€‰åº«æä¾›äº† MySQL å„å€‹ç‰ˆæœ¬çš„é¡åƒï¼ŒåŒ…æ‹¬ 5.6 ç³»åˆ—ã€5.7 ç³»åˆ—ç­‰ã€‚
 
-### ¨Ï¥Î¤èªk
-Àq»{·|¦b `3306` ºİ¤f±Ò°Ê¼Æ¾Ú®w¡C
+### ä½¿ç”¨æ–¹æ³•
+é è¨­æœƒåœ¨ `3306` é€£æ¥é˜œå•Ÿå‹•æ•¸æ“šåº«ã€‚
 ```
 $ sudo docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql
 ```
-¤§«á´N¥i¥H¨Ï¥Î¨ä¥¦À³¥Î¨Ó³s±µ¨ì¸Ó®e¾¹¡C
+ä¹‹å¾Œå°±å¯ä»¥ä½¿ç”¨å…¶å®ƒæ‡‰ç”¨ä¾†é€£æ¥åˆ°è©²å®¹å™¨ã€‚
 ```
 $ sudo docker run --name some-app --link some-mysql:mysql -d application-that-uses-mysql
 ```
-©ÎªÌ³q¹L `mysql`¡C
+æˆ–è€…é€šé `mysql`ã€‚
 ```
 $ sudo docker run -it --link some-mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
 ```
 
 ### Dockerfile
-* [5.6 ª©¥»](https://github.com/docker-library/mysql/blob/7461a52b43f06839a4d8723ae8841f4cb616b3d0/5.6/Dockerfile)
-* [5.7 ª©¥»](https://github.com/docker-library/mysql/blob/7461a52b43f06839a4d8723ae8841f4cb616b3d0/5.7/Dockerfile)
+* [5.6 ç‰ˆæœ¬](https://github.com/docker-library/mysql/blob/7461a52b43f06839a4d8723ae8841f4cb616b3d0/5.6/Dockerfile)
+* [5.7 ç‰ˆæœ¬](https://github.com/docker-library/mysql/blob/7461a52b43f06839a4d8723ae8841f4cb616b3d0/5.7/Dockerfile)

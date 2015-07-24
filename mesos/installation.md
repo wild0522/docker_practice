@@ -1,20 +1,20 @@
-## Mesos + Marathon ¦w¸Ë»P¨Ï¥Î
+## Mesos + Marathon å®‰è£èˆ‡ä½¿ç”¨
 
-Marathon ¬O¥i¥H¸ò Mesos ¤@°_¨ó§@ªº¤@­Ó framework¡A¥Î¨Ó¹B¦æ«ù¤[©ÊªºÀ³¥Î¡C
+Marathon æ˜¯å¯ä»¥è·Ÿ Mesos ä¸€èµ·å”ä½œçš„ä¸€å€‹ frameworkï¼Œç”¨ä¾†é‹è¡ŒæŒä¹…æ€§çš„æ‡‰ç”¨ã€‚
 
-### ¦w¸Ë
-¤@¦@»İ­n¦w¸Ë¥|ºØ²Õ¥ó¡Amesos-master¡Bmarathon¡Bzookeeper »İ­n¦w¸Ë¨ì©Ò¦³ªº¥D¸`ÂI¡Amseos-slave »İ­n¦w¸Ë¨ì±q¸`ÂI¡C
+### å®‰è£
+ä¸€å…±éœ€è¦å®‰è£å››ç¨®çµ„ä»¶ï¼Œmesos-masterã€marathonã€zookeeper éœ€è¦å®‰è£åˆ°æ‰€æœ‰çš„ä¸»ç¯€é»ï¼Œmseos-slave éœ€è¦å®‰è£åˆ°å¾ç¯€é»ã€‚
 
-mesos §Q¥Î zookper ¨Ó¶i¦æ¥D¸`ÂIªº¦P¨B¡A¥H¤Î±q¸`ÂIµo²{¥D¸`ÂIªº¹Lµ{¡C
+mesos åˆ©ç”¨ zookper ä¾†é€²è¡Œä¸»ç¯€é»çš„åŒæ­¥ï¼Œä»¥åŠå¾ç¯€é»ç™¼ç¾ä¸»ç¯€é»çš„éç¨‹ã€‚
 
-#### ·½½X½sÄ¶
+#### æºç¢¼ç·¨è­¯
 
-¤U¸ü·½½X
+ä¸‹è¼‰æºç¢¼
 ```sh
 git clone https://git-wip-us.apache.org/repos/asf/mesos.git
 ```
 
-¦w¸Ë¨Ì¿à
+å®‰è£ä¾è³´
 
 ```sh
 #jdk-7
@@ -25,7 +25,7 @@ sudo apt-get install -y autoconf libtool
 sudo apt-get -y install build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev
 ```
 
-½sÄ¶&¦w¸Ë
+ç·¨è­¯&å®‰è£
 ```sh
 $ cd mesos
 
@@ -38,10 +38,10 @@ $ make
 $ make check && make install
 ```
 
-#### [³n¥ó·½¦w¸Ë](https://mesosphere.com/downloads/)
-¥H ubuntu ¨t²Î¬°¨Ò¡C
+#### [è»Ÿä»¶æºå®‰è£](https://mesosphere.com/downloads/)
+ä»¥ ubuntu ç³»çµ±ç‚ºä¾‹ã€‚
 
-¦w¸Ë Docker¡A¤£¦AÂØ­z¡A¥i¥H°Ñ¦Ò [³o¸Ì](http://yeasy.gitbooks.io/docker_practice/content/install/index.html)¡C
+å®‰è£ Dockerï¼Œä¸å†è´…è¿°ï¼Œå¯ä»¥åƒè€ƒ [é€™è£¡](http://yeasy.gitbooks.io/docker_practice/content/install/index.html)ã€‚
 
 ```sh
 # Setup
@@ -56,21 +56,21 @@ echo "deb http://repos.mesosphere.io/${DISTRO} ${CODENAME} main" | \
 sudo apt-get -y update && sudo apt-get -y install zookeeper mesos marathon
 ```
 
-#### [°ò©ó Docker](https://github.com/sekka1/mesosphere-docker)
-±N°ò©ó¦p¤UÃè¹³¡G
+#### [åŸºæ–¼ Docker](https://github.com/sekka1/mesosphere-docker)
+å°‡åŸºæ–¼å¦‚ä¸‹é¡åƒï¼š
 
-* ZooKeeper¡Ghttps://registry.hub.docker.com/u/garland/zookeeper/
-* Mesos¡Ghttps://registry.hub.docker.com/u/garland/mesosphere-docker-mesos-master/
-* Marathon¡Ghttps://registry.hub.docker.com/u/garland/mesosphere-docker-marathon/
+* ZooKeeperï¼šhttps://registry.hub.docker.com/u/garland/zookeeper/
+* Mesosï¼šhttps://registry.hub.docker.com/u/garland/mesosphere-docker-mesos-master/
+* Marathonï¼šhttps://registry.hub.docker.com/u/garland/mesosphere-docker-marathon/
 
-¨ä¤¤ mesos-master Ãè¹³±N§@¬° master ©M slave ®e¾¹¨Ï¥Î¡C
+å…¶ä¸­ mesos-master é¡åƒå°‡ä½œç‚º master å’Œ slave å®¹å™¨ä½¿ç”¨ã€‚
 
-¾É¥X¥»¦a¾÷¾¹ªº¦a§}¨ìÀô¹ÒÅÜ¶q¡C
+å°å‡ºæœ¬åœ°æ©Ÿå™¨çš„åœ°å€åˆ°ç’°å¢ƒè®Šé‡ã€‚
 ```sh
 HOST_IP=10.11.31.7
 ```
 
-±Ò°Ê Zookeepr ®e¾¹¡C
+å•Ÿå‹• Zookeepr å®¹å™¨ã€‚
 ```sh
 docker run -d \
 -p 2181:2181 \
@@ -79,7 +79,7 @@ docker run -d \
 garland/zookeeper
 ```
 
-±Ò°Ê Mesos Master ®e¾¹¡C
+å•Ÿå‹• Mesos Master å®¹å™¨ã€‚
 ```sh
 docker run --net="host" \
 -p 5050:5050 \
@@ -95,7 +95,7 @@ docker run --net="host" \
 garland/mesosphere-docker-mesos-master
 ```
 
-±Ò°Ê Marathon¡C
+å•Ÿå‹• Marathonã€‚
 ```sh
 docker run \
 -d \
@@ -103,7 +103,7 @@ docker run \
 garland/mesosphere-docker-marathon --master zk://${HOST_IP}:2181/mesos --zk zk://${HOST_IP}:2181/marathon
 ```
 
-±Ò°Ê Mesos slave ®e¾¹¡C
+å•Ÿå‹• Mesos slave å®¹å™¨ã€‚
 ```sh
 docker run -d \
 --name mesos_slave_1 \
@@ -114,78 +114,78 @@ docker run -d \
 garland/mesosphere-docker-mesos-master:latest
 ```
 
-±µ¤U¨Ó¡A¥i¥H³q¹L³X°İ¥»¦a 8080 ºİ¤f¨Ó¨Ï¥Î Marathon ±Ò°Ê¥ô°È¤F¡C
+æ¥ä¸‹ä¾†ï¼Œå¯ä»¥é€šéè¨ªå•æœ¬åœ° 8080 é€£æ¥é˜œä¾†ä½¿ç”¨ Marathon å•Ÿå‹•ä»»å‹™äº†ã€‚
 
 
-### °t¸m»¡©ú
+### é…ç½®èªªæ˜
 
 #### ZooKeepr
 
-ZooKeepr ¬O¤@­Ó¤À§G¦¡À³¥Îªº¨ó½Õ¤u¨ã¡A¥Î¨ÓºŞ²z¦h­Ó Master ¸`ÂIªº¿ïÁ|©M¤¾§E¡AºÊÅ¥¦b 2181 ºİ¤f¡C
+ZooKeepr æ˜¯ä¸€å€‹åˆ†ä½ˆå¼æ‡‰ç”¨çš„å”èª¿å·¥å…·ï¼Œç”¨ä¾†ç®¡ç†å¤šå€‹ Master ç¯€é»çš„é¸èˆ‰å’Œå†—ä½™ï¼Œç›£è½åœ¨ 2181 é€£æ¥é˜œã€‚
 
-°t¸m¤å¥ó¦b /etc/zookeeper/conf/ ¥Ø¿ı¤U¡C
+é…ç½®æ–‡ä»¶åœ¨ /etc/zookeeper/conf/ ç›®éŒ„ä¸‹ã€‚
 
-­º¥ı¡A­n­×§ï myid¡A¤â°Ê¬°¨C¤@­Ó¸`ÂI¤À°t¤@­Ó¦Û¤vªº id¡]1-255¤§¶¡¡^¡C
+é¦–å…ˆï¼Œè¦ä¿®æ”¹ myidï¼Œæ‰‹å‹•ç‚ºæ¯ä¸€å€‹ç¯€é»åˆ†é…ä¸€å€‹è‡ªå·±çš„ idï¼ˆ1-255ä¹‹é–“ï¼‰ã€‚
 
-zoo.cfg ¬O¥D°t¸m¤å¥ó¡A¥D­n­×§ï¦p¤Uªº¤T¦æ¡]¦pªG§A±Ò°Ê¤T­Ó zk ¸`ÂI¡^¡C
+zoo.cfg æ˜¯ä¸»é…ç½®æ–‡ä»¶ï¼Œä¸»è¦ä¿®æ”¹å¦‚ä¸‹çš„ä¸‰è¡Œï¼ˆå¦‚æœä½ å•Ÿå‹•ä¸‰å€‹ zk ç¯€é»ï¼‰ã€‚
 ```sh
 server.1=zookeeper1:2888:3888
 server.2=zookeeper2:2888:3888
 server.3=zookeeper3:2888:3888
 ```
 
-¥D¾÷¦W»İ­n¦Û¤v´À´«¡A¨Ã¦b /etc/hosts ¤¤§ó·s¡C
+ä¸»æ©Ÿåéœ€è¦è‡ªå·±æ›¿æ›ï¼Œä¸¦åœ¨ /etc/hosts ä¸­æ›´æ–°ã€‚
 
-²Ä¤@­Óºİ¤f­t³d±q¸`ÂI³s±µ¨ì¥D¸`ÂIªº¡F²Ä¤G­Óºİ¤f­t³d¥D¸`ÂIªº¿ïÁ|³q«H¡C
+ç¬¬ä¸€å€‹é€£æ¥é˜œè² è²¬å¾ç¯€é»é€£æ¥åˆ°ä¸»ç¯€é»çš„ï¼›ç¬¬äºŒå€‹é€£æ¥é˜œè² è²¬ä¸»ç¯€é»çš„é¸èˆ‰é€šä¿¡ã€‚
 
 #### Mesos
 
-Mesos ªºÀq»{°t¸m¥Ø¿ı¤À§O¬°¡G
+Mesos çš„é è¨­é…ç½®ç›®éŒ„åˆ†åˆ¥ç‚ºï¼š
 
-* /etc/mesos¡G¦@¦Pªº°t¸m¤å¥ó¡A³ÌÃöÁäªº¬O zk ¤å¥ó¡F
-* /etc/mesos-master¡G¥D¸`ÂIªº°t¸m¡Aµ¥»ù©ó±Ò°Ê mesos-master ®É­ÔªºÀq»{¿ï¶µ¡F
-* /etc/mesos-slave¡G±q¸`ÂIªº°t¸m¡Aµ¥»ù©ó±Ò°Ê mesos-master ®É­ÔªºÀq»{¿ï¶µ¡C
+* /etc/mesosï¼šå…±åŒçš„é…ç½®æ–‡ä»¶ï¼Œæœ€é—œéµçš„æ˜¯ zk æ–‡ä»¶ï¼›
+* /etc/mesos-masterï¼šä¸»ç¯€é»çš„é…ç½®ï¼Œç­‰åƒ¹æ–¼å•Ÿå‹• mesos-master æ™‚å€™çš„é è¨­é¸é …ï¼›
+* /etc/mesos-slaveï¼šå¾ç¯€é»çš„é…ç½®ï¼Œç­‰åƒ¹æ–¼å•Ÿå‹• mesos-master æ™‚å€™çš„é è¨­é¸é …ã€‚
 
-###### ¥D¸`ÂI
-­º¥ı¦b©Ò¦³¸`ÂI¤W­×§ï /etc/mesos/zk¡A¬° ¥D¸`ÂIªº zookeeper ¦a§}¦Cªí¡A¨Ò¦p¡G
+###### ä¸»ç¯€é»
+é¦–å…ˆåœ¨æ‰€æœ‰ç¯€é»ä¸Šä¿®æ”¹ /etc/mesos/zkï¼Œç‚º ä¸»ç¯€é»çš„ zookeeper åœ°å€åˆ—è¡¨ï¼Œä¾‹å¦‚ï¼š
 ```sh
 zk://ip1:2181,ip2:2181/mesos
 ```
-³Ğ«Ø /etc/mesos-master/ip ¤å¥ó¡A¼g¤J¥D¸`ÂIºÊÅ¥ªº¦a§}¡C
+å‰µå»º /etc/mesos-master/ip æ–‡ä»¶ï¼Œå¯«å…¥ä¸»ç¯€é»ç›£è½çš„åœ°å€ã€‚
 
-ÁÙ¥i¥H³Ğ«Ø /etc/mesos-master/cluster ¤å¥ó¡A¼g¤J¶°¸sªº§O¦W¡C
+é‚„å¯ä»¥å‰µå»º /etc/mesos-master/cluster æ–‡ä»¶ï¼Œå¯«å…¥é›†ç¾¤çš„åˆ¥åã€‚
 
-¤§«á¡A±Ò°ÊªA°È¡G
+ä¹‹å¾Œï¼Œå•Ÿå‹•æœå‹™ï¼š
 ```sh
 sudo service mesos-master start
 ```
-§ó¦h¿ï¶µ¥i¥H°Ñ¦Ò[³o¸Ì](http://open.mesosphere.com/reference/mesos-master/)¡C
+æ›´å¤šé¸é …å¯ä»¥åƒè€ƒ[é€™è£¡](http://open.mesosphere.com/reference/mesos-master/)ã€‚
 
-###### ±q¸`ÂI
+###### å¾ç¯€é»
 
-¦b±q¸`ÂI¤W¡A­×§ï /etc/mesos-slave/ip ¤å¥ó¡A¼g¤J¸ò¥D¸`ÂI³q«Hªº¦a§}¡C
+åœ¨å¾ç¯€é»ä¸Šï¼Œä¿®æ”¹ /etc/mesos-slave/ip æ–‡ä»¶ï¼Œå¯«å…¥è·Ÿä¸»ç¯€é»é€šä¿¡çš„åœ°å€ã€‚
 
-¤§«á¡A±Ò°ÊªA°È¡C
+ä¹‹å¾Œï¼Œå•Ÿå‹•æœå‹™ã€‚
 ```sh
 sudo service mesos-slave start
 ```
 
-§ó¦h¿ï¶µ¥i¥H°Ñ¦Ò[³o¸Ì](http://open.mesosphere.com/reference/mesos-slave/)¡C
+æ›´å¤šé¸é …å¯ä»¥åƒè€ƒ[é€™è£¡](http://open.mesosphere.com/reference/mesos-slave/)ã€‚
 
-¦¹®É¡A³q¹LÂsÄı¾¹³X°İ¥»¦a 5050 ºİ¤f¡A¥i¥H¬İ¨ì¸`ÂI«H®§¡C
+æ­¤æ™‚ï¼Œé€šéç€è¦½å™¨è¨ªå•æœ¬åœ° 5050 é€£æ¥é˜œï¼Œå¯ä»¥çœ‹åˆ°ç¯€é»ä¿¡æ¯ã€‚
 
 ![mesos](../_images/mesos.png)
 
 #### Marathon
-±Ò°Ê marathon ªA°È¡C
+å•Ÿå‹• marathon æœå‹™ã€‚
 ```sh
 sudo service marathon start
 ```
 
-±Ò°Ê¦¨¥\«á¡A¦b mesos ªº web¬É­±ªº frameworks ¼ĞÅÒ­¶¤U­±±N¯à¬İ¨ì¦WºÙ¬° marathon ªº®Ø¬[¥X²{¡C
+å•Ÿå‹•æˆåŠŸå¾Œï¼Œåœ¨ mesos çš„ webç•Œé¢çš„ frameworks æ¨™ç±¤é ä¸‹é¢å°‡èƒ½çœ‹åˆ°åç¨±ç‚º marathon çš„æ¡†æ¶å‡ºç¾ã€‚
 
-¦P®É¥i¥H³q¹LÂsÄı¾¹³X°İ 8080 ºİ¤f¡A¬İ¨ì marathon ªººŞ²z¬É­±¡C
+åŒæ™‚å¯ä»¥é€šéç€è¦½å™¨è¨ªå• 8080 é€£æ¥é˜œï¼Œçœ‹åˆ° marathon çš„ç®¡ç†ç•Œé¢ã€‚
 
 ![marathon](../_images/marathon.png)
 
-¦¹®É¡A¥i¥H³q¹L¬É­±©ÎªÌ REST API ¨Ó³Ğ«Ø¤@­ÓÀ³¥Î¡AMarathon ·|«O«ù¸ÓÀ³¥Îªº«ùÄò¹B¦æ¡C
+æ­¤æ™‚ï¼Œå¯ä»¥é€šéç•Œé¢æˆ–è€… REST API ä¾†å‰µå»ºä¸€å€‹æ‡‰ç”¨ï¼ŒMarathon æœƒä¿æŒè©²æ‡‰ç”¨çš„æŒçºŒé‹è¡Œã€‚

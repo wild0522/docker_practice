@@ -1,7 +1,7 @@
-# kubectl ¨Ï¥Î
-[kubectl](https://github.com/GoogleCloudPlatform/kubernetes) ¬O Kubernetes ¦Û±aªº«È¤áºİ¡A¥i¥H¥Î¥¦¨Óª½±µ¾Ş§@ Kubernetes¡C
+# kubectl ä½¿ç”¨
+[kubectl](https://github.com/GoogleCloudPlatform/kubernetes) æ˜¯ Kubernetes è‡ªå¸¶çš„å®¢æˆ¶ç«¯ï¼Œå¯ä»¥ç”¨å®ƒä¾†ç›´æ¥æ“ä½œ Kubernetesã€‚
 
-¨Ï¥Î®æ¦¡¦³¨âºØ¡G
+ä½¿ç”¨æ ¼å¼æœ‰å…©ç¨®ï¼š
 ```sh
 kubectl [flags]
 kubectl [command]

@@ -1,3 +1,3 @@
 # Dockerfile
-�ϥ� Dockerfile �i�H���\�Τ�Ыئ۩w�q���蹳�C
+使用 Dockerfile 可以允許用戶創建自定義的鏡像。
 

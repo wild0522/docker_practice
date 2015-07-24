@@ -1,5 +1,5 @@
-## �s������t�m���
+## 編輯網路配置文件
 
-Docker 1.2.0 �}�l����b�B�椤���e���̽s�� `/etc/hosts`, `/etc/hostname` �M `/etc/resolve.conf` ���C
+Docker 1.2.0 開始支持在運行中的容器裡編輯 `/etc/hosts`, `/etc/hostname` 和 `/etc/resolve.conf` 文件。
 
-���O�o�ǭק�O�{�ɪ��A�u�b�B�檺�e�����O�d�A�e���פ�έ��ҫ�ä��|�Q�O�s�U�ӡC�]���|�Q `docker commit` ����C
+但是這些修改是臨時的，只在運行的容器中保留，容器終止或重啟後並不會被保存下來。也不會被 `docker commit` 提交。

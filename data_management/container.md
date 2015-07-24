@@ -1,23 +1,23 @@
-## �ƾڨ��e��
-�p�G�A���@�ǫ����s���ƾڻݭn�b�e�������@�ɡA�̦n�Ыؼƾڨ��e���C
+## 數據卷容器
+如果你有一些持續更新的數據需要在容器之間共享，最好創建數據卷容器。
 
-�ƾڨ��e���A���N�O�@�ӥ��`���e���A�M���ΨӴ��Ѽƾڨ��Ѩ䥦�e���������C
+數據卷容器，其實就是一個正常的容器，專門用來提供數據卷供其它容器掛載的。
 
-�����A�Ыؤ@�ӦW�� dbdata ���ƾڨ��e���G
+首先，創建一個名為 dbdata 的數據卷容器：
 ```
 $ sudo docker run -d -v /dbdata --name dbdata training/postgres echo Data-only container for postgres
 ```
-�M��A�b��L�e�����ϥ� `--volumes-from` �ӱ��� dbdata �e�������ƾڨ��C
+然後，在其他容器中使用 `--volumes-from` 來掛載 dbdata 容器中的數據卷。
 ```
 $ sudo docker run -d --volumes-from dbdata --name db1 training/postgres
 $ sudo docker run -d --volumes-from dbdata --name db2 training/postgres
 ```
-�i�H�ϥζW�L�@�Ӫ� `--volumes-from` �Ѽƨӫ��w�q�h�Ӯe���������P���ƾڨ��C
-�]�i�H�q��L�w�g�����F�ƾڨ����e���ӯ��p�����ƾڨ��C
+可以使用超過一個的 `--volumes-from` 參數來指定從多個容器掛載不同的數據卷。
+也可以從其他已經掛載了數據卷的容器來級聯掛載數據卷。
 ```
 $ sudo docker run -d --name db3 --volumes-from db1 training/postgres
 ```
-*�`�N�G�ϥ� `--volumes-from` �ѼƩұ����ƾڨ����e���ۤv�ä��ݭn�O���b�B�檬�A�C
+*注意：使用 `--volumes-from` 參數所掛載數據卷的容器自己並不需要保持在運行狀態。
 
-�p�G�R���F�������e���]�]�A dbdata�Bdb1 �M db2�^�A�ƾڨ��ä��|�Q�۰ʧR���C�p�G�n�R���@�Ӽƾڨ��A�����b�R���̫�@���ٱ����ۥ����e���ɨϥ� `docker rm -v` �R�O�ӫ��w�P�ɧR�����p���e���C
-�o�i�H���Τ�b�e�������ɯũM���ʼƾڨ��C���骺�ާ@�N�b�U�@�`���i�����ѡC
+如果刪除了掛載的容器（包括 dbdata、db1 和 db2），數據卷並不會被自動刪除。如果要刪除一個數據卷，必須在刪除最後一個還掛載著它的容器時使用 `docker rm -v` 命令來指定同時刪除關聯的容器。
+這可以讓用戶在容器之間升級和移動數據卷。具體的操作將在下一節中進行講解。

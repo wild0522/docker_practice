@@ -1,14 +1,14 @@
 ## Docker Hub
-�ثe Docker �x����@�F�@�Ӥ��@�ܮw [Docker Hub](https://hub.docker.com/)�A�䤤�w�g�]�A�F�W�L 15,000 ���蹳�C�j�����ݨD�A���i�H�q�L�b Docker Hub �������U���蹳�ӹ�{�C
+目前 Docker 官方維護了一個公共倉庫 [Docker Hub](https://hub.docker.com/)，其中已經包括了超過 15,000 的鏡像。大部分需求，都可以通過在 Docker Hub 中直接下載鏡像來實現。
 
-### �n��
-�i�H�q�L���� `docker login` �R�O�ӿ�J�Τ�W�B�K�X�M�l�c�ӧ������U�M�n���C
-���U���\��A���a�Τ�ؿ��� `.dockercfg` ���N�O�s�Τ᪺�{�ҫH���C
+### 登錄
+可以通過執行 `docker login` 命令來輸入用戶名、密碼和郵箱來完成註冊和登錄。
+註冊成功後，本地用戶目錄的 `.dockercfg` 中將保存用戶的認證信息。
 
-### �򥻾ާ@
-�Τ�L�ݵn���Y�i�q�L `docker search` �R�O�Ӭd��x��ܮw�����蹳�A�çQ�� `docker pull` �R�O�ӱN���U���쥻�a�C
+### 基本操作
+用戶無需登錄即可通過 `docker search` 命令來查找官方倉庫中的鏡像，並利用 `docker pull` 命令來將它下載到本地。
 
-�Ҧp�H centos ��������i��j���G
+例如以 centos 為關鍵詞進行搜索：
 ```
 $ sudo docker search centos
 NAME                                            DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
@@ -19,16 +19,16 @@ saltstack/centos-6-minimal                                                      
 tutum/centos-6.4                                DEPRECATED. Use tutum/centos:6.4 instead. ...   5                    [OK]
 ...
 ```
-�i�H�ݨ��^�F�ܦh�]�t����r���蹳�A�䤤�]�A�蹳�W�r�B�y�z�B�P�š]���ܸ��蹳�����w��{�ס^�B�O�_�x��ЫءB�O�_�۰ʳЫءC
-�x�誺�蹳�����O�x�趵�زճЫةM���@���Aautomated �귽���\�Τ������蹳���ӷ��M���e�C
+可以看到返回了很多包含關鍵字的鏡像，其中包括鏡像名字、描述、星級（表示該鏡像的受歡迎程度）、是否官方創建、是否自動創建。
+官方的鏡像說明是官方項目組創建和維護的，automated 資源允許用戶驗證鏡像的來源和內容。
 
-�ھڬO�_�O�x�责�ѡA�i�N�蹳�귽���������C
-�@�جO���� centos �o�˪���¦�蹳�A�Q�٬���¦�ή��蹳�C�o�ǰ�¦�蹳�O�� Docker ���q�ЫءB���ҡB����B���ѡC�o�˪��蹳�����ϥγ�ӳ���@���W�r�C
-�٦��@�������A��p `tianon/centos` �蹳�A���O�� Docker ���Τ�Ыبú��@���A�����a���Τ�W�٫e��C�i�H�q�L�e�� `user_name/` �ӫ��w�ϥάY�ӥΤᴣ�Ѫ��蹳�A��p tianon �Τ�C
+根據是否是官方提供，可將鏡像資源分為兩類。
+一種是類似 centos 這樣的基礎鏡像，被稱為基礎或根鏡像。這些基礎鏡像是由 Docker 公司創建、驗證、支持、提供。這樣的鏡像往往使用單個單詞作為名字。
+還有一種類型，比如 `tianon/centos` 鏡像，它是由 Docker 的用戶創建並維護的，往往帶有用戶名稱前綴。可以通過前綴 `user_name/` 來指定使用某個用戶提供的鏡像，比如 tianon 用戶。
 
-�t�~�A�b�d�䪺�ɭԳq�L `-s N` �Ѽƥi�H���w����ܵ����� `N` �P�H�W���蹳�C
+另外，在查找的時候通過 `-s N` 參數可以指定僅顯示評價為 `N` 星以上的鏡像。
 
-�U���x�� centos �蹳�쥻�a�C
+下載官方 centos 鏡像到本地。
 ```
 $ sudo docker pull centos
 Pulling repository centos
@@ -37,19 +37,19 @@ Pulling repository centos
 511136ea3c5a: Download complete
 7064731afe90: Download complete
 ```
-�Τ�]�i�H�b�n����q�L `docker push` �R�O�ӱN�蹳���e�� Docker Hub�C
+用戶也可以在登錄後通過 `docker push` 命令來將鏡像推送到 Docker Hub。
 
-### �۰ʳЫ�
-�۰ʳЫء]Automated Builds�^�\����ݭn�g�`�ɯ��蹳���{�Ǩӻ��A�Q����K�C
-���ɭԡA�Τ�ЫؤF�蹳�A�w�ˤF�Y�ӳn��A�p�G�n��o�G�s�����h�ݭn��ʧ�s�蹳�C�C
+### 自動創建
+自動創建（Automated Builds）功能對於需要經常升級鏡像內程序來說，十分方便。
+有時候，用戶創建了鏡像，安裝了某個軟件，如果軟件發佈新版本則需要手動更新鏡像。。
 
-�Ӧ۰ʳЫؤ��\�Τ�q�L Docker Hub ���w���ܤ@�ӥؼк����]�ثe��� [GitHub](github.org) �� [BitBucket](bitbucket.org)�^�W�����ءA�@�����صo�ͷs������A�h�۰ʰ���ЫءC
+而自動創建允許用戶通過 Docker Hub 指定跟蹤一個目標網站（目前支持 [GitHub](github.org) 或 [BitBucket](bitbucket.org)）上的項目，一旦項目發生新的提交，則自動執行創建。
 
-�n�t�m�۰ʳЫءA�]�A�p�U���B�J�G
-* �Ыبõn�� Docker Hub�A�H�Υؼк����F
-* �b�ؼк������s���b��� Docker Hub�F
-* �b Docker Hub �� [�t�m�@�Ӧ۰ʳЫ�](https://registry.hub.docker.com/builds/add/)�F
-* ����@�ӥؼк����������ء]�ݭn�t Dockerfile�^�M����F
-* ���w Dockerfile ����m�A�ô���ЫءC
+要配置自動創建，包括如下的步驟：
+* 創建並登錄 Docker Hub，以及目標網站；
+* 在目標網站中連接帳戶到 Docker Hub；
+* 在 Docker Hub 中 [配置一個自動創建](https://registry.hub.docker.com/builds/add/)；
+* 選取一個目標網站中的項目（需要含 Dockerfile）和分支；
+* 指定 Dockerfile 的位置，並提交創建。
 
-����A�i�H �bDocker Hub �� [�۰ʳЫح���](https://registry.hub.docker.com/builds/) �����ܨC���Ыت����A�C
+之後，可以 在Docker Hub 的 [自動創建頁面](https://registry.hub.docker.com/builds/) 中跟蹤每次創建的狀態。

@@ -1,10 +1,10 @@
-## �M�g�e���ݤf��J�D�D������{
+## 映射容器連接阜到宿主主機的實現
 
-�q�{���p�U�A�e���i�H�D�ʳX�ݨ�~���������s���A���O�~�������L�k�X�ݨ�e���C
-### �e���X�ݥ~����{
-�e���Ҧ���~���������s���A���a�}���|�QNAT�����a�t�Ϊ�IP�a�}�C�o�O�ϥ� `iptables` �����a�}���˾ާ@��{���C
+預設情況下，容器可以主動訪問到外部網路的連接，但是外部網路無法訪問到容器。
+### 容器訪問外部實現
+容器所有到外部網路的連接，源地址都會被NAT成本地系統的IP地址。這是使用 `iptables` 的源地址偽裝操作實現的。
 
-�d�ݥD���� NAT �W�h�C
+查看主機的 NAT 規則。
 ```
 $ sudo iptables -t nat -nL
 ...
@@ -13,15 +13,15 @@ target     prot opt source               destination
 MASQUERADE  all  --  172.17.0.0/16       !172.17.0.0/16
 ...
 ```
-�䤤�A�W�z�W�h�N�Ҧ����a�}�b `172.17.0.0/16` ���q�A�ؼЦa�}����L���q�]�~�������^���y�q�ʺA���ˬ��q�t�κ��d�o�X�CMASQUERADE ��ǲ� SNAT ���n�B�O����ʺA�q���d����a�}�C
+其中，上述規則將所有源地址在 `172.17.0.0/16` 網段，目標地址為其他網段（外部網路）的流量動態偽裝為從系統網卡發出。MASQUERADE 跟傳統 SNAT 的好處是它能動態從網卡獲取地址。
 
-### �~���X�ݮe����{
+### 外部訪問容器實現
 
-�e�����\�~���X�ݡA�i�H�b `docker run` �ɭԳq�L `-p` �� `-P` �ѼƨӱҥΡC
+容器允許外部訪問，可以在 `docker run` 時候通過 `-p` 或 `-P` 參數來啟用。
 
-���ޥΨ��ؿ�k�A���]�O�b���a�� `iptable` �� nat �����K�[�������W�h�C
+不管用那種辦法，其實也是在本地的 `iptable` 的 nat 表中添加相應的規則。
 
-�ϥ� `-P` �ɡG
+使用 `-P` 時：
 ```
 $ iptables -t nat -nL
 ...
@@ -30,14 +30,14 @@ target     prot opt source               destination
 DNAT       tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:49153 to:172.17.0.2:80
 ```
 
-�ϥ� `-p 80:80` �ɡG
+使用 `-p 80:80` 時：
 ```
 $ iptables -t nat -nL
 Chain DOCKER (2 references)
 target     prot opt source               destination
 DNAT       tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:80 to:172.17.0.2:80
 ```
-�`�N�G
-* �o�̪��W�h�M�g�F 0.0.0.0�A�N���۱N�����D���Ӧ۩Ҧ����f���y�q�C�Τ�i�H�q�L `-p IP:host_port:container_port` �� `-p
-IP::port` �ӫ��w���\�X�ݮe�����D���W�� IP�B���f���A�H��w���Y�檺�W�h�C
-* �p�G�Ʊ�ä[�j�w��Y�өT�w�� IP �a�}�A�i�H�b Docker �t�m��� `/etc/default/docker` �����w `DOCKER_OPTS="--ip=IP_ADDRESS"`�A���᭫�� Docker �A�ȧY�i�ͮġC
+注意：
+* 這裡的規則映射了 0.0.0.0，意味著將接受主機來自所有接口的流量。用戶可以通過 `-p IP:host_port:container_port` 或 `-p
+IP::port` 來指定允許訪問容器的主機上的 IP、接口等，以制定更嚴格的規則。
+* 如果希望永久綁定到某個固定的 IP 地址，可以在 Docker 配置文件 `/etc/default/docker` 中指定 `DOCKER_OPTS="--ip=IP_ADDRESS"`，之後重啟 Docker 服務即可生效。

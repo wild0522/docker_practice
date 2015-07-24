@@ -1,42 +1,42 @@
-## Swarm ¹LÂo¾¹
-swarm ªº½Õ«×¾¹(scheduler)¦b¿ï¾Ü¸`ÂI¹B¦æ®e¾¹ªº®É­Ô¤ä«ù´XºØ¹LÂo¾¹ (filter)¡GConstraint,Affinity,Port,Dependency,Health
+## Swarm éæ¿¾å™¨
+swarm çš„èª¿åº¦å™¨(scheduler)åœ¨é¸æ“‡ç¯€é»é‹è¡Œå®¹å™¨çš„æ™‚å€™æ”¯æŒå¹¾ç¨®éæ¿¾å™¨ (filter)ï¼šConstraint,Affinity,Port,Dependency,Health
 
-¥i¥H¦b°õ¦æ `swarm manage` ©R¥Oªº®É­Ô³q¹L `--filter` ¿ï¶µ¨Ó³]¸m¡C
+å¯ä»¥åœ¨åŸ·è¡Œ `swarm manage` å‘½ä»¤çš„æ™‚å€™é€šé `--filter` é¸é …ä¾†è¨­ç½®ã€‚
 
 ###Constraint Filter
-constraint ¬O¤@­Ó¸ò¨ãÅé¸`ÂI¬ÛÃöÁpªºÁä­È¹ï¡A¥i¥H¬İ°µ¬O¨C­Ó¸`ÂIªº¼ĞÅÒ¡A³o­Ó¼ĞÅÒ¥i¥H¦b±Ò°Êdocker daemonªº®É­Ô«ü©w¡A¤ñ¦p
+constraint æ˜¯ä¸€å€‹è·Ÿå…·é«”ç¯€é»ç›¸é—œè¯çš„éµå€¼å°ï¼Œå¯ä»¥çœ‹åšæ˜¯æ¯å€‹ç¯€é»çš„æ¨™ç±¤ï¼Œé€™å€‹æ¨™ç±¤å¯ä»¥åœ¨å•Ÿå‹•docker daemonçš„æ™‚å€™æŒ‡å®šï¼Œæ¯”å¦‚
 ```sh
 sudo docker -d --label label_name=label01
 ```
 
-¤]¥i¥H¼g¦bdockerªº°t¸m¤å¥ó¸Ì­±¡]¦bubuntu¤W­±¬O `/etc/default/docker`¡^¡C
+ä¹Ÿå¯ä»¥å¯«åœ¨dockerçš„é…ç½®æ–‡ä»¶è£¡é¢ï¼ˆåœ¨ubuntuä¸Šé¢æ˜¯ `/etc/default/docker`ï¼‰ã€‚
 
-¦b¥»¦¸¸ÕÅç¤¤¡Aµ¹083²K¥[¼ĞÅÒ--label label_name=083,084²K¥[¼ĞÅÒ--label label_name=084,124²K¥[¼ĞÅÒ--label label_name=084,
+åœ¨æœ¬æ¬¡è©¦é©—ä¸­ï¼Œçµ¦083æ·»åŠ æ¨™ç±¤--label label_name=083,084æ·»åŠ æ¨™ç±¤--label label_name=084,124æ·»åŠ æ¨™ç±¤--label label_name=084,
 
-¥H083¬°¨Ò¡A¥´¶}/etc/default/docker¤å¥ó¡A­×§ïDOCKER_OPTS¡G
+ä»¥083ç‚ºä¾‹ï¼Œæ‰“é–‹/etc/default/dockeræ–‡ä»¶ï¼Œä¿®æ”¹DOCKER_OPTSï¼š
 ```sh
 DOCKER_OPTS="-H 0.0.0.0:2375 -H unix:///var/run/docker.sock  --label label_name=083"
 ```
 
-¦b¨Ï¥Îdocker run©R¥O±Ò°Ê®e¾¹ªº®É­Ô¨Ï¥Î `-e constarint:key=value` ªº§Î¦¡¡A¥i¥H«ü©wcontainer¹B¦æªº¸`ÂI¡C
+åœ¨ä½¿ç”¨docker runå‘½ä»¤å•Ÿå‹•å®¹å™¨çš„æ™‚å€™ä½¿ç”¨ `-e constarint:key=value` çš„å½¢å¼ï¼Œå¯ä»¥æŒ‡å®šcontaineré‹è¡Œçš„ç¯€é»ã€‚
 
-¤ñ¦p§Ú­Ì·Q¦b84¤W­±±Ò°Ê¤@­Ó redis ®e¾¹¡C
+æ¯”å¦‚æˆ‘å€‘æƒ³åœ¨84ä¸Šé¢å•Ÿå‹•ä¸€å€‹ redis å®¹å™¨ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name redis_1 -d -e constraint:label_name==084 redis
 fee1b7b9dde13d64690344c1f1a4c3f5556835be46b41b969e4090a083a6382d
 ```
-ª`·N¡A¬O**¨â­Ó**µ¥¸¹¡A¤£¬O¤@­Óµ¥¸¹¡A³o¤@ÂI·|¸g±`³Q©¿²¤¡C
+æ³¨æ„ï¼Œæ˜¯**å…©å€‹**ç­‰è™Ÿï¼Œä¸æ˜¯ä¸€å€‹ç­‰è™Ÿï¼Œé€™ä¸€é»æœƒç¶“å¸¸è¢«å¿½ç•¥ã€‚
 
-±µ¤U¨Ó¦A¦b084³o¥x¾÷¾¹¤W±Ò°Ê¤@­Óredis ®e¾¹¡C
+æ¥ä¸‹ä¾†å†åœ¨084é€™å°æ©Ÿå™¨ä¸Šå•Ÿå‹•ä¸€å€‹redis å®¹å™¨ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name redis_2 -d -e constraint:label_name==084 redis         4968d617d9cd122fc2e17b3bad2f2c3b5812c0f6f51898024a96c4839fa000e1
 ```
-µM«á¦A¦b083³o¥x¾÷¾¹¤W±Ò°Ê¥t¥~¤@­Ó redis ®e¾¹¡C
+ç„¶å¾Œå†åœ¨083é€™å°æ©Ÿå™¨ä¸Šå•Ÿå‹•å¦å¤–ä¸€å€‹ redis å®¹å™¨ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name redis_3 -d -e constraint:label_name==083 redis         7786300b8d2232c2335ac6161c715de23f9179d30eb5c7e9c4f920a4f1d39570
 ```
 
-²{¦b¨Ó¬İ¤U°õ¦æ±¡ªp¡G
+ç¾åœ¨ä¾†çœ‹ä¸‹åŸ·è¡Œæƒ…æ³ï¼š
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
@@ -45,18 +45,18 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 fee1b7b9dde1        redis:latest        "/entrypoint.sh redi   19 minutes ago      Up 5 minutes        6379/tcp            084/redis_1
 ```
 
-¥i¥H¬İ¨ì¡A°õ¦æµ²ªG¸ò¹w´Áªº¤@¼Ë¡C
+å¯ä»¥çœ‹åˆ°ï¼ŒåŸ·è¡Œçµæœè·Ÿé æœŸçš„ä¸€æ¨£ã€‚
 
-¦ı¬O¦pªG«ü©w¤@­Ó¤£¦s¦bªº¼ĞÅÒªº¸Ü¨Ó¹B¦æ®e¾¹·|³ø¿ù¡C
+ä½†æ˜¯å¦‚æœæŒ‡å®šä¸€å€‹ä¸å­˜åœ¨çš„æ¨™ç±¤çš„è©±ä¾†é‹è¡Œå®¹å™¨æœƒå ±éŒ¯ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name redis_0 -d -e constraint:label_name==0 redis
 FATA[0000] Error response from daemon: unable to find a node that satisfies label_name==0
 ```
 
 ###Affinity Filter
-³q¹L¨Ï¥Î Affinity Filter¡A¥i¥HÅı¤@­Ó®e¾¹ºò®ÁµÛ¥t¤@­Ó®e¾¹±Ò°Ê¡A¤]´N¬O»¡Åı¨â­Ó®e¾¹¦b¦P¤@­Ó¸`ÂI¤W­±±Ò°Ê¡C
+é€šéä½¿ç”¨ Affinity Filterï¼Œå¯ä»¥è®“ä¸€å€‹å®¹å™¨ç·ŠæŒ¨è‘—å¦ä¸€å€‹å®¹å™¨å•Ÿå‹•ï¼Œä¹Ÿå°±æ˜¯èªªè®“å…©å€‹å®¹å™¨åœ¨åŒä¸€å€‹ç¯€é»ä¸Šé¢å•Ÿå‹•ã€‚
 
-²{¦b¨ä¤¤¤@¥x¾÷¾¹¤W­±±Ò°Ê¤@­Ó redis ®e¾¹¡C
+ç¾åœ¨å…¶ä¸­ä¸€å°æ©Ÿå™¨ä¸Šé¢å•Ÿå‹•ä¸€å€‹ redis å®¹å™¨ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run -d --name redis redis
 ea13eddf667992c5d8296557d3c282dd8484bd262c81e2b5af061cdd6c82158d
@@ -65,14 +65,14 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 ea13eddf6679        redis:latest        /entrypoint.sh redis   24 minutes ago      Up Less than a second   6379/tcp            083/redis
 ```
 
-µM«á¦A¦¸±Ò°Ê¨â­Ó redis ®e¾¹¡C
+ç„¶å¾Œå†æ¬¡å•Ÿå‹•å…©å€‹ redis å®¹å™¨ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376  run -d --name redis_1 -e affinity:container==redis redis
 bac50c2e955211047a745008fd1086eaa16d7ae4f33c192f50412e8dcd0a14cd
 rio@085:~$ sudo docker -H 192.168.1.83:2376  run -d --name redis_1 -e affinity:container==redis redis
 bac50c2e955211047a745008fd1086eaa16d7ae4f33c192f50412e8dcd0a14cd
 ```
-²{¦b¨Ó¬d¬İ¤U¹B¦æµ²ªG,¥i¥H¬İ¨ì¤T­Ó®e¾¹³£¬O¦b¤@¥x¾÷¾¹¤W¹B¦æ
+ç¾åœ¨ä¾†æŸ¥çœ‹ä¸‹é‹è¡Œçµæœ,å¯ä»¥çœ‹åˆ°ä¸‰å€‹å®¹å™¨éƒ½æ˜¯åœ¨ä¸€å°æ©Ÿå™¨ä¸Šé‹è¡Œ
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376  ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS                  PORTS               NAMES
@@ -80,21 +80,21 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 bac50c2e9552        redis:latest        /entrypoint.sh redis   25 minutes ago      Up 10 seconds           6379/tcp            083/redis_1
 ea13eddf6679        redis:latest        /entrypoint.sh redis   28 minutes ago      Up 3 minutes            6379/tcp            083/redis
 ```
-³q¹L `-e affinity:image=image_name` ©R¥O¥i¥H«ü©w¥u¦³¤w¸g¤U¸ü¤F`image_name`Ãè¹³ªº¾÷¾¹¤~¹B¦æ®e¾¹
+é€šé `-e affinity:image=image_name` å‘½ä»¤å¯ä»¥æŒ‡å®šåªæœ‰å·²ç¶“ä¸‹è¼‰äº†`image_name`é¡åƒçš„æ©Ÿå™¨æ‰é‹è¡Œå®¹å™¨
 ```sh
-sudo docker ¡VH 192.168.1.83:2376 run ¡Vname redis1 ¡Vd ¡Ve affinity:image==redis redis 
+sudo docker â€“H 192.168.1.83:2376 run â€“name redis1 â€“d â€“e affinity:image==redis redis 
 ```
-redis1 ³o­Ó®e¾¹¥u·|¦b¤w¸g¤U¸ü¤F redis Ãè¹³ªº¸`ÂI¤W¹B¦æ¡C
+redis1 é€™å€‹å®¹å™¨åªæœƒåœ¨å·²ç¶“ä¸‹è¼‰äº† redis é¡åƒçš„ç¯€é»ä¸Šé‹è¡Œã€‚
 
 ```sh
 sudo docker -H 192.168.1.83:2376 run -d --name redis -e affinity:image==~redis redis
 ```
-³o±ø©R¥O¹F¨ìªº®ÄªG¬O¡G¦b¦³ redis Ãè¹³ªº¸`ÂI¤W­±±Ò°Ê¤@­Ó¦W¦r¥s°µ redis ªº®e¾¹¡A¦pªG¨C­Ó¸`ÂI¤W­±³£¨S¦³ redis ®e¾¹¡A´N«ö·ÓÀq»{ªºµ¦²¤±Ò°Ê redis ®e¾¹¡C
+é€™æ¢å‘½ä»¤é”åˆ°çš„æ•ˆæœæ˜¯ï¼šåœ¨æœ‰ redis é¡åƒçš„ç¯€é»ä¸Šé¢å•Ÿå‹•ä¸€å€‹åå­—å«åš redis çš„å®¹å™¨ï¼Œå¦‚æœæ¯å€‹ç¯€é»ä¸Šé¢éƒ½æ²’æœ‰ redis å®¹å™¨ï¼Œå°±æŒ‰ç…§é è¨­çš„ç­–ç•¥å•Ÿå‹• redis å®¹å™¨ã€‚
 
 ###Port Filter
-Port ¤]·|³Q»{¬°¬O¤@­Ó°ß¤@ªº¸ê·½
+Port ä¹Ÿæœƒè¢«èªç‚ºæ˜¯ä¸€å€‹å”¯ä¸€çš„è³‡æº
 ```sh
 sudo docker -H 192.168.1.83:2376 run -d -p 80:80 nginx
 ```
 
-°õ¦æ§¹³o±ø©R¥O¡A¤§«á¥ô¦ó¨Ï¥Î 80 ºİ¤fªº®e¾¹³£¬O±Ò°Ê¥¢±Ñ¡C
+åŸ·è¡Œå®Œé€™æ¢å‘½ä»¤ï¼Œä¹‹å¾Œä»»ä½•ä½¿ç”¨ 80 é€£æ¥é˜œçš„å®¹å™¨éƒ½æ˜¯å•Ÿå‹•å¤±æ•—ã€‚

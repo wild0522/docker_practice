@@ -1,12 +1,12 @@
-##fig.yml �Ѧ�
+##fig.yml 參考
 
-�C�Ӧb `fig.yml` �w�q���A�ȳ��ݭn���w�@���蹳���蹳���c�ؤ��e�C�� `docker run` ���R�O��@�ˡA�䥦���e�O�i�諸�C
+每個在 `fig.yml` 定義的服務都需要指定一個鏡像或鏡像的構建內容。像 `docker run` 的命令行一樣，其它內容是可選的。
 
-`docker run` �b `Dockerfile` ���]�m���ﶵ(�Ҧp�G`CMD`, `EXPOSE`, `VOLUME`, `ENV`) �@���w�g���Ѫ��q�{�]�m - �A���ݭn�b `fig.yml` �����s�]�m�C
+`docker run` 在 `Dockerfile` 中設置的選項(例如：`CMD`, `EXPOSE`, `VOLUME`, `ENV`) 作為已經提供的預設設置 - 你不需要在 `fig.yml` 中重新設置。
 
 `image`
 
-�o�̥i�H�]�m�����ҩ��蹳ID���@�����C���i�H�O���a���A�]�i�H�O���{�� - �p�G�蹳�b���a���s�b�A`Fig` �N�|���թԥh�o���蹳�C
+這裡可以設置為標籤或鏡像ID的一部分。它可以是本地的，也可以是遠程的 - 如果鏡像在本地不存在，`Fig` 將會嘗試拉去這個鏡像。
 
 ```
 image: ubuntu
@@ -16,7 +16,7 @@ image: a4bc65fd
 
 `build`
 
-���w `Dockerfile` �Ҧb��󧨪����|�C `Fig` �N�|�c�سo���蹳�õ����ͦ��@�ӦW�r�A�M��ϥγo���蹳�C
+指定 `Dockerfile` 所在文件夾的路徑。 `Fig` 將會構建這個鏡像並給它生成一個名字，然後使用這個鏡像。
 
 ```
 build: /path/to/build/dir
@@ -24,7 +24,7 @@ build: /path/to/build/dir
 
 `command`
 
-�л\�q�{���R�O�C
+覆蓋預設的命令。
 
 ```
 command: bundle exec thin -p 3000
@@ -32,7 +32,7 @@ command: bundle exec thin -p 3000
 
 `links`
 
-�b�䥦���A�Ȥ��s���e���C�ϥΪA�ȦW�١]�g�`�]�@���O�W�^�ΪA�ȦW�٥[�A�ȧO�W `�]SERVICE:ALIAS�^` ���i�H�C
+在其它的服務中連接容器。使用服務名稱（經常也作為別名）或服務名稱加服務別名 `（SERVICE:ALIAS）` 都可以。
 
 ```
 links:
@@ -41,7 +41,7 @@ links:
  - redis
 ```
 
-�i�H�b�A�Ȫ��e������ `/etc/hosts` �̳ЫاO�W�C�Ҧp�G
+可以在服務的容器中的 `/etc/hosts` 裡創建別名。例如：
 
 ```
 172.17.2.186  db
@@ -49,13 +49,13 @@ links:
 172.17.2.187  redis
 ```
 
-�����ܶq�]�N�Q�Ы� - �Ӹ`�d�������ܶq�Ѧҳ��`�C
+環境變量也將被創建 - 細節查看環境變量參考章節。
 
 `ports`
 
-���S�ݤf�C�ϥαJ�D�M�e�� `�]HOST:CONTAINER�^` �Ϊ̶ȶȮe�����ݤf�]�J�D�N�|�H����ܺݤf�^���i�H�C
+暴露連接阜。使用宿主和容器 `（HOST:CONTAINER）` 或者僅僅容器的連接阜（宿主將會隨機選擇連接阜）都可以。
 
-���G���ϥ� `HOST:CONTAINER` �榡�ӬM�g�ݤf�ɡA�p�G�A�ϥΪ��e���ݤf�p��60�A�i��|�o����~�o���G�A�]�� `YAML` �N�|�ѪR `xx:yy` �o�ؼƦr�榡��60�i��C�ҥH�ڭ̫�ĳ�Φr�ū��w�A�o�ݤf�M�g�C
+註：當使用 `HOST:CONTAINER` 格式來映射連接阜時，如果你使用的容器連接阜小於60你可能會得到錯誤得結果，因為 `YAML` 將會解析 `xx:yy` 這種數字格式為60進制。所以我們建議用字符指定你得連接阜映射。
 
 ```
 ports:
@@ -67,7 +67,7 @@ ports:
 
 `expose`
 
-���S���o�G��J�D�����ݤf - ���̥u�Q�s�����A�ȳX�ݡC�ȶȤ������ݤf�i�H�Q���w�C
+暴露不發佈到宿主機的連接阜 - 它們只被連接的服務訪問。僅僅內部的連接阜可以被指定。
 
 ```
 expose:
@@ -77,7 +77,7 @@ expose:
 
 `volumes`
 
-���������|�]�m�C�i�H�]�m�J�D�����| `�]HOST:CONTAINER�^` �γX�ݼҦ� `�]HOST:CONTAINER:ro�^` �C
+卷掛載路徑設置。可以設置宿主機路徑 `（HOST:CONTAINER）` 或訪問模式 `（HOST:CONTAINER:ro）` 。
 
 ```
 volumes:
@@ -88,7 +88,7 @@ volumes:
 
 `volumes_from`
 
-�q�t�@�ӪA�ȩήe�������Ҧ����C
+從另一個服務或容器掛載所有卷。
 
 ```
 volumes_from:
@@ -98,9 +98,9 @@ volumes_from:
 
 `environment`
 
-�]�m�����ܶq�C�A�i�H�ϥμƲթΦr���خ榡�C
+設置環境變量。你可以使用數組或字典兩種格式。
 
-�����ܶq�b�B�� `Fig` �������W�Q�ѪR���@��key�C�����U��w���M���w���J�D�ȡC
+環境變量在運行 `Fig` 的機器上被解析成一個key。它有助於安全和指定的宿主值。
 
 ```
 environment:
@@ -114,7 +114,7 @@ environment:
 
 `net`
 
-�]�m�����Ҧ��C�ϥΩM `docker client` �� `--net` �ѼƤ@�˪��ȡC
+設置網路模式。使用和 `docker client` 的 `--net` 參數一樣的值。
 
 ```
 net: "bridge"
@@ -125,7 +125,7 @@ net: "host"
 
 `dns`
 
-�t�mDNS�A�Ⱦ��C���i�H�O�@�ӭȡA�]�i�H�O�@�ӦC���C
+配置DNS服務器。它可以是一個值，也可以是一個列表。
 
 ```
 dns: 8.8.8.8
@@ -136,7 +136,7 @@ dns:
 
 `working_dir, entrypoint, user, hostname, domainname, mem_limit, privileged`
 
-�o�ǳ��O�M `docker run` �������@�ӭȡC
+這些都是和 `docker run` 對應的一個值。
 
 ```
 working_dir: /code

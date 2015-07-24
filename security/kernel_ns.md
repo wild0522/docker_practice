@@ -1,15 +1,15 @@
-## ���֦W�r�Ŷ�
-Docker �e���M LXC �e���ܬۦ��A�Ҵ��Ѫ��w���S�ʤ]�t���h�C���� `docker run` �Ұʤ@�Ӯe���ɡA�b��x Docker ���e���ЫؤF�@�ӿW�ߪ��W�r�Ŷ��M����ն��X�C
+## 內核名字空間
+Docker 容器和 LXC 容器很相似，所提供的安全特性也差不多。當用 `docker run` 啟動一個容器時，在後台 Docker 為容器創建了一個獨立的名字空間和控制組集合。
 
-�W�r�Ŷ����ѤF�̰�¦�]�O�̪������j���A�b�e�����B�檺�i�{���|�Q�B��b�D���W���i�{�M�䥦�e���o�{�M�@�ΡC
+名字空間提供了最基礎也是最直接的隔離，在容器中運行的進程不會被運行在主機上的進程和其它容器發現和作用。
 
-�C�Ӯe�������ۤv�W���������̡A�N���ۥ��̤���X�ݨ�L�e���� sockets �α��f�C���L�A�p�G�D���t�ΤW���F�������]�m�A�e���i�H����D���椬�@�˪��M��L�e���椬�C�����w���@�ݤf�Ψϥ� links �ӳs�� 2 �Ӯe���ɡA�e���N�i�H�ۤ��q�H�F�]�i�H�ھڰt�m�ӭ���q�H�������^�C
+每個容器都有自己獨有的網路棧，意味著它們不能訪問其他容器的 sockets 或接口。不過，如果主機系統上做了相應的設置，容器可以像跟主機交互一樣的和其他容器交互。當指定公共連接阜或使用 links 來連接 2 個容器時，容器就可以相互通信了（可以根據配置來限制通信的策略）。
 
-�q�����[�c�����רӬݡA�Ҧ����e���q�L���a�D�����������f�ۤ��q�H�A�N�����z�����q�L���z�洫���q�H�@�ˡC
+從網路架構的角度來看，所有的容器通過本地主機的網橋接口相互通信，就像物理機器通過物理交換機通信一樣。
 
-����A���֤���{�W�r�Ŷ��M�p���������N�X�O�_���������H
+那麼，內核中實現名字空間和私有網路的代碼是否足夠成熟？
 
-���֦W�r�Ŷ��q 2.6.15 �����]2008 �~ 7 ��o�G�^����Q�ޤJ�A�Ʀ~���A�o�Ǿ���i�a�ʦb�Ѧh�j���Ͳ��t�Τ��Q������ҡC
+內核名字空間從 2.6.15 版本（2008 年 7 月發佈）之後被引入，數年間，這些機制的可靠性在諸多大型生產系統中被實踐驗證。
 
-��ڤW�A�W�r�Ŷ����Q�k�M�]�p���X���ɶ��n�󦭡A�̪�O���F�b���֤��ޤJ�@�ؾ���ӹ�{ [OpenVZ](http://en.wikipedia.org/wiki/OpenVZ) ���S�ʡC
-�� OpenVZ ���ئ��b 2005 �~�N�o�G�F�A��]�p�M��{���w�g�Q�������C
+實際上，名字空間的想法和設計提出的時間要更早，最初是為了在內核中引入一種機制來實現 [OpenVZ](http://en.wikipedia.org/wiki/OpenVZ) 的特性。
+而 OpenVZ 項目早在 2005 年就發佈了，其設計和實現都已經十分成熟。

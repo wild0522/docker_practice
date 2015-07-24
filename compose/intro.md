@@ -1,10 +1,10 @@
-## Â²¤¶
-Compose ¶µ¥Ø¥Ø«e¦b [Github](https://github.com/docker/compose) ¤W¶i¦æºûÅ@¡A¥Ø«e³Ì·sª©¥»¬O 1.2.0¡C
+## ç°¡ä»‹
+Compose é …ç›®ç›®å‰åœ¨ [Github](https://github.com/docker/compose) ä¸Šé€²è¡Œç¶­è­·ï¼Œç›®å‰æœ€æ–°ç‰ˆæœ¬æ˜¯ 1.2.0ã€‚
 
-Compose ©w¦ì¬O¡udefining and running complex applications with Docker¡v¡A«e¨­¬O Fig¡A­İ®e Fig ªº¼ÒªO¤å¥ó¡C
+Compose å®šä½æ˜¯ã€Œdefining and running complex applications with Dockerã€ï¼Œå‰èº«æ˜¯ Figï¼Œå…¼å®¹ Fig çš„æ¨¡æ¿æ–‡ä»¶ã€‚
 
-Dockerfile ¥i¥HÅı¥Î¤áºŞ²z¤@­Ó³æ¿WªºÀ³¥Î®e¾¹¡F¦Ó Compose «h¤¹³\¥Î¤á¦b¤@­Ó¼ÒªO¡]YAML ®æ¦¡¡^¤¤©w¸q¤@²Õ¬ÛÃöÁpªºÀ³¥Î®e¾¹¡]³QºÙ¬°¤@­Ó `project`¡A§Y¶µ¥Ø¡^¡A¨Ò¦p¤@­Ó Web ªA°È®e¾¹¦A¥[¤W«áºİªº¼Æ¾Ú®wªA°È®e¾¹µ¥¡C
+Dockerfile å¯ä»¥è®“ç”¨æˆ¶ç®¡ç†ä¸€å€‹å–®ç¨çš„æ‡‰ç”¨å®¹å™¨ï¼›è€Œ Compose å‰‡å…è¨±ç”¨æˆ¶åœ¨ä¸€å€‹æ¨¡æ¿ï¼ˆYAML æ ¼å¼ï¼‰ä¸­å®šç¾©ä¸€çµ„ç›¸é—œè¯çš„æ‡‰ç”¨å®¹å™¨ï¼ˆè¢«ç¨±ç‚ºä¸€å€‹ `project`ï¼Œå³é …ç›®ï¼‰ï¼Œä¾‹å¦‚ä¸€å€‹ Web æœå‹™å®¹å™¨å†åŠ ä¸Šå¾Œç«¯çš„æ•¸æ“šåº«æœå‹™å®¹å™¨ç­‰ã€‚
 
 ![](../_images/docker_compose.jpg)
 
-¸Ó¶µ¥Ø¥Ñ Python ½s¼g¡A¹ê»Ú¤W½Õ¥Î¤F Docker ´£¨Ñªº API ¨Ó¹ê²{¡C
+è©²é …ç›®ç”± Python ç·¨å¯«ï¼Œå¯¦éš›ä¸Šèª¿ç”¨äº† Docker æä¾›çš„ API ä¾†å¯¦ç¾ã€‚

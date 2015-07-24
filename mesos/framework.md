@@ -1,56 +1,56 @@
-## Mesos ±`¨£®Ø¬[
+## Mesos å¸¸è¦‹æ¡†æ¶
 
-framework ¬O¹ê»Ú·F¬¡ªº¡A¥i¥H²z¸Ñ¬° mesos ¤W¶]ªº `À³¥Î`¡A»İ­nµù¥U¨ì master ¤W¡C
+framework æ˜¯å¯¦éš›å¹¹æ´»çš„ï¼Œå¯ä»¥ç†è§£ç‚º mesos ä¸Šè·‘çš„ `æ‡‰ç”¨`ï¼Œéœ€è¦è¨»å†Šåˆ° master ä¸Šã€‚
 
-### ªø´Á¹B¦æªºªA°È
+### é•·æœŸé‹è¡Œçš„æœå‹™
 
 #### [Aurora](http://aurora.incubator.apache.org/)
-§Q¥Î mesos ½Õ«×¦w±Æªº¥ô°È¡A«OÃÒ¥ô°È¤@ª½¦b¹B¦æ¡C
+åˆ©ç”¨ mesos èª¿åº¦å®‰æ’çš„ä»»å‹™ï¼Œä¿è­‰ä»»å‹™ä¸€ç›´åœ¨é‹è¡Œã€‚
 
-´£¨Ñ REST ±µ¤f¡A«È¤áºİ©M webUI¡]8081 ºİ¤f¡^
+æä¾› REST æ¥å£ï¼Œå®¢æˆ¶ç«¯å’Œ webUIï¼ˆ8081 é€£æ¥é˜œï¼‰
 
 #### [Marathon](https://github.com/mesosphere/marathon)
-¤@­Ó PaaS ¥­¥x¡C
+ä¸€å€‹ PaaS å¹³å°ã€‚
 
-«OÃÒ¥ô°È¤@ª½¦b¹B¦æ¡C¦pªG°±¤î¤F¡A·|¦Û°Ê­«±Ò¤@­Ó·sªº¥ô°È¡C
+ä¿è­‰ä»»å‹™ä¸€ç›´åœ¨é‹è¡Œã€‚å¦‚æœåœæ­¢äº†ï¼Œæœƒè‡ªå‹•é‡å•Ÿä¸€å€‹æ–°çš„ä»»å‹™ã€‚
 
-¤ä«ù¥ô°È¬°¥ô·N bash ©R¥O¡A¥H¤Î®e¾¹¡C
+æ”¯æŒä»»å‹™ç‚ºä»»æ„ bash å‘½ä»¤ï¼Œä»¥åŠå®¹å™¨ã€‚
 
-´£¨Ñ REST ±µ¤f¡A«È¤áºİ©M webUI¡]8080 ºİ¤f¡^
+æä¾› REST æ¥å£ï¼Œå®¢æˆ¶ç«¯å’Œ webUIï¼ˆ8080 é€£æ¥é˜œï¼‰
 
 #### [Singularity](https://github.com/HubSpot/Singularity)
-¤@­Ó PaaS ¥­¥x¡C
+ä¸€å€‹ PaaS å¹³å°ã€‚
 
-½Õ«×¾¹¡A¹B¦æªø´Áªº¥ô°È©M¤@¦¸©Ê¥ô°È¡C
+èª¿åº¦å™¨ï¼Œé‹è¡Œé•·æœŸçš„ä»»å‹™å’Œä¸€æ¬¡æ€§ä»»å‹™ã€‚
 
-´£¨Ñ REST ±µ¤f¡A«È¤áºİ©M webUI¡]7099¡B8080 ºİ¤f¡^¡A¤ä«ù®e¾¹¡C
+æä¾› REST æ¥å£ï¼Œå®¢æˆ¶ç«¯å’Œ webUIï¼ˆ7099ã€8080 é€£æ¥é˜œï¼‰ï¼Œæ”¯æŒå®¹å™¨ã€‚
 
-### ¤j¼Æ¾Ú³B²z
+### å¤§æ•¸æ“šè™•ç†
 #### [Cray Chapel](https://github.com/nqn/mesos-chapel)
-¤ä«ù Chapel ¨Ã¦æ½sµ{»y¨¥ªº¹B¦æ®Ø¬[¡C
+æ”¯æŒ Chapel ä¸¦è¡Œç·¨ç¨‹èªè¨€çš„é‹è¡Œæ¡†æ¶ã€‚
 
 #### [Dpark](https://github.com/douban/dpark)
-Spark ªº Python ¹ê²{¡C
+Spark çš„ Python å¯¦ç¾ã€‚
 
 #### [Hadoop](https://github.com/mesos/hadoop)
-¸g¨åªº map-reduce ¼Ò«¬ªº¹ê²{¡C
+ç¶“å…¸çš„ map-reduce æ¨¡å‹çš„å¯¦ç¾ã€‚
 
 #### [Spark](http://spark.incubator.apache.org/)
-¸ò Hadoop Ãş¦ü¡A¦ı³B²z­¡¥NÃş«¬¥ô°È·|§ó¦nªº¨Ï¥Î¤º¦s°µ¤¤¶¡ª¬ºA½w¦s¡A³t«×­n§Ö¤@¨Ç¡C
+è·Ÿ Hadoop é¡ä¼¼ï¼Œä½†è™•ç†è¿­ä»£é¡å‹ä»»å‹™æœƒæ›´å¥½çš„ä½¿ç”¨å…§å­˜åšä¸­é–“ç‹€æ…‹ç·©å­˜ï¼Œé€Ÿåº¦è¦å¿«ä¸€äº›ã€‚
 
 #### [Storm](https://github.com/mesosphere/storm-mesos)
-¤À§G¦¡¬y­pºâ¡A¥i¥H¹ê®É³B²z¼Æ¾Ú¬y¡C
+åˆ†ä½ˆå¼æµè¨ˆç®—ï¼Œå¯ä»¥å¯¦æ™‚è™•ç†æ•¸æ“šæµã€‚
 
-### §å¶q½Õ«×
+### æ‰¹é‡èª¿åº¦
 #### [Chronos](https://github.com/airbnb/chronos)
-Cron ªº¤À§G¦¡¹ê²{¡A­t³d¥ô°È½Õ«×¡C
+Cron çš„åˆ†ä½ˆå¼å¯¦ç¾ï¼Œè² è²¬ä»»å‹™èª¿åº¦ã€‚
 
 #### [Jenkins](https://github.com/jenkinsci/mesos-plugin)
-¤j¦W¹©¹©ªº CI ¤ŞÀº¡C¨Ï¥Î mesos-jenkins ´¡¥ó¡A¥i¥H±N jenkins ªº¥ô°È³Q mesos ¨Ó°ÊºA½Õ«×°õ¦æ¡C
+å¤§åé¼é¼çš„ CI å¼•æ“ã€‚ä½¿ç”¨ mesos-jenkins æ’ä»¶ï¼Œå¯ä»¥å°‡ jenkins çš„ä»»å‹™è¢« mesos ä¾†å‹•æ…‹èª¿åº¦åŸ·è¡Œã€‚
 
 #### [ElasticSearch](https://github.com/mesosphere/elasticsearch-mesos)
-¥\¯à¤Q¤À±j¤jªº¤À§G¦¡¼Æ¾Ú·j¯Á¤ŞÀº¡C
+åŠŸèƒ½ååˆ†å¼·å¤§çš„åˆ†ä½ˆå¼æ•¸æ“šæœç´¢å¼•æ“ã€‚
 
-### ¼Æ¾Ú¦sÀx
+### æ•¸æ“šå­˜å„²
 #### [Cassandra](https://github.com/mesosphere/cassandra-mesos)
-°ª©Ê¯à¤À§G¦¡¼Æ¾Ú®w¡C
+é«˜æ€§èƒ½åˆ†ä½ˆå¼æ•¸æ“šåº«ã€‚

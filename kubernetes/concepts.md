@@ -1,41 +1,41 @@
-# �򥻷���
+# 基本概念
 
 ![](../_images/kubernetes_design.jpg)
 
-* �`�I�]Node�^�G�@�Ӹ`�I�O�@�ӹB�� Kubernetes �����D���C
-* �e���ա]Pod�^�G�@�� Pod ������ѭY�z�e���զ����@�Ӯe���աA�P�Ӳդ����e���@�ɤ@�Ӧs�x��(volume)�C
-* �e���եͩR�g���]pos-states�^�G�]�t�Ҧ��e�����A���X�A�]�A�e���ժ��A�����A�e���եͩR�g���A�ƥ�A���ҵ����A�H��replication controllers�C
-* Replication Controllers�]replication-controllers�^�G�D�n�t�d���w�ƶq��pod�b�P�@�ɶ��@�_�B��C
-* �A�ȡ]services�^�G�@��Kubernetes�A�ȬO�e�����޿誺���ũ⹳�A�P�ɤ]��~���ѳX�ݮe���ժ������C
-* ���]volumes�^�G�@�Ө��N�O�@�ӥؿ��A�e����䦳�X���v���C
-* ���ҡ]labels�^�G���ҬO�Ψӳs���@�չ�H���A��p�e���աC���ҥi�H�Q�ΨӲ�´�M��ܤl��H�C
-* ���f�v���]accessing_the_api�^�G�ݤf�Aip�a�}�M�N�z��������W�h�C
-* web �ɭ��]ux�^�G�Τ�i�H�q�L web �ɭ��ާ@Kubernetes�C
-* �R�O��ާ@�]cli�^�G`kubecfg`�R�O�C
+* 節點（Node）：一個節點是一個運行 Kubernetes 中的主機。
+* 容器組（Pod）：一個 Pod 對應於由若干容器組成的一個容器組，同個組內的容器共享一個存儲卷(volume)。
+* 容器組生命週期（pos-states）：包含所有容器狀態集合，包括容器組狀態類型，容器組生命週期，事件，重啟策略，以及replication controllers。
+* Replication Controllers（replication-controllers）：主要負責指定數量的pod在同一時間一起運行。
+* 服務（services）：一個Kubernetes服務是容器組邏輯的高級抽像，同時也對外提供訪問容器組的策略。
+* 卷（volumes）：一個卷就是一個目錄，容器對其有訪問權限。
+* 標籤（labels）：標籤是用來連接一組對象的，比如容器組。標籤可以被用來組織和選擇子對象。
+* 接口權限（accessing_the_api）：連接阜，ip地址和代理的防火牆規則。
+* web 界面（ux）：用戶可以通過 web 界面操作Kubernetes。
+* 命令行操作（cli）：`kubecfg`命令。
 
 
-## �`�I
-�b Kubernetes ���A�`�I�O��ڤu�@���I�A�H�e�s�� Minion�C�`�I�i�H�O�������Ϊ̪��z�����A�̿��@�Ӷ��s���ҡC�C�Ӹ`�I�����@�ǥ��n���A�ȥH�B��e���աA�åB���̳��i�H�q�L�D�`�I�Ӻ޲z�C���n�A�ȥ]�A Docker�Akubelet �M�N�z�A�ȡC
+## 節點
+在 Kubernetes 中，節點是實際工作的點，以前叫做 Minion。節點可以是虛擬機或者物理機器，依賴於一個集群環境。每個節點都有一些必要的服務以運行容器組，並且它們都可以通過主節點來管理。必要服務包括 Docker，kubelet 和代理服務。
 
-### �e�����A
+### 容器狀態
 
-�e�����A�ΨӴy�z�`�I�����e���A�C�{�b�A�䤤�]�t�T�ӫH���G
+容器狀態用來描述節點的當前狀態。現在，其中包含三個信息：
 
-#### �D��IP
+#### 主機IP
 
-�D��IP�ݭn�����x�Ӭd�ߡAKubernetes�⥦�@�����A���@�����ӫO�s�C�p�GKubernetes�S���B��b�����x�W�A�`�IID�N�O���ݪ��CIP�a�}�i�H�ܤơA�åB�i�H�]�t�h��������IP�a�}�A�p���@IP�A�p��IP�A�ʺAIP�Aipv6�����C
+主機IP需要雲平台來查詢，Kubernetes把它作為狀態的一部分來保存。如果Kubernetes沒有運行在雲平台上，節點ID就是必需的。IP地址可以變化，並且可以包含多種類型的IP地址，如公共IP，私有IP，動態IP，ipv6等等。
 
-#### �`�I�g��
+#### 節點週期
 
-�q�`�ӻ��`�I�� `Pending`�A`Running`�A`Terminated`�T�Ӷg���A�p�GKubernetes�o�{�F�@�Ӹ`�I�åB��i�ΡA����Kubernetes�N�⥦�аO�� `Pending`�C�M��b�Y�Ӯɨ�AKubernetes�N�|�аO�䬰 `Running`�C�`�I�������g���٬� `Terminated`�C�@�Ӥw�gterminated���`�I���|�����M�իץ���ШD�A�åB�w�g�b��W�B�檺�e���դ]�|�R���C
+通常來說節點有 `Pending`，`Running`，`Terminated`三個週期，如果Kubernetes發現了一個節點並且其可用，那麼Kubernetes就把它標記為 `Pending`。然後在某個時刻，Kubernetes將會標記其為 `Running`。節點的結束週期稱為 `Terminated`。一個已經terminated的節點不會接受和調度任何請求，並且已經在其上運行的容器組也會刪除。
 
-#### �`�I���A
+#### 節點狀態
 
-�`�I�����A�D�n�O�ΨӴy�z�B�� `Running`���`�I�C���e�i�Ϊ��� `NodeReachable` �M `NodeReady` �C�H��i��|�W�[��L���A�C`NodeReachable` ���ܶ��s�i�F�C`NodeReady`����kubelet��^ StatusOk�åBHTTP���A�ˬd���d�C
+節點的狀態主要是用來描述處於 `Running`的節點。當前可用的有 `NodeReachable` 和 `NodeReady` 。以後可能會增加其他狀態。`NodeReachable` 表示集群可達。`NodeReady`表示kubelet返回 StatusOk並且HTTP狀態檢查健康。
 
-### �`�I�޲z
+### 節點管理
 
-�`�I�ëDKubernetes�ЫءA�ӬO�Ѷ����x�ЫءA�Ϊ̴N�O���z�����B�������C�bKubernetes���A�`�I�ȶȬO�@���O���A�`�I�Ыؤ���AKubernetes�|�ˬd��O�_�i�ΡC�bKubernetes���A�`�I�Φp�U���c�O�s�G
+節點並非Kubernetes創建，而是由雲平台創建，或者就是物理機器、虛擬機。在Kubernetes中，節點僅僅是一條記錄，節點創建之後，Kubernetes會檢查其是否可用。在Kubernetes中，節點用如下結構保存：
 
 ```
 {
@@ -54,129 +54,129 @@
 }
 ```
 
-Kubernetes����`�I�i�Ψ̿��id�C�b���e���������A����ӱ��f�i�H�ΨӺ޲z�`�I�G�`�I����MKube�޲z�C
+Kubernetes校驗節點可用依賴於id。在當前的版本中，有兩個接口可以用來管理節點：節點控制和Kube管理。
 
-### �`�I����
+### 節點控制
 
-�bKubernetes�D�`�I���A�`�I����O�ΨӺ޲z�`�I���ե�C�D�n�]�t�G
-* ���s�d�򤺸`�I�P�B
-* ��`�I�ͩR�g���޲z
+在Kubernetes主節點中，節點控制器是用來管理節點的組件。主要包含：
+* 集群範圍內節點同步
+* 單節點生命週期管理
 
-�`�I����@�ӦP�B���M�A�D�n��ť�Ҧ������x��������ҡA�|�ھڸ`�I���A�ЫةM�R���C�i�H�q�L `--node_sync_period`�лx�ӱ���ӽ��M�C�p�G�@�ӹ�Ҥw�g�ЫءA�`�I����N�|����Ыؤ@�ӵ��c�C�P�˪��A�p�G�@�Ӹ`�I�Q�R���A�`�I����]�|�R���ӵ��c�C�bKubernetes�Ұʮɥi�γq�L `--machines`�аO����ܫ��w�`�I�C�P�˥i�H�ϥ� `kubectl`�Ӥ@���@�����K�[�`�I�A��̬O�ۦP���C�q�L�]�m `--sync_nodes=false`�аO�ӸT��s�������`�I�P�B�A�A�]�i�H�ϥ�api/kubectl �R�O��ӼW�R�`�I�C
+節點控制有一個同步輪尋，主要監聽所有雲平台的虛擬實例，會根據節點狀態創建和刪除。可以通過 `--node_sync_period`標誌來控制該輪尋。如果一個實例已經創建，節點控制將會為其創建一個結構。同樣的，如果一個節點被刪除，節點控制也會刪除該結構。在Kubernetes啟動時可用通過 `--machines`標記來顯示指定節點。同樣可以使用 `kubectl`來一條一條的添加節點，兩者是相同的。通過設置 `--sync_nodes=false`標記來禁止集群之間的節點同步，你也可以使用api/kubectl 命令行來增刪節點。
 
-## �e����
+## 容器組
 
-�bKubernetes���A�ϥΪ��̤p���O�e���աA�e���լO�ЫءA�իסA�޲z���̤p���C
-�@�Ӯe���ըϥάۦP��Dokcer�e���æ@�ɨ��]�����I�^�C�@�Ӯe���լO�@�ӯS�w�B�Ϊ����]���X�A�]�t�@�өΦh�Ӯe���C
+在Kubernetes中，使用的最小單位是容器組，容器組是創建，調度，管理的最小單位。
+一個容器組使用相同的Dokcer容器並共享卷（掛載點）。一個容器組是一個特定運用的打包集合，包含一個或多個容器。
 
-�M�B�檺�e�������A�@�Ӯe���ճQ�{���u���ܵu���B��g���C�e���ճQ�իר�@�ո`�I�B��A���D�e�����ͩR�g�������Ϊ̨�Q�R���C�p�G�`�I�����A�B��b��W���e���ձN�|�Q�R���Ӥ��O���s�իסC�]�]�\�b�N�Ӫ��������|�K�[�e���ժ����ʡ^�C
+和運行的容器類似，一個容器組被認為只有很短的運行週期。容器組被調度到一組節點運行，知道容器的生命週期結束或者其被刪除。如果節點死掉，運行在其上的容器組將會被刪除而不是重新調度。（也許在將來的版本中會添加容器組的移動）。
 
-### �e���ճ]�p����J
+### 容器組設計的初衷
 
-### �귽�@�ɩM�q�H
+### 資源共享和通信
 
-�e���եD�n�O���F�ƾڦ@�ɩM���̤������q�H�C
+容器組主要是為了數據共享和它們之間的通信。
 
-�b�@�Ӯe���դ��A�e�����ϥάۦP�������a�}�M�ݤf�A�i�H�q�L���a�����Ӭۤ��q�H�C�C�Ӯe���ճ����W�ߪ�ip�A�i�γq�L�����өM��L���z�D���Ϊ̮e���q�H�C
+在一個容器組中，容器都使用相同的網路地址和連接阜，可以通過本地網路來相互通信。每個容器組都有獨立的ip，可用通過網路來和其他物理主機或者容器通信。
 
-�e���զ��@�զs�x���]�����I�^�A�D�n�O���F���e���b���Ҥ���i�H���ᥢ�ƾڡC
+容器組有一組存儲卷（掛載點），主要是為了讓容器在重啟之後可以不丟失數據。
 
-### �e���պ޲z
+### 容器組管理
 
-�e���լO�@�ӹB�κ޲z�M���p�����h���⹳�A�P�ɤ]�O�@�ծe�������f�C�e���լO���p�B�������Y���̤p���C
+容器組是一個運用管理和部署的高層次抽像，同時也是一組容器的接口。容器組是部署、水平放縮的最小單位。
 
-### �e���ժ��ϥ�
+### 容器組的使用
 
-�e���եi�H�q�L�զX�Ӻc�ؽ������B�ΡA�䥻�Ӫ��N�q�]�t�G
+容器組可以通過組合來構建複雜的運用，其本來的意義包含：
 
-* ���e�޲z�A���M�ƾڥ[���H�Υ��a�w�s�޲z���C
-* ��x�M�ˬd�I�ƥ��A���Y�A�ַӵ��C
-* ��ť�ƾ��ܤơA���ܤ�x�A��x�M�ʱ��N�z�A�����o�G���C
-* �N�z�A����
-* ����A�޲z�A�t�m�H�Χ�s
+* 內容管理，文件和數據加載以及本地緩存管理等。
+* 日誌和檢查點備份，壓縮，快照等。
+* 監聽數據變化，跟蹤日誌，日誌和監控代理，消息發佈等。
+* 代理，網橋
+* 控制器，管理，配置以及更新
 
-### ���N���
+### 替代方案
 
-�����򤣦b�@�ӳ�@���e���̹B��h�ӵ{�ǡH
+為什麼不在一個單一的容器裡運行多個程序？
 
-* 1.�z���ơC���F�Ϯe���դ����e���O���@�P����¦�]�I�M�A�ȡA��p�i�{�޲z�M�귽�ʱ��C�o�˳]�p�O���F�Τ᪺�K�Q�ʡC
-* 2.�Ѱ��n�󤧶����̿�C�C�Ӯe�����i�୫�s�c�ةM�o�G�AKubernetes����������o�G�M����s�]�N�ӡ^�C
-* 3.��K�ϥΡC�Τᤣ���B��W�ߪ��{�Ǻ޲z�A�]���ξ�ߨC�ӹB�ε{�Ǫ��h�X���A�C
-* 4.���ġC�Ҽ{���¦�]�I����h��¾�d�A�e�������n���q�ơC
+* 1.透明化。為了使容器組中的容器保持一致的基礎設施和服務，比如進程管理和資源監控。這樣設計是為了用戶的便利性。
+* 2.解偶軟件之間的依賴。每個容器都可能重新構建和發佈，Kubernetes必須支持熱發佈和熱更新（將來）。
+* 3.方便使用。用戶不必運行獨立的程序管理，也不用擔心每個運用程序的退出狀態。
+* 4.高效。考慮到基礎設施有更多的職責，容器必須要輕量化。
 
-### �e���ժ��ͩR���A
+### 容器組的生命狀態
 
-�]�A�Y�z���A�ȡGpending�Brunning�Bsucceeded�Bfailed�C
+包括若干狀態值：pending、running、succeeded、failed。
 
 #### pending
 
-�e���դw�g�Q�`�I�����A�����@�өΦh�Ӯe���٨S���B��_�ӡC�o�N�]�t�Y�Ǹ`�I���b�U���蹳���ɶ��A�o�ر��η|�̿��������p�C
+容器組已經被節點接受，但有一個或多個容器還沒有運行起來。這將包含某些節點正在下載鏡像的時間，這種情形會依賴於網路情況。
 
 #### running
 
-�e���դw�g�Q�իר�`�I�A�åB�Ҧ����e�����w�g�ҰʡC�ܤ֦��@�Ӯe���B��B�檬�A�]�Ϊ̳B�󭫱Ҫ��A�^�C
+容器組已經被調度到節點，並且所有的容器都已經啟動。至少有一個容器處於運行狀態（或者處於重啟狀態）。
 
 #### succeeded
 
-�Ҧ����e�������`�h�X�C
+所有的容器都正常退出。
 
 #### failed
 
-�e���դ��Ҧ��e�����N�~���_�F�C
+容器組中所有容器都意外中斷了。
 
-### �e���եͩR�g��
+### 容器組生命週期
 
-�q�`�ӻ��A�p�G�e���ճQ�ЫؤF�N���|�۰ʾP���A���D�Q�Y�ئ欰�X�o�A��Ĳ�o���ر��p�i��O�H���A�Ϊ̽ƻs����Ҭ��C�ߤ@�ҥ~���O�e���ե� succeeded���A���\�h�X�A�Ϊ̦b�@�w�ɶ������զh���̵M���ѡC
+通常來說，如果容器組被創建了就不會自動銷毀，除非被某種行為出發，而觸發此種情況可能是人為，或者複製控制器所為。唯一例外的是容器組由 succeeded狀態成功退出，或者在一定時間內重試多次依然失敗。
 
-�p�G�Y�Ӹ`�I�����Ϊ̤���s���A����`�I����N�|�аO��W���e���ժ����A�� `failed`�C
+如果某個節點死掉或者不能連接，那麼節點控制器將會標記其上的容器組的狀態為 `failed`。
 
-�|�Ҧp�U�C
+舉例如下。
 
-* �e���ժ��A `running`�A�� 1 �e���A�e�����`�h�X
-     * �O�������ƥ�
-     * �p�G���ҵ������G
-        * �l�סG���Үe���A�e���իO�� `running`
-        * ���ѮɡG�e�����ܬ� `succeeded`
-        * �q���G�e�����ܬ� `succeeded`
-* �e���ժ��A `running`�A��1�e���A�e�����`�h�X
-     * �O�����Ѩƥ�
-     * �p�G���ҵ������G
-        * �l�סG���Үe���A�e���իO�� `running`
-        * ���ѮɡG���Үe���A�e���իO�� `running`
-        * �q���G�e�����ܬ� `failed`
-* �e���ժ��A `running`�A��2�e���A��1�e�����`�h�X
-     * �O�����Ѩƥ�
-     * �p�G���ҵ������G
-        * �l�סG���Үe���A�e���իO�� `running`
-        * ���ѮɡG���Үe���A�e���իO�� `running`
-        * �q���G�e���իO�� `running`
-    * ����2�e���h�X
-        * �O�����Ѩƥ�
-        * �p�G���ҵ������G
-            * �l�סG���Үe���A�e���իO�� `running`
-            * ���ѮɡG���Үe���A�e���իO�� `running`
-            * �q���G�e�����ܬ� `failed`
-* �e���ժ��A `running`�A�e�����s����
-    * �аO�e�����~���_
-    * �O�����s�����ƥ�
-    * �p�G���ҵ������G
-        * �l�סG���Үe���A�e���իO�� `running`
-        * ���ѮɡG���Үe���A�e���իO�� `running`
-        * �q���G�O�����~�ƥ�A�e�����ܬ� `failed`
-* �e���ժ��A `running`�A�@���ϽL����
-    * �����Ҧ��e��
-    * �O���ƥ�
-    * �e�����ܬ� `failed`
-    * �p�G�e���չB��b�@�ӱ���U�A�e���ձN�|�b��L�a�譫�s�Ы�
-* �e���ժ��A `running`�A�������`�I�q���X
-    * �`�I�������W��
-    * �`�I����аO�e���� `failed`
-    * �p�G�e���չB��b�@�ӱ���U�A�e���ձN�|�b��L�a�譫�s�Ы�
+* 容器組狀態 `running`，有 1 容器，容器正常退出
+     * 記錄完成事件
+     * 如果重啟策略為：
+        * 始終：重啟容器，容器組保持 `running`
+        * 失敗時：容器組變為 `succeeded`
+        * 從不：容器組變為 `succeeded`
+* 容器組狀態 `running`，有1容器，容器異常退出
+     * 記錄失敗事件
+     * 如果重啟策略為：
+        * 始終：重啟容器，容器組保持 `running`
+        * 失敗時：重啟容器，容器組保持 `running`
+        * 從不：容器組變為 `failed`
+* 容器組狀態 `running`，有2容器，有1容器異常退出
+     * 記錄失敗事件
+     * 如果重啟策略為：
+        * 始終：重啟容器，容器組保持 `running`
+        * 失敗時：重啟容器，容器組保持 `running`
+        * 從不：容器組保持 `running`
+    * 當有2容器退出
+        * 記錄失敗事件
+        * 如果重啟策略為：
+            * 始終：重啟容器，容器組保持 `running`
+            * 失敗時：重啟容器，容器組保持 `running`
+            * 從不：容器組變為 `failed`
+* 容器組狀態 `running`，容器內存不足
+    * 標記容器錯誤中斷
+    * 記錄內存不足事件
+    * 如果重啟策略為：
+        * 始終：重啟容器，容器組保持 `running`
+        * 失敗時：重啟容器，容器組保持 `running`
+        * 從不：記錄錯誤事件，容器組變為 `failed`
+* 容器組狀態 `running`，一塊磁盤死掉
+    * 殺死所有容器
+    * 記錄事件
+    * 容器組變為 `failed`
+    * 如果容器組運行在一個控制器下，容器組將會在其他地方重新創建
+* 容器組狀態 `running`，對應的節點段溢出
+    * 節點控制器等到超時
+    * 節點控制器標記容器組 `failed`
+    * 如果容器組運行在一個控制器下，容器組將會在其他地方重新創建
 
 ## Replication Controllers
-## �A��
-## ��
-## ����
-## ���f�v��
-## web�ɭ�
-## �R�O��ާ@
+## 服務
+## 卷
+## 標籤
+## 接口權限
+## web界面
+## 命令行操作

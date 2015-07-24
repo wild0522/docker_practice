@@ -1,16 +1,16 @@
-## swarm ╫у╚в╣╕╡╓
-swarm╓Д╚Ы╕h╨ь╫у╚в╣╕╡╓╗с©О╬э╦`бI║C╗C╕╦╕bswarm╠р╟йcontainer╙╨╝и╜т║Aswarm╥|╝з╬з©О╬э╙╨╫у╚в╣╕╡╓╗с©О╬э╦`бI╧B╕Фcontainer║C╔ь╚e╓Д╚Ы╙╨╕Ё:spread,binpack╘Mrandom║C
+## swarm Х╙©Е╨╕Г╜√Г∙╔
+swarmФ■╞Ф▄│Е╓ Г╗╝Х╙©Е╨╕Г╜√Г∙╔Д╬├И│╦Ф⌠┤Г╞─И╩·Ц─┌Ф╞▐Ф╛║Е°╗swarmЕ∙÷Е▀∙containerГ └Ф≥┌Е─≥О╪▄swarmФ°┐Ф═╧Ф⌠ И│╦Ф⌠┤Г └Х╙©Е╨╕Г╜√Г∙╔Д╬├И│╦Ф⌠┤Г╞─И╩·И│▀Х║▄containerЦ─┌Г⌡╝Е┴█Ф■╞Ф▄│Г └Ф°┴:spread,binpackЕ▓▄randomЦ─┌
 
-╕b╟У╕Ф`swarm manage`╘R╔O╠р╟й swarm ╤╟╦s╙╨╝и╜т╔i╔HЁq╧L `--strategy` ╟я╪ф╗с╚Э╘w║Aюq╩{╙╨╛Ospread║C
+Е°╗Е÷╥Х║▄`swarm manage`Е▒╫Д╩╓Е∙÷Е▀∙ swarm И⌡├Г╬╓Г └Ф≥┌Е─≥Е▐╞Д╩╔И─ И│▌ `--strategy` Е▐┐Ф∙╦Д╬├Ф▄┤Е╝ О╪▄И═░Х╗╜Г └Ф≤╞spreadЦ─┌
 
-spread╘Mbinpack╣╕╡╓╥|╝з╬з╗C╔x╦`бI╙╨╔i╔нCPU║A╓╨╕s╔H╓н╔©╕b╧B╕Ф╙╨containers╙╨╪ф╤q╗с╣╧╕U╜с╦`бI╓ю╞е║A╕сrandom╣╕╡╓║AеU╕W╚Д╦q║A╔L╓ё╥|╟╣╔Т╕С╙╨╜p╨Б║A╔u╛OЁФ╞б╙╨юH╬В©О╬э╓@╜с╦`бI╗с╠р╟йcontainer║CЁo╨ь╣╕╡╓╓@╞К╔u╟╣╫у╦у╔н║C
+spreadЕ▓▄binpackГ╜√Г∙╔Ф°┐Ф═╧Ф⌠ Ф╞▐Е▐╟Г╞─И╩·Г └Е▐╞Г■╗CPUО╪▄Е┘╖Е╜≤Д╩╔Е▐┼Ф╜ёЕ°╗И│▀Х║▄Г └containersГ └Ф∙╦И┤▐Д╬├Г╣╕Е░└Е─▀Г╞─И╩·Е┬├Г╢ О╪▄Х─▄randomГ╜√Г∙╔О╪▄И║╖Е░█Ф─²Г╬╘О╪▄Д╩√Д╦█Ф°┐Е│ Д╩╩Д╫∙Г └Х╗┬Г╝≈О╪▄Е▐╙Ф≤╞Е√╝Г╢■Г └И ╗Ф╘÷И│╦Ф⌠┤Д╦─Е─▀Г╞─И╩·Д╬├Е∙÷Е▀∙containerЦ─┌И─≥Г╗╝Г╜√Г∙╔Д╦─Х┬╛Е▐╙Е│ Х╙©Х╘╕Г■╗Ц─┌
 
-╗о╔нspread╣╕╡╓║Aswarm╥|©О╬э╓@╜с╔©╕b╧B╕Ф╙╨container╙╨╪ф╤qЁл╓ж╙╨╗╨╜с╦`бI╗с╧B╕Фcontainer║CЁo╨ь╠║╙p╥|╬и╜P╠р╟й╙╨container╥|╨и╔i╞Ю╙╨╓ю╖G╕b╓ё╕P╙╨╬В╬╧╓W╧B╕Ф║AЁo╪к╙╨╕nЁB╢N╛O╕p╙G╕Ё╦`бIцa╠╪╙╨╝и╜т╓ё╥|╥l╔╒╓с╕h╙╨container║C
+Д╫©Г■╗spreadГ╜√Г∙╔О╪▄swarmФ°┐И│╦Ф⌠┤Д╦─Е─▀Ф╜ёЕ°╗И│▀Х║▄Г └containerГ └Ф∙╦И┤▐Ф°─Е╟▒Г └И┌ёЕ─▀Г╞─И╩·Д╬├И│▀Х║▄containerЦ─┌И─≥Г╗╝Ф┐┘ФЁ│Ф°┐Е╟▌Х┤╢Е∙÷Е▀∙Г └containerФ°┐Г⌡║Е▐╞Х┐╫Г └Е┬├Д╫┬Е°╗Д╦█Е░▄Г └Ф╘÷Е≥╗Д╦┼И│▀Х║▄О╪▄И─≥Ф╗ёГ └Е╔╫Х≥∙Е╟╠Ф≤╞Е╕┌Ф·°Ф°┴Г╞─И╩·Её·Ф▌┴Г └Ф≥┌Е─≥Д╦█Ф°┐Ф░█Е╓╠Е╓╙Е╓ Г └containerЦ─┌
 
-binpack ╚h╛ш╓о║AЁo╨ь╠║╙p╓U║Aswarm╥|╨и╔i╞Ю╙╨╖Б╘р╕Ё╙╨╝e╬╧╘Я╕b╓@╔x╦`бI╓W╜╠╧B╕Ф║CЁo╨ь╣╕╡╓╥|ав╖K╝e╬╧╦H╓Ы╓ф║A╕]╛╟╔L╥|╖Б╔╪╗о╔н╙╨╬В╬╧╓ю╟t╣╧╖С╓j╙╨╝e╬╧║A╠a╗с╙╨╕nЁB╢N╛Oswarm╥|╗о╔нЁл╓ж╙╨╦`бI╧B╕ФЁл╕h╙╨╝e╬╧║C
+binpack Е┴┤Г⌡╦Е▐█О╪▄И─≥Г╗╝Ф┐┘ФЁ│Д╦▀О╪▄swarmФ°┐Г⌡║Е▐╞Х┐╫Г └Ф┼┼Ф┴─Ф°┴Г └Е╝╧Е≥╗Ф■╬Е°╗Д╦─Е▐╟Г╞─И╩·Д╦┼И²╒И│▀Х║▄Ц─┌И─≥Г╗╝Г╜√Г∙╔Ф°┐И│©Е┘█Е╝╧Е≥╗Г╒▌Г┴┤Е▄√О╪▄Е⌡═Г┌╨Д╩√Ф°┐Ф┼┼Ф°╙Д╫©Г■╗Г └Ф╘÷Е≥╗Е┬├И┘█Г╣╕Ф⌡╢Е╓╖Г └Е╝╧Е≥╗О╪▄Е╦╤Д╬├Г └Е╔╫Х≥∙Е╟╠Ф≤╞swarmФ°┐Д╫©Г■╗Ф°─Е╟▒Г └Г╞─И╩·И│▀Х║▄Ф°─Е╓ Г └Е╝╧Е≥╗Ц─┌
 
-### spread ╣╕╡╓
-╔Щ╗с╨t╔э╓U spread ╣╕╡╓╙╨╠║╙p║C
+### spread Г╜√Г∙╔
+Е┘┬Д╬├Ф╪■Г╓╨Д╦▀ spread Г╜√Г∙╔Г └Ф┐┘ФЁ│Ц─┌
 ```sh
 rio@083:~$ sudo docker run -d -p 2376:2375 -v $(pwd)/cluster:/tmp/cluster swarm manage --strategy=spread file:///tmp/cluster
 7609ac2e463f435c271d17887b7d1db223a5d696bf3f47f86925c781c000cb60
@@ -18,7 +18,7 @@ ats@sclu083:~$ sudo docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                    NAMES
 7609ac2e463f        swarm:latest        "/swarm manage --str   6 seconds ago       Up 5 seconds        0.0.0.0:2376->2375/tcp   focused_babbage
 ```
-╓T╔x╬В╬╧╟ё╓F83╧B╕Ф╓F Swarm╓╖╔~║A╗Д╔L╙╨Ёё╗S╕Ё╧B╕Ф╔Т╕С╓@╜с╝e╬╧║A╡{╕b╕b85Ёo╔x╦`бI╓W╜╠╕bswarm╤╟╦s╓W╠р╟й╓@╜с╝e╬╧
+Д╦┴Е▐╟Ф╘÷Е≥╗И≥╓Д╨├83И│▀Х║▄Д╨├ SwarmД╧▀Е╓√О╪▄Е┘╤Д╩√Г └И┐╫Ф╡▓Ф°┴И│▀Х║▄Д╩╩Д╫∙Д╦─Е─▀Е╝╧Е≥╗О╪▄Г▐╬Е°╗Е°╗85И─≥Е▐╟Г╞─И╩·Д╦┼И²╒Е°╗swarmИ⌡├Г╬╓Д╦┼Е∙÷Е▀∙Д╦─Е─▀Е╝╧Е≥╗
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name node-1 -d -P redis
 2553799f1372b432e9b3311b73e327915d996b6b095a30de3c91a47ff06ce981
@@ -26,7 +26,7 @@ rio@085:~$ sudo docker -H 192.168.1.83:2376 ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS                  PORTS                          NAMES
 2553799f1372        redis:latest        /entrypoint.sh redis   24 minutes ago      Up Less than a second   192.168.1.84:32770->6379/tcp   084/node-1
 ```
-╠р╟й╓@╜с redis ╝e╬╧║A╛d╛щ╣╡╙G
+Е∙÷Е▀∙Д╦─Е─▀ redis Е╝╧Е≥╗О╪▄Ф÷╔Г°▀Г╣░Ф·°
 ```sh
 
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name node-2 -d -P redis
@@ -36,7 +36,7 @@ CONTAINER ID        IMAGE                            COMMAND                CREA
 7965a17fb943        redis:latest   /entrypoint.sh redis   Less than a second ago   Up 1 seconds        192.168.1.124:49154->6379/tcp   124/node-2                  
 2553799f1372        redis:latest                     /entrypoint.sh redis   29 minutes ago           Up 4 minutes        192.168.1.84:32770->6379/tcp    084/node-1
 ```
-╕A╕╦╠р╟й╓@╜с redis ╝e╬╧║A╛d╛щ╣╡╙G
+Е├█Ф╛║Е∙÷Е▀∙Д╦─Е─▀ redis Е╝╧Е≥╗О╪▄Ф÷╔Г°▀Г╣░Ф·°
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name node-3 -d -P redis
 65e1ed758b53fbf441433a6cb47d288c51235257cf1bf92e04a63a8079e76bee
@@ -46,16 +46,16 @@ CONTAINER ID        IMAGE                            COMMAND                CREA
 65e1ed758b53        redis:latest                     /entrypoint.sh redis   25 minutes ago           Up 17 seconds       192.168.1.83:32770->6379/tcp    083/node-3
 2553799f1372        redis:latest                     /entrypoint.sh redis   33 minutes ago           Up 8 minutes        192.168.1.84:32770->6379/tcp    084/node-1
 ```
-╔i╔H╛щ╗Л╓T╜с╝e╬╧Ёё╛O╓ю╖G╕b╓ё╕P╙╨╦`бI╓W╜╠╙╨║C
+Е▐╞Д╩╔Г°▀Е┬╟Д╦┴Е─▀Е╝╧Е≥╗И┐╫Ф≤╞Е┬├Д╫┬Е°╗Д╦█Е░▄Г └Г╞─И╩·Д╦┼И²╒Г └Ц─┌
 
-### binpack ╣╕╡╓
-╡{╕b╗с╛щ╛щbinpack╣╕╡╓╓U╙╨╠║╙p║C╕b083╓W╜╠╟У╕Ф╘R╔O║G
+### binpack Г╜√Г∙╔
+Г▐╬Е°╗Д╬├Г°▀Г°▀binpackГ╜√Г∙╔Д╦▀Г └Ф┐┘ФЁ│Ц─┌Е°╗083Д╦┼И²╒Е÷╥Х║▄Е▒╫Д╩╓О╪ 
 ```sh
 rio@083:~$ sudo docker run -d -p 2376:2375 -v $(pwd)/cluster:/tmp/cluster swarm manage --strategy=binpack  file:///tmp/cluster
 f1c9affd5a0567870a45a8eae57fec7c78f3825f3a53fd324157011aa0111ac5
 ```
 
-╡{╕b╕b╤╟╦s╓╓╠р╟й╓T╜с redis ╝e╬╧║A╛d╛щ╓ю╖G╠║╙p║G
+Г▐╬Е°╗Е°╗И⌡├Г╬╓Д╦╜Е∙÷Е▀∙Д╦┴Е─▀ redis Е╝╧Е≥╗О╪▄Ф÷╔Г°▀Е┬├Д╫┬Ф┐┘ФЁ│О╪ 
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 run --name node-1 -d -P redis
 18ceefa5e86f06025cf7c15919fa64a417a9d865c27d97a0ab4c7315118e348c
@@ -70,4 +70,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 18ceefa5e86f        redis:latest        /entrypoint.sh redis   25 minutes ago      Up 22 seconds           192.168.1.83:32771->6379/tcp   083/node-1
 ```
 
-╔i╔H╛щ╗Л║A╘р╕Ё╙╨╝e╬╧Ёё╛O╓ю╖G╕b╕P╓@╜с╦`бI╓W╧B╕Ф╙╨║C
+Е▐╞Д╩╔Г°▀Е┬╟О╪▄Ф┴─Ф°┴Г └Е╝╧Е≥╗И┐╫Ф≤╞Е┬├Д╫┬Е°╗Е░▄Д╦─Е─▀Г╞─И╩·Д╦┼И│▀Х║▄Г └Ц─┌

@@ -1,7 +1,7 @@
-# ¸ê·½Ãì±µ
-* Docker ¥D¯¸ÂI: https://www.docker.io
-* Docker µù¥U¤¤¤ßAPI: http://docs.docker.com/reference/api/registry_api/
+# è³‡æºéˆæ¥
+* Docker ä¸»ç«™é»: https://www.docker.io
+* Docker è¨»å†Šä¸­å¿ƒAPI: http://docs.docker.com/reference/api/registry_api/
 * Docker Hub API: http://docs.docker.com/reference/api/docker-io_api/
-* Docker »·ºİÀ³¥ÎAPI: http://docs.docker.com/reference/api/docker_remote_api/
-* Dockerfile °Ñ¦Ò¡Ghttps://docs.docker.com/reference/builder/
-* Dockerfile ³Ì¨Î¹ê½î¡Ghttps://docs.docker.com/articles/dockerfile_best-practices/
+* Docker é ç«¯æ‡‰ç”¨API: http://docs.docker.com/reference/api/docker_remote_api/
+* Dockerfile åƒè€ƒï¼šhttps://docs.docker.com/reference/builder/
+* Dockerfile æœ€ä½³å¯¦è¸ï¼šhttps://docs.docker.com/articles/dockerfile_best-practices/

@@ -1,95 +1,95 @@
-## Compose �R�O����
+## Compose 命令說明
 
-�j�����R�O���i�H�B��b�@�өΦh�ӪA�ȤW�C�p�G�S���S�O�������A�R�O�h���Φb���ةҦ����A�ȤW�C
+大部分命令都可以運行在一個或多個服務上。如果沒有特別的說明，命令則應用在項目所有的服務上。
 
-���� `docker-compose [COMMAND] --help` �d�ݨ���Y�өR�O���ϥλ����C
+執行 `docker-compose [COMMAND] --help` 查看具體某個命令的使用說明。
 
-�򥻪��ϥή榡�O
+基本的使用格式是
 ```sh
 docker-compose [options] [COMMAND] [ARGS...]
 ```
 
-## �ﶵ
+## 選項
 
-* `--verbose` ��X��h�ոիH���C
-* `--version` ���L�����ðh�X�C
-* `-f, --file FILE` �ϥίS�w�� compose �ҪO���A�q�{�� `docker-compose.yml`�C
-* `-p, --project-name NAME` ���w���ئW�١A�q�{�ϥΥؿ��W�١C
+* `--verbose` 輸出更多調試信息。
+* `--version` 打印版本並退出。
+* `-f, --file FILE` 使用特定的 compose 模板文件，預設為 `docker-compose.yml`。
+* `-p, --project-name NAME` 指定項目名稱，預設使用目錄名稱。
 
-## �R�O
+## 命令
 
 ### `build`
 
-�c�ةέ��s�c�تA�ȡC
+構建或重新構建服務。
 
-�A�Ȥ@���c�ث�A�N�|�a�W�@�ӼаO�W�A�Ҧp web_db�C
+服務一旦構建後，將會帶上一個標記名，例如 web_db。
 
-�i�H�H�ɦb���إؿ��U�B�� `docker-compose build` �ӭ��s�c�تA�ȡC
+可以隨時在項目目錄下運行 `docker-compose build` 來重新構建服務。
 
 ### `help`
 
-��o�@�өR�O�����U�C
+獲得一個命令的幫助。
 
 ### `kill`
 
-�q�L�o�e `SIGKILL` �H���ӱj���A�Ȯe���C����q�L�Ѽƨӫ��w�o�e���H���A�Ҧp
+通過發送 `SIGKILL` 信號來強制停止服務容器。支持通過參數來指定發送的信號，例如
 ```sh
 $ docker-compose kill -s SIGINT
 ```
 
 ### `logs`
 
-�d�ݪA�Ȫ���X�C
+查看服務的輸出。
 
 ### `port`
 
-���L�j�w�����@�ݤf�C
+打印綁定的公共連接阜。
 
 ### `ps`
 
-�C�X�Ҧ��e���C
+列出所有容器。
 
 ### `pull`
 
-�Ԩ��A���蹳�C
+拉取服務鏡像。
 
 ### `rm`
 
-�R������A�Ȯe���C
+刪除停止的服務容器。
 
 ### `run`
 
-�b�@�ӪA�ȤW����@�өR�O�C
+在一個服務上執行一個命令。
 
-�Ҧp�G
+例如：
 
 ```
 $ docker-compose run ubuntu ping docker.com
 ```
 
-�N�|�Ұʤ@�� ubuntu �A�ȡA���� `ping docker.com` �R�O�C
+將會啟動一個 ubuntu 服務，執行 `ping docker.com` 命令。
 
-�q�{���p�U�A�Ҧ����p���A�ȱN�|�۰ʳQ�ҰʡA���D�o�ǪA�Ȥw�g�b�B�椤�C
+預設情況下，所有關聯的服務將會自動被啟動，除非這些服務已經在運行中。
 
-�өR�O�����Ұʮe����B����w���R�O�A�������B�챵�������N�|���Ӵ���ЫءC
+該命令類似啟動容器後運行指定的命令，相關卷、鏈接等等都將會按照期望創建。
 
-��Ӥ��P�I�G
-* ���w�R�O�N�|�л\�즳���۰ʹB��R�O�F
-* ���|�۰ʳЫغݤf�A�H�קK�Ĭ�C
+兩個不同點：
+* 給定命令將會覆蓋原有的自動運行命令；
+* 不會自動創建連接阜，以避免衝突。
 
-�p�G���Ʊ�۰ʱҰ����p���e���A�i�H�ϥ� `--no-deps` �ﶵ�A�Ҧp
+如果不希望自動啟動關聯的容器，可以使用 `--no-deps` 選項，例如
 
 ```
 $ docker-compose run --no-deps web python manage.py shell
 ```
 
-�N���|�Ұ� web �e�������p���䥦�e���C
+將不會啟動 web 容器所關聯的其它容器。
 
 ### `scale`
 
-�]�m�P�@�ӪA�ȹB�檺�e���ӼơC
+設置同一個服務運行的容器個數。
 
-�q�L `service=num` ���Ѽƨӳ]�m�ƶq�C�Ҧp�G
+通過 `service=num` 的參數來設置數量。例如：
 
 ```
 $ docker-compose scale web=2 worker=3
@@ -97,46 +97,46 @@ $ docker-compose scale web=2 worker=3
 
 ### `start`
 
-�Ұʤ@�Ӥw�g�s�b���A�Ȯe���C
+啟動一個已經存在的服務容器。
 
 ### `stop`
 
-����@�Ӥw�g�B�檺�e���A�����R�����C�q�L `docker-compose start` �i�H�A���Ұʳo�Ǯe���C
+停止一個已經運行的容器，但不刪除它。通過 `docker-compose start` 可以再次啟動這些容器。
 
 ### `up`
 
-�c�ءA�]���s�^�ЫءA�ҰʡA�챵�@�ӪA�Ȭ������e���C
+構建，（重新）創建，啟動，鏈接一個服務相關的容器。
 
-�챵���A�ȳ��N�|�ҰʡA���D�L�̤w�g�B��C
+鏈接的服務都將會啟動，除非他們已經運行。
 
-�q�{���p�A `docker-compose up` �N�|��X�Ҧ��e������X�A�åB�h�X�ɡA�Ҧ��e���N�|����C
+預設情況， `docker-compose up` 將會整合所有容器的輸出，並且退出時，所有容器將會停止。
 
-�p�G�ϥ� `docker-compose up -d` �A�N�|�b��x�ҰʨùB��Ҧ����e���C
+如果使用 `docker-compose up -d` ，將會在後台啟動並運行所有的容器。
 
-�q�{���p�A�p�G�ӪA�Ȫ��e���w�g�s�b�A `docker-compose up` �N�|����ù��խ��s�ЫإL�̡]�O���ϥ� `volumes-from` ���������^�A�H�O�� `docker-compose.yml` ���ק�ͮġC�p�G�A���Q�e���Q����í��s�ЫءA�i�H�ϥ� `docker-compose up --no-recreate`�C�p�G�ݭn���ܡA�o�˱N�|�Ұʤw�g����e���C
+預設情況，如果該服務的容器已經存在， `docker-compose up` 將會停止並嘗試重新創建他們（保持使用 `volumes-from` 掛載的卷），以保證 `docker-compose.yml` 的修改生效。如果你不想容器被停止並重新創建，可以使用 `docker-compose up --no-recreate`。如果需要的話，這樣將會啟動已經停止的容器。
 
-## �����ܶq
+## 環境變量
 
-�����ܶq�i�H�ΨӰt�m Compose ���欰�C
+環境變量可以用來配置 Compose 的行為。
 
-�H`DOCKER_`�}�Y���ܶq�M�ΨӰt�m Docker �R�O��Ȥ�ݪ��ϥΤ@�ˡC�p�G�ϥ� boot2docker , `$(boot2docker shellinit)` �N�|�]�m���̬����T���ȡC
+以`DOCKER_`開頭的變量和用來配置 Docker 命令行客戶端的使用一樣。如果使用 boot2docker , `$(boot2docker shellinit)` 將會設置它們為正確的值。
 
 ### `COMPOSE_PROJECT_NAME`
 
-�]�m�q�L Compose �Ұʪ��C�@�Ӯe���e�K�[�����ئW�١A�q�{�O���e�u�@�ؿ����W�r�C
+設置通過 Compose 啟動的每一個容器前添加的項目名稱，預設是當前工作目錄的名字。
 
 ### `COMPOSE_FILE`
 
-�]�m�n�ϥΪ� `docker-compose.yml` �����|�C�q�{���|�O���e�u�@�ؿ��C
+設置要使用的 `docker-compose.yml` 的路徑。預設路徑是當前工作目錄。
 
 ### `DOCKER_HOST`
 
-�]�m Docker daemon ���a�}�C�q�{�ϥ� `unix:///var/run/docker.sock`�A�P Docker �Ȥ�ݱĥΪ��q�{�Ȥ@�P�C
+設置 Docker daemon 的地址。預設使用 `unix:///var/run/docker.sock`，與 Docker 客戶端採用的預設值一致。
 
 ### `DOCKER_TLS_VERIFY`
 
-�p�G�]�m�����šA�h�P Docker daemon �椬�q�L TLS �i��C
+如果設置不為空，則與 Docker daemon 交互通過 TLS 進行。
 
 ### `DOCKER_CERT_PATH`
 
-�t�m TLS �q�H�һݭn�����ҡ]`ca.pem`�B`cert.pem` �M `key.pem`�^��󪺸��|�A�q�{�O `~/.docker` �C
+配置 TLS 通信所需要的驗證（`ca.pem`、`cert.pem` 和 `key.pem`）文件的路徑，預設是 `~/.docker` 。

@@ -1,10 +1,10 @@
-## �ϥ� etcdctl
+## 使用 etcdctl
 
-etcdctl �O�@�өR�O��Ȥ�ݡA���ണ�Ѥ@��²�䪺�R�O�A�ѥΤ᪽���� etcd �A�ȥ���D�A�ӵL�ݰ�� HTTP API �覡�C�o�b�Y�Ǳ��p�U�N�ܤ�K�A�Ҧp�Τ��A�ȶi����թΪ̤�ʭק�ƾڮw���e�C�ڭ̤]���˦b�豵Ĳ etcd �ɳq�L etcdctl �R�O�Ӽ��x�������ާ@�A�o�Ǿާ@�� HTTP API ��ڤW�O�������C
+etcdctl 是一個命令行客戶端，它能提供一些簡潔的命令，供用戶直接跟 etcd 服務打交道，而無需基於 HTTP API 方式。這在某些情況下將很方便，例如用戶對服務進行測試或者手動修改數據庫內容。我們也推薦在剛接觸 etcd 時通過 etcdctl 命令來熟悉相關的操作，這些操作跟 HTTP API 實際上是對應的。
 
-etcd ���ؤG�i��o��]���w�g�]�t�F etcdctl �u��A�S�����ܡA�i�H�q [github.com/coreos/etcd/releases](https://github.com/coreos/etcd/releases) �U���C
+etcd 項目二進制發行包中已經包含了 etcdctl 工具，沒有的話，可以從 [github.com/coreos/etcd/releases](https://github.com/coreos/etcd/releases) 下載。
 
-etcdctl ����p�U���R�O�A�j��W�����ƾڮw�ާ@�M�D�ƾڮw�ާ@�����A�᭱�N���O�i������C
+etcdctl 支持如下的命令，大體上分為數據庫操作和非數據庫操作兩類，後面將分別進行解釋。
 
 ```
 $ etcdctl -h
@@ -46,28 +46,28 @@ GLOBAL OPTIONS:
    --version, -v		print the version
 ```
 
-### �ƾڮw�ާ@
-�ƾڮw�ާ@��¶����ȩM�ؿ��� CRUD �]�ŦX REST ���檺�@�M�ާ@�GCreate�^����ͩR�g�����޲z�C
+### 數據庫操作
+數據庫操作圍繞對鍵值和目錄的 CRUD （符合 REST 風格的一套操作：Create）完整生命週期的管理。
 
-etcd �b�䪺��´�W�ĥΤF�h���ƪ��Ŷ����c�]��������t�Τ��ؿ��������^�A�Τ���w����i�H����W���W�r�A�p `testkey`�A���ɹ�ڤW��b�ڥؿ� `/` �U���A�]�i�H�����w�ؿ����c�A�p `cluster1/node2/testkey`�A�h�N�Ыج������ؿ����c�C
+etcd 在鍵的組織上採用了層次化的空間結構（類似於文件系統中目錄的概念），用戶指定的鍵可以為單獨的名字，如 `testkey`，此時實際上放在根目錄 `/` 下面，也可以為指定目錄結構，如 `cluster1/node2/testkey`，則將創建相應的目錄結構。
 
-*���GCRUD �Y Create, Read, Update, Delete�A�O�ŦX REST ���檺�@�M API �ާ@�C*
+*註：CRUD 即 Create, Read, Update, Delete，是符合 REST 風格的一套 API 操作。*
 
 #### set
-���w�Y���䪺�ȡC�Ҧp
+指定某個鍵的值。例如
 ```
 $ etcdctl set /testdir/testkey "Hello world"
 Hello world
 ```
-������ﶵ�]�A�G
+支持的選項包括：
 ```
---ttl '0'			����Ȫ��W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
---swap-with-value value �Y����{�b���ȬO value�A�h�i��]�m�ާ@
---swap-with-index '0'	�Y����{�b�����ޭȬO���w���ޡA�h�i��]�m�ާ@
+--ttl '0'			該鍵值的超時時間（單位為秒），不配置（預設為 0）則永不超時
+--swap-with-value value 若該鍵現在的值是 value，則進行設置操作
+--swap-with-index '0'	若該鍵現在的索引值是指定索引，則進行設置操作
 ```
 
 #### get
-������w�䪺�ȡC�Ҧp
+獲取指定鍵的值。例如
 ```
 $ etcdctl set testkey hello
 hello
@@ -75,20 +75,20 @@ $ etcdctl update testkey world
 world
 ```
 
-���䤣�s�b�ɡA�h�|�����C�Ҧp
+當鍵不存在時，則會報錯。例如
 ```
 $ etcdctl get testkey2
 Error:  100: Key not found (/testkey2) [1]
 ```
 
-������ﶵ��
+支持的選項為
 ```
---sort	�ﵲ�G�i��Ƨ�
---consistent �N�ШD�o���D�`�I�A�O��������e���@�P��
+--sort	對結果進行排序
+--consistent 將請求發給主節點，保證獲取內容的一致性
 ```
 
 #### update
-����s�b�ɡA��s�Ȥ��e�C�Ҧp
+當鍵存在時，更新值內容。例如
 ```
 $ etcdctl set testkey hello
 hello
@@ -96,46 +96,46 @@ $ etcdctl update testkey world
 world
 ```
 
-���䤣�s�b�ɡA�h�|�����C�Ҧp
+當鍵不存在時，則會報錯。例如
 ```
 $ etcdctl update testkey2 world
 Error:  100: Key not found (/testkey2) [1]
 ```
 
-������ﶵ��
+支持的選項為
 ```
---ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
+--ttl '0'	超時時間（單位為秒），不配置（預設為 0）則永不超時
 ```
 
 #### rm
-�R���Y����ȡC�Ҧp
+刪除某個鍵值。例如
 ```
 $ etcdctl rm testkey
 
 ```
 
-���䤣�s�b�ɡA�h�|�����C�Ҧp
+當鍵不存在時，則會報錯。例如
 ```
 $ etcdctl rm testkey2
 Error:  100: Key not found (/testkey2) [8]
 ```
 
-������ﶵ��
+支持的選項為
 ```
---dir		�p�G��O�Ӫťؿ��Ϊ���ȹ�h�R��
---recursive		�R���ؿ��M�Ҧ��l��
---with-value 	�ˬd�{�����ȬO�_�ǰt
---with-index '0'	�ˬd�{���� index �O�_�ǰt
+--dir		如果鍵是個空目錄或者鍵值對則刪除
+--recursive		刪除目錄和所有子鍵
+--with-value 	檢查現有的值是否匹配
+--with-index '0'	檢查現有的 index 是否匹配
 
 ```
 
 #### mk
-�p�G���w���䤣�s�b�A�h�Ыؤ@�ӷs����ȡC�Ҧp
+如果給定的鍵不存在，則創建一個新的鍵值。例如
 ```
 $ etcdctl mk /testdir/testkey "Hello world"
 Hello world
 ```
-����s�b���ɭԡA����өR�O�|�����A�Ҧp
+當鍵存在的時候，執行該命令會報錯，例如
 ```
 $ etcdctl set testkey "Hello world"
 Hello world
@@ -143,48 +143,48 @@ $ ./etcdctl mk testkey "Hello world"
 Error:  105: Key already exists (/testkey) [2]
 ```
 
-������ﶵ��
+支持的選項為
 ```
---ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
+--ttl '0'	超時時間（單位為秒），不配置（預設為 0）則永不超時
 ```
 
 
 #### mkdir
-�p�G���w����ؿ����s�b�A�h�Ыؤ@�ӷs����ؿ��C�Ҧp
+如果給定的鍵目錄不存在，則創建一個新的鍵目錄。例如
 ```
 $ etcdctl mkdir testdir
 ```
-����ؿ��s�b���ɭԡA����өR�O�|�����A�Ҧp
+當鍵目錄存在的時候，執行該命令會報錯，例如
 ```
 $ etcdctl mkdir testdir
 $ etcdctl mkdir testdir
 Error:  105: Key already exists (/testdir) [7]
 ```
-������ﶵ��
+支持的選項為
 ```
---ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
+--ttl '0'	超時時間（單位為秒），不配置（預設為 0）則永不超時
 ```
 
 #### setdir
 
-�Ыؤ@����ؿ��A�L�צs�b�P�_�C
+創建一個鍵目錄，無論存在與否。
 
-������ﶵ��
+支持的選項為
 ```
---ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
+--ttl '0'	超時時間（單位為秒），不配置（預設為 0）則永不超時
 ```
 
 #### updatedir
-��s�@�Ӥw�g�s�b���ؿ��C
-������ﶵ��
+更新一個已經存在的目錄。
+支持的選項為
 ```
---ttl '0'	�W�ɮɶ��]��쬰���^�A���t�m�]�q�{�� 0�^�h�ä��W��
+--ttl '0'	超時時間（單位為秒），不配置（預設為 0）則永不超時
 ```
 
 #### rmdir
-�R���@�Ӫťؿ��A�Ϊ���ȹ�C
+刪除一個空目錄，或者鍵值對。
 
-�Y�ؿ����šA�|����
+若目錄不空，會報錯
 ```
 $ etcdctl set /dir/testkey hi
 hi
@@ -193,9 +193,9 @@ Error:  108: Directory not empty (/dir) [13]
 ```
 
 #### ls
-�C�X�ؿ��]�q�{���ڥؿ��^�U����Ϊ̤l�ؿ��A�q�{����ܤl�ؿ������e�C
+列出目錄（預設為根目錄）下的鍵或者子目錄，預設不顯示子目錄中內容。
 
-�Ҧp
+例如
 ```
 $ ./etcdctl set testkey 'hi'
 hi
@@ -208,42 +208,42 @@ $ ./etcdctl ls dir
 /dir/test
 ```
 
-������ﶵ�]�A
+支持的選項包括
 ```
---sort	�N��X���G�Ƨ�
---recursive	�p�G�ؿ��U���l�ؿ��A�h���k��X�䤤�����e
--p		����X���ؿ��A�b�̫�K�[ `/` �i��Ϥ�
+--sort	將輸出結果排序
+--recursive	如果目錄下有子目錄，則遞歸輸出其中的內容
+-p		對於輸出為目錄，在最後添加 `/` 進行區分
 ```
 
-### �D�ƾڮw�ާ@
+### 非數據庫操作
 
 #### backup
-�ƥ� etcd ���ƾڡC
+備份 etcd 的數據。
 
-������ﶵ�]�A
+支持的選項包括
 ```
---data-dir 		etcd ���ƾڥؿ�
---backup-dir 	�ƥ�����w���|
+--data-dir 		etcd 的數據目錄
+--backup-dir 	備份到指定路徑
 ```
 #### watch
-�ʴ��@����Ȫ��ܤơA�@����ȵo�ͧ�s�A�N�|��X�̷s���Ȩðh�X�C
+監測一個鍵值的變化，一旦鍵值發生更新，就會輸出最新的值並退出。
 
-�Ҧp�A�Τ��s testkey ��Ȭ� Hello world�C
+例如，用戶更新 testkey 鍵值為 Hello world。
 ```
 $ etcdctl watch testkey
 Hello world
 ```
 
-������ﶵ�]�A
+支持的選項包括
 ```
---forever		�@���ʴ��A����Τ�� `CTRL+C` �h�X
---after-index '0'	�b���w index ���e�@���ʴ�
---recursive		��^�Ҧ�����ȩM�l���
+--forever		一直監測，直到用戶按 `CTRL+C` 退出
+--after-index '0'	在指定 index 之前一直監測
+--recursive		返回所有的鍵值和子鍵值
 ```
 #### exec-watch
-�ʴ��@����Ȫ��ܤơA�@����ȵo�ͧ�s�A�N���浹�w�R�O�C
+監測一個鍵值的變化，一旦鍵值發生更新，就執行給定命令。
 
-�Ҧp�A�Τ��s testkey ��ȡC
+例如，用戶更新 testkey 鍵值。
 ```
 $etcdctl exec-watch testkey -- sh -c 'ls'
 default.etcd
@@ -255,28 +255,28 @@ README-etcdctl.md
 README.md
 ```
 
-������ﶵ�]�A
+支持的選項包括
 ```
---after-index '0'	�b���w index ���e�@���ʴ�
---recursive		��^�Ҧ�����ȩM�l���
+--after-index '0'	在指定 index 之前一直監測
+--recursive		返回所有的鍵值和子鍵值
 ```
 
 #### member
-�q�L list�Badd�Bremove �R�O�C�X�B�K�[�B�R�� etcd ��Ҩ� etcd ���s���C
+通過 list、add、remove 命令列出、添加、刪除 etcd 實例到 etcd 集群中。
 
-�Ҧp���a�Ұʤ@�� etcd �A�ȹ�ҫ�A�i�H�Φp�U�R�O�i��d�ݡC
+例如本地啟動一個 etcd 服務實例後，可以用如下命令進行查看。
 ```
 $ etcdctl member list
 ce2a822cea30bfca: name=default peerURLs=http://localhost:2380,http://localhost:7001 clientURLs=http://localhost:2379,http://localhost:4001
 
 ```
-### �R�O�ﶵ
-* `--debug`			��X cURL �R�O�A��ܰ���R�O���ɭԵo�_���ШD
-* `--no-sync`			�o�X�ШD���e���P�B���s�H��
-* `--output, -o 'simple'`	��X���e���榡 (`simple` ����l�H���A`json` ���i��json�榡�ѽX�A��Ū�ʦn�@��)
-* `--peers, -C`			���w���s�����P��H���A�γr���j�} (�q�{��: "127.0.0.1:4001")
-* `--cert-file` 			HTTPS �U�Ȥ�ݨϥΪ� SSL �ҮѤ��
-* `--key-file`			HTTPS �U�Ȥ�ݨϥΪ� SSL �K�_���
-* `--ca-file` 			�A�Ⱥݨϥ� HTTPS �ɡA�ϥ� CA ���i������
-* `--help, -h`			������U�R�O�H��
-* `--version, -v`		���L�����H��
+### 命令選項
+* `--debug`			輸出 cURL 命令，顯示執行命令的時候發起的請求
+* `--no-sync`			發出請求之前不同步集群信息
+* `--output, -o 'simple'`	輸出內容的格式 (`simple` 為原始信息，`json` 為進行json格式解碼，易讀性好一些)
+* `--peers, -C`			指定集群中的同伴信息，用逗號隔開 (預設為: "127.0.0.1:4001")
+* `--cert-file` 			HTTPS 下客戶端使用的 SSL 證書文件
+* `--key-file`			HTTPS 下客戶端使用的 SSL 密鑰文件
+* `--ca-file` 			服務端使用 HTTPS 時，使用 CA 文件進行驗證
+* `--help, -h`			顯示幫助命令信息
+* `--version, -v`		打印版本信息

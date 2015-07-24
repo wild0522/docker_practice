@@ -1,19 +1,19 @@
-# ����²��
+# 項目簡介
 
 ![](../_images/kubernetes_logo.svg)
 
-Kubernetes �O Google �ζ��o�_���}�����ءA�����ؼЬO�޲z��h�ӥD�����e���A���Ѱ򥻪����p�A���@�H�ιB�Φ��Y�A�D�n��{�y����Go�y���CKubernetes�O�G
-* ���ǡG���q�šA²��A�e���z��
-* �K��G����������A�p�����A�V�X���A�H�Φh�ض����x
-* �i�ݮi�G�Ҷ��ơA�i���ޡA����_�l�A�i���N�զX
-* �ۭ״_�G�۰ʭ��իסA�۰ʭ��ҡA�۰ʽƻs
+Kubernetes 是 Google 團隊發起的開源項目，它的目標是管理跨多個主機的容器，提供基本的部署，維護以及運用伸縮，主要實現語言為Go語言。Kubernetes是：
+* 易學：輕量級，簡單，容易理解
+* 便攜：支持公有雲，私有雲，混合雲，以及多種雲平台
+* 可拓展：模塊化，可插拔，支持鉤子，可任意組合
+* 自修復：自動重調度，自動重啟，自動複製
 
-Kubernetes�c�ة�Google�ƤQ�~�g��A�@�j�b�ӷ���Google�Ͳ����ҳW�Ҫ��g��C���X�F���ϳ̨Ϊ��Q�k�M���C
+Kubernetes構建於Google數十年經驗，一大半來源於Google生產環境規模的經驗。結合了社區最佳的想法和實踐。
 
-�b���G���t�Τ��A���p�A�իסA���Y�@���O�̬����n���]�̬���¦���\��CKubernets�N�O�Ʊ�ѨM�o�@�ǦC���D���C
+在分佈式系統中，部署，調度，伸縮一直是最為重要的也最為基礎的功能。Kubernets就是希望解決這一序列問題的。
 
-Kubernets �ثe�b[github.com/GoogleCloudPlatform/kubernetes](https://github.com/GoogleCloudPlatform/kubernetes)�i����@�A�I�ܩw�Z�̷s������ 0.7.2 �����C
+Kubernets 目前在[github.com/GoogleCloudPlatform/kubernetes](https://github.com/GoogleCloudPlatform/kubernetes)進行維護，截至定稿最新版本為 0.7.2 版本。
 
-### Kubernetes ����B��b����a��I
+### Kubernetes 能夠運行在任何地方！
 
-���MKubernets�̪�O��GCE�w��A���O�b���򪩥�������W�[�F��L�����x������A�H�Υ��a�ƾڤ��ߪ�����C
+雖然Kubernets最初是為GCE定制的，但是在後續版本中陸續增加了其他雲平台的支持，以及本地數據中心的支持。

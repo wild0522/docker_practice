@@ -1,14 +1,14 @@
-## Docker �ܮw
+## Docker 倉庫
 
-�ܮw�O�����s���蹳��󪺳��ҡC���ɭԷ|��ܮw�M�ܮw���U�A�Ⱦ��]Registry�^�V���@�͡A�ä��Y��Ϥ��C��ڤW�A�ܮw���U�A�Ⱦ��W�����s��ۦh�ӭܮw�A�C�ӭܮw���S�]�t�F�h���蹳�A�C���蹳�����P�����ҡ]tag�^�C
+倉庫是集中存放鏡像文件的場所。有時候會把倉庫和倉庫註冊服務器（Registry）混為一談，並不嚴格區分。實際上，倉庫註冊服務器上往往存放著多個倉庫，每個倉庫中又包含了多個鏡像，每個鏡像有不同的標籤（tag）。
 
-�ܮw�������}�ܮw�]Public�^�M�p���ܮw�]Private�^��اΦ��C
+倉庫分為公開倉庫（Public）和私有倉庫（Private）兩種形式。
 
-�̤j�����}�ܮw�O [Docker Hub](https://hub.docker.com)�A�s��F�ƶq�e�j���蹳�ѥΤ�U���C
-�ꤺ�����}�ܮw�]�A [Docker Pool](http://www.dockerpool.com) ���A�i�H���Ѥj���Τ��í�w�ֳt���X�ݡC
+最大的公開倉庫是 [Docker Hub](https://hub.docker.com)，存放了數量龐大的鏡像供用戶下載。
+國內的公開倉庫包括 [Docker Pool](http://www.dockerpool.com) 等，可以提供大陸用戶更穩定快速的訪問。
 
-���M�A�Τ�]�i�H�b���a�������Ыؤ@�Өp���ܮw�C
+當然，用戶也可以在本地網路內創建一個私有倉庫。
 
-���Τ�ЫؤF�ۤv���蹳����N�i�H�ϥ� `push` �R�O�N���W�Ǩ줽���Ϊ̨p���ܮw�A�o�ˤU���b�t�~�@�x�����W�ϥγo���蹳�ɭԡA�u�ݭn�q�ܮw�W `pull` �U�ӴN�i�H�F�C
+當用戶創建了自己的鏡像之後就可以使用 `push` 命令將它上傳到公有或者私有倉庫，這樣下次在另外一台機器上使用這個鏡像時候，只需要從倉庫上 `pull` 下來就可以了。
 
-*���GDocker �ܮw�������� [Git](http://git-scm.com) �����A���U�A�Ⱦ��i�H�z�Ѭ� GitHub �o�˪����ުA�ȡC
+*註：Docker 倉庫的概念跟 [Git](http://git-scm.com) 類似，註冊服務器可以理解為 GitHub 這樣的托管服務。

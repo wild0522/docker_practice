@@ -1,29 +1,29 @@
 ## [Redis](https://registry.hub.docker.com/_/redis/)
 
-### °ò¥»«H®§
-[Redis](https://en.wikipedia.org/wiki/Redis) ¬O¶}·½ªº¤º¦s Key-Value ¼Æ¾Ú®w¹ê²{¡C
-¸Ó­Ü®w´£¨Ñ¤F Redis 2.6 ~ 2.8.9 ¦U­Óª©¥»ªºÃè¹³¡C
+### åŸºæœ¬ä¿¡æ¯
+[Redis](https://en.wikipedia.org/wiki/Redis) æ˜¯é–‹æºçš„å…§å­˜ Key-Value æ•¸æ“šåº«å¯¦ç¾ã€‚
+è©²å€‰åº«æä¾›äº† Redis 2.6 ~ 2.8.9 å„å€‹ç‰ˆæœ¬çš„é¡åƒã€‚
 
-### ¨Ï¥Î¤èªk
-Àq»{·|¦b `6379` ºİ¤f±Ò°Ê¼Æ¾Ú®w¡C
+### ä½¿ç”¨æ–¹æ³•
+é è¨­æœƒåœ¨ `6379` é€£æ¥é˜œå•Ÿå‹•æ•¸æ“šåº«ã€‚
 ```
 $ sudo docker run --name some-redis -d redis
 ```
-¥t¥~ÁÙ¥i¥H±Ò¥Î [«ù¤[¦sÀx](http://redis.io/topics/persistence)¡C
+å¦å¤–é‚„å¯ä»¥å•Ÿç”¨ [æŒä¹…å­˜å„²](http://redis.io/topics/persistence)ã€‚
 ```
 $ sudo docker run --name some-redis -d redis redis-server --appendonly yes
 ```
-Àq»{¼Æ¾Ú¦sÀx¦ì¸m¦b `VOLUME/data`¡C¥i¥H¨Ï¥Î `--volumes-from some-volume-container` ©Î `-v /docker/host/dir:/data` ±N¼Æ¾Ú¦s©ñ¨ì¥»¦a¡C
+é è¨­æ•¸æ“šå­˜å„²ä½ç½®åœ¨ `VOLUME/data`ã€‚å¯ä»¥ä½¿ç”¨ `--volumes-from some-volume-container` æˆ– `-v /docker/host/dir:/data` å°‡æ•¸æ“šå­˜æ”¾åˆ°æœ¬åœ°ã€‚
 
-¨Ï¥Î¨ä¥LÀ³¥Î³s±µ¨ì®e¾¹¡A¥i¥H¥Î
+ä½¿ç”¨å…¶ä»–æ‡‰ç”¨é€£æ¥åˆ°å®¹å™¨ï¼Œå¯ä»¥ç”¨
 ```
 $ sudo docker run --name some-app --link some-redis:redis -d application-that-uses-redis
 ```
-©ÎªÌ³q¹L `redis-cli`
+æˆ–è€…é€šé `redis-cli`
 ```
 $ sudo docker run -it --link some-redis:redis --rm redis sh -c 'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
 ```
 
 ### Dockerfile
-* [2.6 ª©¥»](https://github.com/docker-library/redis/blob/02d9cd887a4e0d50db4bb085eab7235115a6fe4a/2.6.17/Dockerfile)
-* [³Ì·s 2.8 ª©¥»](https://github.com/docker-library/redis/blob/d0665bb1bbddd4cc035dbc1fc774695fa534d648/2.8.13/Dockerfile)
+* [2.6 ç‰ˆæœ¬](https://github.com/docker-library/redis/blob/02d9cd887a4e0d50db4bb085eab7235115a6fe4a/2.6.17/Dockerfile)
+* [æœ€æ–° 2.8 ç‰ˆæœ¬](https://github.com/docker-library/redis/blob/d0665bb1bbddd4cc035dbc1fc774695fa534d648/2.8.13/Dockerfile)

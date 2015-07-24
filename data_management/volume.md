@@ -1,52 +1,52 @@
-## �ƾڨ�
-�ƾڨ��O�@�ӥi�Ѥ@�өΦh�Ӯe���ϥΪ��S���ؿ��A��¶�L UFS�A�i�H���ѫܦh���Ϊ��S�ʡG
-* �ƾڨ��i�H�b�e�������@�ɩM����
-* ��ƾڨ����ק�|�߰��ͮ�
-* ��ƾڨ�����s�A���|�v�T�蹳
-* �ƾڨ��q�{�|�@���s�b�A�Y�Ϯe���Q�R��
+## 數據卷
+數據卷是一個可供一個或多個容器使用的特殊目錄，它繞過 UFS，可以提供很多有用的特性：
+* 數據卷可以在容器之間共享和重用
+* 對數據卷的修改會立馬生效
+* 對數據卷的更新，不會影響鏡像
+* 數據卷預設會一直存在，即使容器被刪除
 
 
-*�`�N�G�ƾڨ����ϥΡA������ Linux �U��ؿ��Τ��i�� mount�A�蹳�����Q���w�������I���ؿ��������|���ñ��A����ܬݪ��O�������ƾڨ��C
+*注意：數據卷的使用，類似於 Linux 下對目錄或文件進行 mount，鏡像中的被指定為掛載點的目錄中的文件會隱藏掉，能顯示看的是掛載的數據卷。
 
 
-### �Ыؤ@�Ӽƾڨ�
-�b�� `docker run` �R�O���ɭԡA�ϥ� `-v` �аO�ӳЫؤ@�Ӽƾڨ��ñ�����e���̡C�b�@�� run ���h���ϥΥi�H�����h�Ӽƾڨ��C
+### 創建一個數據卷
+在用 `docker run` 命令的時候，使用 `-v` 標記來創建一個數據卷並掛載到容器裡。在一次 run 中多次使用可以掛載多個數據卷。
 
-�U���Ыؤ@�ӦW�� web ���e���A�å[���@�Ӽƾڱ���e���� `/webapp` �ؿ��C
+下面創建一個名為 web 的容器，並加載一個數據捲到容器的 `/webapp` 目錄。
 ```
 $ sudo docker run -d -P --name web -v /webapp training/webapp python app.py
 ```
-*�`�N�G�]�i�H�b Dockerfile ���ϥ� `VOLUME` �ӲK�[�@�өΪ̦h�ӷs������Ѹ��蹳�Ыت����N�e���C
+*注意：也可以在 Dockerfile 中使用 `VOLUME` 來添加一個或者多個新的捲到由該鏡像創建的任意容器。
 
-### �R���ƾڨ�
-�ƾڨ��O�Q�]�p�Ψӫ��[�Ƽƾڪ��A�����ͩR�g���W�ߩ�e���ADocker���|�b�e���Q�R����۰ʧR���ƾڨ��A�åB�]���s�b�U���^���o�˪�����ӳB�z�S������e���ޥΪ��ƾڨ��C�p�G�ݭn�b�R���e�����P�ɲ����ƾڨ��C�i�H�b�R���e�����ɭԨϥ� `docker rm -v` �o�өR�O�C�L�D���ƾڨ��i��|���ګܦh�Ŷ��A�n�M�z�|�ܳ·СCDocker�x�西�b�չϸѨM�o�Ӱ��D�A�����u�@���i�ץi�H�d�ݳo��[PR](https://github.com/docker/docker/pull/8484)
+### 刪除數據卷
+數據卷是被設計用來持久化數據的，它的生命週期獨立於容器，Docker不會在容器被刪除後自動刪除數據卷，並且也不存在垃圾回收這樣的機制來處理沒有任何容器引用的數據卷。如果需要在刪除容器的同時移除數據卷。可以在刪除容器的時候使用 `docker rm -v` 這個命令。無主的數據卷可能會佔據很多空間，要清理會很麻煩。Docker官方正在試圖解決這個問題，相關工作的進度可以查看這個[PR](https://github.com/docker/docker/pull/8484)
 
-### �����@�ӥD���ؿ��@���ƾڨ�
-�ϥ� `-v` �аO�]�i�H���w�����@�ӥ��a�D�����ؿ���e�����h�C
+### 掛載一個主機目錄作為數據卷
+使用 `-v` 標記也可以指定掛載一個本地主機的目錄到容器中去。
 ```
 $ sudo docker run -d -P --name web -v /src/webapp:/opt/webapp training/webapp python app.py
 ```
-�W�����R�O�[���D���� `/src/webapp` �ؿ���e���� `/opt/webapp`
-�ؿ��C�o�ӥ\��b�i����ժ��ɭԤQ����K�A��p�Τ�i�H��m�@�ǵ{�Ǩ쥻�a�ؿ����A�Ӭd�ݮe���O�_���`�u�@�C���a�ؿ������|�����O������|�A�p�G�ؿ����s�b Docker �|�۰ʬ��A�Ыإ��C
+上面的命令加載主機的 `/src/webapp` 目錄到容器的 `/opt/webapp`
+目錄。這個功能在進行測試的時候十分方便，比如用戶可以放置一些程序到本地目錄中，來查看容器是否正常工作。本地目錄的路徑必須是絕對路徑，如果目錄不存在 Docker 會自動為你創建它。
 
-*�`�N�GDockerfile ��������o�إΪk�A�o�O�]�� Dockerfile �O���F���өM���ɥΪ��C�M�ӡA���P�ާ@�t�Ϊ����|�榡���@�ˡA�ҥH�ثe�٤������C
+*注意：Dockerfile 中不支持這種用法，這是因為 Dockerfile 是為了移植和分享用的。然而，不同操作系統的路徑格式不一樣，所以目前還不能支持。
 
-Docker �����ƾڨ����q�{�v���OŪ�g�A�Τ�]�i�H�q�L `:ro` ���w���uŪ�C
+Docker 掛載數據卷的預設權限是讀寫，用戶也可以通過 `:ro` 指定為只讀。
 ```
 $ sudo docker run -d -P --name web -v /src/webapp:/opt/webapp:ro
 training/webapp python app.py
 ```
-�[�F `:ro` ����A�N�������uŪ�F�C
+加了 `:ro` 之後，就掛載為只讀了。
 
-### �d�ݼƾڨ�������H��
+### 查看數據卷的具體信息
 
-�b�D���̨ϥΥH�U�R�O�i�H�d�ݫ��w�e�����H��
+在主機裡使用以下命令可以查看指定容器的信息
 ```
 $ docker inspect web
 ...
 ```
 
-�b��X�����e�����䤤�M�ƾڨ������������A�i�H�ݨ�Ҧ����ƾڨ����O�Ыئb�D����`/var/lib/docker/volumes/`�U����
+在輸出的內容中找到其中和數據卷相關的部分，可以看到所有的數據卷都是創建在主機的`/var/lib/docker/volumes/`下面的
 ```
 "Volumes": {
     "/webapp": "/var/lib/docker/volumes/fac362...80535"
@@ -57,12 +57,12 @@ $ docker inspect web
 ...
 ```
 
-### �����@�ӥ��a�D�����@���ƾڨ�
-`-v` �аO�]�i�H�q�D��������Ӥ���e����
+### 掛載一個本地主機文件作為數據卷
+`-v` 標記也可以從主機掛載單個文件到容器中
 ```
 $ sudo docker run --rm -it -v ~/.bash_history:/.bash_history ubuntu /bin/bash
 ```
-�o�˴N�i�H�O���b�e����J�L���R�O�F�C
+這樣就可以記錄在容器輸入過的命令了。
 
-*�`�N�G�p�G���������@�Ӥ��A�ܦh���s��u��A�]�A `vi` �Ϊ� `sed --in-place`�A�i��|�y����� inode �����ܡA�q Docker 1.1
-.0�_�A�o�|�ɭP�����~�H���C�ҥH��²�檺��k�N����������󪺤��ؿ��C
+*注意：如果直接掛載一個文件，很多文件編輯工具，包括 `vi` 或者 `sed --in-place`，可能會造成文件 inode 的改變，從 Docker 1.1
+.0起，這會導致報錯誤信息。所以最簡單的辦法就直接掛載文件的父目錄。

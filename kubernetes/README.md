@@ -1,13 +1,13 @@
 # Kubernetes
-*�`�N�G�ثe Kubernetes �ٳB�� beta ���A�A�����˥Ͳ����ҨϥΡC���������M�]�p�٥i��|������վ�C*
+*注意：目前 Kubernetes 還處於 beta 狀態，不推薦生產環境使用。部分概念和設計還可能會有後續調整。*
 
-Kubernetes �O Google �ζ��o�_�ú��@�����Docker���}���e�����s�޲z�t�ΡA�����Ȥ���`���������x�A�ӥB��������ƾڤ��ߡC
+Kubernetes 是 Google 團隊發起並維護的基於Docker的開源容器集群管理系統，它不僅支持常見的雲平台，而且支持內部數據中心。
 
-�ة� Docker ���W�� Kubernetes �i�H�c�ؤ@�Ӯe�����իתA�ȡA��ت��O���Τ�z�LKubernetes���s�Ӷi�涳�ݮe�����s���޲z�A�ӵL�ݥΤ�i��������]�m�u�@�C�t�η|�۰ʿ���X�A���u�@�`�I�Ӱ�����骺�e�����s�ի׳B�z�u�@�C��֤߷����OContainer Pod�]�e���ܡ^�C�@��Pod�O���@�դu�@��P�@���z�u�@�`�I���e���c�����C�o�ǲծe���֦��ۦP�������R�W�Ŷ�/IP�H�Φs�x�t�B�A�i�H�ھڹ�ڱ��p��C�@��Pod�i��ݤf�M�g�C���~�AKubernetes�u�@�`�I�|�ѥD�t�ζi��޲z�A�`�I�]�t�F����B��Docker�e���ҥΨ쪺�A�ȡC
+建於 Docker 之上的 Kubernetes 可以構建一個容器的調度服務，其目的是讓用戶透過Kubernetes集群來進行雲端容器集群的管理，而無需用戶進行複雜的設置工作。系統會自動選取合適的工作節點來執行具體的容器集群調度處理工作。其核心概念是Container Pod（容器倉）。一個Pod是有一組工作於同一物理工作節點的容器構成的。這些組容器擁有相同的網路命名空間/IP以及存儲配額，可以根據實際情況對每一個Pod進行連接阜映射。此外，Kubernetes工作節點會由主系統進行管理，節點包含了能夠運行Docker容器所用到的服務。
 
-�����N���� 5 �`���� Kubernetes�C�]�A
-* ����²��
-* �ֳt�J��
-* �򥻷���
-* ���Ҥl
-* �[�c���R�����Ÿ��D
+本章將分為 5 節介紹 Kubernetes。包括
+* 項目簡介
+* 快速入門
+* 基本概念
+* 實踐例子
+* 架構分析等高級話題

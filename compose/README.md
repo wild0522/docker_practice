@@ -1,4 +1,4 @@
-# Docker Compose ¶µ¥Ø
-Docker Compose ¬O Docker ©x¤è½s±Æ¡]Orchestration¡^¶µ¥Ø¤§¤@¡A­t³d§Ö³t¦b¶°¸s¤¤³¡¸p¤À§G¦¡À³¥Î¡C
+# Docker Compose é …ç›®
+Docker Compose æ˜¯ Docker å®˜æ–¹ç·¨æ’ï¼ˆOrchestrationï¼‰é …ç›®ä¹‹ä¸€ï¼Œè² è²¬å¿«é€Ÿåœ¨é›†ç¾¤ä¸­éƒ¨ç½²åˆ†ä½ˆå¼æ‡‰ç”¨ã€‚
 
-¥»³¹±N¤¶²Ğ Compose ¶µ¥Ø±¡ªp¥H¤Î¦w¸Ë©M¨Ï¥Î¡C
+æœ¬ç« å°‡ä»‹ç´¹ Compose é …ç›®æƒ…æ³ä»¥åŠå®‰è£å’Œä½¿ç”¨ã€‚

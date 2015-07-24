@@ -1,10 +1,10 @@
-# �ܮw
+# 倉庫
 
-�ܮw�]Repository�^�O�����s���蹳���a��C
+倉庫（Repository）是集中存放鏡像的地方。
 
-�@�Ӯe���V�c�������O���U�A�Ⱦ��]Registry�^�C��ڤW���U�A�Ⱦ��O�޲z�ܮw������A�Ⱦ��A�C�ӪA�Ⱦ��W�i�H���h�ӭܮw�A�ӨC�ӭܮw�U�����h���蹳�C�q�o�譱�ӻ��A�ܮw�i�H�Q�{���O�@�Ө��骺���ةΥؿ��C�Ҧp���ܮw�a�} `dl.dockerpool.com/ubuntu` �ӻ��A`dl.dockerpool.com` �O���U�A�Ⱦ��a�}�A`ubuntu` �O�ܮw�W�C
+一個容易混淆的概念是註冊服務器（Registry）。實際上註冊服務器是管理倉庫的具體服務器，每個服務器上可以有多個倉庫，而每個倉庫下面有多個鏡像。從這方面來說，倉庫可以被認為是一個具體的項目或目錄。例如對於倉庫地址 `dl.dockerpool.com/ubuntu` 來說，`dl.dockerpool.com` 是註冊服務器地址，`ubuntu` 是倉庫名。
 
-�j�����ɭԡA�ä��ݭn�Y��Ϥ��o��̪������C
+大部分時候，並不需要嚴格區分這兩者的概念。
 
 
 

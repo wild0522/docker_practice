@@ -1,3 +1,3 @@
 # etcd
 
-etcd �O CoreOS �ζ��o�_���@�Ӻ޲z�t�m�H���M�A�ȵo�{�]service discovery�^�����ءA�b�o�@���̭��A�ڭ̱N���иӶ��ت��ؼСA�w�˩M�ϥΡA�H�ι�{���޳N�C
+etcd 是 CoreOS 團隊發起的一個管理配置信息和服務發現（service discovery）的項目，在這一章裡面，我們將介紹該項目的目標，安裝和使用，以及實現的技術。

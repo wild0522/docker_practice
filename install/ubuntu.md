@@ -1,7 +1,7 @@
-## Ubuntu ¨t¦C¦w¸Ë Docker
+## Ubuntu ç³»åˆ—å®‰è£ Docker
 
-### ³q¹L¨t²Î¦Û±a¥]¦w¸Ë
-Ubuntu 14.04 ª©¥»¨t²Î¤¤¤w¸g¦Û±a¤F Docker ¥]¡A¥i¥Hª½±µ¦w¸Ë¡C
+### é€šéç³»çµ±è‡ªå¸¶åŒ…å®‰è£
+Ubuntu 14.04 ç‰ˆæœ¬ç³»çµ±ä¸­å·²ç¶“è‡ªå¸¶äº† Docker åŒ…ï¼Œå¯ä»¥ç›´æ¥å®‰è£ã€‚
 ```
 $ sudo apt-get update
 $ sudo apt-get install -y docker.io
@@ -9,10 +9,10 @@ $ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
 $ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 ```
 
-¦pªG¨Ï¥Î¾Ş§@¨t²Î¦Û±a¥]¦w¸Ë Docker¡A¥Ø«e¦w¸Ëªºª©¥»¬O¤ñ¸ûÂÂªº 0.9.1¡C ­n¦w¸Ë§ó·sªºª©¥»¡A¥i¥H³q¹L¨Ï¥Î Docker ·½ªº¤è¦¡¡C
+å¦‚æœä½¿ç”¨æ“ä½œç³»çµ±è‡ªå¸¶åŒ…å®‰è£ Dockerï¼Œç›®å‰å®‰è£çš„ç‰ˆæœ¬æ˜¯æ¯”è¼ƒèˆŠçš„ 0.9.1ã€‚ è¦å®‰è£æ›´æ–°çš„ç‰ˆæœ¬ï¼Œå¯ä»¥é€šéä½¿ç”¨ Docker æºçš„æ–¹å¼ã€‚
 
-### ³q¹LDocker·½¦w¸Ë³Ì·sª©¥»
-­n¦w¸Ë³Ì·sªº Docker ª©¥»¡A­º¥ı»İ­n¦w¸Ë apt-transport-https ¤ä«ù¡A¤§«á³q¹L²K¥[·½¨Ó¦w¸Ë¡C
+### é€šéDockeræºå®‰è£æœ€æ–°ç‰ˆæœ¬
+è¦å®‰è£æœ€æ–°çš„ Docker ç‰ˆæœ¬ï¼Œé¦–å…ˆéœ€è¦å®‰è£ apt-transport-https æ”¯æŒï¼Œä¹‹å¾Œé€šéæ·»åŠ æºä¾†å®‰è£ã€‚
 ```
 $ sudo apt-get install apt-transport-https
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
@@ -21,16 +21,16 @@ $ sudo apt-get update
 $ sudo apt-get install lxc-docker
 ```
 
-### 14.04 ¤§«eª©¥»
-¦pªG¬O¸û§Cª©¥»ªº Ubuntu ¨t²Î¡A»İ­n¥ı§ó·s¤º®Ö¡C
+### 14.04 ä¹‹å‰ç‰ˆæœ¬
+å¦‚æœæ˜¯è¼ƒä½ç‰ˆæœ¬çš„ Ubuntu ç³»çµ±ï¼Œéœ€è¦å…ˆæ›´æ–°å…§æ ¸ã€‚
 ```
 $ sudo apt-get update
 $ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 $ sudo reboot
 ```
-µM«á­«½Æ¤W­±ªº¨BÆJ§Y¥i¡C
+ç„¶å¾Œé‡è¤‡ä¸Šé¢çš„æ­¥é©Ÿå³å¯ã€‚
 
-¦w¸Ë¤§«á±Ò°Ê Docker ªA°È¡C
+å®‰è£ä¹‹å¾Œå•Ÿå‹• Docker æœå‹™ã€‚
 ```
 $ sudo service docker start
 ```

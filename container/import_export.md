@@ -1,28 +1,28 @@
-##�ɥX�M�ɤJ�e��
+##導出和導入容器
 
-###�ɥX�e��
-�p�G�n�ɥX���a�Y�Ӯe���A�i�H�ϥ� `docker export` �R�O�C
+###導出容器
+如果要導出本地某個容器，可以使用 `docker export` 命令。
 ```
 $ sudo docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                    PORTS               NAMES
 7691a814370e        ubuntu:14.04        "/bin/bash"         36 hours ago        Exited (0) 21 hours ago                       test
 $ sudo docker export 7691a814370e > ubuntu.tar
 ```
-�o�˱N�ɥX�e���ַӨ쥻�a���C
+這樣將導出容器快照到本地文件。
 
-###�ɤJ�e���ַ�
-�i�H�ϥ� `docker import` �q�e���ַӤ�󤤦A�ɤJ���蹳�A�Ҧp
+###導入容器快照
+可以使用 `docker import` 從容器快照文件中再導入為鏡像，例如
 ```
 $ cat ubuntu.tar | sudo docker import - test/ubuntu:v1.0
 $ sudo docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
 test/ubuntu         v1.0                9d37a6082e97        About a minute ago   171.3 MB
 ```
-���~�A�]�i�H�q�L���w URL �Ϊ̬Y�ӥؿ��ӾɤJ�A�Ҧp
+此外，也可以通過指定 URL 或者某個目錄來導入，例如
 ```
 $sudo docker import http://example.com/exampleimage.tgz example/imagerepo
 ```
 
-*���G�Τ�J�i�H�ϥ� `docker load` �ӾɤJ�蹳�s�x���쥻�a�蹳�w�A�]�i�H�ϥ� `docker import` �ӾɤJ�@�Ӯe���ַӨ쥻�a�蹳�w�C�o��̪��ϧO�b��e���ַӤ��N���Ҧ������v�O���M���ƾګH���]�Y�ȫO�s�e�����ɪ��ַӪ��A�^�A���蹳�s�x���N�O�s����O���A��n�]�n�j�C���~�A�q�e���ַӤ��ɤJ�ɥi�H���s���w���ҵ����ƾګH���C
+*註：用戶既可以使用 `docker load` 來導入鏡像存儲文件到本地鏡像庫，也可以使用 `docker import` 來導入一個容器快照到本地鏡像庫。這兩者的區別在於容器快照文件將丟棄所有的歷史記錄和元數據信息（即僅保存容器當時的快照狀態），而鏡像存儲文件將保存完整記錄，體積也要大。此外，從容器快照文件導入時可以重新指定標籤等元數據信息。
 
 

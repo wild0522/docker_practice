@@ -1,98 +1,98 @@
-## ¨Ï¥Î
-¦b¨Ï¥Î swarm ºŞ²z¶°¸s«e¡A»İ­n§â¶°¸s¤¤©Ò¦³ªº¸`ÂIªº docker daemon ªººÊÅ¥¤è¦¡§ó§ï¬° `0.0.0.0:2375`¡C
+## ä½¿ç”¨
+åœ¨ä½¿ç”¨ swarm ç®¡ç†é›†ç¾¤å‰ï¼Œéœ€è¦æŠŠé›†ç¾¤ä¸­æ‰€æœ‰çš„ç¯€é»çš„ docker daemon çš„ç›£è½æ–¹å¼æ›´æ”¹ç‚º `0.0.0.0:2375`ã€‚
 
-¥i¥H¦³¨âºØ¤è¦¡¹F¨ì³o­Ó¥Øªº¡A²Ä¤@ºØ¬O¦b±Ò°Êdocker daemonªº®É­Ô«ü©w
+å¯ä»¥æœ‰å…©ç¨®æ–¹å¼é”åˆ°é€™å€‹ç›®çš„ï¼Œç¬¬ä¸€ç¨®æ˜¯åœ¨å•Ÿå‹•docker daemonçš„æ™‚å€™æŒ‡å®š
 ```sh
 sudo docker -H 0.0.0.0:2375&
 ```
 
-²Ä¤GºØ¤è¦¡¬Oª½±µ­×§ï Docker ªº°t¸m¤å¥ó(Ubuntu ¤W¬O `/etc/default/docker`¡A¨ä¥Lª©¥»ªº Linux ¤W²¤¦³¤£¦P)
+ç¬¬äºŒç¨®æ–¹å¼æ˜¯ç›´æ¥ä¿®æ”¹ Docker çš„é…ç½®æ–‡ä»¶(Ubuntu ä¸Šæ˜¯ `/etc/default/docker`ï¼Œå…¶ä»–ç‰ˆæœ¬çš„ Linux ä¸Šç•¥æœ‰ä¸åŒ)
 
-¦b¤å¥óªº³Ì«á²K¥[¤U­±³o¥y¥N½X¡G
+åœ¨æ–‡ä»¶çš„æœ€å¾Œæ·»åŠ ä¸‹é¢é€™å¥ä»£ç¢¼ï¼š
 ```sh
 DOCKER_OPTS="-H 0.0.0.0:2375 -H unix:///var/run/docker.sock"
 ```
 
 
-»İ­nª`·Nªº¬O¡A¤@©w­n¦b©Ò¦³§Æ±æ³Q Swarm ºŞ²zªº¸`ÂI¤W¶i¦æªº¡C­×§ï¤§«á­n­«±Ò Docker
+éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œä¸€å®šè¦åœ¨æ‰€æœ‰å¸Œæœ›è¢« Swarm ç®¡ç†çš„ç¯€é»ä¸Šé€²è¡Œçš„ã€‚ä¿®æ”¹ä¹‹å¾Œè¦é‡å•Ÿ Docker
 ```sh
 sudo service docker restart
 ```
 
-Docker ¶°¸sºŞ²z»İ­n¨Ï¥ÎªA°Èµo²{(Discovery service backend)¥\¯à¡ASwarm¤ä«ù¥H¤Uªº´XºØ¤è¦¡¡GDockerHub ´£¨ÑªºªA°Èµo²{¥\¯à¡A¥»¦aªº¤å¥ó¡Aetcd¡Acounsel¡Azookeeper ©M IP ¦Cªí¡A¥»¤å·|¸Ô²ÓÁ¿¸Ñ«e¨âºØ¤è¦¡¡A¨ä¥Lªº¥Îªk³£¬O¤j¦P¤p²§ªº¡C
+Docker é›†ç¾¤ç®¡ç†éœ€è¦ä½¿ç”¨æœå‹™ç™¼ç¾(Discovery service backend)åŠŸèƒ½ï¼ŒSwarmæ”¯æŒä»¥ä¸‹çš„å¹¾ç¨®æ–¹å¼ï¼šDockerHub æä¾›çš„æœå‹™ç™¼ç¾åŠŸèƒ½ï¼Œæœ¬åœ°çš„æ–‡ä»¶ï¼Œetcdï¼Œcounselï¼Œzookeeper å’Œ IP åˆ—è¡¨ï¼Œæœ¬æ–‡æœƒè©³ç´°è¬›è§£å‰å…©ç¨®æ–¹å¼ï¼Œå…¶ä»–çš„ç”¨æ³•éƒ½æ˜¯å¤§åŒå°ç•°çš„ã€‚
 
-¥ı»¡¤@¤U¥»¦¸¸ÕÅçªºÀô¹Ò¡A¥»¦¸¸ÕÅç¥]¬A¤T¥x¾÷¾¹¡AIP¦a§}¤À§O¬°192.168.1.84,192.168.1.83©M192.168.1.124.§Q¥Î³o¤T¥x¾÷¾¹²Õ¦¨¤@­Ódocker¶°¸s¡A¨ä¤¤83³o¥x¾÷¾¹¦P®É¥R·íswarm manager¸`ÂI¡C
+å…ˆèªªä¸€ä¸‹æœ¬æ¬¡è©¦é©—çš„ç’°å¢ƒï¼Œæœ¬æ¬¡è©¦é©—åŒ…æ‹¬ä¸‰å°æ©Ÿå™¨ï¼ŒIPåœ°å€åˆ†åˆ¥ç‚º192.168.1.84,192.168.1.83å’Œ192.168.1.124.åˆ©ç”¨é€™ä¸‰å°æ©Ÿå™¨çµ„æˆä¸€å€‹dockeré›†ç¾¤ï¼Œå…¶ä¸­83é€™å°æ©Ÿå™¨åŒæ™‚å……ç•¶swarm managerç¯€é»ã€‚
 
-### ¨Ï¥Î DockerHub ´£¨ÑªºªA°Èµo²{¥\¯à
+### ä½¿ç”¨ DockerHub æä¾›çš„æœå‹™ç™¼ç¾åŠŸèƒ½
 
-#### ³Ğ«Ø¶°¸s token
+#### å‰µå»ºé›†ç¾¤ token
 
-¦b¤W­±¤T¥x¾÷¾¹¤¤ªº¥ô¦ó¤@¥x¾÷¾¹¤W­±°õ¦æ `swarm create` ©R¥O¨ÓÀò¨ú¤@­Ó¶°¸s¼Ğ»x¡C³o±ø©R¥O°õ¦æ§¹²¦«á¡ASwarm ·|«e©¹ DockerHub ¤W¤º¸mªºµo²{ªA°È¤¤Àò¨ú¤@­Ó¥ş²y°ß¤@ªº token¡A¥Î¨Ó¼ĞÃÑ­nºŞ²zªº¶°¸s¡C
+åœ¨ä¸Šé¢ä¸‰å°æ©Ÿå™¨ä¸­çš„ä»»ä½•ä¸€å°æ©Ÿå™¨ä¸Šé¢åŸ·è¡Œ `swarm create` å‘½ä»¤ä¾†ç²å–ä¸€å€‹é›†ç¾¤æ¨™èªŒã€‚é€™æ¢å‘½ä»¤åŸ·è¡Œå®Œç•¢å¾Œï¼ŒSwarm æœƒå‰å¾€ DockerHub ä¸Šå…§ç½®çš„ç™¼ç¾æœå‹™ä¸­ç²å–ä¸€å€‹å…¨çƒå”¯ä¸€çš„ tokenï¼Œç”¨ä¾†æ¨™è­˜è¦ç®¡ç†çš„é›†ç¾¤ã€‚
 ```sh
 sudo docker run --rm swarm create
 ```
 
-§Ú­Ì¦b84³o¥x¾÷¾¹¤W°õ¦æ³o±ø©R¥O¡A¿é¥X¦p¤U¡G
+æˆ‘å€‘åœ¨84é€™å°æ©Ÿå™¨ä¸ŠåŸ·è¡Œé€™æ¢å‘½ä»¤ï¼Œè¼¸å‡ºå¦‚ä¸‹ï¼š
 ```sh
 rio@084:~$ sudo docker run --rm swarm create
 b7625e5a7a2dc7f8c4faacf2b510078e
 ```
 
-¥i¥H¬İ¨ì§Ú­Ìªğ¦^ªº token ¬O `b7625e5a7a2dc7f8c4faacf2b510078e`¡A¨C¦¸ªğ¦^ªºµ²ªG³£¬O¤£¤@¼Ëªº¡C³o­Ó token ¤@©w­n°O¦í¡A«á­±ªº¾Ş§@³£·|¥Î¨ì³o­Ó token¡C
+å¯ä»¥çœ‹åˆ°æˆ‘å€‘è¿”å›çš„ token æ˜¯ `b7625e5a7a2dc7f8c4faacf2b510078e`ï¼Œæ¯æ¬¡è¿”å›çš„çµæœéƒ½æ˜¯ä¸ä¸€æ¨£çš„ã€‚é€™å€‹ token ä¸€å®šè¦è¨˜ä½ï¼Œå¾Œé¢çš„æ“ä½œéƒ½æœƒç”¨åˆ°é€™å€‹ tokenã€‚
 
-#### ¥[¤J¶°¸s
+#### åŠ å…¥é›†ç¾¤
 
-¦b©Ò¦³­n¥[¤J¶°¸sªº¸`ÂI¤W­±°õ¦æ `swarm join` ©R¥O¡Aªí¥Ü­n§â³o¥x¾÷¾¹¥[¤J³o­Ó¶°¸s·í¤¤¡C¦b¥»¦¸¸ÕÅç¤¤¡A´N¬O­n¦b 83¡B84 ©M 124 ³o¤T¥x¾÷¾¹¤W°õ¦æ¤U­±ªº³o±ø©R¥O¡G
+åœ¨æ‰€æœ‰è¦åŠ å…¥é›†ç¾¤çš„ç¯€é»ä¸Šé¢åŸ·è¡Œ `swarm join` å‘½ä»¤ï¼Œè¡¨ç¤ºè¦æŠŠé€™å°æ©Ÿå™¨åŠ å…¥é€™å€‹é›†ç¾¤ç•¶ä¸­ã€‚åœ¨æœ¬æ¬¡è©¦é©—ä¸­ï¼Œå°±æ˜¯è¦åœ¨ 83ã€84 å’Œ 124 é€™ä¸‰å°æ©Ÿå™¨ä¸ŠåŸ·è¡Œä¸‹é¢çš„é€™æ¢å‘½ä»¤ï¼š
 ```sh
 sudo docker run --rm swarm join addr=ip_address:2375 token://token_id
 ```
-¨ä¤¤ªº ip_address ´«¦¨°õ¦æ³o±ø©R¥Oªº¾÷¾¹ªº IP¡Atoken_id ´«¦¨¤W¤@¨B°õ¦æ `swarm create` ªğ¦^ªº token¡C
+å…¶ä¸­çš„ ip_address æ›æˆåŸ·è¡Œé€™æ¢å‘½ä»¤çš„æ©Ÿå™¨çš„ IPï¼Œtoken_id æ›æˆä¸Šä¸€æ­¥åŸ·è¡Œ `swarm create` è¿”å›çš„ tokenã€‚
 
-¦b83³o¥x¾÷¾¹¤W­±ªº°õ¦æµ²ªG¦p¤U¡G
+åœ¨83é€™å°æ©Ÿå™¨ä¸Šé¢çš„åŸ·è¡Œçµæœå¦‚ä¸‹ï¼š
 ```sh
 rio@083:~$ sudo docker run --rm swarm join --addr=192.168.1.83:2375 token://b7625e5a7a2dc7f8c4faacf2b510078e
 time="2015-05-19T11:48:03Z" level=info msg="Registering on the discovery service  every 25 seconds..." addr="192.168.1.83:2375" discovery="token://b7625e5a7a2dc7 f8c4faacf2b510078e"
 ```
-³o±ø©R¥O¤£·|¦Û°Êªğ¦^¡A­n§Ú­Ì¦Û¤v°õ¦æ `Ctrl+C` ªğ¦^¡C
+é€™æ¢å‘½ä»¤ä¸æœƒè‡ªå‹•è¿”å›ï¼Œè¦æˆ‘å€‘è‡ªå·±åŸ·è¡Œ `Ctrl+C` è¿”å›ã€‚
 
-#### ±Ò°Êswarm manager
-¦]¬°§Ú­Ì­n¨Ï¥Î 83 ³o¥x¾÷¾¹¥R·í swarm ºŞ²z¸`ÂI¡A©Ò¥H»İ­n¦b83³o¥x¾÷¾¹¤W­±°õ¦æ `swarm manage` ©R¥O¡G
+#### å•Ÿå‹•swarm manager
+å› ç‚ºæˆ‘å€‘è¦ä½¿ç”¨ 83 é€™å°æ©Ÿå™¨å……ç•¶ swarm ç®¡ç†ç¯€é»ï¼Œæ‰€ä»¥éœ€è¦åœ¨83é€™å°æ©Ÿå™¨ä¸Šé¢åŸ·è¡Œ `swarm manage` å‘½ä»¤ï¼š
 ```sh
 sudo docker run -d -p 2376:2375 swarm manage token://b7625e5a7a2dc7f8c4faacf2b510078e
 ```
-°õ¦æµ²ªG¦p¤U¡G
+åŸ·è¡Œçµæœå¦‚ä¸‹ï¼š
 ```sh
 rio@083:~$ sudo docker run -d -p 2376:2375 swarm manage token://b7625e5a7a2dc7f8c4faacf2b510078e
 83de3e9149b7a0ef49916d1dbe073e44e8c31c2fcbe98d962a4f85380ef25f76
 ```
-³o±ø©R¥O¦pªG°õ¦æ¦¨¥\·|ªğ¦^¤w¸g±Ò°Êªº Swarm ªº®e¾¹ªº ID¡A¦¹®É¾ã­Ó¶°¸s¤w¸g±Ò°Ê°_¨Ó¤F¡C
+é€™æ¢å‘½ä»¤å¦‚æœåŸ·è¡ŒæˆåŠŸæœƒè¿”å›å·²ç¶“å•Ÿå‹•çš„ Swarm çš„å®¹å™¨çš„ IDï¼Œæ­¤æ™‚æ•´å€‹é›†ç¾¤å·²ç¶“å•Ÿå‹•èµ·ä¾†äº†ã€‚
 
-²{¦b³q¹L `docker ps` ©R¥O¨Ó¬İ¤U¦³¨S¦³±Ò°Ê¦¨¥\¡C
+ç¾åœ¨é€šé `docker ps` å‘½ä»¤ä¾†çœ‹ä¸‹æœ‰æ²’æœ‰å•Ÿå‹•æˆåŠŸã€‚
 ```sh
 rio@083:~$ sudo docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                    NAMES
 83de3e9149b7        swarm:latest        "/swarm manage token   4 minutes ago       Up 4 minutes        0.0.0.0:2376->2375/tcp   stupefied_stallman
 ```
-¥i¥H¬İ¨ì¡ASwarm ¤w¸g¦¨¥\±Ò°Ê¡C
-¦b°õ¦æ `Swarm manage` ³o±ø©R¥Oªº®É­Ô¡A¦³´XÂI»İ­nª`·Nªº¡G
+å¯ä»¥çœ‹åˆ°ï¼ŒSwarm å·²ç¶“æˆåŠŸå•Ÿå‹•ã€‚
+åœ¨åŸ·è¡Œ `Swarm manage` é€™æ¢å‘½ä»¤çš„æ™‚å€™ï¼Œæœ‰å¹¾é»éœ€è¦æ³¨æ„çš„ï¼š
 
-* ³o±ø©R¥O»İ­n¦b¥R·í swarm ºŞ²zªÌªº¾÷¾¹¤W°õ¦æ
-* Swarm ­n¥H daemon ªº§Î¦¡°õ¦æ
-* ¬M®gªººİ¤f¥i¥H¨Ï¥ô·Nªº°£¤F 2375 ¥H¥~ªº¨Ã¥B¬O¥¼³Q¦û¥Îªººİ¤f¡A¦ı¤@©w¤£¯à¬O 2375 ³o­Óºİ¤f¡A¦]¬° 2375 ¤w¸g³Q Docker ¥»¨­µ¹¦û¥Î¤F¡C
+* é€™æ¢å‘½ä»¤éœ€è¦åœ¨å……ç•¶ swarm ç®¡ç†è€…çš„æ©Ÿå™¨ä¸ŠåŸ·è¡Œ
+* Swarm è¦ä»¥ daemon çš„å½¢å¼åŸ·è¡Œ
+* æ˜ å°„çš„é€£æ¥é˜œå¯ä»¥ä½¿ä»»æ„çš„é™¤äº† 2375 ä»¥å¤–çš„ä¸¦ä¸”æ˜¯æœªè¢«ä½”ç”¨çš„é€£æ¥é˜œï¼Œä½†ä¸€å®šä¸èƒ½æ˜¯ 2375 é€™å€‹é€£æ¥é˜œï¼Œå› ç‚º 2375 å·²ç¶“è¢« Docker æœ¬èº«çµ¦ä½”ç”¨äº†ã€‚
 
-¶°¸s±Ò°Ê¦¨¥\¥H«á¡A²{¦b§Ú­Ì¥i¥H¦b¥ô¦ó¤@¥x¸`ÂI¤W¨Ï¥Î `swarm list` ©R¥O¬d¬İ¶°¸s¤¤ªº¸`ÂI¤F¡A¥»¹êÅç¦b 124 ³o¥x¾÷¾¹¤W°õ¦æ `swarm list` ©R¥O¡G
+é›†ç¾¤å•Ÿå‹•æˆåŠŸä»¥å¾Œï¼Œç¾åœ¨æˆ‘å€‘å¯ä»¥åœ¨ä»»ä½•ä¸€å°ç¯€é»ä¸Šä½¿ç”¨ `swarm list` å‘½ä»¤æŸ¥çœ‹é›†ç¾¤ä¸­çš„ç¯€é»äº†ï¼Œæœ¬å¯¦é©—åœ¨ 124 é€™å°æ©Ÿå™¨ä¸ŠåŸ·è¡Œ `swarm list` å‘½ä»¤ï¼š
 ```sh
 rio@124:~$ sudo docker run --rm swarm list token://b7625e5a7a2dc7f8c4faacf2b510078e
 192.168.1.84:2375
 192.168.1.124:2375
 192.168.1.83:2375
 ```
-¿é¥Xµ²ªG¦C¥XªºIP¦a§}¥¿¬O§Ú­Ì¨Ï¥Î `swarm join` ©R¥O¥[¤J¶°¸sªº¾÷¾¹ªºIP¦a§}¡C
+è¼¸å‡ºçµæœåˆ—å‡ºçš„IPåœ°å€æ­£æ˜¯æˆ‘å€‘ä½¿ç”¨ `swarm join` å‘½ä»¤åŠ å…¥é›†ç¾¤çš„æ©Ÿå™¨çš„IPåœ°å€ã€‚
 
-²{¦b§Ú­Ì¥i¥H¦b¥ô¦ó¤@¥x¦w¸Ë¤F Docker ªº¾÷¾¹¤W­±³q¹L©R¥O(©R¥O¤¤­n«ü©úswarm manager¾÷¾¹ªºIP¦a§})¨Ó¦b¶°¸s¤¤¹B¦æcontainer¤F¡C
-¥»¦¸¸ÕÅç¡A§Ú­Ì¦b 192.168.1.85 ³o¥x¾÷¾¹¤W¨Ï¥Î `docker info` ©R¥O¨Ó¬d¬İ¶°¸s¤¤ªº¸`ÂIªº«H®§¡C
+ç¾åœ¨æˆ‘å€‘å¯ä»¥åœ¨ä»»ä½•ä¸€å°å®‰è£äº† Docker çš„æ©Ÿå™¨ä¸Šé¢é€šéå‘½ä»¤(å‘½ä»¤ä¸­è¦æŒ‡æ˜swarm manageræ©Ÿå™¨çš„IPåœ°å€)ä¾†åœ¨é›†ç¾¤ä¸­é‹è¡Œcontaineräº†ã€‚
+æœ¬æ¬¡è©¦é©—ï¼Œæˆ‘å€‘åœ¨ 192.168.1.85 é€™å°æ©Ÿå™¨ä¸Šä½¿ç”¨ `docker info` å‘½ä»¤ä¾†æŸ¥çœ‹é›†ç¾¤ä¸­çš„ç¯€é»çš„ä¿¡æ¯ã€‚
 
-¨ä¤¤ info ¤]¥i¥H´«¦¨¨ä¥Lªº Docker ¤ä«ùªº©R¥O¡C
+å…¶ä¸­ info ä¹Ÿå¯ä»¥æ›æˆå…¶ä»–çš„ Docker æ”¯æŒçš„å‘½ä»¤ã€‚
 ```sh
 rio@085:~$ sudo docker -H 192.168.1.83:2376 info
 Containers: 8
@@ -100,29 +100,29 @@ Strategy: spread
 Filters: affinity, health, constraint, port, dependency
 Nodes: 2
  sclu083: 192.168.1.83:2375
-  ¢| Containers: 1
-  ¢| Reserved CPUs: 0 / 2
-  ¢| Reserved Memory: 0 B / 4.054 GiB
+  â”” Containers: 1
+  â”” Reserved CPUs: 0 / 2
+  â”” Reserved Memory: 0 B / 4.054 GiB
  sclu084: 192.168.1.84:2375
-  ¢| Containers: 7
-  ¢| Reserved CPUs: 0 / 2
-  ¢| Reserved Memory: 0 B / 4.053 GiB
+  â”” Containers: 7
+  â”” Reserved CPUs: 0 / 2
+  â”” Reserved Memory: 0 B / 4.053 GiB
 ```
-µ²ªG¿é¥XÅã¥Ü³o­Ó¶°¸s¤¤¥u¦³¨â­Ó¸`ÂI¡AIP¦a§}¤À§O¬O 192.168.1.83 ©M 192.168.1.84¡Aµ²ªG¤£¹ï§r¡A§Ú­Ì©ú©ú§â¤T¥x¾÷¾¹¥[¤J¤F³o­Ó¶°¸s¡AÁÙ¦³ 124 ³o¤@¥x¾÷¾¹©O¡H
-¸g¹L±Æ¬d¡Aµo²{¬O§Ñ¤F­×§ï 124 ³o¥x¾÷¾¹¤W­±§ï docker daemon ªººÊÅ¥¤è¦¡¡A¥u­n«ö·Ó¤W­±ªº¨BÆJ­×§ï¼g docker daemon ªººÊÅ¥¤è¦¡´N¥i¥H¤F¡C
+çµæœè¼¸å‡ºé¡¯ç¤ºé€™å€‹é›†ç¾¤ä¸­åªæœ‰å…©å€‹ç¯€é»ï¼ŒIPåœ°å€åˆ†åˆ¥æ˜¯ 192.168.1.83 å’Œ 192.168.1.84ï¼Œçµæœä¸å°å‘€ï¼Œæˆ‘å€‘æ˜æ˜æŠŠä¸‰å°æ©Ÿå™¨åŠ å…¥äº†é€™å€‹é›†ç¾¤ï¼Œé‚„æœ‰ 124 é€™ä¸€å°æ©Ÿå™¨å‘¢ï¼Ÿ
+ç¶“éæ’æŸ¥ï¼Œç™¼ç¾æ˜¯å¿˜äº†ä¿®æ”¹ 124 é€™å°æ©Ÿå™¨ä¸Šé¢æ”¹ docker daemon çš„ç›£è½æ–¹å¼ï¼Œåªè¦æŒ‰ç…§ä¸Šé¢çš„æ­¥é©Ÿä¿®æ”¹å¯« docker daemon çš„ç›£è½æ–¹å¼å°±å¯ä»¥äº†ã€‚
 
-¦b¨Ï¥Î³o­Ó¤èªkªº®É­Ô¡A¨Ï¥Îswarm create¥i¯à·|¦]¬°ºôµ¸ªº­ì¦]·|¥X²{Ãş¦ü©ó¤U­±ªº³o­Ó°İÃD¡G
+åœ¨ä½¿ç”¨é€™å€‹æ–¹æ³•çš„æ™‚å€™ï¼Œä½¿ç”¨swarm createå¯èƒ½æœƒå› ç‚ºç¶²è·¯çš„åŸå› æœƒå‡ºç¾é¡ä¼¼æ–¼ä¸‹é¢çš„é€™å€‹å•é¡Œï¼š
 ```sh
 rio@227:~$ sudo docker run --rm swarm create
 [sudo] password for rio:
 time="2015-05-19T12:59:26Z" level=fatal msg="Post https://discovery-stage.hub.docker.com/v1/clusters: dial tcp: i/o timeout"
 ```
 
-### ¨Ï¥Î¤å¥ó
+### ä½¿ç”¨æ–‡ä»¶
 
-²Ä¤GºØ¤èªk¬Û¹ï©ó²Ä¤@ºØ¤èªk­nÂ²³æ±o¦h¡A¤]¤£·|¥X²{Ãş¦ü©ó¤W­±ªº°İÃD¡C
+ç¬¬äºŒç¨®æ–¹æ³•ç›¸å°æ–¼ç¬¬ä¸€ç¨®æ–¹æ³•è¦ç°¡å–®å¾—å¤šï¼Œä¹Ÿä¸æœƒå‡ºç¾é¡ä¼¼æ–¼ä¸Šé¢çš„å•é¡Œã€‚
 
-²Ä¤@¨B¡G¦b swarm ºŞ²z¸`ÂI¤W·s«Ø¤@­Ó¤å¥ó¡A§â­n¥[¤J¶°¸sªº¾÷¾¹ IP ¦a§}©Mºİ¤f¸¹¼g¤J¤å¥ó¤¤¡A¥»¦¸¸ÕÅç´N¬O­n¦b83³o¥x¾÷¾¹¤W­±¾Ş§@¡G
+ç¬¬ä¸€æ­¥ï¼šåœ¨ swarm ç®¡ç†ç¯€é»ä¸Šæ–°å»ºä¸€å€‹æ–‡ä»¶ï¼ŒæŠŠè¦åŠ å…¥é›†ç¾¤çš„æ©Ÿå™¨ IP åœ°å€å’Œé€£æ¥é˜œè™Ÿå¯«å…¥æ–‡ä»¶ä¸­ï¼Œæœ¬æ¬¡è©¦é©—å°±æ˜¯è¦åœ¨83é€™å°æ©Ÿå™¨ä¸Šé¢æ“ä½œï¼š
 ```sh
 rio@083:~$ echo 192.168.1.83:2375 >> cluster
 rio@083:~$ echo 192.168.1.84:2375 >> cluster
@@ -133,22 +133,22 @@ rio@083:~$ cat cluster
 192.168.1.124:2375
 ```
 
-²Ä¤G¨B¡G¦b083³o¥x¾÷¾¹¤W­±°õ¦æ `swarm manage` ³o±ø©R¥O¡G
+ç¬¬äºŒæ­¥ï¼šåœ¨083é€™å°æ©Ÿå™¨ä¸Šé¢åŸ·è¡Œ `swarm manage` é€™æ¢å‘½ä»¤ï¼š
 ```sh
 rio@083:~$ sudo docker run -d -p 2376:2375 -v $(pwd)/cluster:/tmp/cluster swarm manage file:///tmp/cluster
 364af1f25b776f99927b8ae26ca8db5a6fe8ab8cc1e4629a5a68b48951f598ad
 ```
-¨Ï¥Î`docker ps`¨Ó¬d¬İ¦³¨S¦³±Ò°Ê¦¨¥\¡G
+ä½¿ç”¨`docker ps`ä¾†æŸ¥çœ‹æœ‰æ²’æœ‰å•Ÿå‹•æˆåŠŸï¼š
 ```sh
 rio@083:~$ sudo docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED              STATUS              PORTS                    NAMES
 364af1f25b77        swarm:latest        "/swarm manage file:   About a minute ago   Up About a minute   0.0.0.0:2376->2375/tcp   happy_euclid
 ```
-¥i¥H¬İ¨ì¡A¦¹®É¾ã­Ó¶°¸s¤w¸g±Ò°Ê¦¨¥\¡C
+å¯ä»¥çœ‹åˆ°ï¼Œæ­¤æ™‚æ•´å€‹é›†ç¾¤å·²ç¶“å•Ÿå‹•æˆåŠŸã€‚
 
-¦b¨Ï¥Î³o±ø©R¥Oªº®É­Ô»İ­nª`·Nªº¬Oª`·N¡G³o¸Ì¤@©w­n¨Ï¥Î-v©R¥O¡A¦]¬°cluster¤å¥ó¬O¦b¥»¾÷¤W­±¡A±Ò°Êªº®e¾¹Àq»{¬O³X°İ¤£¨ìªº¡A©Ò¥H­n³q¹L-v©R¥O¦@¨É¡C
+åœ¨ä½¿ç”¨é€™æ¢å‘½ä»¤çš„æ™‚å€™éœ€è¦æ³¨æ„çš„æ˜¯æ³¨æ„ï¼šé€™è£¡ä¸€å®šè¦ä½¿ç”¨-vå‘½ä»¤ï¼Œå› ç‚ºclusteræ–‡ä»¶æ˜¯åœ¨æœ¬æ©Ÿä¸Šé¢ï¼Œå•Ÿå‹•çš„å®¹å™¨é è¨­æ˜¯è¨ªå•ä¸åˆ°çš„ï¼Œæ‰€ä»¥è¦é€šé-vå‘½ä»¤å…±äº«ã€‚
 
-±µ¤U¨Óªº´N¥i¥H¦b¥ô¦ó¤@¥x¦w¸Ë¤Fdockerªº¾÷¾¹¤W­±³q¹L©R¥O¨Ï¥Î¶°¸s¡A¦P¼Ëªº¡A¦b85³o¥x¾÷¾¹¤W°õ¦ædocker info©R¥O¬d¬İ¶°¸sªº¸`ÂI«H®§¡G
+æ¥ä¸‹ä¾†çš„å°±å¯ä»¥åœ¨ä»»ä½•ä¸€å°å®‰è£äº†dockerçš„æ©Ÿå™¨ä¸Šé¢é€šéå‘½ä»¤ä½¿ç”¨é›†ç¾¤ï¼ŒåŒæ¨£çš„ï¼Œåœ¨85é€™å°æ©Ÿå™¨ä¸ŠåŸ·è¡Œdocker infoå‘½ä»¤æŸ¥çœ‹é›†ç¾¤çš„ç¯€é»ä¿¡æ¯ï¼š
 ```sh
 rio@s085:~$ sudo docker -H 192.168.1.83:2376 info
 Containers: 9
@@ -156,15 +156,15 @@ Strategy: spread
 Filters: affinity, health, constraint, port, dependency
 Nodes: 3
  atsgxxx: 192.168.1.227:2375
-  ¢| Containers: 0
-  ¢| Reserved CPUs: 0 / 4
-  ¢| Reserved Memory: 0 B / 2.052 GiB
+  â”” Containers: 0
+  â”” Reserved CPUs: 0 / 4
+  â”” Reserved Memory: 0 B / 2.052 GiB
  sclu083: 192.168.1.83:2375
-  ¢| Containers: 2
-  ¢| Reserved CPUs: 0 / 2
-  ¢| Reserved Memory: 0 B / 4.054 GiB
+  â”” Containers: 2
+  â”” Reserved CPUs: 0 / 2
+  â”” Reserved Memory: 0 B / 4.054 GiB
  sclu084: 192.168.1.84:2375
-  ¢| Containers: 7
-  ¢| Reserved CPUs: 0 / 2
-  ¢| Reserved Memory: 0 B / 4.053 GiB
+  â”” Containers: 7
+  â”” Reserved CPUs: 0 / 2
+  â”” Reserved Memory: 0 B / 4.053 GiB
 ```

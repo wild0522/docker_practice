@@ -1,30 +1,30 @@
-## �ܮw�t�m���
-Docker �� Registry �Q�ΰt�m��󴣨ѤF�@�ǭܮw���ҪO�]flavor�^�A�Τ�i�H�����ϥΥ��̨Ӷi��}�o�ΥͲ����p�C
+## 倉庫配置文件
+Docker 的 Registry 利用配置文件提供了一些倉庫的模板（flavor），用戶可以直接使用它們來進行開發或生產部署。
 
-### �ҪO
-�b `config_sample.yml` ��󤤡A�i�H�ݨ�@�ǲ{�����ҪO�q�G
-* `common`�G��¦�t�m
-* `local`�G�s�x�ƾڨ쥻�a���t��
-* `s3`�G�s�x�ƾڨ� AWS S3 ��
-* `dev`�G�ϥ� `local` �ҪO���򥻰t�m
-* `test`�G�椸���ըϥ�
-* `prod`�G�Ͳ����Ұt�m�]�򥻤W��s3�t�m�����^
-* `gcs`�G�s�x�ƾڨ� Google �����s�x
-* `swift`�G�s�x�ƾڨ� OpenStack Swift �A��
-* `glance`�G�s�x�ƾڨ� OpenStack Glance �A�ȡA���a���t�ά����
-* `glance-swift`�G�s�x�ƾڨ� OpenStack Glance �A�ȡASwift �����
-* `elliptics`�G�s�x�ƾڨ� Elliptics key/value �s�x
+### 模板
+在 `config_sample.yml` 文件中，可以看到一些現成的模板段：
+* `common`：基礎配置
+* `local`：存儲數據到本地文件系統
+* `s3`：存儲數據到 AWS S3 中
+* `dev`：使用 `local` 模板的基本配置
+* `test`：單元測試使用
+* `prod`：生產環境配置（基本上跟s3配置類似）
+* `gcs`：存儲數據到 Google 的雲存儲
+* `swift`：存儲數據到 OpenStack Swift 服務
+* `glance`：存儲數據到 OpenStack Glance 服務，本地文件系統為後備
+* `glance-swift`：存儲數據到 OpenStack Glance 服務，Swift 為後備
+* `elliptics`：存儲數據到 Elliptics key/value 存儲
 
-�Τ�]�i�H�K�[�۩w�q���Ҫ��q�C
+用戶也可以添加自定義的模版段。
 
-�q�{���p�U�ϥΪ��ҪO�O `dev`�A�n�ϥάY�ӼҪO�@���q�{�ȡA�i�H�K�[ `SETTINGS_FLAVOR` �������ܶq���A�Ҧp
+預設情況下使用的模板是 `dev`，要使用某個模板作為預設值，可以添加 `SETTINGS_FLAVOR` 到環境變量中，例如
 ```
 export SETTINGS_FLAVOR=dev
 ```
 
-�t�~�A�t�m��󤤤���q�����ܶq���[���ȡA�y�k�榡�� `_env:VARIABLENAME[:DEFAULT]`�C
+另外，配置文件中支持從環境變量中加載值，語法格式為 `_env:VARIABLENAME[:DEFAULT]`。
 
-### �ܨҰt�m
+### 示例配置
 ```
 common:
     loglevel: info
@@ -54,4 +54,4 @@ test:
     storage_path: /tmp/tmpdockertmp
 ```
 
-### �ﶵ
+### 選項

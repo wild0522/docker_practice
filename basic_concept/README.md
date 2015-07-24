@@ -1,8 +1,8 @@
-# �򥻷���
-Docker �]�A�T�Ӱ򥻷���
-* �蹳�]Image�^
-* �e���]Container�^
-* �ܮw�]Repository�^
+# 基本概念
+Docker 包括三個基本概念
+* 鏡像（Image）
+* 容器（Container）
+* 倉庫（Repository）
 
-�z�ѤF�o�T�ӷ����A�N�z�ѤF Docker ����ӥͩR�g���C
+理解了這三個概念，就理解了 Docker 的整個生命週期。
 

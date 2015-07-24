@@ -1,9 +1,9 @@
-##¨Ï¥Î Django ¤Jªù Fig
+##ä½¿ç”¨ Django å…¥é–€ Fig
 
-§Ú­Ì²{¦b±N¨Ï¥Î Fig °t¸m¨Ã¹B¦æ¤@­Ó Django/PostgreSQL À³¥Î¡C¦b¦¹¤§«e¡A¥ı½T«O Fig ¤w¸g [¦w¸Ë](install.md)¡C
+æˆ‘å€‘ç¾åœ¨å°‡ä½¿ç”¨ Fig é…ç½®ä¸¦é‹è¡Œä¸€å€‹ Django/PostgreSQL æ‡‰ç”¨ã€‚åœ¨æ­¤ä¹‹å‰ï¼Œå…ˆç¢ºä¿ Fig å·²ç¶“ [å®‰è£](install.md)ã€‚
 
-¦b¤@¤Á¤u§@¶}©l«e¡A»İ­n¥ı³]¸m¦n¤T­Ó¥²­nªº¤å¥ó¡C  
-²Ä¤@¨B¡A¦]¬°À³¥Î±N­n¹B¦æ¦b¤@­Óº¡¨¬©Ò¦³Àô¹Ò¨Ì¿àªº Docker ®e¾¹¸Ì­±¡A¨º»ò§Ú­Ì¥i¥H³q¹L½s¿è `Dockerfile` ¤å¥ó¨Ó«ü©w Docker ®e¾¹­n¦w¸Ë¤º®e¡C¤º®e¦p¤U¡G 
+åœ¨ä¸€åˆ‡å·¥ä½œé–‹å§‹å‰ï¼Œéœ€è¦å…ˆè¨­ç½®å¥½ä¸‰å€‹å¿…è¦çš„æ–‡ä»¶ã€‚  
+ç¬¬ä¸€æ­¥ï¼Œå› ç‚ºæ‡‰ç”¨å°‡è¦é‹è¡Œåœ¨ä¸€å€‹æ»¿è¶³æ‰€æœ‰ç’°å¢ƒä¾è³´çš„ Docker å®¹å™¨è£¡é¢ï¼Œé‚£éº¼æˆ‘å€‘å¯ä»¥é€šéç·¨è¼¯ `Dockerfile` æ–‡ä»¶ä¾†æŒ‡å®š Docker å®¹å™¨è¦å®‰è£å…§å®¹ã€‚å…§å®¹å¦‚ä¸‹ï¼š 
 
 ```
 FROM python:2.7
@@ -14,17 +14,17 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 ADD . /code/
 ```
-¥H¤W¤º®e«ü©wÀ³¥Î±N¨Ï¥Î¦w¸Ë¤F Python ¥H¤Î¥²­n¨Ì¿à¥]ªºÃè¹³¡C§ó¦hÃö©ó¦p¦ó½s¼g Dockerfile ¤å¥óªº«H®§¥i¥H¬d¬İ [Ãè¹³³Ğ«Ø](../image/create.md#§Q¥Î Dockerfile ¨Ó³Ğ«ØÃè¹³) ©M [Dockerfile ¨Ï¥Î](../dockerfile/README.md)¡C
+ä»¥ä¸Šå…§å®¹æŒ‡å®šæ‡‰ç”¨å°‡ä½¿ç”¨å®‰è£äº† Python ä»¥åŠå¿…è¦ä¾è³´åŒ…çš„é¡åƒã€‚æ›´å¤šé—œæ–¼å¦‚ä½•ç·¨å¯« Dockerfile æ–‡ä»¶çš„ä¿¡æ¯å¯ä»¥æŸ¥çœ‹ [é¡åƒå‰µå»º](../image/create.md#åˆ©ç”¨ Dockerfile ä¾†å‰µå»ºé¡åƒ) å’Œ [Dockerfile ä½¿ç”¨](../dockerfile/README.md)ã€‚
 
-²Ä¤G¨B¡A¦b `requirements.txt` ¤å¥ó¸Ì­±¼g©ú»İ­n¦w¸Ëªº¨ãÅé¨Ì¿à¥]¦W ¡C
+ç¬¬äºŒæ­¥ï¼Œåœ¨ `requirements.txt` æ–‡ä»¶è£¡é¢å¯«æ˜éœ€è¦å®‰è£çš„å…·é«”ä¾è³´åŒ…å ã€‚
 
 ```
 Django
 psycopg2
 ```
 
-´N¬O³o»òÂ²³æ¡C  
-²Ä¤T¨B¡A`fig.yml` ¤å¥ó±N§â©Ò¦³ªºªF¦èÃöÁp°_¨Ó¡C¥¦´y­z¤FÀ³¥Îªººc¦¨¡]¤@­Ó web ªA°È©M¤@­Ó¼Æ¾Ú®w¡^¡B¨Ï¥Îªº Docker Ãè¹³¡BÃè¹³¤§¶¡ªº³s±µ¡B±¾¸ü¨ì®e¾¹ªº¨÷¡A¥H¤ÎªA°È¶}©ñªººİ¤f¡C 
+å°±æ˜¯é€™éº¼ç°¡å–®ã€‚  
+ç¬¬ä¸‰æ­¥ï¼Œ`fig.yml` æ–‡ä»¶å°‡æŠŠæ‰€æœ‰çš„æ±è¥¿é—œè¯èµ·ä¾†ã€‚å®ƒæè¿°äº†æ‡‰ç”¨çš„æ§‹æˆï¼ˆä¸€å€‹ web æœå‹™å’Œä¸€å€‹æ•¸æ“šåº«ï¼‰ã€ä½¿ç”¨çš„ Docker é¡åƒã€é¡åƒä¹‹é–“çš„é€£æ¥ã€æ›è¼‰åˆ°å®¹å™¨çš„å·ï¼Œä»¥åŠæœå‹™é–‹æ”¾çš„é€£æ¥é˜œã€‚ 
 
 ```
 db:
@@ -39,22 +39,22 @@ web:
   links:
     - db
 ```
-¬d¬İ [`fig.yml` ³¹¸`](yml_ref.md) ÁA¸Ñ§ó¦h¸Ô²Óªº¤u§@¾÷¨î¡C
+æŸ¥çœ‹ [`fig.yml` ç« ç¯€](yml_ref.md) ç­è§£æ›´å¤šè©³ç´°çš„å·¥ä½œæ©Ÿåˆ¶ã€‚
 
-²{¦b§Ú­Ì´N¥i¥H¨Ï¥Î `fig run` ©R¥O±Ò°Ê¤@­Ó Django À³¥Î¤F¡C
+ç¾åœ¨æˆ‘å€‘å°±å¯ä»¥ä½¿ç”¨ `fig run` å‘½ä»¤å•Ÿå‹•ä¸€å€‹ Django æ‡‰ç”¨äº†ã€‚
 
 ```
 $ fig run web django-admin.py startproject figexample .
 ```
-Fig ·|¥ı¨Ï¥Î `Dockerfile` ¬° web ªA°È³Ğ«Ø¤@­ÓÃè¹³¡A±µµÛ¨Ï¥Î³o­ÓÃè¹³¦b®e¾¹¸Ì¹B¦æ `django-admin.py startproject figexample . ` «ü¥O¡C
+Fig æœƒå…ˆä½¿ç”¨ `Dockerfile` ç‚º web æœå‹™å‰µå»ºä¸€å€‹é¡åƒï¼Œæ¥è‘—ä½¿ç”¨é€™å€‹é¡åƒåœ¨å®¹å™¨è£¡é‹è¡Œ `django-admin.py startproject figexample . ` æŒ‡ä»¤ã€‚
 
-³o±N¦b·í«e¥Ø¿ı¥Í¦¨¤@­Ó Django À³¥Î¡C
+é€™å°‡åœ¨ç•¶å‰ç›®éŒ„ç”Ÿæˆä¸€å€‹ Django æ‡‰ç”¨ã€‚
 
 ```
 $ ls
 Dockerfile       fig.yml          figexample       manage.py       requirements.txt
 ```
-­º¥ı¡A§Ú­Ì­n¬°À³¥Î³]¸m¦n¼Æ¾Ú®wªº³s±µ«H®§¡C¥Î¥H¤U¤º®e´À´« `figexample/settings.py` ¤å¥ó¤¤ `DATABASES = ...` ©w¸qªº¸`ÂI¤º®e¡C
+é¦–å…ˆï¼Œæˆ‘å€‘è¦ç‚ºæ‡‰ç”¨è¨­ç½®å¥½æ•¸æ“šåº«çš„é€£æ¥ä¿¡æ¯ã€‚ç”¨ä»¥ä¸‹å…§å®¹æ›¿æ› `figexample/settings.py` æ–‡ä»¶ä¸­ `DATABASES = ...` å®šç¾©çš„ç¯€é»å…§å®¹ã€‚
 
 ```
 DATABASES = {
@@ -67,8 +67,8 @@ DATABASES = {
     }
 }
 ```
-³o¨Ç«H®§¬O¦b [postgres](https://registry.hub.docker.com/_/postgres/) Docker Ãè¹³©T©w³]¸m¦nªº¡C  
-µM«á¡A¹B¦æ `fig up` ¡G
+é€™äº›ä¿¡æ¯æ˜¯åœ¨ [postgres](https://registry.hub.docker.com/_/postgres/) Docker é¡åƒå›ºå®šè¨­ç½®å¥½çš„ã€‚  
+ç„¶å¾Œï¼Œé‹è¡Œ `fig up` ï¼š
 	
 ```
 Recreating myapp_db_1...
@@ -86,9 +86,9 @@ myapp_web_1 | Django version 1.6.1, using settings 'figexample.settings'
 myapp_web_1 | Starting development server at http://0.0.0.0:8000/
 myapp_web_1 | Quit the server with CONTROL-C.
 ```
-³o­Ó web À³¥Î¤w¸g¶}©l¦b§Aªº docker ¦uÅ@¶iµ{¸ÌºÊÅ¥µÛ 5000 ºİ¤f¤F¡]¦pªG§A¦³¨Ï¥Î boot2docker ¡A°õ¦æ `boot2docker ip` ¡A´N·|¬İ¨ì¥¦ªº¦a§}¡^¡C
+é€™å€‹ web æ‡‰ç”¨å·²ç¶“é–‹å§‹åœ¨ä½ çš„ docker å®ˆè­·é€²ç¨‹è£¡ç›£è½è‘— 5000 é€£æ¥é˜œäº†ï¼ˆå¦‚æœä½ æœ‰ä½¿ç”¨ boot2docker ï¼ŒåŸ·è¡Œ `boot2docker ip` ï¼Œå°±æœƒçœ‹åˆ°å®ƒçš„åœ°å€ï¼‰ã€‚
 
-§AÁÙ¥i¥H¦b Docker ¤W¹B¦æ¨ä¥¦ªººŞ²z©R¥O¡A¨Ò¦p¹ï©ó¦P¨B¼Æ¾Ú®wµ²ºc³oºØ¨Æ¡A¦b¹B¦æ§¹ `fig up` «á¡A¦b¥t¥~¤@­Ó²×ºİ¹B¦æ¥H¤U©R¥O§Y¥i¡G
+ä½ é‚„å¯ä»¥åœ¨ Docker ä¸Šé‹è¡Œå…¶å®ƒçš„ç®¡ç†å‘½ä»¤ï¼Œä¾‹å¦‚å°æ–¼åŒæ­¥æ•¸æ“šåº«çµæ§‹é€™ç¨®äº‹ï¼Œåœ¨é‹è¡Œå®Œ `fig up` å¾Œï¼Œåœ¨å¦å¤–ä¸€å€‹çµ‚ç«¯é‹è¡Œä»¥ä¸‹å‘½ä»¤å³å¯ï¼š
 
 ```
 $ fig run web python manage.py syncdb

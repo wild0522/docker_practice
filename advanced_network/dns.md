@@ -1,8 +1,8 @@
-## �t�m DNS
-Docker �S�����C�Ӯe���M���w���蹳�A������۩w�q�t�m�e�����D���W�M DNS �t�m�O�H
-���Z�N�O���Q�ε������ӱ�����Ӯe���� 3 �Ӭ����t�m���C
+## 配置 DNS
+Docker 沒有為每個容器專門定制鏡像，那麼怎麼自定義配置容器的主機名和 DNS 配置呢？
+秘訣就是它利用虛擬文件來掛載到來容器的 3 個相關配置文件。
 
-�b�e�����ϥ� mount �R�O�i�H�ݨ챾���H���G
+在容器中使用 mount 命令可以看到掛載信息：
 ```
 $ mount
 ...
@@ -11,19 +11,19 @@ $ mount
 tmpfs on /etc/resolv.conf type tmpfs ...
 ...
 ```
-�o�ؾ���i�H���J�D�D�� DNS �H���o�ͧ�s��A�Ҧ� Docker �e���� dns �t�m�q�L `/etc/resolv.conf` ���ߨ�o���s�C
+這種機制可以讓宿主主機 DNS 信息發生更新後，所有 Docker 容器的 dns 配置通過 `/etc/resolv.conf` 文件立刻得到更新。
 
-�p�G�Τ�Q�n��ʫ��w�e�����t�m�A�i�H�Q�ΤU�����ﶵ�C
+如果用戶想要手動指定容器的配置，可以利用下面的選項。
 
 `-h HOSTNAME or --hostname=HOSTNAME`
-�]�w�e�����D���W�A���|�Q�g��e������ `/etc/hostname` �M `/etc/hosts`�C�����b�e���~���ݤ���A�J���|�b `docker ps` ����ܡA�]���|�b��L���e���� `/etc/hosts` �ݨ�C
+設定容器的主機名，它會被寫到容器內的 `/etc/hostname` 和 `/etc/hosts`。但它在容器外部看不到，既不會在 `docker ps` 中顯示，也不會在其他的容器的 `/etc/hosts` 看到。
 
 `--link=CONTAINER_NAME:ALIAS`
-�ﶵ�|�b�Ыخe�����ɭԡA�K�[�@�Ө�L�e�����D���W�� `/etc/hosts` ��󤤡A���s�e�����i�{�i�H�ϥΥD���W ALIAS �N�i�H�s�����C
+選項會在創建容器的時候，添加一個其他容器的主機名到 `/etc/hosts` 文件中，讓新容器的進程可以使用主機名 ALIAS 就可以連接它。
 
 `--dns=IP_ADDRESS`
-�K�[ DNS �A�Ⱦ���e���� `/etc/resolv.conf` ���A���e���γo�ӪA�Ⱦ��ӸѪR�Ҧ����b `/etc/hosts` �����D���W�C
+添加 DNS 服務器到容器的 `/etc/resolv.conf` 中，讓容器用這個服務器來解析所有不在 `/etc/hosts` 中的主機名。
 
 `--dns-search=DOMAIN`
-�]�w�e�����j����A���]�w�j���쬰 `.example.com` �ɡA�b�j���@�ӦW�� host ���D���ɡADNS ���ȷj��host�A�ٷ|�j�� `host.example.com`�C
-�`�N�G�p�G�S���W�z�̫� 2 �ӿﶵ�ADocker �|�q�{�ΥD���W�� `/etc/resolv.conf` �Ӱt�m�e���C
+設定容器的搜索域，當設定搜索域為 `.example.com` 時，在搜索一個名為 host 的主機時，DNS 不僅搜索host，還會搜索 `host.example.com`。
+注意：如果沒有上述最後 2 個選項，Docker 會預設用主機上的 `/etc/resolv.conf` 來配置容器。

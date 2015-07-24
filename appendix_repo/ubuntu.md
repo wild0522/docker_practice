@@ -1,17 +1,17 @@
 ## [Ubuntu](https://registry.hub.docker.com/_/ubuntu/)
 
-### °ò¥»«H®§
-[Ubuntu](https://en.wikipedia.org/wiki/Ubuntu) ¬O¬y¦æªº Linux µo¦æª©¡A¨ä¦Û±a³n¥óª©¥»©¹©¹¸û·s¤@¨Ç¡C
-¸Ó­Ü®w´£¨Ñ¤F Ubuntu±q12.04 ~ 14.10 ¦U­Óª©¥»ªºÃè¹³¡C
+### åŸºæœ¬ä¿¡æ¯
+[Ubuntu](https://en.wikipedia.org/wiki/Ubuntu) æ˜¯æµè¡Œçš„ Linux ç™¼è¡Œç‰ˆï¼Œå…¶è‡ªå¸¶è»Ÿä»¶ç‰ˆæœ¬å¾€å¾€è¼ƒæ–°ä¸€äº›ã€‚
+è©²å€‰åº«æä¾›äº† Ubuntuå¾12.04 ~ 14.10 å„å€‹ç‰ˆæœ¬çš„é¡åƒã€‚
 
-### ¨Ï¥Î¤èªk
-Àq»{·|±Ò°Ê¤@­Ó³Ì¤p¤Æªº Ubuntu Àô¹Ò¡C
+### ä½¿ç”¨æ–¹æ³•
+é è¨­æœƒå•Ÿå‹•ä¸€å€‹æœ€å°åŒ–çš„ Ubuntu ç’°å¢ƒã€‚
 ```
 $ sudo docker run --name some-ubuntu -i -t ubuntu
 root@523c70904d54:/#
 ```
 
 ### Dockerfile
-* [12.04 ª©¥»](https://github.com/tianon/docker-brew-ubuntu-core/blob/2b105575647a7e2030ff344d427c3920b89e17a9/precise/Dockerfile)
-* [14.04 ª©¥»](https://github.com/tianon/docker-brew-ubuntu-core/blob/2b105575647a7e2030ff344d427c3920b89e17a9/trusty/Dockerfile)
-* [14.10 ª©¥»](https://github.com/tianon/docker-brew-ubuntu-core/blob/2b105575647a7e2030ff344d427c3920b89e17a9/utopic/Dockerfile)
+* [12.04 ç‰ˆæœ¬](https://github.com/tianon/docker-brew-ubuntu-core/blob/2b105575647a7e2030ff344d427c3920b89e17a9/precise/Dockerfile)
+* [14.04 ç‰ˆæœ¬](https://github.com/tianon/docker-brew-ubuntu-core/blob/2b105575647a7e2030ff344d427c3920b89e17a9/trusty/Dockerfile)
+* [14.10 ç‰ˆæœ¬](https://github.com/tianon/docker-brew-ubuntu-core/blob/2b105575647a7e2030ff344d427c3920b89e17a9/utopic/Dockerfile)

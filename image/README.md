@@ -1,10 +1,10 @@
-# Docker �蹳
+# Docker 鏡像
 
-�b���e�����Ф��A�ڭ̪��D�蹳�O Docker ���T�j�ե󤧤@�C
+在之前的介紹中，我們知道鏡像是 Docker 的三大組件之一。
 
-Docker �B��e���e�ݭn���a�s�b�������蹳�A�p�G�蹳���s�b���a�ADocker �|�q�蹳�ܮw�U���]�q�{�O Docker Hub ���@���U�A�Ⱦ������ܮw�^�C
+Docker 運行容器前需要本地存在對應的鏡像，如果鏡像不存在本地，Docker 會從鏡像倉庫下載（預設是 Docker Hub 公共註冊服務器中的倉庫）。
 
-�����N���Ч�h�����蹳�����e�A�]�A�G
-* �q�ܮw����蹳�F
-* �޲z���a�D���W���蹳�F
-* �����蹳��{���򥻭�z�C
+本章將介紹更多關於鏡像的內容，包括：
+* 從倉庫獲取鏡像；
+* 管理本地主機上的鏡像；
+* 介紹鏡像實現的基本原理。

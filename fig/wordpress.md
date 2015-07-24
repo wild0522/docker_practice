@@ -1,20 +1,20 @@
-##¨Ï¥Î Wordpress ¤Jªù Fig
-Fig Åı Wordpress ¹B¦æ¦b¤@­Ó¿W¥ßªºÀô¹Ò¤¤«ÜÂ²©ö¡C
-[¦w¸Ë](install.md) Fig ¡AµM«á¤U¸ü Wordpress ¨ì·í«e¥Ø¿ı¡G
+##ä½¿ç”¨ Wordpress å…¥é–€ Fig
+Fig è®“ Wordpress é‹è¡Œåœ¨ä¸€å€‹ç¨ç«‹çš„ç’°å¢ƒä¸­å¾ˆç°¡æ˜“ã€‚
+[å®‰è£](install.md) Fig ï¼Œç„¶å¾Œä¸‹è¼‰ Wordpress åˆ°ç•¶å‰ç›®éŒ„ï¼š
 
 ```
 wordpress.org/latest.tar.gz | tar -xvzf -
 ```
-³o±N·|³Ğ«Ø¤@­Ó¥s wordpress ¥Ø¿ı¡A§A¤]¥i¥H­«©R¦W¦¨§A·Q­nªº¦W¦r¡C¦b¥Ø¿ı¸Ì­±¡A³Ğ«Ø¤@­Ó `Dockerfile` ¤å¥ó¡A©w¸qÀ³¥Îªº¹B¦æÀô¹Ò¡G
+é€™å°‡æœƒå‰µå»ºä¸€å€‹å« wordpress ç›®éŒ„ï¼Œä½ ä¹Ÿå¯ä»¥é‡å‘½åæˆä½ æƒ³è¦çš„åå­—ã€‚åœ¨ç›®éŒ„è£¡é¢ï¼Œå‰µå»ºä¸€å€‹ `Dockerfile` æ–‡ä»¶ï¼Œå®šç¾©æ‡‰ç”¨çš„é‹è¡Œç’°å¢ƒï¼š
 
 ```
 FROM orchardup/php5
 ADD . /code
 ```
-¥H¤W¤º®e§i¶D Docker ³Ğ«Ø¤@­Ó¥]§t PHP ©M Wordpress ªºÃè¹³¡C§ó¦hÃö©ó¦p¦ó½s¼g Dockerfile ¤å¥óªº«H®§¥i¥H¬d¬İ [Ãè¹³³Ğ«Ø](../image/create.md#§Q¥Î Dockerfile ¨Ó³Ğ«ØÃè¹³) ©M [Dockerfile ¨Ï¥Î](../dockerfile/README.md)¡C
+ä»¥ä¸Šå…§å®¹å‘Šè¨´ Docker å‰µå»ºä¸€å€‹åŒ…å« PHP å’Œ Wordpress çš„é¡åƒã€‚æ›´å¤šé—œæ–¼å¦‚ä½•ç·¨å¯« Dockerfile æ–‡ä»¶çš„ä¿¡æ¯å¯ä»¥æŸ¥çœ‹ [é¡åƒå‰µå»º](../image/create.md#åˆ©ç”¨ Dockerfile ä¾†å‰µå»ºé¡åƒ) å’Œ [Dockerfile ä½¿ç”¨](../dockerfile/README.md)ã€‚
 
 
-¤U¤@¨B¡A`fig.yml` ¤å¥ó±N¶}±Ò¤@­Ó web ªA°È©M¤@­Ó¿W¥ßªº MySQL ¹ê¨Ò¡G
+ä¸‹ä¸€æ­¥ï¼Œ`fig.yml` æ–‡ä»¶å°‡é–‹å•Ÿä¸€å€‹ web æœå‹™å’Œä¸€å€‹ç¨ç«‹çš„ MySQL å¯¦ä¾‹ï¼š
 
 ```
 web:
@@ -31,8 +31,8 @@ db:
   environment:
     MYSQL_DATABASE: wordpress
 ```
-­nÅı³o­ÓÀ³¥Î¶]°_¨ÓÁÙ»İ­n¨â­Ó¤å¥ó¡C
-²Ä¤@­Ó¡A`wp-config.php` ¡A¥¦¬O¤@­Ó¼Ğ·Çªº Wordpress °t¸m¤å¥ó¡A¦³¤@ÂI»İ­n­×§ïªº¬O§â¼Æ¾Ú®wªº°t¸m«ü¦V `db` ®e¾¹¡C
+è¦è®“é€™å€‹æ‡‰ç”¨è·‘èµ·ä¾†é‚„éœ€è¦å…©å€‹æ–‡ä»¶ã€‚
+ç¬¬ä¸€å€‹ï¼Œ`wp-config.php` ï¼Œå®ƒæ˜¯ä¸€å€‹æ¨™æº–çš„ Wordpress é…ç½®æ–‡ä»¶ï¼Œæœ‰ä¸€é»éœ€è¦ä¿®æ”¹çš„æ˜¯æŠŠæ•¸æ“šåº«çš„é…ç½®æŒ‡å‘ `db` å®¹å™¨ã€‚
 
 ```
 <?php
@@ -61,7 +61,7 @@ if ( !defined('ABSPATH') )
 
 require_once(ABSPATH . 'wp-settings.php');
 ```
-²Ä¤G­Ó¡A`router.php` ¡A¥¦§i¶D PHP ¤º¸mªºªA°È¾¹«ç»ò¹B¦æ Wordpress:
+ç¬¬äºŒå€‹ï¼Œ`router.php` ï¼Œå®ƒå‘Šè¨´ PHP å…§ç½®çš„æœå‹™å™¨æ€éº¼é‹è¡Œ Wordpress:
 
 ```
 <?php
@@ -82,5 +82,5 @@ if(file_exists($root.$path))
 }else include_once 'index.php';
 ```
 
-³o¨Ç°t¸m¤å¥ó´Nºü«á¡A¦b§Aªº Wordpress ¥Ø¿ı¸Ì­±°õ¦æ `fig up` «ü¥O¡AFig ´N·|©Ô¨úÃè¹³¦A³Ğ«Ø§Ú­Ì©Ò»İ­nªºÃè¹³¡AµM«á±Ò°Ê web ©M¼Æ¾Ú®w®e¾¹¡C ±µµÛ³X°İ docker ¦uÅ@¶iµ{ºÊÅ¥ªº 8000 ºİ¤f´N¯à¬İ§Aªº Wordpress ºô¯¸¤F¡C¡]¦pªG§A¦³¨Ï¥Î boot2docker ¡A°õ¦æ `boot2docker ip` ¡A´N·|¬İ¨ì¥¦ªº¦a§}¡^¡C
+é€™äº›é…ç½®æ–‡ä»¶å°±ç·’å¾Œï¼Œåœ¨ä½ çš„ Wordpress ç›®éŒ„è£¡é¢åŸ·è¡Œ `fig up` æŒ‡ä»¤ï¼ŒFig å°±æœƒæ‹‰å–é¡åƒå†å‰µå»ºæˆ‘å€‘æ‰€éœ€è¦çš„é¡åƒï¼Œç„¶å¾Œå•Ÿå‹• web å’Œæ•¸æ“šåº«å®¹å™¨ã€‚ æ¥è‘—è¨ªå• docker å®ˆè­·é€²ç¨‹ç›£è½çš„ 8000 é€£æ¥é˜œå°±èƒ½çœ‹ä½ çš„ Wordpress ç¶²ç«™äº†ã€‚ï¼ˆå¦‚æœä½ æœ‰ä½¿ç”¨ boot2docker ï¼ŒåŸ·è¡Œ `boot2docker ip` ï¼Œå°±æœƒçœ‹åˆ°å®ƒçš„åœ°å€ï¼‰ã€‚
 

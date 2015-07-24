@@ -1,2 +1,2 @@
-# ¦w¸Ë
-©x¤èºô¯¸¤W¦³¦UºØÀô¹Ò¤Uªº [¦w¸Ë«ü«n](https://docs.docker.com/installation/#installation)¡A³o¸Ì¥D­n¤¶²Ğ¤UUbuntu©MCentOS¨t¦Cªº¦w¸Ë¡C
+# å®‰è£
+å®˜æ–¹ç¶²ç«™ä¸Šæœ‰å„ç¨®ç’°å¢ƒä¸‹çš„ [å®‰è£æŒ‡å—](https://docs.docker.com/installation/#installation)ï¼Œé€™è£¡ä¸»è¦ä»‹ç´¹ä¸‹Ubuntuå’ŒCentOSç³»åˆ—çš„å®‰è£ã€‚

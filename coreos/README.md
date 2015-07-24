@@ -1,8 +1,8 @@
 #CoreOS
 
-CoreOS���]�p�O���A���ѯ�������q�@�˪��j�����p�����q�@�˪���¦�]�I�޲z��O�ӰʺA�X�i�M�޲z���p���O�C
+CoreOS的設計是為你提供能夠像谷歌一樣的大型互聯網公司一樣的基礎設施管理能力來動態擴展和管理的計算能力。
 
-CoreOS���w�ˤ��M�B��̿�D�`�p,�����ѤF��²��Linux�t�ΡC���ϥ�Linux�e���b�󰪪��⹳�h�Ӻ޲z�A���A�ȡA�Ӥ��O�q�L�`�W��YUM�MAPT�Ӧw�˥]�C
+CoreOS的安裝文件和運行依賴非常小,它提供了精簡的Linux系統。它使用Linux容器在更高的抽像層來管理你的服務，而不是通過常規的YUM和APT來安裝包。
 
-�P�ɡACoreOS�X�G�i�H�B��b���󥭥x�GVagrant, Amazon EC2, QEMU/KVM, VMware �M OpenStack �����A�ƦܧA�ҨϥΪ��w�����ҡC
+同時，CoreOS幾乎可以運行在任何平台：Vagrant, Amazon EC2, QEMU/KVM, VMware 和 OpenStack 等等，甚至你所使用的硬件環境。
 

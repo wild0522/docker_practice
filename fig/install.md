@@ -1,28 +1,28 @@
-##¦w¸Ë Fig
+##å®‰è£ Fig
 
-­º¥ý¡A¦w¸Ë 1.3 ©ÎªÌ§ó·sªº Docker ª©¥»¡C
+é¦–å…ˆï¼Œå®‰è£ 1.3 æˆ–è€…æ›´æ–°çš„ Docker ç‰ˆæœ¬ã€‚
 
-¦pªG§Aªº¤u§@Àô¹Ò¬O OS X ¡A¥i¥H³q¹L¬d¬Ý [Mac ¦w¸Ë«ü«n(­^¤å)](https://docs.docker.com/installation/mac/) ¡A§¹¦¨¦w¸Ë Docker ©M boot2docker ¡C¤@¥¹ boot2docker ¹B¦æ«á¡A°õ¦æ¥H¤U«ü¥O³]¸m¤@­ÓÀô¹ÒÅÜ¶q¡A±µµÛ Fig ´N¥i¥H©M¥¦¥æ¤¬¤F¡C
+å¦‚æžœä½ çš„å·¥ä½œç’°å¢ƒæ˜¯ OS X ï¼Œå¯ä»¥é€šéŽæŸ¥çœ‹ [Mac å®‰è£æŒ‡å—(è‹±æ–‡)](https://docs.docker.com/installation/mac/) ï¼Œå®Œæˆå®‰è£ Docker å’Œ boot2docker ã€‚ä¸€æ—¦ boot2docker é‹è¡Œå¾Œï¼ŒåŸ·è¡Œä»¥ä¸‹æŒ‡ä»¤è¨­ç½®ä¸€å€‹ç’°å¢ƒè®Šé‡ï¼ŒæŽ¥è‘— Fig å°±å¯ä»¥å’Œå®ƒäº¤äº’äº†ã€‚
 
 ```
 $(boot2docker shellinit)
 ```
-**¦pªG·QÁ×§K­«±Ò«á­«·s³]¸m¡A¥i¥H§â¤W­±ªº©R¥O¥[¨ì§Aªº ` ~/.bashrc` ¤å¥ó¸Ì¡C*
+**å¦‚æžœæƒ³é¿å…é‡å•Ÿå¾Œé‡æ–°è¨­ç½®ï¼Œå¯ä»¥æŠŠä¸Šé¢çš„å‘½ä»¤åŠ åˆ°ä½ çš„ ` ~/.bashrc` æ–‡ä»¶è£¡ã€‚*
 
-Ãö©ó `Ubuntu` ÁÙ¦³ `¨ä¥¦ªº¥­¥x` ªº¦w¸Ë¡A¥i¥H°Ñ·Ó [Ubuntu ¦w¸Ë«ü«n(¤¤¤å)](../install/ubuntu.md) ¥H¤Î [©x¤è¦w¸Ë¤â¥U(­^¤å)](https://docs.docker.com/installation/)¡C
+é—œæ–¼ `Ubuntu` é‚„æœ‰ `å…¶å®ƒçš„å¹³å°` çš„å®‰è£ï¼Œå¯ä»¥åƒç…§ [Ubuntu å®‰è£æŒ‡å—(ä¸­æ–‡)](../install/ubuntu.md) ä»¥åŠ [å®˜æ–¹å®‰è£æ‰‹å†Š(è‹±æ–‡)](https://docs.docker.com/installation/)ã€‚
 
 
-¤U¤@¨B¡A¦w¸Ë Fig ¡G
+ä¸‹ä¸€æ­¥ï¼Œå®‰è£ Fig ï¼š
 
 ```
 curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig
 ```
-**¦pªG§Aªº Docker ¬OºÞ²z­û¨­¥÷¦w¸Ë¡A¥H¤W©R¥O¥i¯à¤]»Ý­n¬Û¦Pªº¨­¥÷¡C*
+**å¦‚æžœä½ çš„ Docker æ˜¯ç®¡ç†å“¡èº«ä»½å®‰è£ï¼Œä»¥ä¸Šå‘½ä»¤å¯èƒ½ä¹Ÿéœ€è¦ç›¸åŒçš„èº«ä»½ã€‚*
 
-¥Ø«e Fig ªºµo¦æª©¥»¥u¤ä«ù OSX ©M 64 ¦ìªº Linux ¨t²Î¡C¦ý¦]¬°¥¦¬O¥Î Python »y¨¥¼gªº¡A©Ò¥H¹ï©ó¨ä¥¦¥­¥x¤Wªº¥Î¤á¡A¥i¥H³q¹L Python ¦w¸Ë¥]¨Ó§¹¦¨¦w¸Ë¡]¤ä«ùªº¨t²Î¦P¼Ë¾A¥Î¡^¡C
+ç›®å‰ Fig çš„ç™¼è¡Œç‰ˆæœ¬åªæ”¯æŒ OSX å’Œ 64 ä½çš„ Linux ç³»çµ±ã€‚ä½†å› ç‚ºå®ƒæ˜¯ç”¨ Python èªžè¨€å¯«çš„ï¼Œæ‰€ä»¥å°æ–¼å…¶å®ƒå¹³å°ä¸Šçš„ç”¨æˆ¶ï¼Œå¯ä»¥é€šéŽ Python å®‰è£åŒ…ä¾†å®Œæˆå®‰è£ï¼ˆæ”¯æŒçš„ç³»çµ±åŒæ¨£é©ç”¨ï¼‰ã€‚
 
 ```
 $ sudo pip install -U fig
 ```
-¨ì³o¸Ì´N¤w¸g§¹¦¨¤F¡C °õ¦æ `fig --version` ¡A½T»{¯à°÷¥¿±`¹B¦æ¡C
+åˆ°é€™è£¡å°±å·²ç¶“å®Œæˆäº†ã€‚ åŸ·è¡Œ `fig --version` ï¼Œç¢ºèªèƒ½å¤ æ­£å¸¸é‹è¡Œã€‚
 

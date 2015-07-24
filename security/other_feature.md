@@ -1,9 +1,9 @@
-## �䥦�w���S��
-���F��O����~�A�٥i�H�Q�Τ@�ǲ{�����w������ӼW�j�ϥ� Docker ���w���ʡA�Ҧp TOMOYO, AppArmor, SELinux, GRSEC ���C
+## 其它安全特性
+除了能力機制之外，還可以利用一些現有的安全機制來增強使用 Docker 的安全性，例如 TOMOYO, AppArmor, SELinux, GRSEC 等。
 
-Docker ���e�q�{�u�ҥΤF��O����C�Τ�i�H�ĥΦh�ؤ�רӥ[�j Docker �D�����w���A�Ҧp�G
-* �b���֤��ҥ� GRSEC �M PAX�A�o�N�W�[�ܦh�sĶ�M�B��ɪ��w���ˬd�F�q�L�a�}�H�����קK�c�N�������C�åB�A�ҥθӯS�ʤ��ݭn Docker �i�����t�m�C
-* �ϥΤ@�Ǧ��W�j�w���S�ʪ��e���ҪO�A��p�a AppArmor ���ҪO�M Redhat �a SELinux �������ҪO�C�o�ǼҪO���ѤF�B�~���w���S�ʡC
-* �Τ�i�H�۩w�q�X�ݱ������өw��w�������C
+Docker 當前預設只啟用了能力機制。用戶可以採用多種方案來加強 Docker 主機的安全，例如：
+* 在內核中啟用 GRSEC 和 PAX，這將增加很多編譯和運行時的安全檢查；通過地址隨機化避免惡意探測等。並且，啟用該特性不需要 Docker 進行任何配置。
+* 使用一些有增強安全特性的容器模板，比如帶 AppArmor 的模板和 Redhat 帶 SELinux 策略的模板。這些模板提供了額外的安全特性。
+* 用戶可以自定義訪問控制機制來定制安全策略。
 
-��䥦�K�[�� Docker �e�����ĤT��u��@�ˡ]��p�����ݼ��M���t�Φ@�ɡ^�A���ܦh����������A�b������ Docker ���ֱ��p�U�N�i�H�[�T�{�����e���C
+跟其它添加到 Docker 容器的第三方工具一樣（比如網路拓撲和文件系統共享），有很多類似的機制，在不改變 Docker 內核情況下就可以加固現有的容器。
