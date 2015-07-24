@@ -1,8 +1,8 @@
-# ²��
-�����N�a��A�i�J Docker ���@�ɡC
+# 簡介 
+本章將帶領你進入 Docker 的世界。
 
-����O Docker�H
+什麼是 Docker？
 
-�Υ��|�a�Ӥ���˪��n�B�H
+用它會帶來什麼樣的好處？
 
-�n�a�A���ڭ̱a�۰��D�}�l�o���_���ȡC
+好吧，讓我們帶著問題開始這神奇之旅。
