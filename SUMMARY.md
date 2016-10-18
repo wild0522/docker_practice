@@ -12,7 +12,7 @@
    * [Ubuntu](install/ubuntu.md)
    * [CentOS](install/centos.md)
 * [映像檔](image/README.md)
-   * [獲取鏡像](image/pull.md)
+   * [取得映像檔](image/pull.md)
    * [列出](image/list.md)
    * [創建](image/create.md)
    * [存出和載入](image/save_load.md)
