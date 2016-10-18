@@ -17,14 +17,14 @@ Docker 的 Registry 利用配置文件提供了一些倉庫的模板（flavor）
 
 用戶也可以添加自定義的模版段。
 
-預設情況下使用的模板是 `dev`，要使用某個模板作為預設值，可以添加 `SETTINGS_FLAVOR` 到環境變量中，例如
+預設情況下使用的模板是 `dev`，要使用某個模板作為預設值，可以添加 `SETTINGS_FLAVOR` 到環境變數中，例如
 ```
 export SETTINGS_FLAVOR=dev
 ```
 
-另外，配置文件中支持從環境變量中加載值，語法格式為 `_env:VARIABLENAME[:DEFAULT]`。
+另外，配置文件中支持從環境變數中加載值，語法格式為 `_env:VARIABLENAME[:DEFAULT]`。
 
-### 示例配置
+### 設定範例
 ```
 common:
     loglevel: info
