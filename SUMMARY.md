@@ -36,7 +36,7 @@
 * [使用網絡](network/README.md)
    * [外部訪問容器](network/port_mapping.md)
    * [容器互聯](network/linking.md)
-* [進階網絡設定](advanced_network/README.md)
+* [進階網路設定](advanced_network/README.md)
    * [快速配置指南](advanced_network/quick_guide.md)
    * [配置 DNS](advanced_network/dns.md)
    * [容器訪問控制](advanced_network/access_control.md)
