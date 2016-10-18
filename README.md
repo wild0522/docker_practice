@@ -38,13 +38,13 @@ v0.5.1
     * 完成倉庫章節；
     * 重寫安全章節；
     * 修正底層實現章節的架構、名字空間、控制組、文件系統、容器格式等內容；
-    * 添加對常見倉庫和鏡像的介紹；
+    * 添加對常見倉庫和映像檔的介紹；
     * 添加 Dockerfile 的介紹；
     * 重新校訂中英文混排格式。
     * 修訂文字表達。
     * 發佈繁體版本分支：zh-Hant。
 * 0.2: 2014-09-18
-    * 對照官方文檔重寫介紹、基本概念、安裝、鏡像、容器、倉庫、數據管理、網絡等章節；
+    * 對照官方文檔重寫介紹、基本概念、安裝、映像檔、容器、倉庫、資料管理、網路等章節；
     * 添加底層實現章節；
     * 添加命令查詢和資源鏈接章節；
     * 其它修正。
@@ -53,17 +53,17 @@ v0.5.1
     * 修正錯別字和表達不通順的地方。
 
 
-Docker 自身仍在快速發展中，生態環境也在蓬勃成長。源碼開源托管在 Github 上，歡迎參與維護：[https://github.com/yeasy/docker_practice](https://github.com/yeasy/docker_practice)。貢獻者 [名單](https://github.com/yeasy/docker_practice/graphs/contributors)。
+Docker 自身仍在快速發展中，生態環境也在蓬勃成長。原始碼開源托管在 Github 上，歡迎參與維護：[https://github.com/yeasy/docker_practice](https://github.com/yeasy/docker_practice)。貢獻者 [名單](https://github.com/yeasy/docker_practice/graphs/contributors)。
 
 ## 參加步驟
-* 在 GitHub 上 `fork` 到自己的倉庫，如 `docker_user/docker_practice`，然後 `clone` 到本地，並設置用戶信息。
+* 在 GitHub 上 `fork` 到自己的倉庫，如 `docker_user/docker_practice`，然後 `clone` 到本地，並設定用戶資料。
 ```
 $ git clone git@github.com:docker_user/docker_practice.git
 $ cd docker_practice
 $ git config user.name "yourname"
 $ git config user.email "your email"
 ```
-* 修改代碼後提交，並推送到自己的倉庫。
+* 修改代碼後送出，並推送到自己的倉庫。
 ```
 $ #do some change on the content
 $ git commit -am "Fix issue #1: change helo to hello"
