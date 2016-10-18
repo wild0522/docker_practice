@@ -29,7 +29,7 @@
    * [Docker Hub](repository/dockerhub.md)
    * [私有倉庫](repository/local_repo.md)
    * [配置文件](repository/config.md)
-* [數據管理](data_management/README.md)
+* [資料管理](data_management/README.md)
    * [數據卷](data_management/volume.md)
    * [數據卷容器](data_management/container.md)
    * [備份、恢復、遷移數據卷](data_management/management.md)
