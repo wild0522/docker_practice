@@ -4,7 +4,7 @@
 ### FROM
 格式為 `FROM <image>`或`FROM <image>:<tag>`。
 
-第一條指令必須為 `FROM` 指令。並且，如果在同一個Dockerfile中創建多個鏡像時，可以使用多個 `FROM` 指令（每個鏡像一次）。
+第一條指令必須為 `FROM` 指令。並且，如果在同一個Dockerfile中建立多個映像檔時，可以使用多個 `FROM` 指令（每個映像檔一次）。
 
 ### MAINTAINER
 格式為 `MAINTAINER <name>`，指定維護者信息。
@@ -14,7 +14,7 @@
 
 前者將在 shell 終端中運行命令，即 `/bin/sh -c`；後者則使用 `exec` 執行。指定使用其它終端可以通過第二種方式實現，例如 `RUN ["/bin/bash", "-c", "echo hello"]`。
 
-每條 `RUN` 指令將在當前鏡像基礎上執行指定命令，並提交為新的鏡像。當命令較長時可以使用 `\` 來換行。
+每條 `RUN` 指令將在當前映像檔基礎上執行指定命令，並提交為新的映像檔。當命令較長時可以使用 `\` 來換行。
 
 ### CMD
 支持三種格式
@@ -69,14 +69,14 @@ ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
 ### VOLUME
 格式為 `VOLUME ["/data"]`。
 
-創建一個可以從本地主機或其他容器掛載的掛載點，一般用來存放數據庫和需要保持的數據等。
+建立一個可以從本地主機或其他容器掛載的掛載點，一般用來存放數據庫和需要保持的數據等。
 
 ### USER
 格式為 `USER daemon`。
 
 指定運行容器時的用戶名或 UID，後續的 `RUN` 也會使用指定用戶。
 
-當服務不需要管理員權限時，可以通過該命令指定運行用戶。並且可以在之前創建所需要的用戶，例如：`RUN groupadd -r postgres && useradd -r -g postgres postgres`。要臨時獲取管理員權限可以使用 `gosu`，而不推薦 `sudo`。
+當服務不需要管理員權限時，可以通過該命令指定運行用戶。並且可以在之前建立所需要的用戶，例如：`RUN groupadd -r postgres && useradd -r -g postgres postgres`。要臨時獲取管理員權限可以使用 `gosu`，而不推薦 `sudo`。
 
 ### WORKDIR
 格式為 `WORKDIR /path/to/workdir`。
@@ -95,9 +95,9 @@ RUN pwd
 ### ONBUILD
 格式為 `ONBUILD [INSTRUCTION]`。
 
-配置當所創建的鏡像作為其它新創建鏡像的基礎鏡像時，所執行的操作指令。
+配置當所建立的映像檔作為其它新建立映像檔的基礎映像檔時，所執行的操作指令。
 
-例如，Dockerfile 使用如下的內容創建了鏡像 `image-A`。
+例如，Dockerfile 使用如下的內容建立了映像檔 `image-A`。
 ```
 [...]
 ONBUILD ADD . /app/src
@@ -105,7 +105,7 @@ ONBUILD RUN /usr/local/bin/python-build --dir /app/src
 [...]
 ```
 
-如果基於 image-A 創建新的鏡像時，新的Dockerfile中使用 `FROM image-A`指定基礎鏡像時，會自動執行 `ONBUILD` 指令內容，等價於在後面添加了兩條指令。
+如果基於 image-A 建立新的映像檔時，新的Dockerfile中使用 `FROM image-A`指定基礎映像檔時，會自動執行 `ONBUILD` 指令內容，等價於在後面添加了兩條指令。
 ```
 FROM image-A
 
@@ -114,5 +114,5 @@ ADD . /app/src
 RUN /usr/local/bin/python-build --dir /app/src
 ```
 
-使用 `ONBUILD` 指令的鏡像，推薦在標籤中註明，例如 `ruby:1.9-onbuild`。
+使用 `ONBUILD` 指令的映像檔，推薦在標籤中註明，例如 `ruby:1.9-onbuild`。
 
