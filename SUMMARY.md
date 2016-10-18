@@ -31,7 +31,7 @@
    * [配置文件](repository/config.md)
 * [資料管理](data_management/README.md)
    * [資料卷](data_management/volume.md)
-   * [數據卷容器](data_management/container.md)
+   * [資料卷容器](data_management/container.md)
    * [備份、恢復、遷移數據卷](data_management/management.md)
 * [使用網絡](network/README.md)
    * [外部訪問容器](network/port_mapping.md)
