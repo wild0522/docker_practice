@@ -5,7 +5,7 @@
    * [什麼是 Docker](introduction/what.md)
    * [為什麼要用 Docker](introduction/why.md)
 * [基本概念](basic_concept/README.md)
-   * [鏡像](basic_concept/image.md)
+   * [映像檔](basic_concept/image.md)
    * [容器](basic_concept/container.md)
    * [倉庫](basic_concept/repository.md)
 * [安裝](install/README.md)
