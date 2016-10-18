@@ -1,4 +1,4 @@
-# 資源鏈接
+# 資源連結
 * Docker 主站點: https://www.docker.io
 * Docker 註冊中心API: http://docs.docker.com/reference/api/registry_api/
 * Docker Hub API: http://docs.docker.com/reference/api/docker-io_api/
