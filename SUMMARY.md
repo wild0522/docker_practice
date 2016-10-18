@@ -68,7 +68,7 @@
    * [控制組](underly/cgroups.md)
    * [聯合文件系統](underly/ufs.md)
    * [容器格式](underly/container_format.md)
-   * [網絡](underly/network.md)
+   * [網路](underly/network.md)
 * [Docker Compose 項目](compose/README.md)
    * [簡介](compose/intro.md)
    * [安裝](compose/install.md)
