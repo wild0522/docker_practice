@@ -48,7 +48,7 @@
    * [實例：創建一個點到點連接](advanced_network/ptp.md)
 * [實戰案例](cases/README.md)
    * [使用 Supervisor 來管理進程](cases/supervisor.md)
-   * [創建 tomcat/weblogic 集群](cases/tomcat.md)
+   * [建立omcat/weblogic 集群](cases/tomcat.md)
    * [多台物理主機之間的容器互聯](cases/container_connect.md)
    * [標準化開發測試和生產環境](cases/environment.md)
 * [安全](security/README.md)
