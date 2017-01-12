@@ -2,16 +2,16 @@
 
 0.8.1
 
-[Docker](http://www.docker.com) 是個劃時代的開源項目，它徹底釋放了計算虛擬化的威力，極大提高了應用的執行效率，降低了雲計算資源供應的成本！ 使用 Docker，可以讓應用的部署、測試和分發都變得前所未有的高效和輕鬆！
+[Docker](http://www.docker.com) 是個跨時代的開源項目，它徹底釋放了計算虛擬化的威力，極大提高了應用的執行效率，降低了雲端計算資源供應的成本！ 使用 Docker，可以讓應用的部署、測試和分發都變得前所未有的高效和輕鬆！
 
-無論是應用開發者、運維人員、還是其他資訊技術從業人員，都有必要認識和掌握 Docker，以在有限的時間內做更多有意義的事。
+無論是應用開發者、維運人員、還是其他資訊技術從業人員，都有必要認識和掌握 Docker，以在有限的時間內做更多有意義的事。
 
 本開源書籍既適用於具備基礎 Linux 知識的 Docker 初學者，也希望可供理解原理和實作的進階使用者參考。同時，書中給出的實踐案例，可供在進行實際部署時借鑒。前六章為基礎內容，供使用者理解 Docker 的基本概念和作業；7 ~ 9 章介紹一些進階作業；第 10 章給出典型的應用場景和實踐案例；11、12 章介紹關於 Docker 安全和實作技術等進階話題。後續章節則分別介紹一些相關的熱門開源項目。
 
-線上閱讀：[GitBook](https://www.gitbook.io/book/yeasy/docker_practice) 或 [Github](https://github.com/yeasy/docker_practice/blob/master/SUMMARY.md)。
+線上閱讀：[GitBook](https://wild0522.gitbooks.io/yeasy_dp) 或 [Github](https://github.com/yeasy/docker_practice/blob/master/SUMMARY.md)。
 
-* pdf 版本 [下載](https://www.gitbook.com/download/pdf/book/yeasy/docker_practice)
-* epub 版本 [下載](https://www.gitbook.com/download/epub/book/yeasy/docker_practice)
+* pdf 版本 [下載](https://www.gitbook.com/download/pdf/book/wild0522/yeasy_dp)
+* epub 版本 [下載](https://www.gitbook.com/download/epub/book/wild0522/yeasy_dp)
 
 Docker 自身仍在快速發展中，生態環境也在蓬勃成長。歡迎參與維護項目：[如何貢獻](contribute.md)。
 
