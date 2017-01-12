@@ -1,8 +1,8 @@
 ## 進入容器
 在使用 `-d` 參數時，容器啟動後會進入後台。
-某些時候需要進入容器進行操作，有很多種方法，包括使用 `docker attach` 命令或 `nsenter` 工具等。
-### attach 命令
-`docker attach` 是Docker自帶的命令。下面示例如何使用該命令。
+某些時候需要進入容器進行作業，有很多種方法，包括使用 `docker attach` 指令或 `nsenter` 工具等。
+### attach 指令
+`docker attach` 是Docker內建的指令。下面範例如何使用該指令。
 ```
 $ sudo docker run -idt ubuntu
 243c32535da7d142fb0e6df616a3c3ada0b8ab417937c853a9e1c251f499f550
@@ -12,12 +12,12 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 $sudo docker attach nostalgic_hypatia
 root@243c32535da7:/#
 ```
-但是使用 `attach` 命令有時候並不方便。當多個窗口同時 attach 到同一個容器的時候，所有窗口都會同步顯示。當某個窗口因命令阻塞時,其他窗口也無法執行操作了。
+但是使用 `attach` 指令有時候並不方便。當多個視窗同時 attach 到同一個容器的時候，所有視窗都會同步顯示。當某個視窗因指令阻塞時,其它視窗也無法執行作業了。
 
-### nsenter 命令
+### nsenter 指令
 #### 安裝
 `nsenter` 工具在 util-linux 包2.23版本後包含。
-如果系統中 util-linux 包沒有該命令，可以按照下面的方法從源碼安裝。
+如果系統中 util-linux 包沒有該指令，可以按照下面的方法從原始碼安裝。
 ```
 $ cd /tmp; curl https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz | tar -zxf-; cd util-linux-2.24;
 $ ./configure --without-ncurses
@@ -25,19 +25,19 @@ $ make nsenter && sudo cp nsenter /usr/local/bin
 ```
 
 #### 使用
-`nsenter` 可以訪問另一個進程的名字空間。nsenter 要正常工作需要有 root 權限。
-很不幸，Ubuntu 14.04 仍然使用的是 util-linux 2.20。安裝最新版本的 util-linux（2.24）版，請按照以下步驟：
+`nsenter` 啟動一個新的shell處理序( 預設是/bin/bash), 同時會把這個新處理序切換到和目標(target)處理序相同的命名空間，這樣就相當於進入了容器內部。nsenter 要正常工作需要有 root 權限。
+很不幸，Ubuntu 14.04 仍然使用的是 util-linux 2.20。安裝最新版本的 util-linux（2.29）版，請按照以下步驟：
 ```
-$ wget https://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-2.24.tar.gz; tar xzvf util-linux-2.24.tar.gz
-$ cd util-linux-2.24
+$ wget https://www.kernel.org/pub/linux/utils/util-linux/v2.29/util-linux-2.29.tar.xz; tar xJvf util-linux-2.29.tar.xz
+$ cd util-linux-2.29
 $ ./configure --without-ncurses && make nsenter
 $ sudo cp nsenter /usr/local/bin
 ```
-為了連接到容器，你還需要找到容器的第一個進程的 PID，可以通過下面的命令獲取。
+為了連線到容器，你還需要找到容器的第一個處理序的 PID，可以透過下面的指令取得。
 ```
 PID=$(docker inspect --format "{{ .State.Pid }}" <container>)
 ```
-通過這個 PID，就可以連接到這個容器：
+透過這個 PID，就可以連線到這個容器：
 ```
 $ nsenter --target $PID --mount --uts --ipc --net --pid
 ```
@@ -59,7 +59,7 @@ root@243c32535da7:/#
 $ wget -P ~ https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker;
 $ echo "[ -f ~/.bashrc_docker ] && . ~/.bashrc_docker" >> ~/.bashrc; source ~/.bashrc
 ```
-這個文件中定義了很多方便使用 Docker 的命令，例如 `docker-pid` 可以獲取某個容器的 PID；而 `docker-enter` 可以進入容器或直接在容器內執行命令。
+這個檔案中定義了很多方便使用 Docker 的指令，例如 `docker-pid` 可以取得某個容器的 PID；而 `docker-enter` 可以進入容器或直接在容器內執行指令。
 ```
 $ echo $(docker-pid <container>)
 $ docker-enter <container> ls

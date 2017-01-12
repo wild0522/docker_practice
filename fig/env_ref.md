@@ -1,10 +1,10 @@
-##環境變量參考
+##環境變數參考
 
-*注意: 現在已經不推薦使用環境變量鏈接服務。替代方案是使用鏈接名稱（預設就是被連接的服務名字）作為主機名來鏈接。詳情查看 [fig.yml章節](./yml_ref.md)。
+*注意: 現在已經不推薦使用環境變數連結服務。替代專案是使用連結名稱（ 預設就是被連線的服務名字）作為主電腦名稱來連結。詳情 檢視 [fig.yml章節](./yml_ref.md)。
 
-Fig 使用 Docker 鏈接來暴露一個服務的容器給其它容器。每一個鏈接的容器會注入一組以容器名稱的大寫字母開頭得環境變量。
+Fig 使用 Docker 連結來暴露一個服務的容器給其它容器。每一個連結的容器會注入一組以容器名稱的大寫字母開頭得環境變數。
 
-查看一個服務有那些有效的環境變量可以執行 `fig run SERVICE env`。
+ 檢視一個服務有那些有效的環境變數可以執行 `fig run SERVICE env`。
 
 `name_PORT`
 
@@ -16,15 +16,15 @@ Fig 使用 Docker 鏈接來暴露一個服務的容器給其它容器。每一�
 
 `name_PORT_num_protocol_ADDR`
 
-容器的IP地址，例如： `DB_PORT_5432_TCP_ADDR=172.17.0.5`
+容器的IP位址，例如： `DB_PORT_5432_TCP_ADDR=172.17.0.5`
 
 `name_PORT_num_protocol_PORT`
 
-暴露連接阜號，例如： `DB_PORT_5432_TCP_PORT=5432`
+暴露連接埠號碼，例如： `DB_PORT_5432_TCP_PORT=5432`
 
 `name_PORT_num_protocol_PROTO`
 
-協議（tcp 或 udp），例如： `DB_PORT_5432_TCP_PROTO=tcp`
+協定（tcp 或 udp），例如： `DB_PORT_5432_TCP_PROTO=tcp`
 
 `name_NAME`
 

@@ -1,18 +1,18 @@
 ## 私有倉庫
 
-有時候使用 Docker Hub 這樣的公共倉庫可能不方便，用戶可以創建一個本地倉庫供私人使用。
+有時候使用 Docker Hub 這樣的公共倉庫可能不方便，使用者可以建立一個本地倉庫供私人使用。
 
 本節介紹如何使用本地倉庫。
 
-`docker-registry` 是官方提供的工具，可以用於構建私有的映像檔倉庫。
-### 安裝運行 docker-registry
-#### 容器運行
-在安裝了 Docker 後，可以通過獲取官方 registry 映像檔來運行。
+`docker-registry` 是官方提供的工具，可以用於建構私有的映像檔倉庫。
+### 安裝執行 docker-registry
+#### 容器執行
+在安裝了 Docker 後，可以透過取得官方 registry 映像檔來執行。
 ```
 $ sudo docker run -d -p 5000:5000 registry
 ```
 這將使用官方的 registry 映像檔來啟動本地的私有倉庫。
-用戶可以通過指定參數來配置私有倉庫位置，例如配置映像檔存儲到 Amazon S3 服務。
+使用者可以透過指定參數來設定私有倉庫位置，例如設定映像檔儲存到 Amazon S3 服務。
 ```
 $ sudo docker run \
          -e SETTINGS_FLAVOR=s3 \
@@ -24,18 +24,18 @@ $ sudo docker run \
          -p 5000:5000 \
          registry
 ````
-此外，還可以指定本地路徑（如 `/home/user/registry-conf` ）下的配置文件。
+此外，還可以指定本地路徑（如 `/home/user/registry-conf` ）下的設定檔。
 ```
 $ sudo docker run -d -p 5000:5000 -v /home/user/registry-conf:/registry-conf -e DOCKER_REGISTRY_CONFIG=/registry-conf/config.yml registry
 ```
-預設情況下，倉庫會被創建在容器的 `/tmp/registry` 下。可以通過 `-v` 參數來將映像檔文件存放在本地的指定路徑。
+ 預設情況下，倉庫會被建立在容器的 `/tmp/registry` 下。可以透過 `-v` 參數來將映像檔檔案存放在本地的指定路徑。
 例如下面的例子將上傳的映像檔放到 `/opt/data/registry` 目錄。
 ```
 $ sudo docker run -d -p 5000:5000 -v /opt/data/registry:/tmp/registry registry
 ```
 
 #### 本地安裝
-對於 Ubuntu 或 CentOS 等發行版，可以直接通過源安裝。
+對於 Ubuntu 或 CentOS 等發行版，可以直接透過源安裝。
 * Ubuntu
 ```
 $ sudo apt-get install -y build-essential python-dev libevent-dev python-pip liblzma-dev
@@ -47,14 +47,14 @@ $ sudo yum install -y python-devel libevent-devel python-pip gcc xz-devel
 $ sudo python-pip install docker-registry
 ```
 
-也可以從 [docker-registry](https://github.com/docker/docker-registry) 項目下載源碼進行安裝。
+也可以從 [docker-registry](https://github.com/docker/docker-registry) 項目下載原始碼進行安裝。
 ```
 $ sudo apt-get install build-essential python-dev libevent-dev python-pip libssl-dev liblzma-dev libffi-dev
 $ git clone https://github.com/docker/docker-registry.git
 $ cd docker-registry
 $ sudo python setup.py install
 ```
-然後修改配置文件，主要修改 dev 模板段的 `storage_path` 到本地的存儲倉庫的路徑。
+然後修改設定檔，主要修改 dev  範本段的 `storage_path` 到本地的儲存倉庫的路徑。
 ```
 $ cp config/config_sample.yml config/config.yml
 ```
@@ -62,18 +62,18 @@ $ cp config/config_sample.yml config/config.yml
 ```
 $ sudo gunicorn -c contrib/gunicorn.py docker_registry.wsgi:application
 ```
-或者
+或是
 ```
 $ sudo gunicorn --access-logfile - --error-logfile - -k gevent -b 0.0.0.0:5000 -w 4 --max-requests 100 docker_registry.wsgi:application
 ```
-此時使用 curl 訪問本地的 5000 連接阜，看到輸出 docker-registry 的版本信息說明運行成功。
+此時使用 curl 存取本地的 5000 連接埠，看到輸出 docker-registry 的版本資訊說明執行成功。
 
-*註：`config/config_sample.yml` 文件是示例配置文件。
+*註：`config/config_sample.yml` 檔案是範例設定檔。
 
-###在私有倉庫上傳、下載、搜索映像檔
-創建好私有倉庫之後，就可以使用 `docker tag` 來標記一個映像檔，然後推送它到倉庫，別的機器上就可以下載下來了。例如私有倉庫地址為 `192.168.7.26:5000`。
+###在私有倉庫上傳、下載、搜尋映像檔
+建立好私有倉庫之後，就可以使用 `docker tag` 來標記一個映像檔，然後推送它到倉庫，別的機器上就可以下載下來了。例如私有倉庫位址為 `192.168.7.26:5000`。
 
-先在本機查看已有的映像檔。
+先在本機 檢視已有的映像檔。
 ```
 $ sudo docker images
 REPOSITORY                        TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -104,7 +104,7 @@ Image 2318d26665ef already pushed, skipping
 Image ba5877dc9bec already pushed, skipping
 Pushing tag for rev [ba5877dc9bec] on {http://192.168.7.26:5000/v1/repositories/test/tags/latest}
 ```
-用 curl 查看倉庫中的映像檔。
+用 curl  檢視倉庫中的映像檔。
 ```
 $ curl http://192.168.7.26:5000/v1/search
 {"num_results": 7, "query": "", "results": [{"description": "", "name": "library/miaxis_j2ee"}, {"description": "", "name": "library/tomcat"}, {"description": "", "name": "library/ubuntu"}, {"description": "", "name": "library/ubuntu_office"}, {"description": "", "name": "library/desktop_ubu"}, {"description": "", "name": "dockerfile/ubuntu"}, {"description": "", "name": "library/test"}]}
@@ -126,7 +126,7 @@ REPOSITORY                         TAG                 IMAGE ID            CREAT
 192.168.7.26:5000/test             latest              ba5877dc9bec        6 weeks ago         192.7 MB
 ```
 
-可以使用 [這個腳本](https://github.com/yeasy/docker_practice/raw/master/_local/push_images.sh) 批量上傳本地的映像檔到註冊服務器中，預設是本地註冊服務器 `127.0.0.1:5000`。例如：
+可以使用 [這個指令碼](https://github.com/yeasy/docker_practice/raw/master/_local/push_images.sh) 批量上傳本地的映像檔到註冊伺服器中， 預設是本地註冊伺服器 `127.0.0.1:5000`。例如：
 ```
 $ wget https://github.com/yeasy/docker_practice/raw/master/_local/push_images.sh; sudo chmod a+x push_images.sh
 $ ./push_images.sh ubuntu:latest centos:centos7

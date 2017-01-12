@@ -1,4 +1,2 @@
-# Docker Swarm 項目
-Docker Swarm 是 Docker 官方編排（Orchestration）項目之一，負責對 Docker 集群進行管理。
-
-本章將介紹 Swarm 項目情況以及安裝和使用。
+# Docker 中的網路功能介紹
+Docker 允許透過外部存取容器或容器互聯的方式來提供網路服務。

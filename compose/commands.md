@@ -1,142 +1,234 @@
-## Compose 命令說明
+## Compose 指令說明
 
-大部分命令都可以運行在一個或多個服務上。如果沒有特別的說明，命令則應用在項目所有的服務上。
+### 指令對象與格式
+對於 Compose 來說，大部分指令的對象既可以是項目本身，也可以指定為項目中的服務或是容器。如果沒有特別的說明，指令物件將是項目，這意味著項目中所有的服務都會受到指令影響。
 
-執行 `docker-compose [COMMAND] --help` 查看具體某個命令的使用說明。
+執行 `docker-compose [COMMAND] --help` 或是 `docker-compose help [COMMAND]` 可以 檢視具體某個指令的使用格式。
 
-基本的使用格式是
+Compose 指令的基本的使用格式是
+
 ```sh
-docker-compose [options] [COMMAND] [ARGS...]
+docker-compose [-f=<arg>...] [options] [COMMAND] [ARGS...]
 ```
 
-## 選項
+### 指令選項
 
-* `--verbose` 輸出更多調試信息。
-* `--version` 打印版本並退出。
-* `-f, --file FILE` 使用特定的 compose 模板文件，預設為 `docker-compose.yml`。
-* `-p, --project-name NAME` 指定項目名稱，預設使用目錄名稱。
+* `-f, --file FILE` 指定使用的 Compose  範本檔案， 預設為 `docker-compose.yml`，可以多次指定。
+* `-p, --project-name NAME` 指定專案名稱， 預設將使用所在目錄名稱作為項目名。
+* `--x-networking` 使用 Docker 的可拔插網路後端內容屬性（需要 Docker 1.9 及以後版本）。
+* `--x-network-driver DRIVER` 指定網路後端的驅動， 預設為 `bridge`（需要 Docker 1.9 及以後版本）。
+* `--verbose` 輸出更多偵錯資訊。
+* `-v, --version`  列印版本並結束。
 
-## 命令
+### 指令使用說明
 
-### `build`
+#### `build`
+格式為 `docker-compose build [options] [SERVICE...]`。
 
-構建或重新構建服務。
+建構（重新建構）項目中的服務容器。
 
-服務一旦構建後，將會帶上一個標記名，例如 web_db。
+服務容器一旦建構後，將會帶上一個標記名，例如對於 web 項目中的一個 db 容器，可能是 web_db。
 
-可以隨時在項目目錄下運行 `docker-compose build` 來重新構建服務。
+可以隨時在專案目錄下執行 `docker-compose build` 來重新建構服務。
 
-### `help`
+選項包括：
 
-獲得一個命令的幫助。
+* `--force-rm` 刪除建構程序中的臨時容器。
+* `--no-cache` 建構映像檔程序中不使用 cache（這將加長建構程序）。
+* `--pull` 始終嘗試透過 pull 來取得更新版本的映像檔。
 
-### `kill`
+#### `help`
 
-通過發送 `SIGKILL` 信號來強制停止服務容器。支持通過參數來指定發送的信號，例如
+獲得一個指令的說明。
+
+#### `kill`
+格式為 `docker-compose kill [options] [SERVICE...]`。
+
+透過傳送 `SIGKILL` 信號來強制停止服務容器。
+
+支援透過 `-s` 參數來指定傳送的信號，例如透過如下指令傳送 `SIGINT` 信號。
+
 ```sh
 $ docker-compose kill -s SIGINT
 ```
 
-### `logs`
+#### `logs`
+格式為 `docker-compose logs [options] [SERVICE...]`。
 
-查看服務的輸出。
+ 檢視服務容器的輸出。 預設情況下，docker-compose 將對不同的服務輸出使用不同的色彩來區分。可以透過 `--no-color` 來關閉色彩。
 
-### `port`
+該指令在偵錯問題的時候十分有用。
 
-打印綁定的公共連接阜。
+#### `pause`
+格式為 `docker-compose pause [SERVICE...]`。
 
-### `ps`
+暫停一個服務容器。
 
-列出所有容器。
+#### `port`
+格式為 `docker-compose port [options] SERVICE PRIVATE_PORT`。
 
-### `pull`
+ 列印某個容器連接埠所對應的公共連接埠。
 
-拉取服務鏡像。
+選項：
 
-### `rm`
+* `--protocol=proto` 指定連接埠協定，tcp（預設值）或是 udp。
+* `--index=index` 如果同一服務存在多個容器，指定指令物件容器的序號（ 預設為 1）。
 
-刪除停止的服務容器。
+#### `ps`
+格式為 `docker-compose ps [options] [SERVICE...]`。
 
-### `run`
+列出項目中目前的所有容器。
 
-在一個服務上執行一個命令。
+選項：
+
+* `-q` 只 列印容器的 ID 資訊。 
+
+#### `pull`
+格式為 `docker-compose pull [options] [SERVICE...]`。
+
+拉取服務依賴的映像檔。
+
+選項：
+
+* `--ignore-pull-failures` 忽略拉取映像檔程序中的錯誤。
+
+#### `restart`
+格式為 `docker-compose restart [options] [SERVICE...]`。
+
+重啟項目中的服務。
+
+選項：
+
+* `-t, --timeout TIMEOUT` 指定重啟前停止容器的逾時（ 預設為 10 秒）。
+
+#### `rm`
+格式為 `docker-compose rm [options] [SERVICE...]`。
+
+刪除所有（停止狀態的）服務容器。推薦先執行 `docker-compose stop` 指令來停止容器。
+
+選項：
+
+* `-f, --force` 強制直接刪除，包括非停止狀態的容器。一般盡量不要使用這個選項。
+* `-v` 刪除容器所載入的資料卷。
+
+#### `run`
+格式為 `docker-compose run [options] [-p PORT...] [-e KEY=VAL...] SERVICE [COMMAND] [ARGS...]`。
+
+在指定服務上執行一個指令。
 
 例如：
 
-```
+```sh
 $ docker-compose run ubuntu ping docker.com
 ```
 
-將會啟動一個 ubuntu 服務，執行 `ping docker.com` 命令。
+將會啟動一個 ubuntu 服務容器，並執行 `ping docker.com` 指令。
 
-預設情況下，所有關聯的服務將會自動被啟動，除非這些服務已經在運行中。
+ 預設情況下，如果存在關聯，則所有關聯的服務將會自動被啟動，除非這些服務已經在執行中。
 
-該命令類似啟動容器後運行指定的命令，相關卷、鏈接等等都將會按照期望創建。
+該指令類似啟動容器後執行指定的指令，相關卷、連結等等都將會按照設定自動建立。
 
 兩個不同點：
-* 給定命令將會覆蓋原有的自動運行命令；
-* 不會自動創建連接阜，以避免衝突。
+
+* 設定指令將會覆寫原有的自動執行指令；
+* 不會自動建立連接埠，以避免衝突。
 
 如果不希望自動啟動關聯的容器，可以使用 `--no-deps` 選項，例如
 
-```
+```sh
 $ docker-compose run --no-deps web python manage.py shell
 ```
 
 將不會啟動 web 容器所關聯的其它容器。
 
-### `scale`
+選項：
 
-設置同一個服務運行的容器個數。
+* `-d` 後台執行容器。
+* `--name NAME` 為容器指定一個名字。
+* `--entrypoint CMD` 覆寫 預設的容器啟動指令。
+* `-e KEY=VAL` 設定環境變數值，可多次使用選項來設定多個環境變數。
+* `-u, --user=""` 指定執行容器的使用者名稱或是 uid。
+* `--no-deps` 不自動啟動關聯的服務容器。
+* `--rm` 執行指令後自動刪除容器，`d` 模式下將忽略。
+* `-p, --publish=[]` 對應容器連接埠到本地主電腦。
+* `--service-ports` 設定服務連接埠並對應到本地主電腦。
+* `-T` 不指派偽 tty，意味著依賴 tty 的指令將無法執行。
 
-通過 `service=num` 的參數來設置數量。例如：
+#### `scale`
+格式為 `docker-compose scale [options] [SERVICE=NUM...]`。
 
+設定指定服務執行的容器個數。
+
+透過 `service=num` 的參數來設定數量。例如：
+
+```sh
+$ docker-compose scale web=3 db=2
 ```
-$ docker-compose scale web=2 worker=3
-```
 
-### `start`
+將啟動 3 個容器執行 web 服務，2 個容器執行 db 服務。
 
-啟動一個已經存在的服務容器。
+一般的，當指定數目多於該服務目前實際執行容器，將新建立並啟動容器；反之，將停止容器。
 
-### `stop`
+選項：
 
-停止一個已經運行的容器，但不刪除它。通過 `docker-compose start` 可以再次啟動這些容器。
+* `-t, --timeout TIMEOUT` 停止容器時候的逾時（ 預設為 10 秒）。
 
-### `up`
+#### `start`
+格式為 `docker-compose start [SERVICE...]`。
 
-構建，（重新）創建，啟動，鏈接一個服務相關的容器。
+啟動已經存在的服務容器。
 
-鏈接的服務都將會啟動，除非他們已經運行。
+#### `stop`
+格式為 `docker-compose stop [options] [SERVICE...]`。
 
-預設情況， `docker-compose up` 將會整合所有容器的輸出，並且退出時，所有容器將會停止。
+停止已經處於執行狀態的容器，但不要刪除它。透過 `docker-compose start` 可以再次啟動這些容器。
 
-如果使用 `docker-compose up -d` ，將會在後台啟動並運行所有的容器。
+選項：
 
-預設情況，如果該服務的容器已經存在， `docker-compose up` 將會停止並嘗試重新創建他們（保持使用 `volumes-from` 掛載的卷），以保證 `docker-compose.yml` 的修改生效。如果你不想容器被停止並重新創建，可以使用 `docker-compose up --no-recreate`。如果需要的話，這樣將會啟動已經停止的容器。
+* `-t, --timeout TIMEOUT` 停止容器時候的逾時（ 預設為 10 秒）。
 
-## 環境變量
+#### `unpause`
+格式為 `docker-compose unpause [SERVICE...]`。
 
-環境變量可以用來配置 Compose 的行為。
+恢復處於暫停狀態中的服務。
 
-以`DOCKER_`開頭的變量和用來配置 Docker 命令行客戶端的使用一樣。如果使用 boot2docker , `$(boot2docker shellinit)` 將會設置它們為正確的值。
+#### `up`
+格式為 `docker-compose up [options] [SERVICE...]`。
 
-### `COMPOSE_PROJECT_NAME`
+該指令十分強大，它將嘗試自動完成包括建構映像檔，（重新）建立服務，啟動服務，並關聯服務相關容器的一系列作業。
 
-設置通過 Compose 啟動的每一個容器前添加的項目名稱，預設是當前工作目錄的名字。
+連結的服務都將會被自動啟動，除非已經處於執行狀態。
 
-### `COMPOSE_FILE`
+可以說，大部分時候都可以直接透過該指令來啟動一個項目。
 
-設置要使用的 `docker-compose.yml` 的路徑。預設路徑是當前工作目錄。
+ 預設情況，`docker-compose up` 啟動的容器都在前台，控制台將會同時 列印所有容器的輸出資訊，可以很方便進行偵錯。
 
-### `DOCKER_HOST`
+當透過 `Ctrl-C` 停止指令時，所有容器將會停止。
 
-設置 Docker daemon 的地址。預設使用 `unix:///var/run/docker.sock`，與 Docker 客戶端採用的預設值一致。
+如果使用 `docker-compose up -d`，將會在後台啟動並執行所有的容器。一般推薦生產環境下使用這個選項。
 
-### `DOCKER_TLS_VERIFY`
+ 預設情況，如果服務容器已經存在，`docker-compose up` 將會嘗試停止容器，然後重新建立（保持使用 `volumes-from` 載入的卷），以保證新啟動的服務符合 `docker-compose.yml` 檔案的最新內容。如果使用者不希望容器被停止並重新建立，可以使用 `docker-compose up --no-recreate`。這樣將只會啟動處於停止狀態的容器，而忽略已經執行的服務。如果使用者只想重新部署某個服務，可以使用 `docker-compose up --no-deps -d <SERVICE_NAME>` 來重新建立服務並後台停止舊服務，啟動新服務，並不會影響到其所依賴的服務。
 
-如果設置不為空，則與 Docker daemon 交互通過 TLS 進行。
+選項：
 
-### `DOCKER_CERT_PATH`
+* `-d` 在後台執行服務容器。
+* `--no-color` 不使用色彩來區分不同的服務的控制台輸出。
+* `--no-deps` 不啟動服務所連結的容器。
+* `--force-recreate` 強制重新建立容器，不能與 `--no-recreate` 同時使用。
+* `--no-recreate` 如果容器已經存在了，則不重新建立，不能與 `--force-recreate` 同時使用。
+* `--no-build` 不自動建構缺失的服務映像檔。
+* `-t, --timeout TIMEOUT` 停止容器時候的逾時（ 預設為 10 秒）。
 
-配置 TLS 通信所需要的驗證（`ca.pem`、`cert.pem` 和 `key.pem`）文件的路徑，預設是 `~/.docker` 。
+#### `migrate-to-labels`
+格式為 `docker-compose  migrate-to-labels`。
+
+重新建立容器，並加入 label。
+
+主要用於升級 1.2 及更早版本中建立的容器，加入缺失的容器標籤。
+
+實際上，最徹底的辦法當然是刪除項目，然後重新建立。
+
+#### `version`
+格式為 `docker-compose version`。
+
+ 列印版本資訊。

@@ -1,8 +1,8 @@
 # kubectl 使用
-[kubectl](https://github.com/GoogleCloudPlatform/kubernetes) 是 Kubernetes 自帶的客戶端，可以用它來直接操作 Kubernetes。
+[kubectl](https://github.com/GoogleCloudPlatform/kubernetes) 是 Kubernetes 內建的用戶端，可以用它來直接作業 Kubernetes。
 
 使用格式有兩種：
-```sh
+```bash
 kubectl [flags]
 kubectl [command]
 ```

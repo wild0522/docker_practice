@@ -3,24 +3,24 @@
 ### 術語
 首先介紹幾個術語。
 
-* 服務（service）：一個應用容器，實際上可以運行多個相同鏡像的實例。
+* 服務（service）：一個應用容器，實際上可以執行多個相同映像檔的實例。
 * 項目(project)：由一組關聯的應用容器組成的一個完整業務單元。
 
-可見，一個項目可以由多個服務（容器）關聯而成，Compose 面向項目進行管理。
+可見，一個項目可以由多個服務（容器）關聯而成，Compose 面對項目進行管理。
 
 ### 場景
-下面，我們創建一個經典的 Web 項目：一個 [Haproxy](www.haproxy.org)，掛載三個 Web 容器。
+下面，我們建立一個經典的 Web 項目：一個 [Haproxy](http://www.haproxy.org/)，載入三個 Web 容器。
 
-創建一個 `compose-haproxy-web` 目錄，作為項目工作目錄，並在其中分別創建兩個子目錄：`haproxy` 和 `web`。
+建立一個 `compose-haproxy-web` 目錄，作為項目工作目錄，並在其中分別建立兩個子目錄：`haproxy` 和 `web`。
 
-### Web 子目錄
+### web 子目錄
 
-這裡用 Python 程序來提供一個簡單的 HTTP 服務，打印出訪問者的 IP 和 實際的本地 IP。
+這裡用 Python 程式來提供一個簡單的 HTTP 服務， 列印出存取者的 IP 和 實際的本地 IP。
 
 #### index.py
 
-編寫一個 `index.py` 作為服務器文件，代碼為
-```sh
+編輯一個 `index.py` 作為伺服器檔案，程式碼為
+```bash
 #!/usr/bin/python
 #authors: yeasy.github.com
 #date: 2013-07-05
@@ -92,14 +92,14 @@ if __name__ == '__main__':
 ```
 
 #### index.html
-生成一個臨時的 `index.html` 文件，其內容會被 index.py 更新。
-```sh
+產生一個臨時的 `index.html` 檔案，其內容會被 index.py 更新。
+```bash
 $ touch index.html
 ```
 
 #### Dockerfile
-生成一個 Dockerfile，內容為
-```sh
+產生一個 Dockerfile，內容為
+```bash
 FROM python:2.7
 WORKDIR /code
 ADD . /code
@@ -108,8 +108,8 @@ CMD python index.py
 ```
 
 ### haproxy 目錄
-在其中生成一個 `haproxy.cfg` 文件，內容為
-```sh
+在其中產生一個 `haproxy.cfg` 檔案，內容為
+```bash
 global
   log 127.0.0.1 local0
   log 127.0.0.1 local1 notice
@@ -123,7 +123,8 @@ defaults
   timeout client 50000ms
   timeout server 50000ms
 
-listen stats :70
+listen stats
+    bind 0.0.0.0:70
     stats enable
     stats uri /
 
@@ -143,9 +144,9 @@ backend web_backends
     http-check expect status 200
 ```
 ### docker-compose.yml
-編寫 docker-compose.yml 文件，這個是 Compose 使用的主模板文件。內容十分簡單，指定 3 個 web 容器，以及 1 個 haproxy 容器。
+編輯 docker-compose.yml 檔案，這個是 Compose 使用的主 範本檔案。內容十分簡單，指定 3 個 web 容器，以及 1 個 haproxy 容器。
 
-```sh
+```bash
 weba:
     build: ./web
     expose:
@@ -164,8 +165,8 @@ webc:
 haproxy:
     image: haproxy:latest
     volumes:
-        - haproxy:/haproxy-override
-        - haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+        - ./haproxy:/haproxy-override
+        - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
     links:
         - weba
         - webb
@@ -178,9 +179,9 @@ haproxy:
         - "70"
 ```
 
-### 運行 compose 項目
+### 執行 compose 項目
 現在 compose-haproxy-web 目錄長成下面的樣子。
-```sh
+```bash
 compose-haproxy-web
 ├── docker-compose.yml
 ├── haproxy
@@ -190,7 +191,7 @@ compose-haproxy-web
     ├── index.html
     └── index.py
 ```
-在該目錄下執行 `docker-compose up` 命令，會整合輸出所有容器的輸出。
+在該目錄下執行 `docker-compose up` 指令，會整合輸出所有容器的輸出。
 ```
 $sudo docker-compose up
 Recreating composehaproxyweb_webb_1...
@@ -200,8 +201,8 @@ Recreating composehaproxyweb_haproxy_1...
 Attaching to composehaproxyweb_webb_1, composehaproxyweb_webc_1, composehaproxyweb_weba_1, composehaproxyweb_haproxy_1
 ```
 
-此時訪問本地的 80 連接阜，會經過 haproxy 自動轉發到後端的某個 web 容器上，刷新頁面，可以觀察到訪問的容器地址的變化。
+此時存取本地的 80 連接埠，會經過 haproxy 自動轉發到後端的某個 web 容器上，重新整理頁面，可以觀察到存取的容器位址的變化。
 
-訪問本地 70 連接阜，可以查看到 haproxy 的統計信息。
+存取本地 70 連接埠，可以 檢視到 haproxy 的統計資訊。
 
-當然，還可以使用 consul、etcd 等實現服務發現，這樣就可以避免手動指定後端的 web 容器了，更為靈活。
+當然，還可以使用 consul、etcd 等實作服務發現，這樣就可以避免手動指定後端的 web 容器了，更為靈活。
